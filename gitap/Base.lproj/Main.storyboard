@@ -12,7 +12,7 @@
         <!--Feeds-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="gitap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="FeedsViewController" customModule="gitap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -31,7 +31,7 @@
         <!--Repos-->
         <scene sceneID="jpB-oy-la5">
             <objects>
-                <viewController id="Rdh-x9-Xda" sceneMemberID="viewController">
+                <viewController id="Rdh-x9-Xda" customClass="ReposViewController" customModule="gitap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FFF-mu-yKT"/>
                         <viewControllerLayoutGuide type="bottom" id="d49-9i-Aaa"/>
@@ -50,7 +50,7 @@
         <!--Settings-->
         <scene sceneID="VRQ-zk-5Mh">
             <objects>
-                <viewController id="lOw-SX-wMv" sceneMemberID="viewController">
+                <viewController id="lOw-SX-wMv" customClass="SettingsViewController" customModule="gitap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YVe-xG-ag9"/>
                         <viewControllerLayoutGuide type="bottom" id="5Cc-ln-bjF"/>
@@ -72,6 +72,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="kJG-Y2-fNV" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="mDY-KW-mWg">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>

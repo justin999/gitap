@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		DC7281651E0E178E00EEFC57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281641E0E178E00EEFC57 /* AppDelegate.swift */; };
-		DC7281671E0E178E00EEFC57 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281661E0E178E00EEFC57 /* ViewController.swift */; };
+		DC7281671E0E178E00EEFC57 /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281661E0E178E00EEFC57 /* FeedsViewController.swift */; };
 		DC72816A1E0E178E00EEFC57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC7281681E0E178E00EEFC57 /* Main.storyboard */; };
 		DC72816C1E0E178E00EEFC57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC72816B1E0E178E00EEFC57 /* Assets.xcassets */; };
 		DC72816F1E0E178E00EEFC57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC72816D1E0E178E00EEFC57 /* LaunchScreen.storyboard */; };
 		DC72817A1E0E178E00EEFC57 /* gitapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281791E0E178E00EEFC57 /* gitapTests.swift */; };
 		DC7281851E0E178E00EEFC57 /* gitapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281841E0E178E00EEFC57 /* gitapUITests.swift */; };
+		DC7281931E0E1A7500EEFC57 /* ReposViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281921E0E1A7500EEFC57 /* ReposViewController.swift */; };
+		DC7281951E0E1A8C00EEFC57 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281941E0E1A8C00EEFC57 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +38,7 @@
 /* Begin PBXFileReference section */
 		DC7281611E0E178E00EEFC57 /* gitap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gitap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC7281641E0E178E00EEFC57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DC7281661E0E178E00EEFC57 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DC7281661E0E178E00EEFC57 /* FeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewController.swift; sourceTree = "<group>"; };
 		DC7281691E0E178E00EEFC57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DC72816B1E0E178E00EEFC57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC72816E1E0E178E00EEFC57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +49,8 @@
 		DC7281801E0E178E00EEFC57 /* gitapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gitapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC7281841E0E178E00EEFC57 /* gitapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gitapUITests.swift; sourceTree = "<group>"; };
 		DC7281861E0E178E00EEFC57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC7281921E0E1A7500EEFC57 /* ReposViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReposViewController.swift; sourceTree = "<group>"; };
+		DC7281941E0E1A8C00EEFC57 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,10 +102,12 @@
 			isa = PBXGroup;
 			children = (
 				DC7281641E0E178E00EEFC57 /* AppDelegate.swift */,
-				DC7281661E0E178E00EEFC57 /* ViewController.swift */,
-				DC7281681E0E178E00EEFC57 /* Main.storyboard */,
+				DC72819B1E0E1C4600EEFC57 /* Configs */,
+				DC7281961E0E1A9500EEFC57 /* Models */,
+				DC7281971E0E1AA200EEFC57 /* Views */,
+				DC72819A1E0E1AC000EEFC57 /* ViewControllers */,
+				DC7281981E0E1AAB00EEFC57 /* Controllers */,
 				DC72816B1E0E178E00EEFC57 /* Assets.xcassets */,
-				DC72816D1E0E178E00EEFC57 /* LaunchScreen.storyboard */,
 				DC7281701E0E178E00EEFC57 /* Info.plist */,
 			);
 			path = gitap;
@@ -123,6 +129,46 @@
 				DC7281861E0E178E00EEFC57 /* Info.plist */,
 			);
 			path = gitapUITests;
+			sourceTree = "<group>";
+		};
+		DC7281961E0E1A9500EEFC57 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		DC7281971E0E1AA200EEFC57 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DC7281681E0E178E00EEFC57 /* Main.storyboard */,
+				DC72816D1E0E178E00EEFC57 /* LaunchScreen.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		DC7281981E0E1AAB00EEFC57 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		DC72819A1E0E1AC000EEFC57 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				DC7281661E0E178E00EEFC57 /* FeedsViewController.swift */,
+				DC7281941E0E1A8C00EEFC57 /* SettingsViewController.swift */,
+				DC7281921E0E1A7500EEFC57 /* ReposViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		DC72819B1E0E1C4600EEFC57 /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Configs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,8 +308,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC7281671E0E178E00EEFC57 /* ViewController.swift in Sources */,
+				DC7281931E0E1A7500EEFC57 /* ReposViewController.swift in Sources */,
+				DC7281671E0E178E00EEFC57 /* FeedsViewController.swift in Sources */,
 				DC7281651E0E178E00EEFC57 /* AppDelegate.swift in Sources */,
+				DC7281951E0E1A8C00EEFC57 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
