@@ -1,0 +1,535 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DC7281651E0E178E00EEFC57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281641E0E178E00EEFC57 /* AppDelegate.swift */; };
+		DC7281671E0E178E00EEFC57 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281661E0E178E00EEFC57 /* ViewController.swift */; };
+		DC72816A1E0E178E00EEFC57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC7281681E0E178E00EEFC57 /* Main.storyboard */; };
+		DC72816C1E0E178E00EEFC57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC72816B1E0E178E00EEFC57 /* Assets.xcassets */; };
+		DC72816F1E0E178E00EEFC57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC72816D1E0E178E00EEFC57 /* LaunchScreen.storyboard */; };
+		DC72817A1E0E178E00EEFC57 /* gitapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281791E0E178E00EEFC57 /* gitapTests.swift */; };
+		DC7281851E0E178E00EEFC57 /* gitapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281841E0E178E00EEFC57 /* gitapUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DC7281761E0E178E00EEFC57 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC7281591E0E178E00EEFC57 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC7281601E0E178E00EEFC57;
+			remoteInfo = gitap;
+		};
+		DC7281811E0E178E00EEFC57 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC7281591E0E178E00EEFC57 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC7281601E0E178E00EEFC57;
+			remoteInfo = gitap;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DC7281611E0E178E00EEFC57 /* gitap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gitap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC7281641E0E178E00EEFC57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DC7281661E0E178E00EEFC57 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DC7281691E0E178E00EEFC57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DC72816B1E0E178E00EEFC57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DC72816E1E0E178E00EEFC57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DC7281701E0E178E00EEFC57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC7281751E0E178E00EEFC57 /* gitapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gitapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC7281791E0E178E00EEFC57 /* gitapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gitapTests.swift; sourceTree = "<group>"; };
+		DC72817B1E0E178E00EEFC57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC7281801E0E178E00EEFC57 /* gitapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gitapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC7281841E0E178E00EEFC57 /* gitapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gitapUITests.swift; sourceTree = "<group>"; };
+		DC7281861E0E178E00EEFC57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DC72815E1E0E178E00EEFC57 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC7281721E0E178E00EEFC57 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC72817D1E0E178E00EEFC57 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DC7281581E0E178E00EEFC57 = {
+			isa = PBXGroup;
+			children = (
+				DC7281631E0E178E00EEFC57 /* gitap */,
+				DC7281781E0E178E00EEFC57 /* gitapTests */,
+				DC7281831E0E178E00EEFC57 /* gitapUITests */,
+				DC7281621E0E178E00EEFC57 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DC7281621E0E178E00EEFC57 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DC7281611E0E178E00EEFC57 /* gitap.app */,
+				DC7281751E0E178E00EEFC57 /* gitapTests.xctest */,
+				DC7281801E0E178E00EEFC57 /* gitapUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DC7281631E0E178E00EEFC57 /* gitap */ = {
+			isa = PBXGroup;
+			children = (
+				DC7281641E0E178E00EEFC57 /* AppDelegate.swift */,
+				DC7281661E0E178E00EEFC57 /* ViewController.swift */,
+				DC7281681E0E178E00EEFC57 /* Main.storyboard */,
+				DC72816B1E0E178E00EEFC57 /* Assets.xcassets */,
+				DC72816D1E0E178E00EEFC57 /* LaunchScreen.storyboard */,
+				DC7281701E0E178E00EEFC57 /* Info.plist */,
+			);
+			path = gitap;
+			sourceTree = "<group>";
+		};
+		DC7281781E0E178E00EEFC57 /* gitapTests */ = {
+			isa = PBXGroup;
+			children = (
+				DC7281791E0E178E00EEFC57 /* gitapTests.swift */,
+				DC72817B1E0E178E00EEFC57 /* Info.plist */,
+			);
+			path = gitapTests;
+			sourceTree = "<group>";
+		};
+		DC7281831E0E178E00EEFC57 /* gitapUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DC7281841E0E178E00EEFC57 /* gitapUITests.swift */,
+				DC7281861E0E178E00EEFC57 /* Info.plist */,
+			);
+			path = gitapUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DC7281601E0E178E00EEFC57 /* gitap */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC7281891E0E178E00EEFC57 /* Build configuration list for PBXNativeTarget "gitap" */;
+			buildPhases = (
+				DC72815D1E0E178E00EEFC57 /* Sources */,
+				DC72815E1E0E178E00EEFC57 /* Frameworks */,
+				DC72815F1E0E178E00EEFC57 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = gitap;
+			productName = gitap;
+			productReference = DC7281611E0E178E00EEFC57 /* gitap.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DC7281741E0E178E00EEFC57 /* gitapTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC72818C1E0E178E00EEFC57 /* Build configuration list for PBXNativeTarget "gitapTests" */;
+			buildPhases = (
+				DC7281711E0E178E00EEFC57 /* Sources */,
+				DC7281721E0E178E00EEFC57 /* Frameworks */,
+				DC7281731E0E178E00EEFC57 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DC7281771E0E178E00EEFC57 /* PBXTargetDependency */,
+			);
+			name = gitapTests;
+			productName = gitapTests;
+			productReference = DC7281751E0E178E00EEFC57 /* gitapTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DC72817F1E0E178E00EEFC57 /* gitapUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC72818F1E0E178E00EEFC57 /* Build configuration list for PBXNativeTarget "gitapUITests" */;
+			buildPhases = (
+				DC72817C1E0E178E00EEFC57 /* Sources */,
+				DC72817D1E0E178E00EEFC57 /* Frameworks */,
+				DC72817E1E0E178E00EEFC57 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DC7281821E0E178E00EEFC57 /* PBXTargetDependency */,
+			);
+			name = gitapUITests;
+			productName = gitapUITests;
+			productReference = DC7281801E0E178E00EEFC57 /* gitapUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DC7281591E0E178E00EEFC57 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Koichi Sato";
+				TargetAttributes = {
+					DC7281601E0E178E00EEFC57 = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = B863JFBR8K;
+						ProvisioningStyle = Automatic;
+					};
+					DC7281741E0E178E00EEFC57 = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = B863JFBR8K;
+						ProvisioningStyle = Automatic;
+						TestTargetID = DC7281601E0E178E00EEFC57;
+					};
+					DC72817F1E0E178E00EEFC57 = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = B863JFBR8K;
+						ProvisioningStyle = Automatic;
+						TestTargetID = DC7281601E0E178E00EEFC57;
+					};
+				};
+			};
+			buildConfigurationList = DC72815C1E0E178E00EEFC57 /* Build configuration list for PBXProject "gitap" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DC7281581E0E178E00EEFC57;
+			productRefGroup = DC7281621E0E178E00EEFC57 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DC7281601E0E178E00EEFC57 /* gitap */,
+				DC7281741E0E178E00EEFC57 /* gitapTests */,
+				DC72817F1E0E178E00EEFC57 /* gitapUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DC72815F1E0E178E00EEFC57 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC72816F1E0E178E00EEFC57 /* LaunchScreen.storyboard in Resources */,
+				DC72816C1E0E178E00EEFC57 /* Assets.xcassets in Resources */,
+				DC72816A1E0E178E00EEFC57 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC7281731E0E178E00EEFC57 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC72817E1E0E178E00EEFC57 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DC72815D1E0E178E00EEFC57 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC7281671E0E178E00EEFC57 /* ViewController.swift in Sources */,
+				DC7281651E0E178E00EEFC57 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC7281711E0E178E00EEFC57 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC72817A1E0E178E00EEFC57 /* gitapTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC72817C1E0E178E00EEFC57 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC7281851E0E178E00EEFC57 /* gitapUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DC7281771E0E178E00EEFC57 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC7281601E0E178E00EEFC57 /* gitap */;
+			targetProxy = DC7281761E0E178E00EEFC57 /* PBXContainerItemProxy */;
+		};
+		DC7281821E0E178E00EEFC57 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC7281601E0E178E00EEFC57 /* gitap */;
+			targetProxy = DC7281811E0E178E00EEFC57 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DC7281681E0E178E00EEFC57 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC7281691E0E178E00EEFC57 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DC72816D1E0E178E00EEFC57 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC72816E1E0E178E00EEFC57 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DC7281871E0E178E00EEFC57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DC7281881E0E178E00EEFC57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DC72818A1E0E178E00EEFC57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = B863JFBR8K;
+				INFOPLIST_FILE = gitap/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.justin999.gitap;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		DC72818B1E0E178E00EEFC57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = B863JFBR8K;
+				INFOPLIST_FILE = gitap/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.justin999.gitap;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		DC72818D1E0E178E00EEFC57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = B863JFBR8K;
+				INFOPLIST_FILE = gitapTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.justin999.gitapTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/gitap.app/gitap";
+			};
+			name = Debug;
+		};
+		DC72818E1E0E178E00EEFC57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = B863JFBR8K;
+				INFOPLIST_FILE = gitapTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.justin999.gitapTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/gitap.app/gitap";
+			};
+			name = Release;
+		};
+		DC7281901E0E178E00EEFC57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = B863JFBR8K;
+				INFOPLIST_FILE = gitapUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.justin999.gitapUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = gitap;
+			};
+			name = Debug;
+		};
+		DC7281911E0E178E00EEFC57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = B863JFBR8K;
+				INFOPLIST_FILE = gitapUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.justin999.gitapUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = gitap;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DC72815C1E0E178E00EEFC57 /* Build configuration list for PBXProject "gitap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC7281871E0E178E00EEFC57 /* Debug */,
+				DC7281881E0E178E00EEFC57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC7281891E0E178E00EEFC57 /* Build configuration list for PBXNativeTarget "gitap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC72818A1E0E178E00EEFC57 /* Debug */,
+				DC72818B1E0E178E00EEFC57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DC72818C1E0E178E00EEFC57 /* Build configuration list for PBXNativeTarget "gitapTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC72818D1E0E178E00EEFC57 /* Debug */,
+				DC72818E1E0E178E00EEFC57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DC72818F1E0E178E00EEFC57 /* Build configuration list for PBXNativeTarget "gitapUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC7281901E0E178E00EEFC57 /* Debug */,
+				DC7281911E0E178E00EEFC57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DC7281591E0E178E00EEFC57 /* Project object */;
+}
