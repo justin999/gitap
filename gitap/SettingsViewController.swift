@@ -9,10 +9,19 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
+    var stateController: StateController?
+    
+    @IBOutlet weak var tableView: UITableView!
+    var tableViewDataSource: SettingsTableViewDataSource?
+    var tableViewDelegate:   SettingsTableViewDelegate?
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if let stateController = stateController {
+            tableViewDataSource = SettingsTableViewDataSource(tableView: tableView, stateController: stateController)
+            tableViewDelegate   = SettingsTableViewDelegate(tableView: tableView, stateController: stateController)
+        }
     }
 
     override func didReceiveMemoryWarning() {

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		DC5D649A1E0F9F4B00E92DDD /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5D64991E0F9F4B00E92DDD /* Utils.swift */; };
+		DC5D649C1E10005000E92DDD /* SettingsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5D649B1E10005000E92DDD /* SettingsTableViewDelegate.swift */; };
+		DC5D649E1E10006100E92DDD /* SettingsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5D649D1E10006100E92DDD /* SettingsTableViewDataSource.swift */; };
 		DC7281651E0E178E00EEFC57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281641E0E178E00EEFC57 /* AppDelegate.swift */; };
 		DC7281671E0E178E00EEFC57 /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281661E0E178E00EEFC57 /* FeedsViewController.swift */; };
 		DC72816A1E0E178E00EEFC57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC7281681E0E178E00EEFC57 /* Main.storyboard */; };
@@ -47,6 +49,8 @@
 
 /* Begin PBXFileReference section */
 		DC5D64991E0F9F4B00E92DDD /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		DC5D649B1E10005000E92DDD /* SettingsTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDelegate.swift; sourceTree = "<group>"; };
+		DC5D649D1E10006100E92DDD /* SettingsTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDataSource.swift; sourceTree = "<group>"; };
 		DC7281611E0E178E00EEFC57 /* gitap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gitap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC7281641E0E178E00EEFC57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC7281661E0E178E00EEFC57 /* FeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewController.swift; sourceTree = "<group>"; };
@@ -204,6 +208,7 @@
 			children = (
 				DC7281A21E0E326500EEFC57 /* FeedsTableViewDataSource.swift */,
 				DC7281AA1E0F665000EEFC57 /* ReposTableViewDataSource.swift */,
+				DC5D649D1E10006100E92DDD /* SettingsTableViewDataSource.swift */,
 			);
 			name = DataSources;
 			sourceTree = "<group>";
@@ -213,6 +218,7 @@
 			children = (
 				DC7281A01E0E325200EEFC57 /* FeedsTableViewDelegate.swift */,
 				DC7281A81E0F65A000EEFC57 /* ReposTableViewDelegate.swift */,
+				DC5D649B1E10005000E92DDD /* SettingsTableViewDelegate.swift */,
 			);
 			name = Delegates;
 			sourceTree = "<group>";
@@ -356,6 +362,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC5D649E1E10006100E92DDD /* SettingsTableViewDataSource.swift in Sources */,
 				DC7281AB1E0F665000EEFC57 /* ReposTableViewDataSource.swift in Sources */,
 				DC7281931E0E1A7500EEFC57 /* ReposViewController.swift in Sources */,
 				DC7281671E0E178E00EEFC57 /* FeedsViewController.swift in Sources */,
@@ -368,6 +375,7 @@
 				DC72819D1E0E312E00EEFC57 /* StateController.swift in Sources */,
 				DC7281A91E0F65A000EEFC57 /* ReposTableViewDelegate.swift in Sources */,
 				DC5D649A1E0F9F4B00E92DDD /* Utils.swift in Sources */,
+				DC5D649C1E10005000E92DDD /* SettingsTableViewDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

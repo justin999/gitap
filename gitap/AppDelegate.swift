@@ -24,6 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if let reposViewController = tabBarController.viewControllers?[1] as? ReposViewController {
                 reposViewController.stateController = stateController
             }
+            
+            if let settingsViewController = tabBarController.viewControllers?[2] as? SettingsViewController {
+                settingsViewController.stateController = stateController
+            }
         }
         return true
     }
