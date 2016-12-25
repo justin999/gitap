@@ -21,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let navigationController = tabBarController.viewControllers?.first as? UINavigationController,
             let feedsViewController = navigationController.viewControllers.first as? FeedsViewController {
             feedsViewController.stateController = stateController
+            if let reposViewController = tabBarController.viewControllers?[1] as? ReposViewController {
+                reposViewController.stateController = stateController
+            }
         }
         return true
     }

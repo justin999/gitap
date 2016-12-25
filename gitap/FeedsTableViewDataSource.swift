@@ -8,7 +8,7 @@
 
 import UIKit
 
-let feedsCellId = "feedCell"
+let feedsCellId = "FeedsTableViewCell"
 
 class FeedsTableViewDataSource: NSObject {
     var stateController: StateController
@@ -28,10 +28,7 @@ extension FeedsTableViewDataSource: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let nib = UINib(nibName: feedsCellId, bundle: nil)
-        let views = nib.instantiate(withOwner: self, options: nil)
-        
-        return views[0] as! UITableViewCell
+        return Utils.getViewFromNib(feedsCellId) as! UITableViewCell
     }
     
 }

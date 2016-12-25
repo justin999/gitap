@@ -8,7 +8,7 @@
 
 import UIKit
 
-let reposCellId = "reposCell"
+let reposCellId = "ReposTableViewCell"
 
 class ReposTableViewDataSource: NSObject {
     var stateController: StateController
@@ -17,7 +17,7 @@ class ReposTableViewDataSource: NSObject {
         self.stateController = stateController
         super.init()
         tableView.dataSource = self
-//        tableView.register(ReposTableViewCell, forCellReuseIdentifier: reposCellId)
+        tableView.register(ReposTableViewCell.self, forCellReuseIdentifier: reposCellId)
     }
 }
 
@@ -31,7 +31,11 @@ extension ReposTableViewDataSource: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        return Utils.getViewFromNib(reposCellId) as! UITableViewCell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "public" //private, private members, public, public members, forked
     }
 }
 

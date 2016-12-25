@@ -9,11 +9,18 @@
 import UIKit
 
 class ReposViewController: UIViewController {
+    var stateController: StateController?
     @IBOutlet weak var tableView: UITableView!
+    
+    var tableViewDataSource: ReposTableViewDataSource?
+    var tableViewDelegate:   ReposTableViewDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.green
+        if let stateController = stateController {
+            tableViewDataSource = ReposTableViewDataSource(tableView: tableView, stateController: stateController)
+            tableViewDelegate   = ReposTableViewDelegate(tableView: tableView, stateController: stateController)
+        }
     }
 
     override func didReceiveMemoryWarning() {

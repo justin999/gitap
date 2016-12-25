@@ -12,7 +12,7 @@ class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.yellow
+        
     }
 
     override func didReceiveMemoryWarning() {
