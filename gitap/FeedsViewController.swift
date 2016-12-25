@@ -9,10 +9,19 @@
 import UIKit
 
 class FeedsViewController: UIViewController {
-
+    var stateController: StateController?
+    @IBOutlet weak var tableView: UITableView!
+    
+    var tableViewDataSource: FeedsTableViewDataSource?
+    var tableViewDelegate:   FeedsTableViewDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.blue
+        if let stateController = stateController {
+            tableViewDataSource = FeedsTableViewDataSource(tableView: tableView, stateController: stateController)
+            tableViewDelegate = FeedsTableViewDelegate(tableView: tableView, stateController: stateController)
+        }
     }
 
     override func didReceiveMemoryWarning() {

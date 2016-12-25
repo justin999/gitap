@@ -16,6 +16,11 @@
 		DC7281851E0E178E00EEFC57 /* gitapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281841E0E178E00EEFC57 /* gitapUITests.swift */; };
 		DC7281931E0E1A7500EEFC57 /* ReposViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281921E0E1A7500EEFC57 /* ReposViewController.swift */; };
 		DC7281951E0E1A8C00EEFC57 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281941E0E1A8C00EEFC57 /* SettingsViewController.swift */; };
+		DC72819D1E0E312E00EEFC57 /* StateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC72819C1E0E312E00EEFC57 /* StateController.swift */; };
+		DC7281A11E0E325200EEFC57 /* FeedsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281A01E0E325200EEFC57 /* FeedsTableViewDelegate.swift */; };
+		DC7281A31E0E326500EEFC57 /* FeedsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281A21E0E326500EEFC57 /* FeedsTableViewDataSource.swift */; };
+		DC7281A61E0E338D00EEFC57 /* FeedsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281A41E0E338D00EEFC57 /* FeedsTableViewCell.swift */; };
+		DC7281A71E0E338D00EEFC57 /* FeedsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC7281A51E0E338D00EEFC57 /* FeedsTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,11 @@
 		DC7281861E0E178E00EEFC57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC7281921E0E1A7500EEFC57 /* ReposViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReposViewController.swift; sourceTree = "<group>"; };
 		DC7281941E0E1A8C00EEFC57 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		DC72819C1E0E312E00EEFC57 /* StateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateController.swift; sourceTree = "<group>"; };
+		DC7281A01E0E325200EEFC57 /* FeedsTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedsTableViewDelegate.swift; sourceTree = "<group>"; };
+		DC7281A21E0E326500EEFC57 /* FeedsTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedsTableViewDataSource.swift; sourceTree = "<group>"; };
+		DC7281A41E0E338D00EEFC57 /* FeedsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedsTableViewCell.swift; sourceTree = "<group>"; };
+		DC7281A51E0E338D00EEFC57 /* FeedsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedsTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +117,8 @@
 				DC7281971E0E1AA200EEFC57 /* Views */,
 				DC72819A1E0E1AC000EEFC57 /* ViewControllers */,
 				DC7281981E0E1AAB00EEFC57 /* Controllers */,
+				DC72819F1E0E320700EEFC57 /* Delegates */,
+				DC72819E1E0E31F800EEFC57 /* DataSources */,
 				DC72816B1E0E178E00EEFC57 /* Assets.xcassets */,
 				DC7281701E0E178E00EEFC57 /* Info.plist */,
 			);
@@ -143,6 +155,8 @@
 			children = (
 				DC7281681E0E178E00EEFC57 /* Main.storyboard */,
 				DC72816D1E0E178E00EEFC57 /* LaunchScreen.storyboard */,
+				DC7281A41E0E338D00EEFC57 /* FeedsTableViewCell.swift */,
+				DC7281A51E0E338D00EEFC57 /* FeedsTableViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -150,6 +164,7 @@
 		DC7281981E0E1AAB00EEFC57 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				DC72819C1E0E312E00EEFC57 /* StateController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -169,6 +184,22 @@
 			children = (
 			);
 			name = Configs;
+			sourceTree = "<group>";
+		};
+		DC72819E1E0E31F800EEFC57 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				DC7281A21E0E326500EEFC57 /* FeedsTableViewDataSource.swift */,
+			);
+			name = DataSources;
+			sourceTree = "<group>";
+		};
+		DC72819F1E0E320700EEFC57 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				DC7281A01E0E325200EEFC57 /* FeedsTableViewDelegate.swift */,
+			);
+			name = Delegates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC72816F1E0E178E00EEFC57 /* LaunchScreen.storyboard in Resources */,
+				DC7281A71E0E338D00EEFC57 /* FeedsTableViewCell.xib in Resources */,
 				DC72816C1E0E178E00EEFC57 /* Assets.xcassets in Resources */,
 				DC72816A1E0E178E00EEFC57 /* Main.storyboard in Resources */,
 			);
@@ -312,6 +344,10 @@
 				DC7281671E0E178E00EEFC57 /* FeedsViewController.swift in Sources */,
 				DC7281651E0E178E00EEFC57 /* AppDelegate.swift in Sources */,
 				DC7281951E0E1A8C00EEFC57 /* SettingsViewController.swift in Sources */,
+				DC7281A11E0E325200EEFC57 /* FeedsTableViewDelegate.swift in Sources */,
+				DC7281A61E0E338D00EEFC57 /* FeedsTableViewCell.swift in Sources */,
+				DC7281A31E0E326500EEFC57 /* FeedsTableViewDataSource.swift in Sources */,
+				DC72819D1E0E312E00EEFC57 /* StateController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
