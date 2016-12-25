@@ -1,37 +1,37 @@
 //
-//  FeedsTableViewDataSource.swift
+//  ReposTableViewDataSource.swift
 //  gitap
 //
-//  Created by Koichi Sato on 12/24/16.
+//  Created by Koichi Sato on 12/25/16.
 //  Copyright © 2016 Koichi Sato. All rights reserved.
 //
 
 import UIKit
 
-let feedsCellId = "feedCell"
+let reposCellId = "reposCell"
 
-class FeedsTableViewDataSource: NSObject {
+class ReposTableViewDataSource: NSObject {
     var stateController: StateController
     
     init(tableView: UITableView, stateController: StateController) {
         self.stateController = stateController
         super.init()
         tableView.dataSource = self
-        tableView.register(FeedsTableViewCell.self, forCellReuseIdentifier: feedsCellId)
+//        tableView.register(ReposTableViewCell, forCellReuseIdentifier: reposCellId)
     }
 }
 
-extension FeedsTableViewDataSource: UITableViewDataSource {
+extension ReposTableViewDataSource: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 5
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let nib = UINib(nibName: feedsCellId, bundle: nil)
-        let views = nib.instantiate(withOwner: self, options: nil)
         
-        return views[0] as! UITableViewCell
     }
-    
 }
+

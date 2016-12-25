@@ -21,6 +21,10 @@
 		DC7281A31E0E326500EEFC57 /* FeedsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281A21E0E326500EEFC57 /* FeedsTableViewDataSource.swift */; };
 		DC7281A61E0E338D00EEFC57 /* FeedsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281A41E0E338D00EEFC57 /* FeedsTableViewCell.swift */; };
 		DC7281A71E0E338D00EEFC57 /* FeedsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC7281A51E0E338D00EEFC57 /* FeedsTableViewCell.xib */; };
+		DC7281A91E0F65A000EEFC57 /* ReposTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281A81E0F65A000EEFC57 /* ReposTableViewDelegate.swift */; };
+		DC7281AB1E0F665000EEFC57 /* ReposTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281AA1E0F665000EEFC57 /* ReposTableViewDataSource.swift */; };
+		DC7281AE1E0F6B4C00EEFC57 /* ReposTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281AC1E0F6B4C00EEFC57 /* ReposTableViewCell.swift */; };
+		DC7281AF1E0F6B4C00EEFC57 /* ReposTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC7281AD1E0F6B4C00EEFC57 /* ReposTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +65,10 @@
 		DC7281A21E0E326500EEFC57 /* FeedsTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedsTableViewDataSource.swift; sourceTree = "<group>"; };
 		DC7281A41E0E338D00EEFC57 /* FeedsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedsTableViewCell.swift; sourceTree = "<group>"; };
 		DC7281A51E0E338D00EEFC57 /* FeedsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedsTableViewCell.xib; sourceTree = "<group>"; };
+		DC7281A81E0F65A000EEFC57 /* ReposTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReposTableViewDelegate.swift; sourceTree = "<group>"; };
+		DC7281AA1E0F665000EEFC57 /* ReposTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReposTableViewDataSource.swift; sourceTree = "<group>"; };
+		DC7281AC1E0F6B4C00EEFC57 /* ReposTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReposTableViewCell.swift; sourceTree = "<group>"; };
+		DC7281AD1E0F6B4C00EEFC57 /* ReposTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReposTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +165,8 @@
 				DC72816D1E0E178E00EEFC57 /* LaunchScreen.storyboard */,
 				DC7281A41E0E338D00EEFC57 /* FeedsTableViewCell.swift */,
 				DC7281A51E0E338D00EEFC57 /* FeedsTableViewCell.xib */,
+				DC7281AC1E0F6B4C00EEFC57 /* ReposTableViewCell.swift */,
+				DC7281AD1E0F6B4C00EEFC57 /* ReposTableViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -190,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				DC7281A21E0E326500EEFC57 /* FeedsTableViewDataSource.swift */,
+				DC7281AA1E0F665000EEFC57 /* ReposTableViewDataSource.swift */,
 			);
 			name = DataSources;
 			sourceTree = "<group>";
@@ -198,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				DC7281A01E0E325200EEFC57 /* FeedsTableViewDelegate.swift */,
+				DC7281A81E0F65A000EEFC57 /* ReposTableViewDelegate.swift */,
 			);
 			name = Delegates;
 			sourceTree = "<group>";
@@ -313,6 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC72816F1E0E178E00EEFC57 /* LaunchScreen.storyboard in Resources */,
+				DC7281AF1E0F6B4C00EEFC57 /* ReposTableViewCell.xib in Resources */,
 				DC7281A71E0E338D00EEFC57 /* FeedsTableViewCell.xib in Resources */,
 				DC72816C1E0E178E00EEFC57 /* Assets.xcassets in Resources */,
 				DC72816A1E0E178E00EEFC57 /* Main.storyboard in Resources */,
@@ -340,14 +353,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC7281AB1E0F665000EEFC57 /* ReposTableViewDataSource.swift in Sources */,
 				DC7281931E0E1A7500EEFC57 /* ReposViewController.swift in Sources */,
 				DC7281671E0E178E00EEFC57 /* FeedsViewController.swift in Sources */,
 				DC7281651E0E178E00EEFC57 /* AppDelegate.swift in Sources */,
 				DC7281951E0E1A8C00EEFC57 /* SettingsViewController.swift in Sources */,
 				DC7281A11E0E325200EEFC57 /* FeedsTableViewDelegate.swift in Sources */,
 				DC7281A61E0E338D00EEFC57 /* FeedsTableViewCell.swift in Sources */,
+				DC7281AE1E0F6B4C00EEFC57 /* ReposTableViewCell.swift in Sources */,
 				DC7281A31E0E326500EEFC57 /* FeedsTableViewDataSource.swift in Sources */,
 				DC72819D1E0E312E00EEFC57 /* StateController.swift in Sources */,
+				DC7281A91E0F65A000EEFC57 /* ReposTableViewDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
