@@ -15,8 +15,9 @@ class StateController: NSObject {
         self.viewController = viewController
     }
 
-    func pushDetailViewController(inViewController: UIViewController) {
+    func pushDetailViewController(inViewController: UIViewController, stateController: StateController) {
         let vc = ReposDetailViewController()
+        vc.stateController = stateController
         inViewController.navigationController?.pushViewController(vc, animated: true)
     }
 

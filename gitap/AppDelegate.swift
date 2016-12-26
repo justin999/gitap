@@ -18,19 +18,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         if let tabBarController = window?.rootViewController as? UITabBarController,
-            let navigationController = tabBarController.viewControllers?.first as? UINavigationController,
-            let feedsViewController = navigationController.viewControllers.first as? FeedsViewController {
-            stateController = StateController(viewController: feedsViewController)
-            feedsViewController.stateController = stateController
-            stateController?.viewController = feedsViewController
+            let navigationController = tabBarController.viewControllers?.first as? UINavigationController {
+            if let feedsViewController = navigationController.viewControllers.first as? FeedsViewController {
+                stateController = StateController(viewController: feedsViewController)
+                feedsViewController.stateController = stateController
+                stateController?.viewController = feedsViewController
+                addRightBarButton(navigationController: navigationController)
+            }
             if let navigationController = tabBarController.viewControllers?[1] as? UINavigationController,
                 let reposViewController = navigationController.viewControllers.first as? ReposViewController {
                 reposViewController.stateController = stateController
+                addRightBarButton(navigationController: navigationController)
             }
             
             if let navigationController = tabBarController.viewControllers?[2] as? UINavigationController,
                 let settingsViewController = navigationController.viewControllers.first as? SettingsViewController {
                 settingsViewController.stateController = stateController
+                addRightBarButton(navigationController: navigationController)
             }
         }
         return true
@@ -59,5 +63,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+    
+    //MARK: private
+    func addRightBarButton(navigationController: UINavigationController) {
+        let item = UINavigationItem()
+        let plusButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
+        item.rightBarButtonItem = plusButton
+        navigationController.navigationBar.items = [item]
+    }
+    
+    func addButtonTapped() {
+        print("add button tapped")
+        
+    }
+    
 }
 

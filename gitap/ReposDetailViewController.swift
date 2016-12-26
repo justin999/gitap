@@ -9,11 +9,10 @@
 import UIKit
 
 class ReposDetailViewController: UIViewController {
-
+    var stateController: StateController?
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +20,10 @@ class ReposDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    func addButtonTapped() {
+        print("add button tapped")
+    }
 
     /*
     // MARK: - Navigation

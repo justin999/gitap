@@ -22,7 +22,7 @@ extension ReposTableViewDelegate: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         
-        stateController.pushDetailViewController(inViewController: stateController.viewController)
+        stateController.pushDetailViewController(inViewController: stateController.viewController, stateController: self.stateController)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
