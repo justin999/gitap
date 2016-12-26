@@ -20,5 +20,10 @@ class StateController: NSObject {
         vc.stateController = stateController
         inViewController.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func presentCreateIssuesViewController(inViewController: UIViewController) {
+        let vc = CreateItemViewController()
+        inViewController.present(vc, animated: true, completion: nil)
+    }
 
 }

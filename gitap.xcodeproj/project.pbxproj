@@ -12,6 +12,8 @@
 		DC5D649E1E10006100E92DDD /* SettingsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5D649D1E10006100E92DDD /* SettingsTableViewDataSource.swift */; };
 		DC5D64A11E108E9100E92DDD /* ReposDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5D649F1E108E9100E92DDD /* ReposDetailViewController.swift */; };
 		DC5D64A21E108E9100E92DDD /* ReposDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC5D64A01E108E9100E92DDD /* ReposDetailViewController.xib */; };
+		DC5E81D11E115D02008B1971 /* CreateIssuesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5E81CF1E115D02008B1971 /* CreateIssuesViewController.swift */; };
+		DC5E81D21E115D02008B1971 /* CreateIssuesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC5E81D01E115D02008B1971 /* CreateIssuesViewController.xib */; };
 		DC7281651E0E178E00EEFC57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281641E0E178E00EEFC57 /* AppDelegate.swift */; };
 		DC7281671E0E178E00EEFC57 /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281661E0E178E00EEFC57 /* FeedsViewController.swift */; };
 		DC72816A1E0E178E00EEFC57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC7281681E0E178E00EEFC57 /* Main.storyboard */; };
@@ -55,6 +57,8 @@
 		DC5D649D1E10006100E92DDD /* SettingsTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDataSource.swift; sourceTree = "<group>"; };
 		DC5D649F1E108E9100E92DDD /* ReposDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReposDetailViewController.swift; sourceTree = "<group>"; };
 		DC5D64A01E108E9100E92DDD /* ReposDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReposDetailViewController.xib; sourceTree = "<group>"; };
+		DC5E81CF1E115D02008B1971 /* CreateIssuesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateIssuesViewController.swift; sourceTree = "<group>"; };
+		DC5E81D01E115D02008B1971 /* CreateIssuesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateIssuesViewController.xib; sourceTree = "<group>"; };
 		DC7281611E0E178E00EEFC57 /* gitap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gitap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC7281641E0E178E00EEFC57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC7281661E0E178E00EEFC57 /* FeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewController.swift; sourceTree = "<group>"; };
@@ -198,6 +202,8 @@
 				DC7281921E0E1A7500EEFC57 /* ReposViewController.swift */,
 				DC5D649F1E108E9100E92DDD /* ReposDetailViewController.swift */,
 				DC5D64A01E108E9100E92DDD /* ReposDetailViewController.xib */,
+				DC5E81CF1E115D02008B1971 /* CreateIssuesViewController.swift */,
+				DC5E81D01E115D02008B1971 /* CreateIssuesViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -341,6 +347,7 @@
 			files = (
 				DC72816F1E0E178E00EEFC57 /* LaunchScreen.storyboard in Resources */,
 				DC7281AF1E0F6B4C00EEFC57 /* ReposTableViewCell.xib in Resources */,
+				DC5E81D21E115D02008B1971 /* CreateIssuesViewController.xib in Resources */,
 				DC7281A71E0E338D00EEFC57 /* FeedsTableViewCell.xib in Resources */,
 				DC72816C1E0E178E00EEFC57 /* Assets.xcassets in Resources */,
 				DC72816A1E0E178E00EEFC57 /* Main.storyboard in Resources */,
@@ -380,6 +387,7 @@
 				DC5D64A11E108E9100E92DDD /* ReposDetailViewController.swift in Sources */,
 				DC7281AE1E0F6B4C00EEFC57 /* ReposTableViewCell.swift in Sources */,
 				DC7281A31E0E326500EEFC57 /* FeedsTableViewDataSource.swift in Sources */,
+				DC5E81D11E115D02008B1971 /* CreateIssuesViewController.swift in Sources */,
 				DC72819D1E0E312E00EEFC57 /* StateController.swift in Sources */,
 				DC7281A91E0F65A000EEFC57 /* ReposTableViewDelegate.swift in Sources */,
 				DC5D649A1E0F9F4B00E92DDD /* Utils.swift in Sources */,
