@@ -12,7 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let stateController = StateController()
+    var stateController: StateController?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -20,12 +20,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let tabBarController = window?.rootViewController as? UITabBarController,
             let navigationController = tabBarController.viewControllers?.first as? UINavigationController,
             let feedsViewController = navigationController.viewControllers.first as? FeedsViewController {
+            stateController = StateController(viewController: feedsViewController)
             feedsViewController.stateController = stateController
-            if let reposViewController = tabBarController.viewControllers?[1] as? ReposViewController {
+            stateController?.viewController = feedsViewController
+            if let navigationController = tabBarController.viewControllers?[1] as? UINavigationController,
+                let reposViewController = navigationController.viewControllers.first as? ReposViewController {
                 reposViewController.stateController = stateController
             }
             
-            if let settingsViewController = tabBarController.viewControllers?[2] as? SettingsViewController {
+            if let navigationController = tabBarController.viewControllers?[2] as? UINavigationController,
+                let settingsViewController = navigationController.viewControllers.first as? SettingsViewController {
                 settingsViewController.stateController = stateController
             }
         }

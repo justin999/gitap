@@ -21,7 +21,12 @@ class SettingsViewController: UIViewController {
         if let stateController = stateController {
             tableViewDataSource = SettingsTableViewDataSource(tableView: tableView, stateController: stateController)
             tableViewDelegate   = SettingsTableViewDelegate(tableView: tableView, stateController: stateController)
+            stateController.viewController = self
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
     }
 
     override func didReceiveMemoryWarning() {

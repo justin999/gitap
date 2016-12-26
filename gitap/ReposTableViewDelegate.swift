@@ -21,6 +21,8 @@ class ReposTableViewDelegate: NSObject {
 extension ReposTableViewDelegate: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
+        
+        stateController.pushDetailViewController(inViewController: stateController.viewController)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -30,6 +32,4 @@ extension ReposTableViewDelegate: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 20
     }
-    
-    
 }

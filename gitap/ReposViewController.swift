@@ -20,7 +20,12 @@ class ReposViewController: UIViewController {
         if let stateController = stateController {
             tableViewDataSource = ReposTableViewDataSource(tableView: tableView, stateController: stateController)
             tableViewDelegate   = ReposTableViewDelegate(tableView: tableView, stateController: stateController)
+            stateController.viewController = self
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
     }
 
     override func didReceiveMemoryWarning() {
