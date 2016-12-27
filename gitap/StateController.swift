@@ -22,7 +22,7 @@ class StateController: NSObject {
     }
     
     func presentCreateIssuesViewController(inViewController: UIViewController) {
-        let vc = CreateItemViewController()
+        let vc = CreateIssuesViewController()
         inViewController.present(vc, animated: true, completion: nil)
     }
 
