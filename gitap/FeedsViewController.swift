@@ -23,6 +23,10 @@ class FeedsViewController: UIViewController {
             tableViewDelegate = FeedsTableViewDelegate(tableView: tableView, stateController: stateController)
         }
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        stateController?.viewController = self
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
