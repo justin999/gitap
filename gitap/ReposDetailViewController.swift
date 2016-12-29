@@ -10,9 +10,10 @@ import UIKit
 
 class ReposDetailViewController: UIViewController {
     var stateController: StateController?
-//    var segmentedControl: UISegmentedControl?
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var addIssueButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
@@ -48,19 +49,12 @@ class ReposDetailViewController: UIViewController {
             print("came to default")
         }
     }
+
+    @IBAction func addIssueButtonTapped(_ sender: Any) {
+        if let stateController = stateController {
+            Utils.addButtonTapped(stateController: stateController)
+        }
+        
+    }
     
-    func addButtonTapped() {
-        print("add button tapped")
-    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

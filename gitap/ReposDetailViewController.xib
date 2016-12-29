@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReposDetailViewController" customModule="gitap" customModuleProvider="target">
             <connections>
+                <outlet property="addIssueButton" destination="ZbU-be-EiB" id="YVW-Xa-XQs"/>
                 <outlet property="segmentedControl" destination="dmC-AT-lQT" id="Nb2-2G-XE1"/>
                 <outlet property="tableView" destination="daC-TQ-4vR" id="GB6-kO-yha"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -34,6 +35,14 @@
                         <segment title="Pull Requests"/>
                     </segments>
                 </segmentedControl>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZbU-be-EiB">
+                    <rect key="frame" x="300" y="617" width="75" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="newIssue"/>
+                    <connections>
+                        <action selector="addIssueButtonTapped:" destination="-1" eventType="touchUpInside" id="fS1-cA-Bgm"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>

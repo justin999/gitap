@@ -15,4 +15,17 @@ class Utils: NSObject {
         let views = nib.instantiate(withOwner: self, options: nil)
         return views[0] as! UIView
     }
+    
+    class func addRightBarButton(navigationController: UINavigationController, target: Any?) {
+        let item = UINavigationItem()
+        let plusButton = UIBarButtonItem(barButtonSystemItem: .add, target: target, action: #selector(Utils.addButtonTapped))
+        item.rightBarButtonItem = plusButton
+        navigationController.navigationBar.items = [item]
+    }
+    
+    class func addButtonTapped(stateController: StateController) {
+        print("add button tapped")
+        stateController.presentManageIssuesViewController(inViewController: stateController.viewController)
+        
+    }
 }
