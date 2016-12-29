@@ -21,8 +21,9 @@ class StateController: NSObject {
         inViewController.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func presentCreateIssuesViewController(inViewController: UIViewController) {
-        let vc = CreateIssuesViewController()
+    func presentManageIssuesViewController(inViewController: UIViewController) {
+        let vc = ManageIssuesViewController()
+        vc.stateController = self
         inViewController.present(vc, animated: true, completion: nil)
     }
 

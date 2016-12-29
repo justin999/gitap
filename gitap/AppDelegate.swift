@@ -74,7 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func addButtonTapped() {
         print("add button tapped")
-        stateController?.presentCreateIssuesViewController(inViewController: (stateController?.viewController)!)
+        stateController?.presentManageIssuesViewController(inViewController: (stateController?.viewController)!)
         
     }
     

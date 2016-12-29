@@ -8,20 +8,28 @@
 
 import UIKit
 
-class CreateIssuesViewController: UIViewController {
+class ManageIssuesViewController: UIViewController {
+    var stateController: StateController?
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var doneButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
+    
+    var tableViewDelegate:   EditIssuesTableViewDelegate?
+    var tableViewDataSource: EditIssuesTableViewDataSource?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let label = UILabel(frame: CGRect(x: 10, y: 100, width: self.view.bounds.width, height: 50))
-        label.text = "クリエイト　クリエイト"
-        self.view.addSubview(label)
-//        self.tableView.backgroundColor = UIColor.orange
-        self.view.backgroundColor = UIColor.white
+        // TODO: table view height should be changed dynamically due to change of cells and headers height
+        tableView.height = 260 + 64
+        if let stateController = stateController {
+            tableViewDelegate = EditIssuesTableViewDelegate(tableView: self.tableView, stateController: stateController)
+            tableViewDataSource = EditIssuesTableViewDataSource(tableView: self.tableView, stateController: stateController)
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

@@ -9,11 +9,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateIssuesViewController" customModule="gitap" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ManageIssuesViewController" customModule="gitap" customModuleProvider="target">
             <connections>
                 <outlet property="cancelButton" destination="sCZ-FO-rBG" id="kHp-ZD-vBi"/>
                 <outlet property="doneButton" destination="5s3-lh-b88" id="YPV-YF-oM1"/>
-                <outlet property="tableView" destination="B4g-fc-LhI" id="Y0w-C2-8Qt"/>
+                <outlet property="tableView" destination="RMf-hn-GOz" id="Tjv-At-RQx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,11 +22,6 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B4g-fc-LhI">
-                    <rect key="frame" x="0.0" y="90" width="375" height="386"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </tableView>
                 <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FRV-9i-KXG">
                     <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                     <items>
@@ -36,7 +31,7 @@
                                     <action selector="dismissView:" destination="-1" id="BKp-gT-1C9"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="5s3-lh-b88">
+                            <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="5s3-lh-b88">
                                 <connections>
                                     <action selector="doneButtonTapped:" destination="-1" id="pPw-IX-g6a"/>
                                 </connections>
@@ -44,6 +39,11 @@
                         </navigationItem>
                     </items>
                 </navigationBar>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RMf-hn-GOz">
+                    <rect key="frame" x="0.0" y="64" width="375" height="538"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -51,7 +51,6 @@
                 <constraint firstAttribute="trailing" secondItem="FRV-9i-KXG" secondAttribute="trailing" id="O2a-9P-1U7"/>
                 <constraint firstItem="FRV-9i-KXG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="TG8-FQ-nI5"/>
             </constraints>
-            <nil key="simulatedStatusBarMetrics"/>
             <point key="canvasLocation" x="33.5" y="-9.5"/>
         </view>
     </objects>
