@@ -30,6 +30,10 @@ class ReposDetailViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = true
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        stateController?.viewController = self
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
     }

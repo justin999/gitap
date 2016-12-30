@@ -9,12 +9,20 @@
 import UIKit
 
 class IssueDetailViewController: UIViewController {
-    var stateController: StateController?
+    var stateController: StateController? {
+        didSet {
+            stateController?.viewController = self
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        stateController?.viewController = self
     }
 
     override func didReceiveMemoryWarning() {
