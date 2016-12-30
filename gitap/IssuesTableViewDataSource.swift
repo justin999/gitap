@@ -1,5 +1,5 @@
 //
-//  IssuesIndexTableViewDataSource.swift
+//  IssuesTableViewDataSource.swift
 //  gitap
 //
 //  Created by Koichi Sato on 12/30/16.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-let issesIndexId = "IssuesIndexTableViewCell"
+let issesIndexId = "IssuesTableViewCell"
 
-class IssuesIndexTableViewDataSource: NSObject {
+class IssuesTableViewDataSource: NSObject {
     var stateController: StateController
     
     init(tableView: UITableView, stateController: StateController) {
@@ -21,7 +21,7 @@ class IssuesIndexTableViewDataSource: NSObject {
     }
 }
 
-extension IssuesIndexTableViewDataSource: UITableViewDataSource {
+extension IssuesTableViewDataSource: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

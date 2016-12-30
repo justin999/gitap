@@ -14,15 +14,15 @@ class ReposDetailViewController: UIViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var addIssueButton: UIButton!
     
-    var tableViewDelegate: IssuesIndexTableViewDelegate?
-    var tableViewDataSource: IssuesIndexTableViewDataSource?
+    var tableViewDelegate: IssuesTableViewDelegate?
+    var tableViewDataSource: IssuesTableViewDataSource?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
         if let stateController = stateController {
-            tableViewDelegate = IssuesIndexTableViewDelegate(tableView: tableView, stateController: stateController)
-            tableViewDataSource = IssuesIndexTableViewDataSource(tableView: tableView, stateController: stateController)
+            tableViewDelegate = IssuesTableViewDelegate(tableView: tableView, stateController: stateController)
+            tableViewDataSource = IssuesTableViewDataSource(tableView: tableView, stateController: stateController)
         }
     }
     
