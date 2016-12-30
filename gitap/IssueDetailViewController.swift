@@ -9,16 +9,21 @@
 import UIKit
 
 class IssueDetailViewController: UIViewController {
-    var stateController: StateController? {
-        didSet {
-            stateController?.viewController = self
-        }
-    }
+    var stateController: StateController?
+    @IBOutlet weak var issueStatusImage: UIImageView!
+    
+    @IBOutlet weak var issueNameLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    var tableViewDelegate: IssueDetailTableViewDelegate?
+    var tableViewDataSource: IssueDetailTableViewDataSource?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if let stateController = stateController {
+            tableViewDelegate = IssueDetailTableViewDelegate(tableView: tableView, stateController: stateController)
+            tableViewDataSource = IssueDetailTableViewDataSource(tableView: tableView, stateController: stateController)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

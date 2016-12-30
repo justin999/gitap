@@ -14,6 +14,8 @@
 		DC5D64A21E108E9100E92DDD /* ReposDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC5D64A01E108E9100E92DDD /* ReposDetailViewController.xib */; };
 		DC5E81D11E115D02008B1971 /* ManageIssuesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5E81CF1E115D02008B1971 /* ManageIssuesViewController.swift */; };
 		DC5E81D21E115D02008B1971 /* ManageIssuesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC5E81D01E115D02008B1971 /* ManageIssuesViewController.xib */; };
+		DC6C376A1E160854003D28C4 /* IssueDetailTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C37691E160854003D28C4 /* IssueDetailTableViewDelegate.swift */; };
+		DC6C376C1E160894003D28C4 /* IssueDetailTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C376B1E160894003D28C4 /* IssueDetailTableViewDataSource.swift */; };
 		DC7281651E0E178E00EEFC57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281641E0E178E00EEFC57 /* AppDelegate.swift */; };
 		DC7281671E0E178E00EEFC57 /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281661E0E178E00EEFC57 /* FeedsViewController.swift */; };
 		DC72816A1E0E178E00EEFC57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC7281681E0E178E00EEFC57 /* Main.storyboard */; };
@@ -66,6 +68,8 @@
 		DC5D64A01E108E9100E92DDD /* ReposDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReposDetailViewController.xib; sourceTree = "<group>"; };
 		DC5E81CF1E115D02008B1971 /* ManageIssuesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageIssuesViewController.swift; sourceTree = "<group>"; };
 		DC5E81D01E115D02008B1971 /* ManageIssuesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManageIssuesViewController.xib; sourceTree = "<group>"; };
+		DC6C37691E160854003D28C4 /* IssueDetailTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailTableViewDelegate.swift; sourceTree = "<group>"; };
+		DC6C376B1E160894003D28C4 /* IssueDetailTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailTableViewDataSource.swift; sourceTree = "<group>"; };
 		DC7281611E0E178E00EEFC57 /* gitap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gitap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC7281641E0E178E00EEFC57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC7281661E0E178E00EEFC57 /* FeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewController.swift; sourceTree = "<group>"; };
@@ -240,6 +244,7 @@
 				DC5D649D1E10006100E92DDD /* SettingsTableViewDataSource.swift */,
 				DCC817291E14012000E7056C /* EditIssuesTableViewDataSource.swift */,
 				DCC817381E15ED2700E7056C /* IssuesTableViewDataSource.swift */,
+				DC6C376B1E160894003D28C4 /* IssueDetailTableViewDataSource.swift */,
 			);
 			name = DataSources;
 			sourceTree = "<group>";
@@ -252,6 +257,7 @@
 				DC5D649B1E10005000E92DDD /* SettingsTableViewDelegate.swift */,
 				DCC817271E14010700E7056C /* EditIssuesTableViewDelegate.swift */,
 				DCC817361E15ECF700E7056C /* IssuesTableViewDelegate.swift */,
+				DC6C37691E160854003D28C4 /* IssueDetailTableViewDelegate.swift */,
 			);
 			name = Delegates;
 			sourceTree = "<group>";
@@ -417,11 +423,13 @@
 				DCC8172A1E14012000E7056C /* EditIssuesTableViewDataSource.swift in Sources */,
 				DC7281A61E0E338D00EEFC57 /* FeedsTableViewCell.swift in Sources */,
 				DC5D64A11E108E9100E92DDD /* ReposDetailViewController.swift in Sources */,
+				DC6C376A1E160854003D28C4 /* IssueDetailTableViewDelegate.swift in Sources */,
 				DCC817371E15ECF700E7056C /* IssuesTableViewDelegate.swift in Sources */,
 				DC7281AE1E0F6B4C00EEFC57 /* ReposTableViewCell.swift in Sources */,
 				DCC8173C1E15EE5500E7056C /* IssueDetailViewController.swift in Sources */,
 				DCC817391E15ED2700E7056C /* IssuesTableViewDataSource.swift in Sources */,
 				DCC817311E14E9C600E7056C /* UIView-positioning.swift in Sources */,
+				DC6C376C1E160894003D28C4 /* IssueDetailTableViewDataSource.swift in Sources */,
 				DC7281A31E0E326500EEFC57 /* FeedsTableViewDataSource.swift in Sources */,
 				DC5E81D11E115D02008B1971 /* ManageIssuesViewController.swift in Sources */,
 				DC72819D1E0E312E00EEFC57 /* StateController.swift in Sources */,
