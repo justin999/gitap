@@ -35,6 +35,10 @@
 		DCC817281E14010700E7056C /* EditIssuesTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC817271E14010700E7056C /* EditIssuesTableViewDelegate.swift */; };
 		DCC8172A1E14012000E7056C /* EditIssuesTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC817291E14012000E7056C /* EditIssuesTableViewDataSource.swift */; };
 		DCC817311E14E9C600E7056C /* UIView-positioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC817301E14E9C600E7056C /* UIView-positioning.swift */; };
+		DCC817371E15ECF700E7056C /* IssuesIndexTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC817361E15ECF700E7056C /* IssuesIndexTableViewDelegate.swift */; };
+		DCC817391E15ED2700E7056C /* IssuesIndexTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC817381E15ED2700E7056C /* IssuesIndexTableViewDataSource.swift */; };
+		DCC8173C1E15EE5500E7056C /* IssueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC8173A1E15EE5500E7056C /* IssueDetailViewController.swift */; };
+		DCC8173D1E15EE5500E7056C /* IssueDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCC8173B1E15EE5500E7056C /* IssueDetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +93,10 @@
 		DCC817271E14010700E7056C /* EditIssuesTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditIssuesTableViewDelegate.swift; sourceTree = "<group>"; };
 		DCC817291E14012000E7056C /* EditIssuesTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditIssuesTableViewDataSource.swift; sourceTree = "<group>"; };
 		DCC817301E14E9C600E7056C /* UIView-positioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView-positioning.swift"; sourceTree = "<group>"; };
+		DCC817361E15ECF700E7056C /* IssuesIndexTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssuesIndexTableViewDelegate.swift; sourceTree = "<group>"; };
+		DCC817381E15ED2700E7056C /* IssuesIndexTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssuesIndexTableViewDataSource.swift; sourceTree = "<group>"; };
+		DCC8173A1E15EE5500E7056C /* IssueDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailViewController.swift; sourceTree = "<group>"; };
+		DCC8173B1E15EE5500E7056C /* IssueDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IssueDetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +219,8 @@
 				DC5D64A01E108E9100E92DDD /* ReposDetailViewController.xib */,
 				DC5E81CF1E115D02008B1971 /* ManageIssuesViewController.swift */,
 				DC5E81D01E115D02008B1971 /* ManageIssuesViewController.xib */,
+				DCC8173A1E15EE5500E7056C /* IssueDetailViewController.swift */,
+				DCC8173B1E15EE5500E7056C /* IssueDetailViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -229,6 +239,7 @@
 				DC7281AA1E0F665000EEFC57 /* ReposTableViewDataSource.swift */,
 				DC5D649D1E10006100E92DDD /* SettingsTableViewDataSource.swift */,
 				DCC817291E14012000E7056C /* EditIssuesTableViewDataSource.swift */,
+				DCC817381E15ED2700E7056C /* IssuesIndexTableViewDataSource.swift */,
 			);
 			name = DataSources;
 			sourceTree = "<group>";
@@ -240,6 +251,7 @@
 				DC7281A81E0F65A000EEFC57 /* ReposTableViewDelegate.swift */,
 				DC5D649B1E10005000E92DDD /* SettingsTableViewDelegate.swift */,
 				DCC817271E14010700E7056C /* EditIssuesTableViewDelegate.swift */,
+				DCC817361E15ECF700E7056C /* IssuesIndexTableViewDelegate.swift */,
 			);
 			name = Delegates;
 			sourceTree = "<group>";
@@ -363,6 +375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC72816F1E0E178E00EEFC57 /* LaunchScreen.storyboard in Resources */,
+				DCC8173D1E15EE5500E7056C /* IssueDetailViewController.xib in Resources */,
 				DC7281AF1E0F6B4C00EEFC57 /* ReposTableViewCell.xib in Resources */,
 				DC5E81D21E115D02008B1971 /* ManageIssuesViewController.xib in Resources */,
 				DC7281A71E0E338D00EEFC57 /* FeedsTableViewCell.xib in Resources */,
@@ -404,7 +417,10 @@
 				DCC8172A1E14012000E7056C /* EditIssuesTableViewDataSource.swift in Sources */,
 				DC7281A61E0E338D00EEFC57 /* FeedsTableViewCell.swift in Sources */,
 				DC5D64A11E108E9100E92DDD /* ReposDetailViewController.swift in Sources */,
+				DCC817371E15ECF700E7056C /* IssuesIndexTableViewDelegate.swift in Sources */,
 				DC7281AE1E0F6B4C00EEFC57 /* ReposTableViewCell.swift in Sources */,
+				DCC8173C1E15EE5500E7056C /* IssueDetailViewController.swift in Sources */,
+				DCC817391E15ED2700E7056C /* IssuesIndexTableViewDataSource.swift in Sources */,
 				DCC817311E14E9C600E7056C /* UIView-positioning.swift in Sources */,
 				DC7281A31E0E326500EEFC57 /* FeedsTableViewDataSource.swift in Sources */,
 				DC5E81D11E115D02008B1971 /* ManageIssuesViewController.swift in Sources */,

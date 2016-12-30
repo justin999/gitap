@@ -21,6 +21,12 @@ class StateController: NSObject {
         inViewController.navigationController?.pushViewController(vc, animated: true)
     }
     
+    func pushIssueDetailViewController(inViewController: UIViewController, stateController: StateController) {
+        let vc = IssueDetailViewController()
+        vc.stateController = stateController
+        inViewController.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func presentManageIssuesViewController(inViewController: UIViewController) {
         let vc = ManageIssuesViewController()
         vc.stateController = self
