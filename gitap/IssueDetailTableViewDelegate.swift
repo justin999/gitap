@@ -29,6 +29,13 @@ extension IssueDetailTableViewDelegate: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+        switch section {
+        case 0:
+            return 0
+        case 1:
+            return 40
+        default:
+            return 0
+        }
     }
 }

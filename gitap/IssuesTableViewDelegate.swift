@@ -30,6 +30,6 @@ extension IssuesTableViewDelegate: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+        return 0
     }
 }

@@ -12,6 +12,7 @@ let issesDetailId = "IssueDetailTableViewCell"
 
 class IssueDetailTableViewDataSource: NSObject {
     var stateController: StateController
+    let issueItems = ["status", "statusDescription"]
     
     init(tableView: UITableView, stateController: StateController) {
         self.stateController = stateController
@@ -40,14 +41,17 @@ extension IssueDetailTableViewDataSource: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //        let cell = tableView.dequeueReusableCell(withIdentifier: issesDetailId, for: indexPath as IndexPath)
         let cell = UITableViewCell()
-        cell.textLabel?.text = "hogehoge"
+        if indexPath.section == 0 {
+            cell.textLabel?.text = issueItems[indexPath.row]
+        } else if indexPath.section == 1 {
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return 5
+            return 2
         case 1:
             return 1
         default:
