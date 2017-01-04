@@ -16,6 +16,7 @@
 		DC5E81D21E115D02008B1971 /* ManageIssuesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC5E81D01E115D02008B1971 /* ManageIssuesViewController.xib */; };
 		DC6C376A1E160854003D28C4 /* IssueDetailTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C37691E160854003D28C4 /* IssueDetailTableViewDelegate.swift */; };
 		DC6C376C1E160894003D28C4 /* IssueDetailTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C376B1E160894003D28C4 /* IssueDetailTableViewDataSource.swift */; };
+		DC6C377C1E1C9BFB003D28C4 /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C377B1E1C9BFB003D28C4 /* Configs.swift */; };
 		DC7281651E0E178E00EEFC57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281641E0E178E00EEFC57 /* AppDelegate.swift */; };
 		DC7281671E0E178E00EEFC57 /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281661E0E178E00EEFC57 /* FeedsViewController.swift */; };
 		DC72816A1E0E178E00EEFC57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC7281681E0E178E00EEFC57 /* Main.storyboard */; };
@@ -70,6 +71,7 @@
 		DC5E81D01E115D02008B1971 /* ManageIssuesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManageIssuesViewController.xib; sourceTree = "<group>"; };
 		DC6C37691E160854003D28C4 /* IssueDetailTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailTableViewDelegate.swift; sourceTree = "<group>"; };
 		DC6C376B1E160894003D28C4 /* IssueDetailTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailTableViewDataSource.swift; sourceTree = "<group>"; };
+		DC6C377B1E1C9BFB003D28C4 /* Configs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
 		DC7281611E0E178E00EEFC57 /* gitap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gitap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC7281641E0E178E00EEFC57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC7281661E0E178E00EEFC57 /* FeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewController.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 		DC72819B1E0E1C4600EEFC57 /* Configs */ = {
 			isa = PBXGroup;
 			children = (
+				DC6C377B1E1C9BFB003D28C4 /* Configs.swift */,
 			);
 			name = Configs;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 				DC6C376C1E160894003D28C4 /* IssueDetailTableViewDataSource.swift in Sources */,
 				DC7281A31E0E326500EEFC57 /* FeedsTableViewDataSource.swift in Sources */,
 				DC5E81D11E115D02008B1971 /* ManageIssuesViewController.swift in Sources */,
+				DC6C377C1E1C9BFB003D28C4 /* Configs.swift in Sources */,
 				DC72819D1E0E312E00EEFC57 /* StateController.swift in Sources */,
 				DC7281A91E0F65A000EEFC57 /* ReposTableViewDelegate.swift in Sources */,
 				DC5D649A1E0F9F4B00E92DDD /* Utils.swift in Sources */,
