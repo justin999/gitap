@@ -69,7 +69,7 @@ class GitHubAPIManager {
     func URLToStartOAuth2Login() -> URL? {
         // TODO: change the state for production
         let authPath: String = "https://github.com/login/oauth/authorize" +
-        "?client_id=\(clientID)&scope=gist&state=TEST_STATE"
+        "?client_id=\(clientID)&scope=user%20repo%20gist&state=TEST_STATE"
         return URL(string: authPath)
     }
     
