@@ -19,6 +19,7 @@ enum GitHubAPIManagerError: Error {
 }
 
 let kKeyChainGitHub = "github"
+let kMessageFailToObtainToken: String = "Could not obtain an OAuth token"
 
 class GitHubAPIManager {
     static let sharedInstance = GitHubAPIManager()
@@ -45,8 +46,6 @@ class GitHubAPIManager {
     
     let clientID: String = Configs.github.clientId
     let clientSecret: String = Configs.github.clientSecret
-    
-    let kMessageFailToObtainToken: String = "Could not obtain an OAuth token"
     
     func clearCache() -> Void {
         let cache = URLCache.shared
