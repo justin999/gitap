@@ -64,6 +64,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        GitHubAPIManager.sharedInstance.processOAuthStep1Response(url)
+        return true
+    }
+
     //MARK: private
     func addRightBarButton(navigationController: UINavigationController) {
         let item = UINavigationItem()
@@ -73,7 +78,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func addButtonTapped() {
-        print("add button tapped")
         stateController?.presentManageIssuesViewController(inViewController: (stateController?.viewController)!)
         
     }

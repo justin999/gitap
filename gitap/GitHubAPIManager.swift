@@ -59,6 +59,12 @@ class GitHubAPIManager {
         return false
     }
     
+    func clearOAuthToken() {
+        if let _ = self.OAuthToken {
+            self.OAuthToken = nil
+        }
+    }
+    
     // MARK: - OAuth flow
     func URLToStartOAuth2Login() -> URL? {
         // TODO: change the state for production
@@ -90,7 +96,7 @@ class GitHubAPIManager {
                 guard response.result.error == nil else {
                     print(response.result.error!)
                     self.isLoadingOAuthToken = false
-                    let errorMessage = response.result.error?.localizedDescription ?? self.kMessageFailToObtainToken
+                    let errorMessage = response.result.error?.localizedDescription ?? kMessageFailToObtainToken
                     let error = GitHubAPIManagerError.authCouldNot(reason: errorMessage)
                     self.OAuthTokenCompletionHandler?(error)
                     return
@@ -98,14 +104,14 @@ class GitHubAPIManager {
                 guard let value = response.result.value else {
                     print("no string received in response when swapping oauth code for token")
                     self.isLoadingOAuthToken = false
-                    let error = GitHubAPIManagerError.authCouldNot(reason: self.kMessageFailToObtainToken)
+                    let error = GitHubAPIManagerError.authCouldNot(reason: kMessageFailToObtainToken)
                     self.OAuthTokenCompletionHandler?(error)
                     return
                 }
                 guard let jsonResult = value as? [String: String] else {
                     print("no data received or data not JSON")
                     self.isLoadingOAuthToken = false
-                    let error = GitHubAPIManagerError.authCouldNot(reason: self.kMessageFailToObtainToken)
+                    let error = GitHubAPIManagerError.authCouldNot(reason: kMessageFailToObtainToken)
                     self.OAuthTokenCompletionHandler?(error)
                     return
                 }
@@ -115,7 +121,7 @@ class GitHubAPIManager {
                 if (self.hasOAuthToken()) {
                     self.OAuthTokenCompletionHandler?(nil)
                 } else {
-                    let error = GitHubAPIManagerError.authCouldNot(reason: self.kMessageFailToObtainToken)
+                    let error = GitHubAPIManagerError.authCouldNot(reason: kMessageFailToObtainToken)
                     self.OAuthTokenCompletionHandler?(error)
                 }
         }
@@ -160,4 +166,17 @@ class GitHubAPIManager {
     // MARK: - API Calls
     
     // MARK: - Helpers
+//    func isAPIOnline(completionHandler: @escaping (Bool) -> Void) {
+//        Alamofire.request(GistRouter.baseURLString)
+//            .validate(statusCode: 200 ..< 300)
+//            .response { response in
+//                guard response.error == nil else {
+//                    // no internet connection or GitHub API is down
+//                    completionHandler(false)
+//                    return
+//                }
+//                completionHandler(true)
+//        }
+//    }
+    
 }
