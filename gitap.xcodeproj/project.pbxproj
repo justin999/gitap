@@ -181,7 +181,6 @@
 		DC7281631E0E178E00EEFC57 /* gitap */ = {
 			isa = PBXGroup;
 			children = (
-				DC6C377D1E1C9E7F003D28C4 /* Helpers */,
 				DC7281641E0E178E00EEFC57 /* AppDelegate.swift */,
 				DC72819B1E0E1C4600EEFC57 /* Configs */,
 				DC7281961E0E1A9500EEFC57 /* Models */,
@@ -191,6 +190,7 @@
 				DC72819F1E0E320700EEFC57 /* Delegates */,
 				DC72819E1E0E31F800EEFC57 /* DataSources */,
 				DCC8172F1E14E9A700E7056C /* Extensions */,
+				DC6C377D1E1C9E7F003D28C4 /* Helpers */,
 				DC72816B1E0E178E00EEFC57 /* Assets.xcassets */,
 				DC7281701E0E178E00EEFC57 /* Info.plist */,
 				DC5D64991E0F9F4B00E92DDD /* Utils.swift */,
