@@ -17,6 +17,9 @@
 		DC6C376A1E160854003D28C4 /* IssueDetailTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C37691E160854003D28C4 /* IssueDetailTableViewDelegate.swift */; };
 		DC6C376C1E160894003D28C4 /* IssueDetailTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C376B1E160894003D28C4 /* IssueDetailTableViewDataSource.swift */; };
 		DC6C377C1E1C9BFB003D28C4 /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C377B1E1C9BFB003D28C4 /* Configs.swift */; };
+		DC6C377F1E1C9EA4003D28C4 /* GitHubAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C377E1E1C9EA4003D28C4 /* GitHubAPIManager.swift */; };
+		DC6C37841E1C9EC2003D28C4 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6C37811E1C9EC2003D28C4 /* Alamofire.framework */; };
+		DC6C37861E1C9EC2003D28C4 /* Locksmith.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6C37831E1C9EC2003D28C4 /* Locksmith.framework */; };
 		DC7281651E0E178E00EEFC57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281641E0E178E00EEFC57 /* AppDelegate.swift */; };
 		DC7281671E0E178E00EEFC57 /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281661E0E178E00EEFC57 /* FeedsViewController.swift */; };
 		DC72816A1E0E178E00EEFC57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC7281681E0E178E00EEFC57 /* Main.storyboard */; };
@@ -72,6 +75,10 @@
 		DC6C37691E160854003D28C4 /* IssueDetailTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailTableViewDelegate.swift; sourceTree = "<group>"; };
 		DC6C376B1E160894003D28C4 /* IssueDetailTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailTableViewDataSource.swift; sourceTree = "<group>"; };
 		DC6C377B1E1C9BFB003D28C4 /* Configs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
+		DC6C377E1E1C9EA4003D28C4 /* GitHubAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubAPIManager.swift; sourceTree = "<group>"; };
+		DC6C37811E1C9EC2003D28C4 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		DC6C37821E1C9EC2003D28C4 /* F3D10C2C-3852-303A-9EB0-FCBBD84C17CF.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; name = "F3D10C2C-3852-303A-9EB0-FCBBD84C17CF.bcsymbolmap"; path = "Carthage/Build/iOS/F3D10C2C-3852-303A-9EB0-FCBBD84C17CF.bcsymbolmap"; sourceTree = "<group>"; };
+		DC6C37831E1C9EC2003D28C4 /* Locksmith.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Locksmith.framework; path = Carthage/Build/iOS/Locksmith.framework; sourceTree = "<group>"; };
 		DC7281611E0E178E00EEFC57 /* gitap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gitap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC7281641E0E178E00EEFC57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC7281661E0E178E00EEFC57 /* FeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +117,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC6C37841E1C9EC2003D28C4 /* Alamofire.framework in Frameworks */,
+				DC6C37861E1C9EC2003D28C4 /* Locksmith.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +139,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DC6C377D1E1C9E7F003D28C4 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DC6C377E1E1C9EA4003D28C4 /* GitHubAPIManager.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		DC6C37801E1C9EC2003D28C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC6C37811E1C9EC2003D28C4 /* Alamofire.framework */,
+				DC6C37821E1C9EC2003D28C4 /* F3D10C2C-3852-303A-9EB0-FCBBD84C17CF.bcsymbolmap */,
+				DC6C37831E1C9EC2003D28C4 /* Locksmith.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DC7281581E0E178E00EEFC57 = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +164,7 @@
 				DC7281781E0E178E00EEFC57 /* gitapTests */,
 				DC7281831E0E178E00EEFC57 /* gitapUITests */,
 				DC7281621E0E178E00EEFC57 /* Products */,
+				DC6C37801E1C9EC2003D28C4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -153,6 +181,7 @@
 		DC7281631E0E178E00EEFC57 /* gitap */ = {
 			isa = PBXGroup;
 			children = (
+				DC6C377D1E1C9E7F003D28C4 /* Helpers */,
 				DC7281641E0E178E00EEFC57 /* AppDelegate.swift */,
 				DC72819B1E0E1C4600EEFC57 /* Configs */,
 				DC7281961E0E1A9500EEFC57 /* Models */,
@@ -283,6 +312,7 @@
 				DC72815D1E0E178E00EEFC57 /* Sources */,
 				DC72815E1E0E178E00EEFC57 /* Frameworks */,
 				DC72815F1E0E178E00EEFC57 /* Resources */,
+				DC6C37871E1C9ED7003D28C4 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -410,6 +440,24 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		DC6C37871E1C9ED7003D28C4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Locksmith.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DC72815D1E0E178E00EEFC57 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -418,6 +466,7 @@
 				DC5D649E1E10006100E92DDD /* SettingsTableViewDataSource.swift in Sources */,
 				DC7281AB1E0F665000EEFC57 /* ReposTableViewDataSource.swift in Sources */,
 				DC7281931E0E1A7500EEFC57 /* ReposViewController.swift in Sources */,
+				DC6C377F1E1C9EA4003D28C4 /* GitHubAPIManager.swift in Sources */,
 				DCC817281E14010700E7056C /* EditIssuesTableViewDelegate.swift in Sources */,
 				DC7281671E0E178E00EEFC57 /* FeedsViewController.swift in Sources */,
 				DC7281651E0E178E00EEFC57 /* AppDelegate.swift in Sources */,
@@ -590,6 +639,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = B863JFBR8K;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = gitap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.justin999.gitap;
@@ -603,6 +656,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = B863JFBR8K;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = gitap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.justin999.gitap;
