@@ -9,7 +9,6 @@
 import UIKit
 
 class FeedsTableViewCell: UITableViewCell {
-    var issue: Issue?
     @IBOutlet weak var issueNameLabel: UILabel!
     
     override func awakeFromNib() {

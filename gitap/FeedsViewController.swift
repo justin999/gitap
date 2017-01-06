@@ -21,6 +21,7 @@ class FeedsViewController: UIViewController, LoginViewDelegate, SFSafariViewCont
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(FeedsTableViewCell.self, forCellReuseIdentifier: feedsCellId)
         self.view.backgroundColor = UIColor.blue
         if let stateController = stateController {
             tableViewDataSource = FeedsTableViewDataSource(tableView: tableView, stateController: stateController)

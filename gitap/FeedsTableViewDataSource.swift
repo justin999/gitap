@@ -8,7 +8,7 @@
 
 import UIKit
 
-let feedsCellId = "FeedsTableViewCell"
+let feedsCellId = "feedCell"
 
 class FeedsTableViewDataSource: NSObject {
     var stateController: StateController
@@ -32,9 +32,13 @@ extension FeedsTableViewDataSource: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = stateController.issues?[indexPath.row].title
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "feedCell", for: indexPath as IndexPath)
+//        tableView.register(FeedsTableViewCell.self, forCellReuseIdentifier: feedsCellId)
+//        tableView.register(FeedsTableViewCell.self, forCellReuseIdentifier: feedsCellId)
+        let cell = tableView.dequeueReusableCell(withIdentifier: feedsCellId) as! FeedsTableViewCell
+        cell.issueNameLabel?.text = stateController.issues?[indexPath.row].title
         return cell
+
     }
     
 }
