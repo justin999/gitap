@@ -28,4 +28,14 @@ class Utils: NSObject {
         stateController.presentManageIssuesViewController(inViewController: stateController.viewController)
         
     }
+    
+    // TODO: 時間を選べるように
+    class func dateFormatter() -> DateFormatter {
+        let aDateFormatter = DateFormatter()
+        aDateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        aDateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+        aDateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        return aDateFormatter
+    }
+
 }

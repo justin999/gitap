@@ -165,6 +165,66 @@ class GitHubAPIManager {
     
     // MARK: - API Calls
     
+    func printIssues() -> Void {
+//        Alamofire.request(IssueRouter.listIssues())
+//            .responseString { response in
+//                guard let receivedString = response.result.value else {
+//                    print("error: \(response.result.error)")
+//                    return
+//                }
+//                print("issues: \(receivedString)")
+//        }
+        fetchIssues(IssueRouter.listIssues()) { (result, str) in
+            print("result: \(result)")
+            
+        }
+    }
+    
+    
+    func fetchIssues(_ urlRequest: URLRequestConvertible,
+                    completionHandler: @escaping (Result<[Issue]>, String?) -> Void) {
+        Alamofire.request(urlRequest)
+            .responseJSON { response in
+                if let urlResponse = response.response,
+                    let authError = self.checkUnauthorized(urlResponse: urlResponse) {
+                    completionHandler(.failure(authError), nil)
+                    return
+                }
+                let result = self.issueArrayFromResponse(response: response)
+                let next = self.parseNextPageFromHeaders(response: response.response)
+                completionHandler(result, next)
+        }
+    }
+    
+    private func issueArrayFromResponse(response: DataResponse<Any>) -> Result<[Issue]> {
+        guard response.result.error == nil else {
+            print(response.result.error!)
+            return .failure(GitHubAPIManagerError.network(error: response.result.error!))
+        }
+        
+        // make sure we got JSON and it's an array
+        guard let jsonArray = response.result.value as? [[String: Any]] else {
+            print("didn't get array of gists object as JSON from API")
+            return .failure(GitHubAPIManagerError.objectSerialization(reason:
+                "Did not get JSON dictionary in response"))
+        }
+        
+        // check for "message" errors in the JSON because this API does that
+        if let jsonDictionary = response.result.value as? [String: Any],
+            let errorMessage = jsonDictionary["message"] as? String {
+            return .failure(GitHubAPIManagerError.apiProvidedError(reason: errorMessage))
+        }
+        
+        // turn JSON in to gists
+        var issues = [Issue]()
+        for item in jsonArray {
+            if let issue = Issue(json: item) {
+                issues.append(issue)
+            }
+        }
+        return .success(issues)
+    }
+    
     // MARK: - Helpers
 //    func isAPIOnline(completionHandler: @escaping (Bool) -> Void) {
 //        Alamofire.request(GistRouter.baseURLString)
@@ -178,5 +238,46 @@ class GitHubAPIManager {
 //                completionHandler(true)
 //        }
 //    }
+    
+    func checkUnauthorized(urlResponse: HTTPURLResponse) -> (Error?) {
+        if (urlResponse.statusCode == 401) {
+            self.OAuthToken = nil
+            return GitHubAPIManagerError.authLost(reason: "Not Logged In")
+        }
+        return nil
+    }
+    
+    // MARK: - Pagination
+    private func parseNextPageFromHeaders(response: HTTPURLResponse?) -> String? {
+        guard let linkHeader = response?.allHeaderFields["Link"] as? String else {
+            return nil
+        }
+        /* looks like: <https://...?page=2>; rel="next", <https://...?page=6>; rel="last" */
+        // so split on ","
+        let components = linkHeader.characters.split { $0 == "," }.map { String($0) }
+        // now we have 2 lines like '<https://...?page=2>; rel="next"'
+        for item in components {
+            // see if it's "next"
+            let rangeOfNext = item.range(of: "rel=\"next\"", options: [])
+            guard rangeOfNext != nil else {
+                continue
+            }
+            // this is the "next" item, extract the URL
+            let rangeOfPaddedURL = item.range(of: "<(.*)>;",
+                                              options: .regularExpression,
+                                              range: nil,
+                                              locale: nil)
+            guard let range = rangeOfPaddedURL else {
+                return nil
+            }
+            let nextURL = item.substring(with: range)
+            // strip off the < and >;
+            let start = nextURL.index(range.lowerBound, offsetBy: 1)
+            let end = nextURL.index(range.upperBound, offsetBy: -2)
+            let trimmedRange = start ..< end
+            return nextURL.substring(with: trimmedRange)
+        }
+        return nil
+    }
     
 }

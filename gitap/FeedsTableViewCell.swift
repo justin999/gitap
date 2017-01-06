@@ -9,16 +9,24 @@
 import UIKit
 
 class FeedsTableViewCell: UITableViewCell {
+    var issue: Issue?
+    @IBOutlet weak var issueNameLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setData()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func setData() {
+//        if let issue = issue {
+//            issueNameLabel.text = issue.title
+//        }
     }
     
 }

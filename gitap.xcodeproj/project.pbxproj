@@ -22,6 +22,11 @@
 		DC6C37861E1C9EC2003D28C4 /* Locksmith.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6C37831E1C9EC2003D28C4 /* Locksmith.framework */; };
 		DC6C378A1E1CBA11003D28C4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C37881E1CBA11003D28C4 /* LoginViewController.swift */; };
 		DC6C378B1E1CBA12003D28C4 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC6C37891E1CBA11003D28C4 /* LoginViewController.xib */; };
+		DC6C378D1E1CD312003D28C4 /* RepoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C378C1E1CD312003D28C4 /* RepoRouter.swift */; };
+		DC6C378F1E1CD46C003D28C4 /* IssueRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C378E1E1CD46C003D28C4 /* IssueRouter.swift */; };
+		DC6C37911E1D081C003D28C4 /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C37901E1D081C003D28C4 /* Issue.swift */; };
+		DC6C37931E1DC049003D28C4 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C37921E1DC049003D28C4 /* File.swift */; };
+		DC6C37951E1DC2B8003D28C4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C37941E1DC2B8003D28C4 /* User.swift */; };
 		DC7281651E0E178E00EEFC57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281641E0E178E00EEFC57 /* AppDelegate.swift */; };
 		DC7281671E0E178E00EEFC57 /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281661E0E178E00EEFC57 /* FeedsViewController.swift */; };
 		DC72816A1E0E178E00EEFC57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC7281681E0E178E00EEFC57 /* Main.storyboard */; };
@@ -83,6 +88,11 @@
 		DC6C37831E1C9EC2003D28C4 /* Locksmith.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Locksmith.framework; path = Carthage/Build/iOS/Locksmith.framework; sourceTree = "<group>"; };
 		DC6C37881E1CBA11003D28C4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DC6C37891E1CBA11003D28C4 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		DC6C378C1E1CD312003D28C4 /* RepoRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoRouter.swift; sourceTree = "<group>"; };
+		DC6C378E1E1CD46C003D28C4 /* IssueRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueRouter.swift; sourceTree = "<group>"; };
+		DC6C37901E1D081C003D28C4 /* Issue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
+		DC6C37921E1DC049003D28C4 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		DC6C37941E1DC2B8003D28C4 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DC7281611E0E178E00EEFC57 /* gitap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gitap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC7281641E0E178E00EEFC57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC7281661E0E178E00EEFC57 /* FeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +157,8 @@
 			isa = PBXGroup;
 			children = (
 				DC6C377E1E1C9EA4003D28C4 /* GitHubAPIManager.swift */,
+				DC6C378C1E1CD312003D28C4 /* RepoRouter.swift */,
+				DC6C378E1E1CD46C003D28C4 /* IssueRouter.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -223,6 +235,9 @@
 		DC7281961E0E1A9500EEFC57 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				DC6C37901E1D081C003D28C4 /* Issue.swift */,
+				DC6C37921E1DC049003D28C4 /* File.swift */,
+				DC6C37941E1DC2B8003D28C4 /* User.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -474,8 +489,12 @@
 				DC5D649E1E10006100E92DDD /* SettingsTableViewDataSource.swift in Sources */,
 				DC7281AB1E0F665000EEFC57 /* ReposTableViewDataSource.swift in Sources */,
 				DC7281931E0E1A7500EEFC57 /* ReposViewController.swift in Sources */,
+				DC6C37951E1DC2B8003D28C4 /* User.swift in Sources */,
 				DC6C377F1E1C9EA4003D28C4 /* GitHubAPIManager.swift in Sources */,
+				DC6C37911E1D081C003D28C4 /* Issue.swift in Sources */,
 				DCC817281E14010700E7056C /* EditIssuesTableViewDelegate.swift in Sources */,
+				DC6C378D1E1CD312003D28C4 /* RepoRouter.swift in Sources */,
+				DC6C37931E1DC049003D28C4 /* File.swift in Sources */,
 				DC7281671E0E178E00EEFC57 /* FeedsViewController.swift in Sources */,
 				DC7281651E0E178E00EEFC57 /* AppDelegate.swift in Sources */,
 				DC7281951E0E1A8C00EEFC57 /* SettingsViewController.swift in Sources */,
@@ -485,6 +504,7 @@
 				DC5D64A11E108E9100E92DDD /* ReposDetailViewController.swift in Sources */,
 				DC6C376A1E160854003D28C4 /* IssueDetailTableViewDelegate.swift in Sources */,
 				DCC817371E15ECF700E7056C /* IssuesTableViewDelegate.swift in Sources */,
+				DC6C378F1E1CD46C003D28C4 /* IssueRouter.swift in Sources */,
 				DC7281AE1E0F6B4C00EEFC57 /* ReposTableViewCell.swift in Sources */,
 				DCC8173C1E15EE5500E7056C /* IssueDetailViewController.swift in Sources */,
 				DCC817391E15ED2700E7056C /* IssuesTableViewDataSource.swift in Sources */,

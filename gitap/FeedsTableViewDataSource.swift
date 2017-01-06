@@ -24,11 +24,17 @@ class FeedsTableViewDataSource: NSObject {
 extension FeedsTableViewDataSource: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        if let issues = stateController.issues {
+            return issues.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return Utils.getViewFromNib(feedsCellId) as! UITableViewCell
+        let cell = UITableViewCell()
+        cell.textLabel?.text = stateController.issues?[indexPath.row].title
+        return cell
     }
     
 }
