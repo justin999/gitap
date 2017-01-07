@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC2434091E1FBC52002FBDE7 /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2434081E1FBC52002FBDE7 /* Repo.swift */; };
+		DC24340B1E209AE7002FBDE7 /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC24340A1E209AE7002FBDE7 /* Permission.swift */; };
 		DC5D649A1E0F9F4B00E92DDD /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5D64991E0F9F4B00E92DDD /* Utils.swift */; };
 		DC5D649C1E10005000E92DDD /* SettingsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5D649B1E10005000E92DDD /* SettingsTableViewDelegate.swift */; };
 		DC5D649E1E10006100E92DDD /* SettingsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5D649D1E10006100E92DDD /* SettingsTableViewDataSource.swift */; };
@@ -72,6 +74,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DC2434081E1FBC52002FBDE7 /* Repo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
+		DC24340A1E209AE7002FBDE7 /* Permission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Permission.swift; sourceTree = "<group>"; };
 		DC5D64991E0F9F4B00E92DDD /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		DC5D649B1E10005000E92DDD /* SettingsTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDelegate.swift; sourceTree = "<group>"; };
 		DC5D649D1E10006100E92DDD /* SettingsTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -236,8 +240,10 @@
 			isa = PBXGroup;
 			children = (
 				DC6C37901E1D081C003D28C4 /* Issue.swift */,
+				DC24340A1E209AE7002FBDE7 /* Permission.swift */,
 				DC6C37921E1DC049003D28C4 /* File.swift */,
 				DC6C37941E1DC2B8003D28C4 /* User.swift */,
+				DC2434081E1FBC52002FBDE7 /* Repo.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -485,6 +491,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC2434091E1FBC52002FBDE7 /* Repo.swift in Sources */,
 				DC6C378A1E1CBA11003D28C4 /* LoginViewController.swift in Sources */,
 				DC5D649E1E10006100E92DDD /* SettingsTableViewDataSource.swift in Sources */,
 				DC7281AB1E0F665000EEFC57 /* ReposTableViewDataSource.swift in Sources */,
@@ -516,6 +523,7 @@
 				DC72819D1E0E312E00EEFC57 /* StateController.swift in Sources */,
 				DC7281A91E0F65A000EEFC57 /* ReposTableViewDelegate.swift in Sources */,
 				DC5D649A1E0F9F4B00E92DDD /* Utils.swift in Sources */,
+				DC24340B1E209AE7002FBDE7 /* Permission.swift in Sources */,
 				DC5D649C1E10005000E92DDD /* SettingsTableViewDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

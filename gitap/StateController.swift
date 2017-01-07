@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import Alamofire
 
 class StateController: NSObject {
     var viewController: UIViewController
     var issues: [Issue]?
+    var repos: [Repo]?
 
     init(viewController: UIViewController) {
         self.viewController = viewController
@@ -36,15 +38,16 @@ class StateController: NSObject {
     }
     
     // data
+    // issues
     func getIssues(completionHandler:@escaping ((Bool) -> Void)) {
-        GitHubAPIManager.sharedInstance.fetchIssues(IssueRouter.listIssues()) { (result, nextPage) in
+        GitHubAPIManager.sharedInstance.fetch(IssueRouter.listIssues()) { (result: Result<[Issue]>, nextPage) in
             guard result.error == nil else {
                 self.handleLoadIssuesError(result.error!)
                 return
             }
             
             guard let fetchedIssues = result.value else {
-                print("no gists fetched")
+                print("no issues fetched")
                 return
             }
             
@@ -53,6 +56,24 @@ class StateController: NSObject {
             completionHandler(true)
             
             
+        }
+    }
+    
+    // repos
+    func getRepos(completionHandler:@escaping ((Bool) -> Void)) {
+        GitHubAPIManager.sharedInstance.fetch(RepoRouter.listRepos()) { (result: Result<[Repo]>, nextPage) in
+            guard result.error == nil else {
+                self.handleLoadIssuesError(result.error!)
+                return
+            }
+            
+            guard let fetchedRepos = result.value else {
+                print("no repos fetched")
+                return
+            }
+            
+            self.repos = fetchedRepos
+            completionHandler(true)
         }
     }
     
@@ -79,5 +100,7 @@ class StateController: NSObject {
             break
         }
     }
+    
+    
 
 }

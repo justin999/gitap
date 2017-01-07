@@ -25,6 +25,21 @@ class ReposViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         stateController?.viewController = self
+        
+        if GitHubAPIManager.sharedInstance.hasOAuthToken() {
+            stateController?.getRepos { success in
+                switch success {
+                case true:
+                    self.tableView.reloadData()
+                case false:
+                    print("fetching faield")
+                }
+            }
+            //            GitHubAPIManager.sharedInstance.printIssues()
+        } else {
+//            self.showOAuthLoginView()
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {

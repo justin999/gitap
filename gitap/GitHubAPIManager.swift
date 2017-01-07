@@ -18,11 +18,17 @@ enum GitHubAPIManagerError: Error {
     case objectSerialization(reason: String)
 }
 
+protocol ResultProtocol {
+    init?(json: [String: Any])
+}
+
 let kKeyChainGitHub = "github"
 let kMessageFailToObtainToken: String = "Could not obtain an OAuth token"
 
 class GitHubAPIManager {
     static let sharedInstance = GitHubAPIManager()
+    
+//    var initialization = (([String: Any]) -> T?)
     
     var isLoadingOAuthToken: Bool = false
     var OAuthTokenCompletionHandler:((Error?) -> Void)?
@@ -174,15 +180,13 @@ class GitHubAPIManager {
 //                }
 //                print("issues: \(receivedString)")
 //        }
-        fetchIssues(IssueRouter.listIssues()) { (result, str) in
+        
+        fetch(IssueRouter.listIssues()){ (result: Result<[Issue]>, str) in
             print("result: \(result)")
-            
         }
     }
     
-    
-    func fetchIssues(_ urlRequest: URLRequestConvertible,
-                    completionHandler: @escaping (Result<[Issue]>, String?) -> Void) {
+    func fetch<T: ResultProtocol>(_ urlRequest: URLRequestConvertible, completionHandler: @escaping (Result<[T]>, String?) -> Void) {
         Alamofire.request(urlRequest)
             .responseJSON { response in
                 if let urlResponse = response.response,
@@ -190,39 +194,36 @@ class GitHubAPIManager {
                     completionHandler(.failure(authError), nil)
                     return
                 }
-                let result = self.issueArrayFromResponse(response: response)
+                let result: Result<[T]> = self.arrayFromResponse(response: response)
                 let next = self.parseNextPageFromHeaders(response: response.response)
                 completionHandler(result, next)
         }
     }
     
-    private func issueArrayFromResponse(response: DataResponse<Any>) -> Result<[Issue]> {
+    private func arrayFromResponse<T: ResultProtocol>(response: DataResponse<Any>) -> Result<[T]> {
         guard response.result.error == nil else {
-            print(response.result.error!)
+            print("error: \(response.result.error)")
             return .failure(GitHubAPIManagerError.network(error: response.result.error!))
         }
         
         // make sure we got JSON and it's an array
         guard let jsonArray = response.result.value as? [[String: Any]] else {
             print("didn't get array of gists object as JSON from API")
-            return .failure(GitHubAPIManagerError.objectSerialization(reason:
-                "Did not get JSON dictionary in response"))
+            return .failure(GitHubAPIManagerError.objectSerialization(reason: "Did not get JSON dictionary in response"))
         }
-        
         // check for "message" errors in the JSON because this API does that
         if let jsonDictionary = response.result.value as? [String: Any],
-            let errorMessage = jsonDictionary["message"] as? String {
-            return .failure(GitHubAPIManagerError.apiProvidedError(reason: errorMessage))
+            let errorMessage = jsonDictionary["message"] as? String { return .failure(GitHubAPIManagerError.apiProvidedError(reason: errorMessage))
         }
         
-        // turn JSON in to gists
-        var issues = [Issue]()
+        // turn JSON in to data
+        var datas = [T]()
         for item in jsonArray {
-            if let issue = Issue(json: item) {
-                issues.append(issue)
+            if let data = T(json: item) {
+                datas.append(data)
             }
         }
-        return .success(issues)
+        return .success(datas)
     }
     
     // MARK: - Helpers

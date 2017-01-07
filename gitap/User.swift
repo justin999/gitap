@@ -36,19 +36,17 @@ class User: NSObject {
     var gravatar_id: String?
     var url: String?
     var html_url: String?
-    var followers_url: String?
-    var following_url: String?
-    var gists_url: String?
-    var starred_url: String?
-    var subscriptions_url: String?
-    var organizations_url: String?
-    var repos_url: String?
-    var events_url: String?
-    var received_events_url: String?
     var type: String?
-    var site_admin: String?
+    var site_admin: Bool?
     
     init?(json: [String: Any]) {
-        
+        self.login = json["login"] as? String
+        self.githubId = json["id"] as? String
+        self.avatar_url = json["avatar_url"] as? String
+        self.gravatar_id = json["gravatar_id"] as? String
+        self.url = json["url"] as? String
+        self.html_url = json["html_url"] as? String
+        self.type = json["type"] as? String
+        self.site_admin = json["site_admin"] as? Bool
     }
 }

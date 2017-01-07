@@ -8,7 +8,7 @@
 
 import UIKit
 
-let reposCellId = "ReposTableViewCell"
+let reposCellId = "repoCell"
 
 class ReposTableViewDataSource: NSObject {
     var stateController: StateController
@@ -18,20 +18,28 @@ class ReposTableViewDataSource: NSObject {
         super.init()
         tableView.dataSource = self
         tableView.register(ReposTableViewCell.self, forCellReuseIdentifier: reposCellId)
+        let nib = UINib(nibName: String(describing: ReposTableViewCell.self), bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: reposCellId)
     }
 }
 
 extension ReposTableViewDataSource: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        if let repos = stateController.repos {
+            return repos.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return Utils.getViewFromNib(reposCellId) as! UITableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: reposCellId) as! ReposTableViewCell
+        cell.fullnameLabel.text = stateController.repos?[indexPath.row].full_name
+        return cell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

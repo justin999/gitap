@@ -17,7 +17,8 @@ class FeedsTableViewDataSource: NSObject {
         self.stateController = stateController
         super.init()
         tableView.dataSource = self
-        tableView.register(FeedsTableViewCell.self, forCellReuseIdentifier: feedsCellId)
+        let nib = UINib(nibName: String(describing: FeedsTableViewCell.self), bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: feedsCellId)
     }
 }
 
@@ -32,9 +33,6 @@ extension FeedsTableViewDataSource: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "feedCell", for: indexPath as IndexPath)
-//        tableView.register(FeedsTableViewCell.self, forCellReuseIdentifier: feedsCellId)
-//        tableView.register(FeedsTableViewCell.self, forCellReuseIdentifier: feedsCellId)
         let cell = tableView.dequeueReusableCell(withIdentifier: feedsCellId) as! FeedsTableViewCell
         cell.issueNameLabel?.text = stateController.issues?[indexPath.row].title
         return cell

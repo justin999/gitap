@@ -24,7 +24,7 @@ enum IssueRouter: URLRequestConvertible {
             let relativePath: String
             switch self {
             case .listIssues():
-                relativePath = "issues"
+                relativePath = "/issues"
             }
             
             var url = URL(string: baseURLString)!

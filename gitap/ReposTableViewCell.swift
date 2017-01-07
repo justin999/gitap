@@ -9,7 +9,7 @@
 import UIKit
 
 class ReposTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var fullnameLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

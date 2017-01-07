@@ -16,7 +16,6 @@ class SettingsTableViewDataSource: NSObject {
     ["sectionName": ["account"],
      "items": ["push notification","github auth"]
             ],
-    
     ["sectionName": ["gitap"],
      "items": ["feedback", "follow on twitter", "upgrades", "donate", "app version"]
             ]
