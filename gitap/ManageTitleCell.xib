@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,15 +19,35 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RIp-Hf-yfL">
-                        <rect key="frame" x="8" y="11" width="95" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RIp-Hf-yfL">
+                        <rect key="frame" x="8" y="11" width="45" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="45" id="jgW-4q-ZSg"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QUQ-p3-SR1">
+                        <rect key="frame" x="61" y="6" width="251" height="30"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="QUQ-p3-SR1" secondAttribute="trailing" constant="8" id="Eb5-9e-Q5v"/>
+                    <constraint firstAttribute="bottom" secondItem="QUQ-p3-SR1" secondAttribute="bottom" constant="7" id="EiD-0f-kof"/>
+                    <constraint firstItem="RIp-Hf-yfL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="SRZ-Bg-Ng8"/>
+                    <constraint firstItem="QUQ-p3-SR1" firstAttribute="leading" secondItem="RIp-Hf-yfL" secondAttribute="trailing" constant="8" id="Vl9-an-lgd"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="RIp-Hf-yfL" secondAttribute="bottom" constant="3" id="YFC-He-0aa"/>
+                    <constraint firstItem="QUQ-p3-SR1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="ghc-rZ-kdG"/>
+                    <constraint firstItem="RIp-Hf-yfL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="oBO-1d-hq0"/>
+                </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="titleTextField" destination="QUQ-p3-SR1" id="Eot-RH-kAf"/>
+            </connections>
             <point key="canvasLocation" x="-15" y="-90"/>
         </tableViewCell>
     </objects>

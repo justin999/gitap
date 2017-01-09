@@ -9,6 +9,7 @@
 import UIKit
 
 class ManageIssuesTableViewCell: UITableViewCell {
+    @IBOutlet weak var titleTextField: UITextField!
 
     override func awakeFromNib() {
         super.awakeFromNib()
