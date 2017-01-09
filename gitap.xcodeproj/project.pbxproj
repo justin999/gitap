@@ -10,6 +10,7 @@
 		DC2434091E1FBC52002FBDE7 /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2434081E1FBC52002FBDE7 /* Repo.swift */; };
 		DC24340B1E209AE7002FBDE7 /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC24340A1E209AE7002FBDE7 /* Permission.swift */; };
 		DC24340D1E20E748002FBDE7 /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC24340C1E20E748002FBDE7 /* UserRouter.swift */; };
+		DC24340F1E232294002FBDE7 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC24340E1E232294002FBDE7 /* AlertHelper.swift */; };
 		DC5D649A1E0F9F4B00E92DDD /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5D64991E0F9F4B00E92DDD /* Utils.swift */; };
 		DC5D649C1E10005000E92DDD /* SettingsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5D649B1E10005000E92DDD /* SettingsTableViewDelegate.swift */; };
 		DC5D649E1E10006100E92DDD /* SettingsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5D649D1E10006100E92DDD /* SettingsTableViewDataSource.swift */; };
@@ -78,6 +79,7 @@
 		DC2434081E1FBC52002FBDE7 /* Repo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
 		DC24340A1E209AE7002FBDE7 /* Permission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Permission.swift; sourceTree = "<group>"; };
 		DC24340C1E20E748002FBDE7 /* UserRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
+		DC24340E1E232294002FBDE7 /* AlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		DC5D64991E0F9F4B00E92DDD /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		DC5D649B1E10005000E92DDD /* SettingsTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDelegate.swift; sourceTree = "<group>"; };
 		DC5D649D1E10006100E92DDD /* SettingsTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				DC72819C1E0E312E00EEFC57 /* StateController.swift */,
+				DC24340E1E232294002FBDE7 /* AlertHelper.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -518,6 +521,7 @@
 				DC6C378F1E1CD46C003D28C4 /* IssueRouter.swift in Sources */,
 				DC7281AE1E0F6B4C00EEFC57 /* ReposTableViewCell.swift in Sources */,
 				DCC8173C1E15EE5500E7056C /* IssueDetailViewController.swift in Sources */,
+				DC24340F1E232294002FBDE7 /* AlertHelper.swift in Sources */,
 				DCC817391E15ED2700E7056C /* IssuesTableViewDataSource.swift in Sources */,
 				DCC817311E14E9C600E7056C /* UIView-positioning.swift in Sources */,
 				DC6C376C1E160894003D28C4 /* IssueDetailTableViewDataSource.swift in Sources */,

@@ -37,5 +37,13 @@ class Utils: NSObject {
         aDateFormatter.locale = Locale(identifier: "en_US_POSIX")
         return aDateFormatter
     }
+    
+    class func presentAlert(inViewController: UIViewController,title: String, message: String, style: UIAlertControllerStyle, actions: [UIAlertAction], completion: (() -> Void)?) {
+        let alert: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: style)
+        for action in actions {
+            alert.addAction(action)
+        }
+        inViewController.present(alert, animated: true, completion: completion)
+    }
 
 }
