@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DC2434091E1FBC52002FBDE7 /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2434081E1FBC52002FBDE7 /* Repo.swift */; };
 		DC24340B1E209AE7002FBDE7 /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC24340A1E209AE7002FBDE7 /* Permission.swift */; };
+		DC24340D1E20E748002FBDE7 /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC24340C1E20E748002FBDE7 /* UserRouter.swift */; };
 		DC5D649A1E0F9F4B00E92DDD /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5D64991E0F9F4B00E92DDD /* Utils.swift */; };
 		DC5D649C1E10005000E92DDD /* SettingsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5D649B1E10005000E92DDD /* SettingsTableViewDelegate.swift */; };
 		DC5D649E1E10006100E92DDD /* SettingsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5D649D1E10006100E92DDD /* SettingsTableViewDataSource.swift */; };
@@ -76,6 +77,7 @@
 /* Begin PBXFileReference section */
 		DC2434081E1FBC52002FBDE7 /* Repo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
 		DC24340A1E209AE7002FBDE7 /* Permission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Permission.swift; sourceTree = "<group>"; };
+		DC24340C1E20E748002FBDE7 /* UserRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
 		DC5D64991E0F9F4B00E92DDD /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		DC5D649B1E10005000E92DDD /* SettingsTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDelegate.swift; sourceTree = "<group>"; };
 		DC5D649D1E10006100E92DDD /* SettingsTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				DC6C377E1E1C9EA4003D28C4 /* GitHubAPIManager.swift */,
 				DC6C378C1E1CD312003D28C4 /* RepoRouter.swift */,
 				DC6C378E1E1CD46C003D28C4 /* IssueRouter.swift */,
+				DC24340C1E20E748002FBDE7 /* UserRouter.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -495,6 +498,7 @@
 				DC6C378A1E1CBA11003D28C4 /* LoginViewController.swift in Sources */,
 				DC5D649E1E10006100E92DDD /* SettingsTableViewDataSource.swift in Sources */,
 				DC7281AB1E0F665000EEFC57 /* ReposTableViewDataSource.swift in Sources */,
+				DC24340D1E20E748002FBDE7 /* UserRouter.swift in Sources */,
 				DC7281931E0E1A7500EEFC57 /* ReposViewController.swift in Sources */,
 				DC6C37951E1DC2B8003D28C4 /* User.swift in Sources */,
 				DC6C377F1E1C9EA4003D28C4 /* GitHubAPIManager.swift in Sources */,

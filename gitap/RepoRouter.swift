@@ -10,8 +10,6 @@
 import Foundation
 import Alamofire
 
-let baseURLString = "https://api.github.com"
-
 enum RepoRouter: URLRequestConvertible {
     case listRepos()
     
@@ -30,7 +28,7 @@ enum RepoRouter: URLRequestConvertible {
                 relativePath = "/user/repos"
             }
             
-            var url = URL(string: baseURLString)!
+            var url = URL(string: githubBaseURLString)!
             url.appendPathComponent(relativePath)
             return url
         }()

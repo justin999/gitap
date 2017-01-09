@@ -22,6 +22,10 @@ class SettingsTableViewDelegate: NSObject {
 extension SettingsTableViewDelegate: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
+        if indexPath.section == 0 && indexPath.row == 2 {
+            print("clearing oauth token")
+            GitHubAPIManager.sharedInstance.clearOAuthToken()
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

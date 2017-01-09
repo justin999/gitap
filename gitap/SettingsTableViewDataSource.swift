@@ -14,7 +14,7 @@ class SettingsTableViewDataSource: NSObject {
     let cellInfo: [Dictionary<String, Array<String>>] =
         [
     ["sectionName": ["account"],
-     "items": ["push notification","github auth"]
+     "items": ["push notification","github auth", "logout"]
             ],
     ["sectionName": ["gitap"],
      "items": ["feedback", "follow on twitter", "upgrades", "donate", "app version"]

@@ -1,21 +1,21 @@
 //
-//  IssueRouter.swift
+//  UserRouter.swift
 //  gitap
 //
-//  Created by Koichi Sato on 1/4/17.
+//  Created by Koichi Sato on 1/7/17.
 //  Copyright © 2017 Koichi Sato. All rights reserved.
 //
 
 import Foundation
 import Alamofire
 
-enum IssueRouter: URLRequestConvertible {
-    case listIssues()
+enum userRouter: URLRequestConvertible {
+    case fetchAuthenticatedUser()
     
     func asURLRequest() throws -> URLRequest {
         var method: HTTPMethod {
             switch self {
-            case .listIssues:
+            case .fetchAuthenticatedUser:
                 return .get
             }
         }
@@ -23,8 +23,8 @@ enum IssueRouter: URLRequestConvertible {
         let url: URL = {
             let relativePath: String
             switch self {
-            case .listIssues():
-                relativePath = "/issues"
+            case .fetchAuthenticatedUser():
+                relativePath = "/user"
             }
             
             var url = URL(string: githubBaseURLString)!
@@ -34,7 +34,7 @@ enum IssueRouter: URLRequestConvertible {
         
         let params: ([String: Any]?) = {
             switch self {
-            case .listIssues:
+            case .fetchAuthenticatedUser:
                 return nil
             }
         }()

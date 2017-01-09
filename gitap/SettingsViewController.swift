@@ -26,6 +26,13 @@ class SettingsViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         stateController?.viewController = self
+        
+        // TODO: この処理は最終的にはアプリがフォアグラウンドに入ってきたときにやる
+        self.stateController?.fetchAuthenticatedUser { (success) in
+            print("success???: \(success)")
+            // if successだったら何もしない
+            // else ログインアラートを出す
+        }
     }
 
     override func didReceiveMemoryWarning() {

@@ -29,8 +29,8 @@ import Foundation
 },
 */
 
-class User: NSObject {
-    var login: String?
+class User: NSObject, ResultProtocol {
+    var loginName: String?
     var githubId: String?
     var avatar_url: String?
     var gravatar_id: String?
@@ -39,8 +39,8 @@ class User: NSObject {
     var type: String?
     var site_admin: Bool?
     
-    init?(json: [String: Any]) {
-        self.login = json["login"] as? String
+    required init?(json: [String: Any]) {
+        self.loginName = json["login"] as? String
         self.githubId = json["id"] as? String
         self.avatar_url = json["avatar_url"] as? String
         self.gravatar_id = json["gravatar_id"] as? String

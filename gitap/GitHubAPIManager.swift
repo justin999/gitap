@@ -10,6 +10,8 @@ import Foundation
 import Alamofire
 import Locksmith
 
+let githubBaseURLString = "https://api.github.com"
+
 enum GitHubAPIManagerError: Error {
     case network(error: Error)
     case apiProvidedError(reason: String)
@@ -170,21 +172,7 @@ class GitHubAPIManager {
     }
     
     // MARK: - API Calls
-    
-    func printIssues() -> Void {
-//        Alamofire.request(IssueRouter.listIssues())
-//            .responseString { response in
-//                guard let receivedString = response.result.value else {
-//                    print("error: \(response.result.error)")
-//                    return
-//                }
-//                print("issues: \(receivedString)")
-//        }
-        
-        fetch(IssueRouter.listIssues()){ (result: Result<[Issue]>, str) in
-            print("result: \(result)")
-        }
-    }
+    // MARK: fundamental
     
     func fetch<T: ResultProtocol>(_ urlRequest: URLRequestConvertible, completionHandler: @escaping (Result<[T]>, String?) -> Void) {
         Alamofire.request(urlRequest)
@@ -207,23 +195,21 @@ class GitHubAPIManager {
         }
         
         // make sure we got JSON and it's an array
-        guard let jsonArray = response.result.value as? [[String: Any]] else {
-            print("didn't get array of gists object as JSON from API")
-            return .failure(GitHubAPIManagerError.objectSerialization(reason: "Did not get JSON dictionary in response"))
-        }
-        // check for "message" errors in the JSON because this API does that
-        if let jsonDictionary = response.result.value as? [String: Any],
-            let errorMessage = jsonDictionary["message"] as? String { return .failure(GitHubAPIManagerError.apiProvidedError(reason: errorMessage))
-        }
-        
-        // turn JSON in to data
-        var datas = [T]()
-        for item in jsonArray {
-            if let data = T(json: item) {
-                datas.append(data)
+        if let jsonArray = response.result.value as? [[String: Any]] {
+            var datas = [T]()
+            for item in jsonArray {
+                if let data = T(json: item) {
+                    datas.append(data)
+                }
             }
+            return .success(datas)
+        } else if let jsonData = response.result.value as? [String: Any], let data: T = T(json: jsonData) {
+            return .success([data])
+        } else if let jsonDictionary = response.result.value as? [String: Any],
+            let errorMessage = jsonDictionary["message"] as? String { return .failure(GitHubAPIManagerError.apiProvidedError(reason: errorMessage))
+        } else {
+            return .failure(GitHubAPIManagerError.apiProvidedError(reason: "something went wrong"))
         }
-        return .success(datas)
     }
     
     // MARK: - Helpers
