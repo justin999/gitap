@@ -9,13 +9,6 @@
 import UIKit
 
 class Utils: NSObject {
-    
-    class func getViewFromNib(_ name: String) -> UIView {
-        let nib = UINib(nibName: name, bundle: nil)
-        let views = nib.instantiate(withOwner: self, options: nil)
-        return views[0] as! UIView
-    }
-    
     class func addRightBarButton(navigationController: UINavigationController, target: Any?) {
         let item = UINavigationItem()
         let plusButton = UIBarButtonItem(barButtonSystemItem: .add, target: target, action: #selector(Utils.addButtonTapped))
@@ -29,7 +22,7 @@ class Utils: NSObject {
         
     }
     
-    // TODO: 時間を選べるように
+    // TODO: タイムゾーンを選べるように
     class func dateFormatter() -> DateFormatter {
         let aDateFormatter = DateFormatter()
         aDateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
@@ -44,6 +37,11 @@ class Utils: NSObject {
             alert.addAction(action)
         }
         inViewController.present(alert, animated: true, completion: completion)
+    }
+    
+    class func registerCell(_ tableView: UITableView, nibName: String, cellId: String) {
+        let nib = UINib(nibName: nibName, bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: cellId)
     }
 
 }

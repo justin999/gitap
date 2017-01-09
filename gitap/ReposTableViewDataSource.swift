@@ -17,9 +17,7 @@ class ReposTableViewDataSource: NSObject {
         self.stateController = stateController
         super.init()
         tableView.dataSource = self
-        tableView.register(ReposTableViewCell.self, forCellReuseIdentifier: reposCellId)
-        let nib = UINib(nibName: String(describing: ReposTableViewCell.self), bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: reposCellId)
+        Utils.registerCell(tableView, nibName: String(describing: ReposTableViewCell.self), cellId: reposCellId)
     }
 }
 

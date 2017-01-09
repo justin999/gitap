@@ -17,7 +17,7 @@ class IssuesTableViewDataSource: NSObject {
         self.stateController = stateController
         super.init()
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: issesIndexId)
+        Utils.registerCell(tableView, nibName: String(describing: FeedsTableViewCell.self), cellId: issesIndexId)
     }
 }
 

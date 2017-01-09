@@ -11,6 +11,12 @@
 		DC24340B1E209AE7002FBDE7 /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC24340A1E209AE7002FBDE7 /* Permission.swift */; };
 		DC24340D1E20E748002FBDE7 /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC24340C1E20E748002FBDE7 /* UserRouter.swift */; };
 		DC24340F1E232294002FBDE7 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC24340E1E232294002FBDE7 /* AlertHelper.swift */; };
+		DC2434171E232DB8002FBDE7 /* ManageIssuesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2434151E232DB8002FBDE7 /* ManageIssuesTableViewCell.swift */; };
+		DC2434181E232DB8002FBDE7 /* ManageTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC2434161E232DB8002FBDE7 /* ManageTitleCell.xib */; };
+		DC24341A1E233806002FBDE7 /* ManageResponsibleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC2434191E233806002FBDE7 /* ManageResponsibleCell.xib */; };
+		DC24341C1E233848002FBDE7 /* ManageMilestoneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC24341B1E233848002FBDE7 /* ManageMilestoneCell.xib */; };
+		DC24341E1E23385A002FBDE7 /* ManageLabelsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC24341D1E23385A002FBDE7 /* ManageLabelsCell.xib */; };
+		DC2434201E23386B002FBDE7 /* ManageDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC24341F1E23386B002FBDE7 /* ManageDescriptionCell.xib */; };
 		DC5D649A1E0F9F4B00E92DDD /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5D64991E0F9F4B00E92DDD /* Utils.swift */; };
 		DC5D649C1E10005000E92DDD /* SettingsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5D649B1E10005000E92DDD /* SettingsTableViewDelegate.swift */; };
 		DC5D649E1E10006100E92DDD /* SettingsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5D649D1E10006100E92DDD /* SettingsTableViewDataSource.swift */; };
@@ -80,6 +86,12 @@
 		DC24340A1E209AE7002FBDE7 /* Permission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Permission.swift; sourceTree = "<group>"; };
 		DC24340C1E20E748002FBDE7 /* UserRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
 		DC24340E1E232294002FBDE7 /* AlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
+		DC2434151E232DB8002FBDE7 /* ManageIssuesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageIssuesTableViewCell.swift; sourceTree = "<group>"; };
+		DC2434161E232DB8002FBDE7 /* ManageTitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManageTitleCell.xib; sourceTree = "<group>"; };
+		DC2434191E233806002FBDE7 /* ManageResponsibleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManageResponsibleCell.xib; sourceTree = "<group>"; };
+		DC24341B1E233848002FBDE7 /* ManageMilestoneCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManageMilestoneCell.xib; sourceTree = "<group>"; };
+		DC24341D1E23385A002FBDE7 /* ManageLabelsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManageLabelsCell.xib; sourceTree = "<group>"; };
+		DC24341F1E23386B002FBDE7 /* ManageDescriptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManageDescriptionCell.xib; sourceTree = "<group>"; };
 		DC5D64991E0F9F4B00E92DDD /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		DC5D649B1E10005000E92DDD /* SettingsTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDelegate.swift; sourceTree = "<group>"; };
 		DC5D649D1E10006100E92DDD /* SettingsTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -161,6 +173,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DC2434121E232D33002FBDE7 /* ManageIssues */ = {
+			isa = PBXGroup;
+			children = (
+				DC2434151E232DB8002FBDE7 /* ManageIssuesTableViewCell.swift */,
+				DC2434161E232DB8002FBDE7 /* ManageTitleCell.xib */,
+				DC2434191E233806002FBDE7 /* ManageResponsibleCell.xib */,
+				DC24341B1E233848002FBDE7 /* ManageMilestoneCell.xib */,
+				DC24341D1E23385A002FBDE7 /* ManageLabelsCell.xib */,
+				DC24341F1E23386B002FBDE7 /* ManageDescriptionCell.xib */,
+			);
+			name = ManageIssues;
+			sourceTree = "<group>";
+		};
 		DC6C377D1E1C9E7F003D28C4 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +281,7 @@
 		DC7281971E0E1AA200EEFC57 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DC2434121E232D33002FBDE7 /* ManageIssues */,
 				DC7281681E0E178E00EEFC57 /* Main.storyboard */,
 				DC72816D1E0E178E00EEFC57 /* LaunchScreen.storyboard */,
 				DC7281A41E0E338D00EEFC57 /* FeedsTableViewCell.swift */,
@@ -447,12 +473,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC72816F1E0E178E00EEFC57 /* LaunchScreen.storyboard in Resources */,
+				DC2434201E23386B002FBDE7 /* ManageDescriptionCell.xib in Resources */,
+				DC24341E1E23385A002FBDE7 /* ManageLabelsCell.xib in Resources */,
+				DC2434181E232DB8002FBDE7 /* ManageTitleCell.xib in Resources */,
 				DCC8173D1E15EE5500E7056C /* IssueDetailViewController.xib in Resources */,
 				DC7281AF1E0F6B4C00EEFC57 /* ReposTableViewCell.xib in Resources */,
 				DC5E81D21E115D02008B1971 /* ManageIssuesViewController.xib in Resources */,
 				DC7281A71E0E338D00EEFC57 /* FeedsTableViewCell.xib in Resources */,
+				DC24341A1E233806002FBDE7 /* ManageResponsibleCell.xib in Resources */,
 				DC72816C1E0E178E00EEFC57 /* Assets.xcassets in Resources */,
 				DC72816A1E0E178E00EEFC57 /* Main.storyboard in Resources */,
+				DC24341C1E233848002FBDE7 /* ManageMilestoneCell.xib in Resources */,
 				DC5D64A21E108E9100E92DDD /* ReposDetailViewController.xib in Resources */,
 				DC6C378B1E1CBA12003D28C4 /* LoginViewController.xib in Resources */,
 			);
@@ -502,6 +533,7 @@
 				DC5D649E1E10006100E92DDD /* SettingsTableViewDataSource.swift in Sources */,
 				DC7281AB1E0F665000EEFC57 /* ReposTableViewDataSource.swift in Sources */,
 				DC24340D1E20E748002FBDE7 /* UserRouter.swift in Sources */,
+				DC2434171E232DB8002FBDE7 /* ManageIssuesTableViewCell.swift in Sources */,
 				DC7281931E0E1A7500EEFC57 /* ReposViewController.swift in Sources */,
 				DC6C37951E1DC2B8003D28C4 /* User.swift in Sources */,
 				DC6C377F1E1C9EA4003D28C4 /* GitHubAPIManager.swift in Sources */,

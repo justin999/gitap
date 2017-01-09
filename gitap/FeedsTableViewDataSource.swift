@@ -17,8 +17,7 @@ class FeedsTableViewDataSource: NSObject {
         self.stateController = stateController
         super.init()
         tableView.dataSource = self
-        let nib = UINib(nibName: String(describing: FeedsTableViewCell.self), bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: feedsCellId)
+        Utils.registerCell(tableView, nibName: String(describing: FeedsTableViewCell.self), cellId: feedsCellId)
     }
 }
 

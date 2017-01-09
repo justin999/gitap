@@ -8,17 +8,24 @@
 
 import UIKit
 
-let editIssuesId = "EditIssuesTableViewCell"
+let manageTitleId = "manageTitleCell"
+let manageResponsibleId = "manageResponsibleCell"
+let manageMilestoneId = "manageMilestoneCell"
+let manageLabelsId = "manageLabelsCell"
+let manageDescriptionId = "manageDescriptionCell"
 
 class EditIssuesTableViewDataSource: NSObject {
     var stateController: StateController
-    let cellTitles = ["Title", "Responsible", "MileStone", "Labels"]
     
     init(tableView: UITableView, stateController: StateController) {
         self.stateController = stateController
         super.init()
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: editIssuesId)
+        Utils.registerCell(tableView, nibName: "ManageTitleCell", cellId: manageTitleId)
+        Utils.registerCell(tableView, nibName: "ManageResponsibleCell", cellId: manageResponsibleId)
+        Utils.registerCell(tableView, nibName: "ManageMilestoneCell", cellId: manageMilestoneId)
+        Utils.registerCell(tableView, nibName: "ManageLabelsCell", cellId: manageLabelsId)
+        Utils.registerCell(tableView, nibName: "ManageDescriptionCell", cellId: manageDescriptionId)
     }
 }
 
@@ -28,11 +35,22 @@ extension EditIssuesTableViewDataSource: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: editIssuesId, for: indexPath as IndexPath)
+        var cell = UITableViewCell()
         if indexPath.section == 0 {
-            cell.textLabel?.text = cellTitles[indexPath.row]
+            switch indexPath.row {
+            case 0:
+                cell = tableView.dequeueReusableCell(withIdentifier: manageTitleId, for: indexPath as IndexPath)
+            case 1:
+                cell = tableView.dequeueReusableCell(withIdentifier: manageResponsibleId, for: indexPath as IndexPath)
+            case 2:
+                cell = tableView.dequeueReusableCell(withIdentifier: manageMilestoneId, for: indexPath as IndexPath)
+            case 3:
+                cell = tableView.dequeueReusableCell(withIdentifier: manageLabelsId, for: indexPath as IndexPath)
+            default:
+                break
+            }
         } else if indexPath.section == 1 {
-            cell.textLabel?.text = "Description"
+            cell = tableView.dequeueReusableCell(withIdentifier: manageDescriptionId, for: indexPath as IndexPath)
         }
         return cell
     }
