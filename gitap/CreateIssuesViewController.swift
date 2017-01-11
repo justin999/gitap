@@ -5,13 +5,14 @@
 //  Created by Koichi Sato on 12/26/16.
 //  Copyright © 2016 Koichi Sato. All rights reserved.
 //
+//  aws s3: https://github.com/aws/aws-sdk-ios
+//  sample: https://github.com/awslabs/aws-sdk-ios-samples/tree/master/S3TransferManager-Sample/Swift/
 
 import UIKit
 
-class ManageIssuesViewController: UIViewController {
+class CreateIssuesViewController: UIViewController {
     var stateController: StateController?
     
-    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var doneButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     
@@ -21,11 +22,10 @@ class ManageIssuesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // TODO: table view height should be changed dynamically due to change of cells and headers height
-        tableView.height = 260 + 64
-        if let stateController = stateController {
-            tableViewDelegate = EditIssuesTableViewDelegate(tableView: self.tableView, stateController: stateController)
-            tableViewDataSource = EditIssuesTableViewDataSource(tableView: self.tableView, stateController: stateController)
-        }
+//        if let stateController = stateController {
+//            tableViewDelegate = EditIssuesTableViewDelegate(tableView: self.tableView, stateController: stateController)
+//            tableViewDataSource = EditIssuesTableViewDataSource(tableView: self.tableView, stateController: stateController)
+//        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

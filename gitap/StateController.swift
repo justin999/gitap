@@ -32,7 +32,7 @@ class StateController: NSObject {
     }
     
     func presentManageIssuesViewController(inViewController: UIViewController) {
-        let vc = ManageIssuesViewController()
+        let vc = CreateIssuesViewController()
         vc.stateController = self
         inViewController.present(vc, animated: true, completion: nil)
     }

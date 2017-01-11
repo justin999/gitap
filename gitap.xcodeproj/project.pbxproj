@@ -22,8 +22,8 @@
 		DC5D649E1E10006100E92DDD /* SettingsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5D649D1E10006100E92DDD /* SettingsTableViewDataSource.swift */; };
 		DC5D64A11E108E9100E92DDD /* ReposDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5D649F1E108E9100E92DDD /* ReposDetailViewController.swift */; };
 		DC5D64A21E108E9100E92DDD /* ReposDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC5D64A01E108E9100E92DDD /* ReposDetailViewController.xib */; };
-		DC5E81D11E115D02008B1971 /* ManageIssuesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5E81CF1E115D02008B1971 /* ManageIssuesViewController.swift */; };
-		DC5E81D21E115D02008B1971 /* ManageIssuesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC5E81D01E115D02008B1971 /* ManageIssuesViewController.xib */; };
+		DC5E81D11E115D02008B1971 /* CreateIssuesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5E81CF1E115D02008B1971 /* CreateIssuesViewController.swift */; };
+		DC5E81D21E115D02008B1971 /* CreateIssuesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC5E81D01E115D02008B1971 /* CreateIssuesViewController.xib */; };
 		DC6C376A1E160854003D28C4 /* IssueDetailTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C37691E160854003D28C4 /* IssueDetailTableViewDelegate.swift */; };
 		DC6C376C1E160894003D28C4 /* IssueDetailTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C376B1E160894003D28C4 /* IssueDetailTableViewDataSource.swift */; };
 		DC6C377C1E1C9BFB003D28C4 /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C377B1E1C9BFB003D28C4 /* Configs.swift */; };
@@ -97,8 +97,8 @@
 		DC5D649D1E10006100E92DDD /* SettingsTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDataSource.swift; sourceTree = "<group>"; };
 		DC5D649F1E108E9100E92DDD /* ReposDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReposDetailViewController.swift; sourceTree = "<group>"; };
 		DC5D64A01E108E9100E92DDD /* ReposDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReposDetailViewController.xib; sourceTree = "<group>"; };
-		DC5E81CF1E115D02008B1971 /* ManageIssuesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageIssuesViewController.swift; sourceTree = "<group>"; };
-		DC5E81D01E115D02008B1971 /* ManageIssuesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManageIssuesViewController.xib; sourceTree = "<group>"; };
+		DC5E81CF1E115D02008B1971 /* CreateIssuesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateIssuesViewController.swift; sourceTree = "<group>"; };
+		DC5E81D01E115D02008B1971 /* CreateIssuesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateIssuesViewController.xib; sourceTree = "<group>"; };
 		DC6C37691E160854003D28C4 /* IssueDetailTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailTableViewDelegate.swift; sourceTree = "<group>"; };
 		DC6C376B1E160894003D28C4 /* IssueDetailTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailTableViewDataSource.swift; sourceTree = "<group>"; };
 		DC6C377B1E1C9BFB003D28C4 /* Configs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
@@ -309,8 +309,8 @@
 				DC7281921E0E1A7500EEFC57 /* ReposViewController.swift */,
 				DC5D649F1E108E9100E92DDD /* ReposDetailViewController.swift */,
 				DC5D64A01E108E9100E92DDD /* ReposDetailViewController.xib */,
-				DC5E81CF1E115D02008B1971 /* ManageIssuesViewController.swift */,
-				DC5E81D01E115D02008B1971 /* ManageIssuesViewController.xib */,
+				DC5E81CF1E115D02008B1971 /* CreateIssuesViewController.swift */,
+				DC5E81D01E115D02008B1971 /* CreateIssuesViewController.xib */,
 				DCC8173A1E15EE5500E7056C /* IssueDetailViewController.swift */,
 				DCC8173B1E15EE5500E7056C /* IssueDetailViewController.xib */,
 				DC6C37881E1CBA11003D28C4 /* LoginViewController.swift */,
@@ -478,7 +478,7 @@
 				DC2434181E232DB8002FBDE7 /* ManageTitleCell.xib in Resources */,
 				DCC8173D1E15EE5500E7056C /* IssueDetailViewController.xib in Resources */,
 				DC7281AF1E0F6B4C00EEFC57 /* ReposTableViewCell.xib in Resources */,
-				DC5E81D21E115D02008B1971 /* ManageIssuesViewController.xib in Resources */,
+				DC5E81D21E115D02008B1971 /* CreateIssuesViewController.xib in Resources */,
 				DC7281A71E0E338D00EEFC57 /* FeedsTableViewCell.xib in Resources */,
 				DC24341A1E233806002FBDE7 /* ManageResponsibleCell.xib in Resources */,
 				DC72816C1E0E178E00EEFC57 /* Assets.xcassets in Resources */,
@@ -558,7 +558,7 @@
 				DCC817311E14E9C600E7056C /* UIView-positioning.swift in Sources */,
 				DC6C376C1E160894003D28C4 /* IssueDetailTableViewDataSource.swift in Sources */,
 				DC7281A31E0E326500EEFC57 /* FeedsTableViewDataSource.swift in Sources */,
-				DC5E81D11E115D02008B1971 /* ManageIssuesViewController.swift in Sources */,
+				DC5E81D11E115D02008B1971 /* CreateIssuesViewController.swift in Sources */,
 				DC6C377C1E1C9BFB003D28C4 /* Configs.swift in Sources */,
 				DC72819D1E0E312E00EEFC57 /* StateController.swift in Sources */,
 				DC7281A91E0F65A000EEFC57 /* ReposTableViewDelegate.swift in Sources */,
