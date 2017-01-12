@@ -17,6 +17,8 @@
 		DC24341C1E233848002FBDE7 /* ManageMilestoneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC24341B1E233848002FBDE7 /* ManageMilestoneCell.xib */; };
 		DC24341E1E23385A002FBDE7 /* ManageLabelsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC24341D1E23385A002FBDE7 /* ManageLabelsCell.xib */; };
 		DC2434201E23386B002FBDE7 /* ManageDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC24341F1E23386B002FBDE7 /* ManageDescriptionCell.xib */; };
+		DC2434441E2849F6002FBDE7 /* ActivityRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2434431E2849F6002FBDE7 /* ActivityRouter.swift */; };
+		DC2434461E284A4A002FBDE7 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2434451E284A4A002FBDE7 /* Feed.swift */; };
 		DC5D649A1E0F9F4B00E92DDD /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5D64991E0F9F4B00E92DDD /* Utils.swift */; };
 		DC5D649C1E10005000E92DDD /* SettingsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5D649B1E10005000E92DDD /* SettingsTableViewDelegate.swift */; };
 		DC5D649E1E10006100E92DDD /* SettingsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5D649D1E10006100E92DDD /* SettingsTableViewDataSource.swift */; };
@@ -92,6 +94,8 @@
 		DC24341B1E233848002FBDE7 /* ManageMilestoneCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManageMilestoneCell.xib; sourceTree = "<group>"; };
 		DC24341D1E23385A002FBDE7 /* ManageLabelsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManageLabelsCell.xib; sourceTree = "<group>"; };
 		DC24341F1E23386B002FBDE7 /* ManageDescriptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManageDescriptionCell.xib; sourceTree = "<group>"; };
+		DC2434431E2849F6002FBDE7 /* ActivityRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityRouter.swift; sourceTree = "<group>"; };
+		DC2434451E284A4A002FBDE7 /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		DC5D64991E0F9F4B00E92DDD /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		DC5D649B1E10005000E92DDD /* SettingsTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDelegate.swift; sourceTree = "<group>"; };
 		DC5D649D1E10006100E92DDD /* SettingsTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -189,10 +193,12 @@
 		DC6C377D1E1C9E7F003D28C4 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				DC5D64991E0F9F4B00E92DDD /* Utils.swift */,
 				DC6C377E1E1C9EA4003D28C4 /* GitHubAPIManager.swift */,
 				DC6C378C1E1CD312003D28C4 /* RepoRouter.swift */,
 				DC6C378E1E1CD46C003D28C4 /* IssueRouter.swift */,
 				DC24340C1E20E748002FBDE7 /* UserRouter.swift */,
+				DC2434431E2849F6002FBDE7 /* ActivityRouter.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -243,7 +249,6 @@
 				DC6C377D1E1C9E7F003D28C4 /* Helpers */,
 				DC72816B1E0E178E00EEFC57 /* Assets.xcassets */,
 				DC7281701E0E178E00EEFC57 /* Info.plist */,
-				DC5D64991E0F9F4B00E92DDD /* Utils.swift */,
 			);
 			path = gitap;
 			sourceTree = "<group>";
@@ -274,6 +279,7 @@
 				DC6C37921E1DC049003D28C4 /* File.swift */,
 				DC6C37941E1DC2B8003D28C4 /* User.swift */,
 				DC2434081E1FBC52002FBDE7 /* Repo.swift */,
+				DC2434451E284A4A002FBDE7 /* Feed.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -529,6 +535,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC2434091E1FBC52002FBDE7 /* Repo.swift in Sources */,
+				DC2434461E284A4A002FBDE7 /* Feed.swift in Sources */,
 				DC6C378A1E1CBA11003D28C4 /* LoginViewController.swift in Sources */,
 				DC5D649E1E10006100E92DDD /* SettingsTableViewDataSource.swift in Sources */,
 				DC7281AB1E0F665000EEFC57 /* ReposTableViewDataSource.swift in Sources */,
@@ -551,6 +558,7 @@
 				DC6C376A1E160854003D28C4 /* IssueDetailTableViewDelegate.swift in Sources */,
 				DCC817371E15ECF700E7056C /* IssuesTableViewDelegate.swift in Sources */,
 				DC6C378F1E1CD46C003D28C4 /* IssueRouter.swift in Sources */,
+				DC2434441E2849F6002FBDE7 /* ActivityRouter.swift in Sources */,
 				DC7281AE1E0F6B4C00EEFC57 /* ReposTableViewCell.swift in Sources */,
 				DCC8173C1E15EE5500E7056C /* IssueDetailViewController.swift in Sources */,
 				DC24340F1E232294002FBDE7 /* AlertHelper.swift in Sources */,

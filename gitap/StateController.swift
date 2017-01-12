@@ -81,7 +81,7 @@ class StateController: NSObject {
         }
     }
     
-    // repos
+    // MARK: - repos
     func getRepos(completionHandler:@escaping ((Bool) -> Void)) {
         GitHubAPIManager.sharedInstance.fetch(RepoRouter.listRepos()) { (result: Result<[Repo]>, nextPage) in
             guard result.error == nil else {
@@ -95,6 +95,14 @@ class StateController: NSObject {
             }
             
             self.repos = fetchedRepos
+            completionHandler(true)
+        }
+    }
+    
+    // MARK: - feeds
+    func listFeeds(completionHandler:@escaping ((Bool) -> Void)) {
+        GitHubAPIManager.sharedInstance.fetch(ActivityRouter.listFeeds()) { (result: Result<[Feed]>, nextPage) in
+            
             completionHandler(true)
         }
     }
