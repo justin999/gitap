@@ -100,10 +100,10 @@ class StateController: NSObject {
     }
     
     // MARK: - feeds
-    func listFeeds(completionHandler:@escaping ((Bool) -> Void)) {
+    func listFeeds(completionHandler: ((Bool) -> Void)?) {
         GitHubAPIManager.sharedInstance.fetch(ActivityRouter.listFeeds()) { (result: Result<[Feed]>, nextPage) in
             
-            completionHandler(true)
+            completionHandler!(true)
         }
     }
     
