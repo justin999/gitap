@@ -60,9 +60,9 @@ class StateController: NSObject {
         }
     }
     
-    // issues
-    func getIssues(completionHandler: @escaping ((Bool) -> Void)) {
-        GitHubAPIManager.sharedInstance.fetch(IssueRouter.listIssues()) { (result: Result<[Issue]>, nextPage) in
+    // MARK: - issues
+    func getIssues(params: [String: Any], completionHandler: @escaping ((Bool) -> Void)) {
+        GitHubAPIManager.sharedInstance.fetch(IssueRouter.listIssues(params)) { (result: Result<[Issue]>, nextPage) in
             guard result.error == nil else {
                 self.handleLoadIssuesError(result.error!)
                 return

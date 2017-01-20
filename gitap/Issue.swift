@@ -62,9 +62,9 @@ class Issue: NSObject, ResultProtocol {
     var state: String?
     var title: String?
     var body: String?
-//    var user: User?
+    var user: User?
 //    var labels: [Label]?
-//    var assignee: [User]?
+    var assignee: [User]?
 //    var milestone: Milestone?
     var locked: Bool?
     var comments: String?

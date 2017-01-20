@@ -5,12 +5,13 @@
 //  Created by Koichi Sato on 1/4/17.
 //  Copyright © 2017 Koichi Sato. All rights reserved.
 //
+//  https://developer.github.com/v3/issues/
 
 import Foundation
 import Alamofire
 
 enum IssueRouter: URLRequestConvertible {
-    case listIssues()
+    case listIssues([String: Any])
     
     func asURLRequest() throws -> URLRequest {
         var method: HTTPMethod {
@@ -23,7 +24,7 @@ enum IssueRouter: URLRequestConvertible {
         let url: URL = {
             let relativePath: String
             switch self {
-            case .listIssues():
+            case .listIssues:
                 relativePath = "/issues"
             }
             
@@ -34,8 +35,8 @@ enum IssueRouter: URLRequestConvertible {
         
         let params: ([String: Any]?) = {
             switch self {
-            case .listIssues:
-                return nil
+            case .listIssues(let parameters):
+                return parameters
             }
         }()
         
@@ -47,8 +48,7 @@ enum IssueRouter: URLRequestConvertible {
             urlRequest.setValue("token \(token)", forHTTPHeaderField: "Authorization")
         }
         
-        let encoding = JSONEncoding.default
-        return try encoding.encode(urlRequest, with: params)
+        return try URLEncoding.queryString.encode(urlRequest, with: params)
     }
 }
 

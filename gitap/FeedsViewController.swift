@@ -47,7 +47,7 @@ class FeedsViewController: UIViewController, LoginViewDelegate, SFSafariViewCont
         }
         
         if GitHubAPIManager.sharedInstance.hasOAuthToken() {
-            stateController?.getIssues { success in
+            stateController?.getIssues(params: ["filter": "all"]) { success in
                 self.tableView.reloadData()
             }
 //            GitHubAPIManager.sharedInstance.printIssues()
