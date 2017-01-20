@@ -33,7 +33,9 @@ extension FeedsTableViewDataSource: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: feedsCellId) as! FeedsTableViewCell
-        cell.issueNameLabel?.text = stateController.issues?[indexPath.row].title
+        if let issue = stateController.issues?[indexPath.row] {
+            cell.setData(issue: issue)
+        }
         return cell
 
     }

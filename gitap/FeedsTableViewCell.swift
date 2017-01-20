@@ -13,19 +13,14 @@ class FeedsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setData()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
-    func setData() {
-//        if let issue = issue {
-//            issueNameLabel.text = issue.title
-//        }
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+    }
+    
+    func setData(issue: Issue) {
+        self.issueNameLabel.text = issue.title
     }
     
 }
