@@ -195,10 +195,10 @@
 			children = (
 				DC5D64991E0F9F4B00E92DDD /* Utils.swift */,
 				DC6C377E1E1C9EA4003D28C4 /* GitHubAPIManager.swift */,
-				DC6C378C1E1CD312003D28C4 /* RepoRouter.swift */,
-				DC6C378E1E1CD46C003D28C4 /* IssueRouter.swift */,
-				DC24340C1E20E748002FBDE7 /* UserRouter.swift */,
 				DC2434431E2849F6002FBDE7 /* ActivityRouter.swift */,
+				DC6C378E1E1CD46C003D28C4 /* IssueRouter.swift */,
+				DC6C378C1E1CD312003D28C4 /* RepoRouter.swift */,
+				DC24340C1E20E748002FBDE7 /* UserRouter.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
