@@ -24,8 +24,8 @@ class FeedsTableViewDataSource: NSObject {
 extension FeedsTableViewDataSource: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let issues = stateController.issues {
-            return issues.count
+        if let events = stateController.issueEvents {
+            return events.count
         } else {
             return 0
         }
@@ -33,8 +33,8 @@ extension FeedsTableViewDataSource: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: feedsCellId) as! FeedsTableViewCell
-        if let issue = stateController.issues?[indexPath.row] {
-            cell.setData(issue: issue)
+        if let event = stateController.issueEvents?[indexPath.row] {
+            cell.setData(event: event)
         }
         return cell
 

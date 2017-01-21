@@ -19,8 +19,8 @@ class FeedsTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setData(issue: Issue) {
-        self.issueNameLabel.text = issue.title
+    func setData(event: Event) {
+        self.issueNameLabel.text = event.type
     }
     
 }

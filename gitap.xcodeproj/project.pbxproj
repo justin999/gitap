@@ -20,6 +20,8 @@
 		DC2434441E2849F6002FBDE7 /* ActivityRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2434431E2849F6002FBDE7 /* ActivityRouter.swift */; };
 		DC2434461E284A4A002FBDE7 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2434451E284A4A002FBDE7 /* Feed.swift */; };
 		DC3D8FBC1E33907500D349B6 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D8FBB1E33907500D349B6 /* Event.swift */; };
+		DC3D8FBE1E33B71700D349B6 /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D8FBD1E33B71700D349B6 /* Payload.swift */; };
+		DC3D8FC11E33B97400D349B6 /* PayloadIssuesEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D8FC01E33B97400D349B6 /* PayloadIssuesEvent.swift */; };
 		DC5D649A1E0F9F4B00E92DDD /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5D64991E0F9F4B00E92DDD /* Utils.swift */; };
 		DC5D649C1E10005000E92DDD /* SettingsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5D649B1E10005000E92DDD /* SettingsTableViewDelegate.swift */; };
 		DC5D649E1E10006100E92DDD /* SettingsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5D649D1E10006100E92DDD /* SettingsTableViewDataSource.swift */; };
@@ -98,6 +100,8 @@
 		DC2434431E2849F6002FBDE7 /* ActivityRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityRouter.swift; sourceTree = "<group>"; };
 		DC2434451E284A4A002FBDE7 /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		DC3D8FBB1E33907500D349B6 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		DC3D8FBD1E33B71700D349B6 /* Payload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Payload.swift; sourceTree = "<group>"; };
+		DC3D8FC01E33B97400D349B6 /* PayloadIssuesEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayloadIssuesEvent.swift; sourceTree = "<group>"; };
 		DC5D64991E0F9F4B00E92DDD /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		DC5D649B1E10005000E92DDD /* SettingsTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDelegate.swift; sourceTree = "<group>"; };
 		DC5D649D1E10006100E92DDD /* SettingsTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -192,6 +196,15 @@
 			name = ManageIssues;
 			sourceTree = "<group>";
 		};
+		DC3D8FBF1E33B93400D349B6 /* Payloads */ = {
+			isa = PBXGroup;
+			children = (
+				DC3D8FBD1E33B71700D349B6 /* Payload.swift */,
+				DC3D8FC01E33B97400D349B6 /* PayloadIssuesEvent.swift */,
+			);
+			name = Payloads;
+			sourceTree = "<group>";
+		};
 		DC6C377D1E1C9E7F003D28C4 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +291,7 @@
 			children = (
 				DC3D8FBB1E33907500D349B6 /* Event.swift */,
 				DC6C37901E1D081C003D28C4 /* Issue.swift */,
+				DC3D8FBF1E33B93400D349B6 /* Payloads */,
 				DC24340A1E209AE7002FBDE7 /* Permission.swift */,
 				DC6C37921E1DC049003D28C4 /* File.swift */,
 				DC6C37941E1DC2B8003D28C4 /* User.swift */,
@@ -538,6 +552,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC2434091E1FBC52002FBDE7 /* Repo.swift in Sources */,
+				DC3D8FC11E33B97400D349B6 /* PayloadIssuesEvent.swift in Sources */,
 				DC2434461E284A4A002FBDE7 /* Feed.swift in Sources */,
 				DC6C378A1E1CBA11003D28C4 /* LoginViewController.swift in Sources */,
 				DC5D649E1E10006100E92DDD /* SettingsTableViewDataSource.swift in Sources */,
@@ -545,6 +560,7 @@
 				DC24340D1E20E748002FBDE7 /* UserRouter.swift in Sources */,
 				DC2434171E232DB8002FBDE7 /* ManageIssuesTableViewCell.swift in Sources */,
 				DC7281931E0E1A7500EEFC57 /* ReposViewController.swift in Sources */,
+				DC3D8FBE1E33B71700D349B6 /* Payload.swift in Sources */,
 				DC6C37951E1DC2B8003D28C4 /* User.swift in Sources */,
 				DC6C377F1E1C9EA4003D28C4 /* GitHubAPIManager.swift in Sources */,
 				DC6C37911E1D081C003D28C4 /* Issue.swift in Sources */,

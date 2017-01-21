@@ -11,7 +11,7 @@ import Alamofire
 
 class StateController: NSObject {
     var viewController: UIViewController
-    var issues: [Issue]?
+    var issueEvents: [Event]?
     var repos: [Repo]?
 
     init(viewController: UIViewController) {
@@ -60,21 +60,30 @@ class StateController: NSObject {
         }
     }
     
-    // MARK: - issues
-    func getIssues(params: [String: Any], completionHandler: @escaping ((Bool) -> Void)) {
-        GitHubAPIManager.sharedInstance.fetch(IssueRouter.listIssues(params)) { (result: Result<[Issue]>, nextPage) in
+    // MARK: - Events
+    func getIssueEvents(userName: String, completionHandler: @escaping ((Bool) -> Void)) {
+        GitHubAPIManager.sharedInstance.fetch(ActivityRouter.listEventsUserReceived(userName)) { (result: Result<[Event]>, nextPage) in
+            print("events: \(result)")
+            
             guard result.error == nil else {
                 self.handleLoadIssuesError(result.error!)
                 return
             }
             
-            guard let fetchedIssues = result.value else {
+            guard let fetchedEvents = result.value else {
                 print("no issues fetched")
                 return
             }
             
-            print("fetchedIsssues: \(fetchedIssues)")
-            self.issues = fetchedIssues
+            print("fetchedIsssues: \(fetchedEvents)")
+//            TODO: fetchedEventsの中からさらにissueeventのものに絞る type: IssueCommentEvent, IssuesEvent
+            var eventsArray = [Event]()
+            fetchedEvents.forEach { event in
+                if event.type == "IssueCommentEvent" || event.type == "IssuesEvent" {
+                    eventsArray.append(event)
+                }
+            }
+            self.issueEvents = eventsArray
             completionHandler(true)
             
             
