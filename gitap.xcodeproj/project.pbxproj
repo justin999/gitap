@@ -19,6 +19,7 @@
 		DC2434201E23386B002FBDE7 /* ManageDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC24341F1E23386B002FBDE7 /* ManageDescriptionCell.xib */; };
 		DC2434441E2849F6002FBDE7 /* ActivityRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2434431E2849F6002FBDE7 /* ActivityRouter.swift */; };
 		DC2434461E284A4A002FBDE7 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2434451E284A4A002FBDE7 /* Feed.swift */; };
+		DC3D8FBC1E33907500D349B6 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D8FBB1E33907500D349B6 /* Event.swift */; };
 		DC5D649A1E0F9F4B00E92DDD /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5D64991E0F9F4B00E92DDD /* Utils.swift */; };
 		DC5D649C1E10005000E92DDD /* SettingsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5D649B1E10005000E92DDD /* SettingsTableViewDelegate.swift */; };
 		DC5D649E1E10006100E92DDD /* SettingsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5D649D1E10006100E92DDD /* SettingsTableViewDataSource.swift */; };
@@ -96,6 +97,7 @@
 		DC24341F1E23386B002FBDE7 /* ManageDescriptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManageDescriptionCell.xib; sourceTree = "<group>"; };
 		DC2434431E2849F6002FBDE7 /* ActivityRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityRouter.swift; sourceTree = "<group>"; };
 		DC2434451E284A4A002FBDE7 /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		DC3D8FBB1E33907500D349B6 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		DC5D64991E0F9F4B00E92DDD /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		DC5D649B1E10005000E92DDD /* SettingsTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDelegate.swift; sourceTree = "<group>"; };
 		DC5D649D1E10006100E92DDD /* SettingsTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 		DC7281961E0E1A9500EEFC57 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				DC3D8FBB1E33907500D349B6 /* Event.swift */,
 				DC6C37901E1D081C003D28C4 /* Issue.swift */,
 				DC24340A1E209AE7002FBDE7 /* Permission.swift */,
 				DC6C37921E1DC049003D28C4 /* File.swift */,
@@ -558,6 +561,7 @@
 				DC6C376A1E160854003D28C4 /* IssueDetailTableViewDelegate.swift in Sources */,
 				DCC817371E15ECF700E7056C /* IssuesTableViewDelegate.swift in Sources */,
 				DC6C378F1E1CD46C003D28C4 /* IssueRouter.swift in Sources */,
+				DC3D8FBC1E33907500D349B6 /* Event.swift in Sources */,
 				DC2434441E2849F6002FBDE7 /* ActivityRouter.swift in Sources */,
 				DC7281AE1E0F6B4C00EEFC57 /* ReposTableViewCell.swift in Sources */,
 				DCC8173C1E15EE5500E7056C /* IssueDetailViewController.swift in Sources */,

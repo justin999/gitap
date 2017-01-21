@@ -11,30 +11,36 @@ import Alamofire
 
 enum ActivityRouter: URLRequestConvertible {
     case listFeeds()
+    case listEvents()
+    case listEventsUserReceived(String)
     
     func asURLRequest() throws -> URLRequest {
         var method: HTTPMethod {
             switch self {
-            case .listFeeds:
+            case .listFeeds, .listEvents, .listEventsUserReceived:
                 return .get
             }
         }
         
         let url: URL = {
+            var url = URL(string: githubBaseURLString)!
             let relativePath: String
             switch self {
             case .listFeeds():
                 relativePath = "/feeds"
+            case .listEvents():
+                relativePath = "/events"
+            case .listEventsUserReceived(let userName):
+                relativePath = "/users/\(userName)/received_events"
             }
             
-            var url = URL(string: githubBaseURLString)!
             url.appendPathComponent(relativePath)
             return url
         }()
         
         let params: ([String: Any]?) = {
             switch self {
-            case .listFeeds:
+            case .listFeeds, .listEvents, .listEventsUserReceived:
                 return nil
             }
         }()

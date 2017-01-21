@@ -46,6 +46,9 @@ class FeedsViewController: UIViewController, LoginViewDelegate, SFSafariViewCont
             }
         }
         
+        
+        // TODO: refact: feedのAPIはこれを使うべし
+        // https://developer.github.com/v3/issues/events/#list-events-for-a-repository
         if GitHubAPIManager.sharedInstance.hasOAuthToken() {
             stateController?.getIssues(params: ["filter": "all"]) { success in
                 self.tableView.reloadData()

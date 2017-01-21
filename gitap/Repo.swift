@@ -142,10 +142,10 @@ class Repo: NSObject, ResultProtocol {
             self.updated_at = dateFormatter.date(from: dateString)
         }
         
-        if let user = User(json: json["owner"] as! [String : Any]) {
-            self.owner = user
+        if let dataDictionary = json["owner"] as? [String: Any] {
+            self.owner = User(json: dataDictionary)
         }
-        
+
 //        self.isMyRepo = self.owner?.login == Utils.getMyName ? true : false
     }
 }
