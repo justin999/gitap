@@ -47,12 +47,13 @@ class FeedsViewController: UIViewController, LoginViewDelegate, SFSafariViewCont
         }
         
         if GitHubAPIManager.sharedInstance.hasOAuthToken() {
-            // TODO: ここのuserNameはauthenticatedUserのloginをもってくるようにする
-            stateController?.getIssueEvents(userName: "justin999") { success in
-                self.tableView.reloadData()
+            if let userName = UserDefaults.standard.string(forKey: "githubLoginName") {
+                stateController?.getIssueEvents(userName: userName) { success in
+                    self.tableView.reloadData()
+                }
             }
         } else {
-            self.showOAuthLoginView()
+            Utils.showOAuthLoginView(inViewcontroller: self, delegate: self)
         }
     }
 
@@ -61,14 +62,6 @@ class FeedsViewController: UIViewController, LoginViewDelegate, SFSafariViewCont
         // Dispose of any resources that can be recreated.
     }
     
-    // tmp
-    func showOAuthLoginView() {
-        GitHubAPIManager.sharedInstance.isLoadingOAuthToken = true
-        let loginVC = LoginViewController(nibName: "LoginViewController", bundle: nil)
-        loginVC.delegate = self
-        self.present(loginVC, animated: true, completion: nil)
-    }
-
     // delegate
     func didTapLoginButton() {
         print("button tapped")

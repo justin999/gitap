@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
+        // TODO: feedsVCをロードする前にログインしているかどうかをチェックしたい。
+        GitHubAPIManager.sharedInstance.fetch(userRouter.fetchAuthenticatedUser()) { (result: Result<[User]>, nextpage) in
+            guard result.error == nil else {
+                // TODO: ここで何かセねば
+//                self.handleLoadIssuesError(result.error!)
+                return
+            }
+            
+            if let fetchedUsers = result.value, let user = fetchedUsers.first {
+                UserDefaults.standard.set(user.loginName, forKey: "githubLoginName")
+            }
+            
+        }
+
         if let tabBarController = window?.rootViewController as? UITabBarController,
             let navigationController = tabBarController.viewControllers?.first as? UINavigationController {
             if let feedsViewController = navigationController.viewControllers.first as? FeedsViewController {
@@ -24,6 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 feedsViewController.stateController = stateController
                 stateController?.viewController = feedsViewController
                 addRightBarButton(navigationController: navigationController)
+                
             }
             if let navigationController = tabBarController.viewControllers?[1] as? UINavigationController,
                 let reposViewController = navigationController.viewControllers.first as? ReposViewController {

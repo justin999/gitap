@@ -17,19 +17,15 @@ class Event: NSObject, ResultProtocol {
     var actor: User?
 //    var org: Organization?
     var created_at: Date?
+    
     required init?(json: [String: Any]) {
         super.init()
         self.id = json["id"] as? String
         self.type = json["type"] as? String
         self.isPublic = json["public"] as? Bool
-        
-//        self.payload = json["payload"] as? Dictionary
-        if let type = self.type, let json = json["payload"] as? [String: Any] {
-            self.setPayload(type, json: json)
+        if let json = json["payload"] as? [String: Any] {
+            self.payload = Payload(json: json)
         }
-//        self.payload = ["action": json["action"],
-//                        "issue": Issue(json["issue"]),
-//                        ]
         
         if let dataDictionary = json["repo"] as? [String: Any] {
             self.repo = Repo(json: dataDictionary)
@@ -44,14 +40,5 @@ class Event: NSObject, ResultProtocol {
             self.created_at = dateFormatter.date(from: dateString)
         }
     
-    }
-    
-    private func setPayload(_ type: String, json: [String: Any]) {
-        switch type {
-        case "IssuesEvent":
-            self.payload = PayloadIssuesEvent(json: json)!
-        default:
-            print("do nothing")
-        }
     }
 }

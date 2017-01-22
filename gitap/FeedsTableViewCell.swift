@@ -20,7 +20,8 @@ class FeedsTableViewCell: UITableViewCell {
     }
     
     func setData(event: Event) {
-        self.issueNameLabel.text = event.type
+        self.issueNameLabel.text = event.payload?.issue?.title
+        
     }
     
 }

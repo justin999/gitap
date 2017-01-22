@@ -28,21 +28,6 @@ class SettingsViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         stateController?.viewController = self
         
-        // TODO: この処理は最終的にはアプリがフォアグラウンドに入ってきたときにやる
-//        self.stateController?.fetchAuthenticatedUser { (success) in
-//            print("success???: \(success)")
-//            // if successだったら何もしない
-//            // else ログインアラートを出す
-//        }
-        
-        // TODO: 消す test issues
-//        GitHubAPIManager.sharedInstance.fetch(ActivityRouter.fetchTimeline) { (result: Result<[Issue]>, nextPage) in
-//            print("come to here")
-//        }
-        GitHubAPIManager.sharedInstance.fetch(ActivityRouter.listEventsUserReceived("justin999")) { (result: Result<[Event]>, nextPage) in
-            print("events: \(result)")
-        }
-        
     }
 
     override func didReceiveMemoryWarning() {

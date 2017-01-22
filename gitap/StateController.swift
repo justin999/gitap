@@ -39,22 +39,16 @@ class StateController: NSObject {
     
     // data
     // users
-    func fetchAuthenticatedUser(completionHandler: @escaping ((Bool) -> Void)) {
+    func fetchAuthenticatedUser(completionHandler: @escaping ((Result<User>) -> Void)) {
         GitHubAPIManager.sharedInstance.fetch(userRouter.fetchAuthenticatedUser()) { (result: Result<[User]>, nextpage) in
             guard result.error == nil else {
                 self.handleLoadIssuesError(result.error!)
+                completionHandler(result.error as! Result<User>)
                 return
             }
             
-            guard let fetchedUsers = result.value else {
-                print("no user fetched")
-                return
-            }
-            if let user = fetchedUsers.first {
-                let userDefault = UserDefaults()
-                userDefault.set(user.loginName, forKey: "githubLoginName")
-                userDefault.set(user.githubId, forKey: "githubUserId")
-                completionHandler(true)
+            if let fetchedUsers = result.value, let user = fetchedUsers.first {
+                completionHandler(.success(user))
             }
             
         }
