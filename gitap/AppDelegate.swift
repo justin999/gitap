@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             
             if let fetchedUsers = result.value, let user = fetchedUsers.first {
-                UserDefaults.standard.set(user.loginName, forKey: "githubLoginName")
+                UserDefaults.standard.set(user.loginName, forKey: Constant.userDefaults.githubLoginName)
             }
             
         }

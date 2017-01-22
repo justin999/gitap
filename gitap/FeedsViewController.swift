@@ -47,7 +47,7 @@ class FeedsViewController: UIViewController, LoginViewDelegate, SFSafariViewCont
         }
         
         if GitHubAPIManager.sharedInstance.hasOAuthToken() {
-            if let userName = UserDefaults.standard.string(forKey: "githubLoginName") {
+            if let userName = UserDefaults.standard.string(forKey: Constant.userDefaults.githubLoginName) {
                 stateController?.getIssueEvents(userName: userName) { success in
                     self.tableView.reloadData()
                 }
