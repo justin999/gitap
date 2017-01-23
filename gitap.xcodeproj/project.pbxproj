@@ -23,6 +23,8 @@
 		DC3D8FBE1E33B71700D349B6 /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D8FBD1E33B71700D349B6 /* Payload.swift */; };
 		DC3D8FC11E33B97400D349B6 /* PayloadIssuesEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D8FC01E33B97400D349B6 /* PayloadIssuesEvent.swift */; };
 		DC3D8FC31E34549000D349B6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D8FC21E34549000D349B6 /* Constants.swift */; };
+		DC3D8FC51E35769300D349B6 /* SetupAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC3D8FC41E35769300D349B6 /* SetupAccount.storyboard */; };
+		DC3D8FC71E3576D300D349B6 /* SetupAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D8FC61E3576D300D349B6 /* SetupAccountViewController.swift */; };
 		DC5D649A1E0F9F4B00E92DDD /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5D64991E0F9F4B00E92DDD /* Utils.swift */; };
 		DC5D649C1E10005000E92DDD /* SettingsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5D649B1E10005000E92DDD /* SettingsTableViewDelegate.swift */; };
 		DC5D649E1E10006100E92DDD /* SettingsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5D649D1E10006100E92DDD /* SettingsTableViewDataSource.swift */; };
@@ -104,6 +106,8 @@
 		DC3D8FBD1E33B71700D349B6 /* Payload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Payload.swift; sourceTree = "<group>"; };
 		DC3D8FC01E33B97400D349B6 /* PayloadIssuesEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayloadIssuesEvent.swift; sourceTree = "<group>"; };
 		DC3D8FC21E34549000D349B6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DC3D8FC41E35769300D349B6 /* SetupAccount.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SetupAccount.storyboard; sourceTree = "<group>"; };
+		DC3D8FC61E3576D300D349B6 /* SetupAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupAccountViewController.swift; sourceTree = "<group>"; };
 		DC5D64991E0F9F4B00E92DDD /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		DC5D649B1E10005000E92DDD /* SettingsTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDelegate.swift; sourceTree = "<group>"; };
 		DC5D649D1E10006100E92DDD /* SettingsTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -330,6 +334,8 @@
 		DC72819A1E0E1AC000EEFC57 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				DC3D8FC61E3576D300D349B6 /* SetupAccountViewController.swift */,
+				DC3D8FC41E35769300D349B6 /* SetupAccount.storyboard */,
 				DC7281661E0E178E00EEFC57 /* FeedsViewController.swift */,
 				DC7281941E0E1A8C00EEFC57 /* SettingsViewController.swift */,
 				DC7281921E0E1A7500EEFC57 /* ReposViewController.swift */,
@@ -503,6 +509,7 @@
 				DC24341E1E23385A002FBDE7 /* ManageLabelsCell.xib in Resources */,
 				DC2434181E232DB8002FBDE7 /* ManageTitleCell.xib in Resources */,
 				DCC8173D1E15EE5500E7056C /* IssueDetailViewController.xib in Resources */,
+				DC3D8FC51E35769300D349B6 /* SetupAccount.storyboard in Resources */,
 				DC7281AF1E0F6B4C00EEFC57 /* ReposTableViewCell.xib in Resources */,
 				DC5E81D21E115D02008B1971 /* CreateIssuesViewController.xib in Resources */,
 				DC7281A71E0E338D00EEFC57 /* FeedsTableViewCell.xib in Resources */,
@@ -574,6 +581,7 @@
 				DC7281671E0E178E00EEFC57 /* FeedsViewController.swift in Sources */,
 				DC7281651E0E178E00EEFC57 /* AppDelegate.swift in Sources */,
 				DC7281951E0E1A8C00EEFC57 /* SettingsViewController.swift in Sources */,
+				DC3D8FC71E3576D300D349B6 /* SetupAccountViewController.swift in Sources */,
 				DC7281A11E0E325200EEFC57 /* FeedsTableViewDelegate.swift in Sources */,
 				DCC8172A1E14012000E7056C /* EditIssuesTableViewDataSource.swift in Sources */,
 				DC7281A61E0E338D00EEFC57 /* FeedsTableViewCell.swift in Sources */,

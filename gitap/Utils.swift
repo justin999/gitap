@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class Utils: NSObject {
     class func addRightBarButton(navigationController: UINavigationController, target: Any?) {
@@ -31,10 +32,12 @@ class Utils: NSObject {
         return aDateFormatter
     }
     
-    class func presentAlert(inViewController: UIViewController,title: String, message: String, style: UIAlertControllerStyle, actions: [UIAlertAction], completion: (() -> Void)?) {
+    class func presentAlert(inViewController: UIViewController,title: String, message: String, style: UIAlertControllerStyle, actions: [UIAlertAction]?, completion: (() -> Void)?) {
         let alert: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: style)
-        for action in actions {
-            alert.addAction(action)
+        if let actions = actions {
+            for action in actions {
+                alert.addAction(action)
+            }
         }
         inViewController.present(alert, animated: true, completion: completion)
     }
@@ -49,6 +52,20 @@ class Utils: NSObject {
         let loginVC = LoginViewController(nibName: "LoginViewController", bundle: nil)
         loginVC.delegate = delegate
         inViewcontroller.present(loginVC, animated: true, completion: nil)
+    }
+    
+    class func loginAction(viewController: UIViewController, sfDelegate: SFSafariViewControllerDelegate) {
+        viewController.dismiss(animated: false) {
+            guard let authURL = GitHubAPIManager.sharedInstance.URLToStartOAuth2Login() else {
+                let error = GitHubAPIManagerError.authCouldNot(reason: kMessageFailToObtainToken)
+                GitHubAPIManager.sharedInstance.OAuthTokenCompletionHandler?(error)
+                return
+            }
+            let safariViewController = SFSafariViewController(url: authURL)
+            safariViewController.delegate = sfDelegate
+
+            viewController.present(safariViewController, animated: true, completion: nil)
+        }
     }
 
 }

@@ -188,15 +188,6 @@ class GitHubAPIManager {
         }
     }
     
-    func fetch(_ urlRequest: URLRequestConvertible) {
-        Alamofire.request(urlRequest)
-            .response { response in
-                if let urlResponse = response as? DefaultDataResponse {
-                    print("\(urlResponse)")
-                }
-        }
-    }
-    
     private func arrayFromResponse<T: ResultProtocol>(response: DataResponse<Any>) -> Result<[T]> {
         guard response.result.error == nil else {
             print("error: \(response.result.error)")

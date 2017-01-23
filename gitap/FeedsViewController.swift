@@ -65,19 +65,20 @@ class FeedsViewController: UIViewController, LoginViewDelegate, SFSafariViewCont
     // delegate
     func didTapLoginButton() {
         print("button tapped")
-        self.dismiss(animated: false) {
-            guard let authURL = GitHubAPIManager.sharedInstance.URLToStartOAuth2Login() else {
-                let error = GitHubAPIManagerError.authCouldNot(reason: kMessageFailToObtainToken)
-                GitHubAPIManager.sharedInstance.OAuthTokenCompletionHandler?(error)
-                return
-            }
-            self.safariViewController = SFSafariViewController(url: authURL)
-            self.safariViewController?.delegate = self
-            guard let webViewController = self.safariViewController else {
-                return
-            }
-            self.present(webViewController, animated: true, completion: nil)
-        }
+        Utils.loginAction(viewController: self, sfDelegate: self)
+//        self.dismiss(animated: false) {
+//            guard let authURL = GitHubAPIManager.sharedInstance.URLToStartOAuth2Login() else {
+//                let error = GitHubAPIManagerError.authCouldNot(reason: kMessageFailToObtainToken)
+//                GitHubAPIManager.sharedInstance.OAuthTokenCompletionHandler?(error)
+//                return
+//            }
+//            self.safariViewController = SFSafariViewController(url: authURL)
+//            self.safariViewController?.delegate = self
+//            guard let webViewController = self.safariViewController else {
+//                return
+//            }
+//            self.present(webViewController, animated: true, completion: nil)
+//        }
     }
     
     // MARK: - SFSafariViewControllerDelegate

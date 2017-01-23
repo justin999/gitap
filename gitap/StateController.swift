@@ -43,7 +43,7 @@ class StateController: NSObject {
         GitHubAPIManager.sharedInstance.fetch(userRouter.fetchAuthenticatedUser()) { (result: Result<[User]>, nextpage) in
             guard result.error == nil else {
                 self.handleLoadIssuesError(result.error!)
-                completionHandler(result.error as! Result<User>)
+                completionHandler(.failure(result.error!))
                 return
             }
             
