@@ -19,10 +19,17 @@ class FeedsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(FeedsTableViewCell.self, forCellReuseIdentifier: feedsCellId)
-        self.view.backgroundColor = UIColor.blue
-        if let stateController = stateController {
-            tableViewDataSource = FeedsTableViewDataSource(tableView: tableView, stateController: stateController)
-            tableViewDelegate = FeedsTableViewDelegate(tableView: tableView, stateController: stateController)
+        if let stateController = self.stateController, let userName = UserDefaults.standard.string(forKey: Constant.userDefaults.githubLoginName) {
+            stateController.getIssueEvents(userName: userName) { (isSuccess) in
+                
+                if isSuccess {
+                    self.tableViewDataSource = FeedsTableViewDataSource(tableView: self.tableView, stateController: stateController)
+                    self.tableViewDelegate = FeedsTableViewDelegate(tableView: self.tableView, stateController: stateController)
+                    self.tableView.reloadData()
+                } else {
+                    print("something went wrong")
+                }
+            }
         }
     }
     

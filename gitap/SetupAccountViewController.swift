@@ -38,7 +38,8 @@ class SetupAccountViewController: UIViewController, LoginViewDelegate, SFSafariV
             } else if result.isSuccess {
                 
                 self.user = result.value
-                
+                let loginName = self.user?.loginName
+                UserDefaults.standard.set(loginName, forKey: Constant.userDefaults.githubLoginName)
                 
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 if let tabBarController = storyboard.instantiateInitialViewController() as? UITabBarController,

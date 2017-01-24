@@ -80,7 +80,7 @@ class StateController: NSObject {
             }
             
             print("fetchedIsssues: \(fetchedEvents)")
-//            TODO: fetchedEventsの中からさらにissueeventのものに絞る type: IssueCommentEvent, IssuesEvent
+            // fetchedEventsの中からさらにissueeventのものに絞る type: IssueCommentEvent, IssuesEvent
             var eventsArray = [Event]()
             fetchedEvents.forEach { event in
                 if event.type == "IssueCommentEvent" || event.type == "IssuesEvent" {
@@ -89,8 +89,6 @@ class StateController: NSObject {
             }
             self.issueEvents = eventsArray
             completionHandler(true)
-            
-            
         }
     }
     
