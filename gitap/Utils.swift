@@ -53,19 +53,5 @@ class Utils: NSObject {
         loginVC.delegate = delegate
         inViewcontroller.present(loginVC, animated: true, completion: nil)
     }
-    
-    class func loginAction(viewController: UIViewController, sfDelegate: SFSafariViewControllerDelegate) {
-        viewController.dismiss(animated: false) {
-            guard let authURL = GitHubAPIManager.sharedInstance.URLToStartOAuth2Login() else {
-                let error = GitHubAPIManagerError.authCouldNot(reason: kMessageFailToObtainToken)
-                GitHubAPIManager.sharedInstance.OAuthTokenCompletionHandler?(error)
-                return
-            }
-            let safariViewController = SFSafariViewController(url: authURL)
-            safariViewController.delegate = sfDelegate
-
-            viewController.present(safariViewController, animated: true, completion: nil)
-        }
-    }
 
 }

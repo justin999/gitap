@@ -160,6 +160,7 @@ class GitHubAPIManager {
             case "scope":
                 // TODO: verify scope
                 print("SET SCOPE")
+                print("key: \(key), scope: \(value)")
             case "token_type":
                 // TODO: verify is bearer
                 print("CHECK IF BEARER")

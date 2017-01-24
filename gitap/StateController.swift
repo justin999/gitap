@@ -37,6 +37,16 @@ class StateController: NSObject {
         inViewController.present(vc, animated: true, completion: nil)
     }
     
+    func presentSetupViewController(inViewController: UIViewController) {
+        let storyboard = UIStoryboard(name: "SetupAccount", bundle: nil)
+        if let setupVC = storyboard.instantiateInitialViewController() as? SetupAccountViewController {
+            setupVC.stateController = self
+            inViewController.present(setupVC, animated: true, completion: nil)
+        } else {
+            print("something went wrong")
+        }
+    }
+    
     // data
     // users
     func fetchAuthenticatedUser(completionHandler: @escaping ((Result<User>) -> Void)) {

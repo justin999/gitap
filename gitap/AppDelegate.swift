@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        // TODO: feedsVCをロードする前にログインしているかどうかをチェックしたい。
         if let setupAccountViewController = window?.rootViewController as? SetupAccountViewController {
             stateController = StateController(viewController: setupAccountViewController)
             setupAccountViewController.stateController = stateController
@@ -56,19 +55,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         GitHubAPIManager.sharedInstance.processOAuthStep1Response(url)
         return true
-    }
-
-    //MARK: private
-    func addRightBarButton(navigationController: UINavigationController) {
-        let item = UINavigationItem()
-        let plusButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
-        item.rightBarButtonItem = plusButton
-        navigationController.navigationBar.items = [item]
-    }
-    
-    func addButtonTapped() {
-        stateController?.presentManageIssuesViewController(inViewController: (stateController?.viewController)!)
-        
     }
     
 }
