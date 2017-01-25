@@ -93,6 +93,33 @@ class StateController: NSObject {
     }
     
     // MARK: - repos
+    func createIssue(params: [String: Any?], completionHandler: ((Result<Issue>) -> Void)?) {
+        GitHubAPIManager.sharedInstance.fetch(IssueRouter.createIssue(params)) { (result: Result<[Issue]>, nextPage) in
+            // TODO: いったん簡単なissueを作ってみる
+            guard result.error == nil else {
+                self.handleLoadIssuesError(result.error!)
+                if let handler = completionHandler {
+                    handler(.failure(result.error!))
+                }
+                return
+            }
+            
+            guard let createdIssue = result.value?.first else {
+                print("No Issue Created")
+                if let handler = completionHandler {
+                    handler(.failure(result.error!))
+                }
+                return
+            }
+            
+            print("Created Issue: \(createdIssue)")
+            if let handler = completionHandler {
+                handler(.success(createdIssue))
+            }
+        }
+    }
+    
+    // MARK: - repos
     func getRepos(completionHandler:@escaping ((Bool) -> Void)) {
         GitHubAPIManager.sharedInstance.fetch(RepoRouter.listRepos()) { (result: Result<[Repo]>, nextPage) in
             guard result.error == nil else {

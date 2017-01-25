@@ -5,6 +5,7 @@
 //  Created by Koichi Sato on 12/26/16.
 //  Copyright © 2016 Koichi Sato. All rights reserved.
 //
+//  https://developer.github.com/v3/issues/#create-an-issue
 //  aws s3: https://github.com/aws/aws-sdk-ios
 //  sample: https://github.com/awslabs/aws-sdk-ios-samples/tree/master/S3TransferManager-Sample/Swift/
 
@@ -16,25 +17,24 @@ class CreateIssuesViewController: UIViewController {
     @IBOutlet weak var doneButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     
-    var tableViewDelegate:   EditIssuesTableViewDelegate?
-    var tableViewDataSource: EditIssuesTableViewDataSource?
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var bodyTextView: UITextView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // TODO: table view height should be changed dynamically due to change of cells and headers height
-//        if let stateController = stateController {
-//            tableViewDelegate = EditIssuesTableViewDelegate(tableView: self.tableView, stateController: stateController)
-//            tableViewDataSource = EditIssuesTableViewDataSource(tableView: self.tableView, stateController: stateController)
-//        }
+        configureView()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    // MARK: - private 
+    func configureView() {
+        bodyTextView.layer.borderColor = UIColor.black.cgColor
+        bodyTextView.layer.borderWidth = 1.0
+        bodyTextView.layer.cornerRadius = 4.0
     }
     
     @IBAction func dismissView(_ sender: Any) {
@@ -44,18 +44,14 @@ class CreateIssuesViewController: UIViewController {
         }
     }
 
-    @IBAction func doneButtonTapped(_ sender: Any) {
+    @IBAction func createButtonTapped(_ sender: Any) {
         print("done button tapped")
+        let params = ["title": "てすとだyo",
+                      "body": "test no body dayo",
+                      "owner": "justin999",
+                      "repo": "bonita"
+                      ]
+        stateController?.createIssue(params: params, completionHandler: nil)
+        
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

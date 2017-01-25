@@ -9,10 +9,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ManageIssuesViewController" customModule="gitap" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateIssuesViewController" customModule="gitap" customModuleProvider="target">
             <connections>
+                <outlet property="bodyTextView" destination="i9S-oS-x73" id="f2P-ip-tdY"/>
                 <outlet property="cancelButton" destination="sCZ-FO-rBG" id="kHp-ZD-vBi"/>
                 <outlet property="doneButton" destination="5s3-lh-b88" id="YPV-YF-oM1"/>
+                <outlet property="titleTextField" destination="b4C-hA-UEe" id="4k6-Kv-9k1"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -30,9 +32,9 @@
                                     <action selector="dismissView:" destination="-1" id="BKp-gT-1C9"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="5s3-lh-b88">
+                            <barButtonItem key="rightBarButtonItem" title="Create" style="done" id="5s3-lh-b88">
                                 <connections>
-                                    <action selector="doneButtonTapped:" destination="-1" id="pPw-IX-g6a"/>
+                                    <action selector="createButtonTapped:" destination="-1" id="QrZ-3X-37z"/>
                                 </connections>
                             </barButtonItem>
                         </navigationItem>
@@ -45,11 +47,10 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="i9S-oS-x73">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="body" translatesAutoresizingMaskIntoConstraints="NO" id="i9S-oS-x73">
                     <rect key="frame" x="16" y="112" width="343" height="296"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>

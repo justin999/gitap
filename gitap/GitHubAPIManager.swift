@@ -77,7 +77,7 @@ class GitHubAPIManager {
     func URLToStartOAuth2Login() -> URL? {
         // TODO: change the state for production
         let authPath: String = "https://github.com/login/oauth/authorize" +
-        "?client_id=\(clientID)&scope=user%20repo%20gist&state=TEST_STATE"
+        "?client_id=\(clientID)&scope=user%20repo%20gist"
         return URL(string: authPath)
     }
     
@@ -178,6 +178,7 @@ class GitHubAPIManager {
     func fetch<T: ResultProtocol>(_ urlRequest: URLRequestConvertible, completionHandler: @escaping (Result<[T]>, String?) -> Void) {
         Alamofire.request(urlRequest)
             .responseJSON { response in
+                
                 if let urlResponse = response.response,
                     let authError = self.checkUnauthorized(urlResponse: urlResponse) {
                     completionHandler(.failure(authError), nil)
@@ -231,6 +232,10 @@ class GitHubAPIManager {
         if (urlResponse.statusCode == 401) {
             self.OAuthToken = nil
             return GitHubAPIManagerError.authLost(reason: "Not Logged In")
+        } else if (urlResponse.statusCode == 404) {
+            return GitHubAPIManagerError.authLost(reason: "Not Found")
+        } else if (urlResponse.statusCode >= 400 && urlResponse.statusCode < 500) { // TODO: describe this reason more kindly
+            return GitHubAPIManagerError.apiProvidedError(reason: "400 error")
         }
         return nil
     }
