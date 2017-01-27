@@ -16,6 +16,7 @@ class CreateIssuesViewController: UIViewController {
     
     @IBOutlet weak var doneButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
+    @IBOutlet weak var repoButton: UIButton!
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var bodyTextView: UITextView!
@@ -53,5 +54,15 @@ class CreateIssuesViewController: UIViewController {
                       ]
         stateController?.createIssue(params: params, completionHandler: nil)
         
+    }
+    
+    // MARK: - IBActions
+    @IBAction func repoButtonTapped(_ sender: Any) {
+        if let stateController = stateController {
+            stateController.showRepoLists()
+        } else {
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            Utils.presentAlert(inViewController: self, title: "エラー", message: "レポジトリがありません", style: UIAlertControllerStyle.alert, actions: [okAction], completion: nil)
+        }
     }
 }
