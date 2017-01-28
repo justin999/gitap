@@ -37,13 +37,6 @@ class StateController: NSObject {
         
     }
     
-    func presentManageIssuesViewController(inViewController: UIViewController) {
-        let vc = CreateIssuesViewController()
-        vc.stateController = self
-        self.viewController = vc
-        inViewController.present(vc, animated: true, completion: nil)
-    }
-    
     func presentSetupViewController(inViewController: UIViewController) {
         let storyboard = UIStoryboard(name: "SetupAccount", bundle: nil)
         if let setupVC = storyboard.instantiateInitialViewController() as? SetupAccountViewController {

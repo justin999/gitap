@@ -12,15 +12,14 @@ import SafariServices
 class Utils: NSObject {
     class func addRightBarButton(navigationController: UINavigationController, target: Any?) {
         let item = UINavigationItem()
-        let plusButton = UIBarButtonItem(barButtonSystemItem: .add, target: target, action: #selector(Utils.addButtonTapped))
+        let plusButton = UIBarButtonItem(barButtonSystemItem: .add, target: target, action: #selector(Utils.addButtonTapped(stateController:)))
         item.rightBarButtonItem = plusButton
         navigationController.navigationBar.items = [item]
     }
     
     class func addButtonTapped(stateController: StateController) {
-        print("add button tapped")
-        stateController.presentManageIssuesViewController(inViewController: stateController.viewController)
-        
+        let destination = CreateIssuesViewController()
+        stateController.present(destination: destination, inViewController: stateController.viewController)
     }
     
     // TODO: タイムゾーンを選べるように

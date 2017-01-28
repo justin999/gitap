@@ -78,8 +78,9 @@ class SetupAccountViewController: UIViewController, LoginViewDelegate, SFSafariV
     }
     
     func addButtonTapped() {
-        stateController?.presentManageIssuesViewController(inViewController: (stateController?.viewController)!)
-        
+        if let stateController = stateController {
+            Utils.addButtonTapped(stateController: stateController)
+        }
     }
     
     
