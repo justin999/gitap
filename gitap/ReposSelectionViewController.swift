@@ -8,28 +8,36 @@
 
 import UIKit
 
-class ReposSelectionViewController: UIViewController {
-
+class ReposSelectionViewController: MasterViewController {
+    
+    var tableViewDelegate: ReposTableViewDelegate?
+    var tableViewDataSource: ReposTableViewDataSource?
+    
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var selectionBar: UINavigationBar!
+    @IBOutlet weak var closeButton: UIBarButtonItem!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        configureView()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func configureView() {
+        if let stateController = super.stateController {
+            stateController.getRepos { isSuccess in
+                if isSuccess {
+                    self.tableViewDelegate = ReposTableViewDelegate(tableView: self.tableView, stateController: stateController)
+                    self.tableViewDataSource = ReposTableViewDataSource(tableView: self.tableView, stateController: stateController)
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func closeButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
-    */
-
+    
 }

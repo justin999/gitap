@@ -18,7 +18,7 @@ class StateController: NSObject {
         self.viewController = viewController
     }
 
-    // segue
+    // MARK: - segue
     func pushDetailViewController(inViewController: UIViewController, stateController: StateController) {
         let vc = ReposDetailViewController()
         vc.stateController = stateController
@@ -29,6 +29,10 @@ class StateController: NSObject {
         let vc = IssueDetailViewController()
         vc.stateController = stateController
         inViewController.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func showRepoLists() {
+        
     }
     
     func presentManageIssuesViewController(inViewController: UIViewController) {
@@ -45,6 +49,17 @@ class StateController: NSObject {
         } else {
             print("something went wrong")
         }
+    }
+    
+    func present(destination: MasterViewController, inViewController: UIViewController) {
+        destination.stateController = self
+        inViewController.present(destination, animated: true, completion: nil)
+    }
+    
+    func push(destination: MasterViewController, inViewController: UIViewController, stateController: StateController) {
+        let vc = MasterViewController()
+        vc.stateController = self
+        inViewController.navigationController?.pushViewController(vc, animated: true)
     }
     
     // data
@@ -136,6 +151,7 @@ class StateController: NSObject {
             completionHandler(true)
         }
     }
+    
     
     // MARK: - feeds
     func listFeeds(completionHandler: ((Bool) -> Void)?) {

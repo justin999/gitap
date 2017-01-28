@@ -11,8 +11,8 @@
 
 import UIKit
 
-class CreateIssuesViewController: UIViewController {
-    var stateController: StateController?
+class CreateIssuesViewController: MasterViewController {
+//    var stateController: StateController?
     
     @IBOutlet weak var doneButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
@@ -58,8 +58,11 @@ class CreateIssuesViewController: UIViewController {
     
     // MARK: - IBActions
     @IBAction func repoButtonTapped(_ sender: Any) {
+        print("repoButtonTapped")
         if let stateController = stateController {
-            stateController.showRepoLists()
+            let destination = ReposSelectionViewController(nibName: String(describing: ReposSelectionViewController.self), bundle: nil)
+            destination.stateController = stateController
+            stateController.present(destination: destination, inViewController: self)
         } else {
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             Utils.presentAlert(inViewController: self, title: "エラー", message: "レポジトリがありません", style: UIAlertControllerStyle.alert, actions: [okAction], completion: nil)

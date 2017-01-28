@@ -26,6 +26,8 @@
 		DC5D64A21E108E9100E92DDD /* ReposDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC5D64A01E108E9100E92DDD /* ReposDetailViewController.xib */; };
 		DC5E81D11E115D02008B1971 /* CreateIssuesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5E81CF1E115D02008B1971 /* CreateIssuesViewController.swift */; };
 		DC5E81D21E115D02008B1971 /* CreateIssuesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC5E81D01E115D02008B1971 /* CreateIssuesViewController.xib */; };
+		DC61BCBE1E3C43E300BDF1CD /* ReposSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC61BCBD1E3C43E300BDF1CD /* ReposSelectionViewController.xib */; };
+		DC61BCC01E3C4C4600BDF1CD /* ReposSelectionTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC61BCBF1E3C4C4600BDF1CD /* ReposSelectionTableViewDelegate.swift */; };
 		DC6C376A1E160854003D28C4 /* IssueDetailTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C37691E160854003D28C4 /* IssueDetailTableViewDelegate.swift */; };
 		DC6C376C1E160894003D28C4 /* IssueDetailTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C376B1E160894003D28C4 /* IssueDetailTableViewDataSource.swift */; };
 		DC6C377C1E1C9BFB003D28C4 /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C377B1E1C9BFB003D28C4 /* Configs.swift */; };
@@ -58,6 +60,7 @@
 		DC7281AE1E0F6B4C00EEFC57 /* ReposTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281AC1E0F6B4C00EEFC57 /* ReposTableViewCell.swift */; };
 		DC7281AF1E0F6B4C00EEFC57 /* ReposTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC7281AD1E0F6B4C00EEFC57 /* ReposTableViewCell.xib */; };
 		DC867AFB1E3ABD1700DD0553 /* ReposSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC867AFA1E3ABD1700DD0553 /* ReposSelectionViewController.swift */; };
+		DC867AFD1E3AD36600DD0553 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC867AFC1E3AD36600DD0553 /* MasterViewController.swift */; };
 		DCC817281E14010700E7056C /* EditIssuesTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC817271E14010700E7056C /* EditIssuesTableViewDelegate.swift */; };
 		DCC8172A1E14012000E7056C /* EditIssuesTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC817291E14012000E7056C /* EditIssuesTableViewDataSource.swift */; };
 		DCC817311E14E9C600E7056C /* UIView-positioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC817301E14E9C600E7056C /* UIView-positioning.swift */; };
@@ -104,6 +107,8 @@
 		DC5D64A01E108E9100E92DDD /* ReposDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReposDetailViewController.xib; sourceTree = "<group>"; };
 		DC5E81CF1E115D02008B1971 /* CreateIssuesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateIssuesViewController.swift; sourceTree = "<group>"; };
 		DC5E81D01E115D02008B1971 /* CreateIssuesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateIssuesViewController.xib; sourceTree = "<group>"; };
+		DC61BCBD1E3C43E300BDF1CD /* ReposSelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReposSelectionViewController.xib; sourceTree = "<group>"; };
+		DC61BCBF1E3C4C4600BDF1CD /* ReposSelectionTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReposSelectionTableViewDelegate.swift; sourceTree = "<group>"; };
 		DC6C37691E160854003D28C4 /* IssueDetailTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailTableViewDelegate.swift; sourceTree = "<group>"; };
 		DC6C376B1E160894003D28C4 /* IssueDetailTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailTableViewDataSource.swift; sourceTree = "<group>"; };
 		DC6C377B1E1C9BFB003D28C4 /* Configs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
@@ -143,6 +148,7 @@
 		DC7281AC1E0F6B4C00EEFC57 /* ReposTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReposTableViewCell.swift; sourceTree = "<group>"; };
 		DC7281AD1E0F6B4C00EEFC57 /* ReposTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReposTableViewCell.xib; sourceTree = "<group>"; };
 		DC867AFA1E3ABD1700DD0553 /* ReposSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReposSelectionViewController.swift; sourceTree = "<group>"; };
+		DC867AFC1E3AD36600DD0553 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		DCC817271E14010700E7056C /* EditIssuesTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditIssuesTableViewDelegate.swift; sourceTree = "<group>"; };
 		DCC817291E14012000E7056C /* EditIssuesTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditIssuesTableViewDataSource.swift; sourceTree = "<group>"; };
 		DCC817301E14E9C600E7056C /* UIView-positioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView-positioning.swift"; sourceTree = "<group>"; };
@@ -324,6 +330,8 @@
 				DC6C37881E1CBA11003D28C4 /* LoginViewController.swift */,
 				DC6C37891E1CBA11003D28C4 /* LoginViewController.xib */,
 				DC867AFA1E3ABD1700DD0553 /* ReposSelectionViewController.swift */,
+				DC61BCBD1E3C43E300BDF1CD /* ReposSelectionViewController.xib */,
+				DC867AFC1E3AD36600DD0553 /* MasterViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -354,6 +362,7 @@
 			children = (
 				DC7281A01E0E325200EEFC57 /* FeedsTableViewDelegate.swift */,
 				DC7281A81E0F65A000EEFC57 /* ReposTableViewDelegate.swift */,
+				DC61BCBF1E3C4C4600BDF1CD /* ReposSelectionTableViewDelegate.swift */,
 				DC5D649B1E10005000E92DDD /* SettingsTableViewDelegate.swift */,
 				DCC817271E14010700E7056C /* EditIssuesTableViewDelegate.swift */,
 				DCC817361E15ECF700E7056C /* IssuesTableViewDelegate.swift */,
@@ -485,6 +494,7 @@
 				DCC8173D1E15EE5500E7056C /* IssueDetailViewController.xib in Resources */,
 				DC3D8FC51E35769300D349B6 /* SetupAccount.storyboard in Resources */,
 				DC7281AF1E0F6B4C00EEFC57 /* ReposTableViewCell.xib in Resources */,
+				DC61BCBE1E3C43E300BDF1CD /* ReposSelectionViewController.xib in Resources */,
 				DC5E81D21E115D02008B1971 /* CreateIssuesViewController.xib in Resources */,
 				DC7281A71E0E338D00EEFC57 /* FeedsTableViewCell.xib in Resources */,
 				DC72816C1E0E178E00EEFC57 /* Assets.xcassets in Resources */,
@@ -538,6 +548,7 @@
 				DC2434461E284A4A002FBDE7 /* Feed.swift in Sources */,
 				DC6C378A1E1CBA11003D28C4 /* LoginViewController.swift in Sources */,
 				DC5D649E1E10006100E92DDD /* SettingsTableViewDataSource.swift in Sources */,
+				DC867AFD1E3AD36600DD0553 /* MasterViewController.swift in Sources */,
 				DC7281AB1E0F665000EEFC57 /* ReposTableViewDataSource.swift in Sources */,
 				DC24340D1E20E748002FBDE7 /* UserRouter.swift in Sources */,
 				DC3D8FC31E34549000D349B6 /* Constants.swift in Sources */,
@@ -569,6 +580,7 @@
 				DCC817311E14E9C600E7056C /* UIView-positioning.swift in Sources */,
 				DC6C376C1E160894003D28C4 /* IssueDetailTableViewDataSource.swift in Sources */,
 				DC7281A31E0E326500EEFC57 /* FeedsTableViewDataSource.swift in Sources */,
+				DC61BCC01E3C4C4600BDF1CD /* ReposSelectionTableViewDelegate.swift in Sources */,
 				DC5E81D11E115D02008B1971 /* CreateIssuesViewController.swift in Sources */,
 				DC6C377C1E1C9BFB003D28C4 /* Configs.swift in Sources */,
 				DC72819D1E0E312E00EEFC57 /* StateController.swift in Sources */,
