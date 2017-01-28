@@ -61,7 +61,6 @@ class CreateIssuesViewController: MasterViewController {
         print("repoButtonTapped")
         if let stateController = stateController {
             let destination = ReposSelectionViewController(nibName: String(describing: ReposSelectionViewController.self), bundle: nil)
-            destination.stateController = stateController
             stateController.present(destination: destination, inViewController: self)
         } else {
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)

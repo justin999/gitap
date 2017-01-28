@@ -10,7 +10,7 @@ import UIKit
 
 class ReposSelectionViewController: MasterViewController {
     
-    var tableViewDelegate: ReposTableViewDelegate?
+    var tableViewDelegate: ReposSelectionTableViewDelegate?
     var tableViewDataSource: ReposTableViewDataSource?
     
     @IBOutlet weak var tableView: UITableView!
@@ -28,7 +28,7 @@ class ReposSelectionViewController: MasterViewController {
         if let stateController = super.stateController {
             stateController.getRepos { isSuccess in
                 if isSuccess {
-                    self.tableViewDelegate = ReposTableViewDelegate(tableView: self.tableView, stateController: stateController)
+                    self.tableViewDelegate = ReposSelectionTableViewDelegate(tableView: self.tableView, stateController: stateController)
                     self.tableViewDataSource = ReposTableViewDataSource(tableView: self.tableView, stateController: stateController)
                     self.tableView.reloadData()
                 }
@@ -39,5 +39,7 @@ class ReposSelectionViewController: MasterViewController {
     @IBAction func closeButtonTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    
     
 }

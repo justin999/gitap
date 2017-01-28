@@ -11,8 +11,10 @@ import Alamofire
 
 class StateController: NSObject {
     var viewController: UIViewController
+    var originalViewController: UIViewController?
     var issueEvents: [Event]?
     var repos: [Repo]?
+    var selectedRepo: Repo?
 
     init(viewController: UIViewController) {
         self.viewController = viewController
@@ -38,6 +40,7 @@ class StateController: NSObject {
     func presentManageIssuesViewController(inViewController: UIViewController) {
         let vc = CreateIssuesViewController()
         vc.stateController = self
+        self.viewController = vc
         inViewController.present(vc, animated: true, completion: nil)
     }
     
@@ -53,7 +56,16 @@ class StateController: NSObject {
     
     func present(destination: MasterViewController, inViewController: UIViewController) {
         destination.stateController = self
+        originalViewController = self.viewController
+        self.viewController = destination
         inViewController.present(destination, animated: true, completion: nil)
+    }
+    
+    func dismiss(animated: Bool, completion: (() -> Void)?) {
+        if let originalViewController = originalViewController {
+            self.viewController = originalViewController
+        }
+        self.viewController.dismiss(animated: animated, completion: completion)
     }
     
     func push(destination: MasterViewController, inViewController: UIViewController, stateController: StateController) {
@@ -62,8 +74,12 @@ class StateController: NSObject {
         inViewController.navigationController?.pushViewController(vc, animated: true)
     }
     
-    // data
-    // users
+    // MARK: - data
+    func selectRepo(repo: Repo) {
+        selectedRepo = repo
+    }
+    
+    // MARK: - users
     func fetchAuthenticatedUser(completionHandler: @escaping ((Result<User>) -> Void)) {
         GitHubAPIManager.sharedInstance.fetch(userRouter.fetchAuthenticatedUser()) { (result: Result<[User]>, nextpage) in
             guard result.error == nil else {
