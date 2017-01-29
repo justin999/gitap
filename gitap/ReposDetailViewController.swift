@@ -8,8 +8,7 @@
 
 import UIKit
 
-class ReposDetailViewController: UIViewController {
-    var stateController: StateController?
+class ReposDetailViewController: MasterViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var addIssueButton: UIButton!

@@ -21,26 +21,9 @@ class StateController: NSObject {
     }
 
     // MARK: - segue
-    func pushDetailViewController(inViewController: UIViewController, stateController: StateController) {
-        let vc = ReposDetailViewController()
-        vc.stateController = stateController
-        inViewController.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func pushIssueDetailViewController(inViewController: UIViewController, stateController: StateController) {
-        let vc = IssueDetailViewController()
-        vc.stateController = stateController
-        inViewController.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func showRepoLists() {
-        
-    }
-    
-    func push(destination: MasterViewController, inViewController: UIViewController, stateController: StateController) {
-        let vc = MasterViewController()
-        vc.stateController = self
-        inViewController.navigationController?.pushViewController(vc, animated: true)
+    func push(destination: MasterViewController, inViewController: UIViewController) {
+        destination.stateController = self
+        inViewController.navigationController?.pushViewController(destination, animated: true)
     }
     
     func present(destination: MasterViewController, inViewController: UIViewController) {

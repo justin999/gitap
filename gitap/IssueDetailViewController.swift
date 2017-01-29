@@ -8,8 +8,7 @@
 
 import UIKit
 
-class IssueDetailViewController: UIViewController {
-    var stateController: StateController?
+class IssueDetailViewController: MasterViewController {
     @IBOutlet weak var issueStatusImage: UIImageView!
     
     @IBOutlet weak var issueNameLabel: UILabel!

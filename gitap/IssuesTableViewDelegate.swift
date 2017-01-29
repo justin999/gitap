@@ -22,7 +22,8 @@ class IssuesTableViewDelegate: NSObject {
 extension IssuesTableViewDelegate: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-        stateController.pushIssueDetailViewController(inViewController: stateController.viewController, stateController: stateController)
+        let vc = IssueDetailViewController()
+        stateController.push(destination: vc, inViewController: stateController.viewController)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
