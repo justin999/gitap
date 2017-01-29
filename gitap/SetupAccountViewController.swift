@@ -9,15 +9,13 @@
 import UIKit
 import SafariServices
 
-class SetupAccountViewController: UIViewController, LoginViewDelegate, SFSafariViewControllerDelegate {
-    var stateController: StateController?
+class SetupAccountViewController: MasterViewController, LoginViewDelegate, SFSafariViewControllerDelegate {
     var safariViewController: SFSafariViewController?
     var user: User?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureViews()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {

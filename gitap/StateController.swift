@@ -37,14 +37,10 @@ class StateController: NSObject {
         
     }
     
-    func presentSetupViewController(inViewController: UIViewController) {
-        let storyboard = UIStoryboard(name: "SetupAccount", bundle: nil)
-        if let setupVC = storyboard.instantiateInitialViewController() as? SetupAccountViewController {
-            setupVC.stateController = self
-            inViewController.present(setupVC, animated: true, completion: nil)
-        } else {
-            print("something went wrong")
-        }
+    func push(destination: MasterViewController, inViewController: UIViewController, stateController: StateController) {
+        let vc = MasterViewController()
+        vc.stateController = self
+        inViewController.navigationController?.pushViewController(vc, animated: true)
     }
     
     func present(destination: MasterViewController, inViewController: UIViewController) {
@@ -54,17 +50,20 @@ class StateController: NSObject {
         inViewController.present(destination, animated: true, completion: nil)
     }
     
+    func presentSetupViewController(inViewController: UIViewController) {
+        let storyboard = UIStoryboard(name: "SetupAccount", bundle: nil)
+        if let setupVC = storyboard.instantiateInitialViewController() as? SetupAccountViewController {
+            self.present(destination: setupVC, inViewController: inViewController)
+        } else {
+            print("something went wrong")
+        }
+    }
+    
     func dismiss(animated: Bool, completion: (() -> Void)?) {
         if let originalViewController = originalViewController {
             self.viewController = originalViewController
         }
         self.viewController.dismiss(animated: animated, completion: completion)
-    }
-    
-    func push(destination: MasterViewController, inViewController: UIViewController, stateController: StateController) {
-        let vc = MasterViewController()
-        vc.stateController = self
-        inViewController.navigationController?.pushViewController(vc, animated: true)
     }
     
     // MARK: - data
