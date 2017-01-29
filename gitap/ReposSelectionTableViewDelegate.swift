@@ -25,13 +25,13 @@ extension ReposSelectionTableViewDelegate: UITableViewDelegate {
         if let repo = stateController.repos?[indexPath.row] {
             stateController.selectRepo(repo: repo)
         } else {
-//            stateController.presentAlert(title: <#T##String#>, message: <#T##String#>, style: <#T##UIAlertControllerStyle#>, actions: <#T##[UIAlertAction]#>, completion: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
+            print("something went wront in rstvd")
         }
         
-//        stateController.dismiss(animated: true, completion: nil)
         stateController.dismiss(animated: true) {
             if let vc = self.stateController.originalViewController as? CreateIssuesViewController {
                 vc.repoButton.titleLabel?.text = self.stateController.selectedRepo?.full_name
+                vc.repoButton.setNeedsDisplay()
             }
         }
         

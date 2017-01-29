@@ -50,10 +50,10 @@ class StateController: NSObject {
         inViewController.present(destination, animated: true, completion: nil)
     }
     
-    func presentSetupViewController(inViewController: UIViewController) {
-        let storyboard = UIStoryboard(name: "SetupAccount", bundle: nil)
-        if let setupVC = storyboard.instantiateInitialViewController() as? SetupAccountViewController {
-            self.present(destination: setupVC, inViewController: inViewController)
+    func present(storyBoardName: String, inViewController: UIViewController) {
+        let storyBoard = UIStoryboard(name: storyBoardName, bundle: nil)
+        if let vc = storyBoard.instantiateInitialViewController() as? MasterViewController{
+            self.present(destination: vc, inViewController: inViewController)
         } else {
             print("something went wrong")
         }

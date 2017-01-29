@@ -26,7 +26,7 @@ extension SettingsTableViewDelegate: UITableViewDelegate {
             print("clearing oauth token")
             GitHubAPIManager.sharedInstance.clearOAuthToken()
             let okAlert = UIAlertAction(title: "OK", style: .cancel) { okAlert in
-                self.stateController.presentSetupViewController(inViewController: self.stateController.viewController)
+                self.stateController.present(storyBoardName: "SetupAccount", inViewController: self.stateController.viewController)
             }
             self.stateController.presentAlert(title: "user info", message: "oauth token deleted", style: .alert, actions: [okAlert], completion: nil)
         }
