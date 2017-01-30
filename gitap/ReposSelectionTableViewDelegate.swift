@@ -30,8 +30,7 @@ extension ReposSelectionTableViewDelegate: UITableViewDelegate {
         
         stateController.dismiss(animated: true) {
             if let vc = self.stateController.originalViewController as? CreateIssuesViewController {
-                vc.repoButton.titleLabel?.text = self.stateController.selectedRepo?.full_name
-                vc.repoButton.setNeedsDisplay()
+                vc.repoButton.setTitle(self.stateController.selectedRepo?.full_name, for: .normal)
             }
         }
         

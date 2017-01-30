@@ -36,6 +36,10 @@ class CreateIssuesViewController: MasterViewController {
         bodyTextView.layer.borderColor = UIColor.black.cgColor
         bodyTextView.layer.borderWidth = 1.0
         bodyTextView.layer.cornerRadius = 4.0
+        
+        if let repo = stateController?.selectedRepo {
+            repoButton.setTitle(repo.full_name, for: .normal)
+        }
     }
     
     @IBAction func dismissView(_ sender: Any) {
