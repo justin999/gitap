@@ -12,7 +12,6 @@
 import UIKit
 
 class CreateIssuesViewController: MasterViewController {
-//    var stateController: StateController?
     
     @IBOutlet weak var doneButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
@@ -27,15 +26,15 @@ class CreateIssuesViewController: MasterViewController {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        
+    override func viewDidAppear(_ animated: Bool) {   
     }
     
     // MARK: - private 
     func configureView() {
-        bodyTextView.layer.borderColor = UIColor.black.cgColor
+        bodyTextView.layer.borderColor = UIColor.placeHolderGrayColor().cgColor
         bodyTextView.layer.borderWidth = 1.0
         bodyTextView.layer.cornerRadius = 4.0
+        bodyTextView.textColor = UIColor.placeHolderGrayColor()
         
         if let repo = stateController?.selectedRepo {
             repoButton.setTitle(repo.full_name, for: .normal)
@@ -51,12 +50,23 @@ class CreateIssuesViewController: MasterViewController {
 
     @IBAction func createButtonTapped(_ sender: Any) {
         print("done button tapped")
-        let params = ["title": "てすとだyo",
-                      "body": "test no body dayo",
-                      "owner": "justin999",
-                      "repo": "bonita"
-                      ]
-        stateController?.createIssue(params: params, completionHandler: nil)
+        if let repo = stateController?.selectedRepo,
+            let owner = repo.owner?.loginName ,
+            let repoName = repo.name {
+            let title = titleTextField.text
+            // TODO: validate title
+            let body = bodyTextView.text
+            
+            let params = [
+                "title": title,
+                "body": body,
+                "owner": owner,
+                "repo": repoName
+            ]
+            stateController?.createIssue(params: params, completionHandler: nil)
+        } else {
+            stateController?.presentAlert(title: "", message: "レポジトリが選択されていません。", style: .alert, actions: [UIAlertAction.okAlert()], completion: nil)
+        }
         
     }
     

@@ -28,6 +28,8 @@
 		DC5E81D21E115D02008B1971 /* CreateIssuesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC5E81D01E115D02008B1971 /* CreateIssuesViewController.xib */; };
 		DC61BCBE1E3C43E300BDF1CD /* ReposSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC61BCBD1E3C43E300BDF1CD /* ReposSelectionViewController.xib */; };
 		DC61BCC01E3C4C4600BDF1CD /* ReposSelectionTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC61BCBF1E3C4C4600BDF1CD /* ReposSelectionTableViewDelegate.swift */; };
+		DC61BCC41E3F77AE00BDF1CD /* UIColor-extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC61BCC31E3F77AE00BDF1CD /* UIColor-extension.swift */; };
+		DC61BCC61E3F79E300BDF1CD /* UIAlertAction_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC61BCC51E3F79E300BDF1CD /* UIAlertAction_extension.swift */; };
 		DC6C376A1E160854003D28C4 /* IssueDetailTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C37691E160854003D28C4 /* IssueDetailTableViewDelegate.swift */; };
 		DC6C376C1E160894003D28C4 /* IssueDetailTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C376B1E160894003D28C4 /* IssueDetailTableViewDataSource.swift */; };
 		DC6C377C1E1C9BFB003D28C4 /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C377B1E1C9BFB003D28C4 /* Configs.swift */; };
@@ -109,6 +111,8 @@
 		DC5E81D01E115D02008B1971 /* CreateIssuesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateIssuesViewController.xib; sourceTree = "<group>"; };
 		DC61BCBD1E3C43E300BDF1CD /* ReposSelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReposSelectionViewController.xib; sourceTree = "<group>"; };
 		DC61BCBF1E3C4C4600BDF1CD /* ReposSelectionTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReposSelectionTableViewDelegate.swift; sourceTree = "<group>"; };
+		DC61BCC31E3F77AE00BDF1CD /* UIColor-extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor-extension.swift"; sourceTree = "<group>"; };
+		DC61BCC51E3F79E300BDF1CD /* UIAlertAction_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertAction_extension.swift; sourceTree = "<group>"; };
 		DC6C37691E160854003D28C4 /* IssueDetailTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailTableViewDelegate.swift; sourceTree = "<group>"; };
 		DC6C376B1E160894003D28C4 /* IssueDetailTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailTableViewDataSource.swift; sourceTree = "<group>"; };
 		DC6C377B1E1C9BFB003D28C4 /* Configs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
@@ -375,6 +379,8 @@
 			isa = PBXGroup;
 			children = (
 				DCC817301E14E9C600E7056C /* UIView-positioning.swift */,
+				DC61BCC51E3F79E300BDF1CD /* UIAlertAction_extension.swift */,
+				DC61BCC31E3F77AE00BDF1CD /* UIColor-extension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -563,6 +569,7 @@
 				DC7281671E0E178E00EEFC57 /* FeedsViewController.swift in Sources */,
 				DC7281651E0E178E00EEFC57 /* AppDelegate.swift in Sources */,
 				DC7281951E0E1A8C00EEFC57 /* SettingsViewController.swift in Sources */,
+				DC61BCC61E3F79E300BDF1CD /* UIAlertAction_extension.swift in Sources */,
 				DC3D8FC71E3576D300D349B6 /* SetupAccountViewController.swift in Sources */,
 				DC7281A11E0E325200EEFC57 /* FeedsTableViewDelegate.swift in Sources */,
 				DCC8172A1E14012000E7056C /* EditIssuesTableViewDataSource.swift in Sources */,
@@ -578,6 +585,7 @@
 				DC24340F1E232294002FBDE7 /* StateController+AlertHelper.swift in Sources */,
 				DCC817391E15ED2700E7056C /* IssuesTableViewDataSource.swift in Sources */,
 				DCC817311E14E9C600E7056C /* UIView-positioning.swift in Sources */,
+				DC61BCC41E3F77AE00BDF1CD /* UIColor-extension.swift in Sources */,
 				DC6C376C1E160894003D28C4 /* IssueDetailTableViewDataSource.swift in Sources */,
 				DC7281A31E0E326500EEFC57 /* FeedsTableViewDataSource.swift in Sources */,
 				DC61BCC01E3C4C4600BDF1CD /* ReposSelectionTableViewDelegate.swift in Sources */,
