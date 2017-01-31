@@ -19,6 +19,8 @@ class CreateIssuesViewController: MasterViewController {
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var bodyTextView: PlaceHolderTextView!
+    
+    var accessoryView: UIView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +38,10 @@ class CreateIssuesViewController: MasterViewController {
         bodyTextView.layer.cornerRadius = 4.0
         bodyTextView.placeHolder = "issue body"
         bodyTextView.placeHolderColor = UIColor.placeHolderGrayColor()
+        
+        accessoryView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.width, height: 44))
+        accessoryView?.backgroundColor = UIColor.orange
+        bodyTextView.inputAccessoryView = accessoryView
         
         if let repo = stateController?.selectedRepo {
             repoButton.setTitle(repo.full_name, for: .normal)
