@@ -18,7 +18,7 @@ class CreateIssuesViewController: MasterViewController {
     @IBOutlet weak var repoButton: UIButton!
     
     @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var bodyTextView: UITextView!
+    @IBOutlet weak var bodyTextView: PlaceHolderTextView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,7 @@ class CreateIssuesViewController: MasterViewController {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {   
+    override func viewDidAppear(_ animated: Bool) {
     }
     
     // MARK: - private 
@@ -34,7 +34,8 @@ class CreateIssuesViewController: MasterViewController {
         bodyTextView.layer.borderColor = UIColor.placeHolderGrayColor().cgColor
         bodyTextView.layer.borderWidth = 1.0
         bodyTextView.layer.cornerRadius = 4.0
-        bodyTextView.textColor = UIColor.placeHolderGrayColor()
+        bodyTextView.placeHolder = "issue body"
+        bodyTextView.placeHolderColor = UIColor.placeHolderGrayColor()
         
         if let repo = stateController?.selectedRepo {
             repoButton.setTitle(repo.full_name, for: .normal)
