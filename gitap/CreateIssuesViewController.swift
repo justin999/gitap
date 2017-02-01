@@ -59,7 +59,27 @@ class CreateIssuesViewController: MasterViewController {
         bodyTextView.inputAccessoryView = accessoryView
     }
     
+    func generateActionSheet() -> UIAlertController {
+        let imageAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let takePhotoAction = UIAlertAction(title: "Take Photo", style: .default) { action in
+            print("Take Photo")
+        }
+        let lastPhotoAction = UIAlertAction(title: "Use Last Photo Taken", style: .default) { action in
+            print("Use Last Photo Taken")
+        }
+        let libraryAction = UIAlertAction(title: "Choose From Library", style: .default) { action in
+            print("Choose From Library")
+        }
+        imageAlert.addAction(takePhotoAction)
+        imageAlert.addAction(lastPhotoAction)
+        imageAlert.addAction(libraryAction)
+        
+        return imageAlert
+    }
+    
     @objc private func imageButtonTapped() {
+        self.present(generateActionSheet(), animated: true, completion: nil)
+
     }
     @objc private func linkButtonTapped() {
     }
