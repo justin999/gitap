@@ -20,8 +20,8 @@ class CreateIssuesViewController: MasterViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var bodyTextView: PlaceHolderTextView!
     
-    var accessoryView: UIView?
-
+    var accessoryView: UIToolbar?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
@@ -32,22 +32,45 @@ class CreateIssuesViewController: MasterViewController {
     }
     
     // MARK: - private 
-    func configureView() {
+    private func configureView() {
         bodyTextView.layer.borderColor = UIColor.placeHolderGrayColor().cgColor
         bodyTextView.layer.borderWidth = 1.0
         bodyTextView.layer.cornerRadius = 4.0
         bodyTextView.placeHolder = "issue body"
         bodyTextView.placeHolderColor = UIColor.placeHolderGrayColor()
         
-        accessoryView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.width, height: 44))
-        accessoryView?.backgroundColor = UIColor.orange
-        bodyTextView.inputAccessoryView = accessoryView
+        configureAccessoryView()
         
         if let repo = stateController?.selectedRepo {
             repoButton.setTitle(repo.full_name, for: .normal)
         }
     }
     
+    private func configureAccessoryView() {
+        accessoryView = UIToolbar()
+        accessoryView?.sizeToFit()
+        let imageButton = UIBarButtonItem(title: "image", style: .plain, target: self, action: #selector(imageButtonTapped))
+        let linkButton = UIBarButtonItem(title: "link", style: .plain, target: self, action: #selector(linkButtonTapped))
+        let taskButton = UIBarButtonItem(title: "task", style: .plain, target: self, action: #selector(taskButtonTapped))
+        let quoteButton = UIBarButtonItem(title: "quote", style: .plain, target: self, action: #selector(quoteButtonTapped))
+        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        accessoryView?.setItems([imageButton, spacer, linkButton, spacer, taskButton, spacer, quoteButton], animated: true)
+        
+        bodyTextView.inputAccessoryView = accessoryView
+    }
+    
+    @objc private func imageButtonTapped() {
+    }
+    @objc private func linkButtonTapped() {
+    }
+    @objc private func taskButtonTapped() {
+    }
+    @objc private func quoteButtonTapped() {
+    }
+    
+    
+    
+    // MARK: - Actions
     @IBAction func dismissView(_ sender: Any) {
         print("sender: \(sender)")
         self.dismiss(animated: true) {
@@ -57,6 +80,11 @@ class CreateIssuesViewController: MasterViewController {
 
     @IBAction func createButtonTapped(_ sender: Any) {
         print("done button tapped")
+        if titleTextField.text?.characters.count == 0 {
+            Utils.presentAlert(inViewController: self, title: "", message: "Set the issue title.", style: .alert, actions: [UIAlertAction.okAlert()], completion: nil)
+            return
+        }
+        
         if let repo = stateController?.selectedRepo,
             let owner = repo.owner?.loginName ,
             let repoName = repo.name {
