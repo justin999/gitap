@@ -10,9 +10,11 @@
 //  sample: https://github.com/awslabs/aws-sdk-ios-samples/tree/master/S3TransferManager-Sample/Swift/
 
 import UIKit
+import AVFoundation
 
 class CreateIssuesViewController: MasterViewController {
     
+    // 参考: http://dev.classmethod.jp/smartphone/ios-10-avfoundation-takephoto/
     @IBOutlet weak var doneButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var repoButton: UIButton!
