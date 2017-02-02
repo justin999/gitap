@@ -45,5 +45,9 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>To capture an image for descriptions in issues, pull requests, etc... </string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>To save the image captured. </string>
 </dict>
 </plist>
