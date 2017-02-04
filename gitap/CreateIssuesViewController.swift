@@ -11,6 +11,7 @@
 
 import UIKit
 import AVFoundation
+import Photos
 
 class CreateIssuesViewController: MasterViewController {
     
@@ -71,6 +72,10 @@ class CreateIssuesViewController: MasterViewController {
         }
         let libraryAction = UIAlertAction(title: "Choose From Library", style: .default) { action in
             print("Choose From Library")
+            let allPhotosOptions = PHFetchOptions()
+            allPhotosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
+//            allPhotos = PHAsset.fetchAssets(with: allPhotosOptions)
+            
         }
         imageAlert.addAction(takePhotoAction)
         imageAlert.addAction(lastPhotoAction)

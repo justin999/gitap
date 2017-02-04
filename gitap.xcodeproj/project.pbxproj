@@ -44,6 +44,10 @@
 		DC6C37911E1D081C003D28C4 /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C37901E1D081C003D28C4 /* Issue.swift */; };
 		DC6C37931E1DC049003D28C4 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C37921E1DC049003D28C4 /* File.swift */; };
 		DC6C37951E1DC2B8003D28C4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C37941E1DC2B8003D28C4 /* User.swift */; };
+		DC709C1C1E4583AE00169C05 /* PhotoSectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC709C1A1E4583AE00169C05 /* PhotoSectionsViewController.swift */; };
+		DC709C1D1E4583AE00169C05 /* PhotoSectionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC709C1B1E4583AE00169C05 /* PhotoSectionsViewController.xib */; };
+		DC709C1F1E45842900169C05 /* PhotosTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC709C1E1E45842900169C05 /* PhotosTableViewDataSource.swift */; };
+		DC709C211E45853C00169C05 /* PhotosTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC709C201E45853C00169C05 /* PhotosTableViewDelegate.swift */; };
 		DC7281651E0E178E00EEFC57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281641E0E178E00EEFC57 /* AppDelegate.swift */; };
 		DC7281671E0E178E00EEFC57 /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281661E0E178E00EEFC57 /* FeedsViewController.swift */; };
 		DC72816A1E0E178E00EEFC57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC7281681E0E178E00EEFC57 /* Main.storyboard */; };
@@ -129,6 +133,10 @@
 		DC6C37901E1D081C003D28C4 /* Issue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
 		DC6C37921E1DC049003D28C4 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		DC6C37941E1DC2B8003D28C4 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DC709C1A1E4583AE00169C05 /* PhotoSectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSectionsViewController.swift; sourceTree = "<group>"; };
+		DC709C1B1E4583AE00169C05 /* PhotoSectionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoSectionsViewController.xib; sourceTree = "<group>"; };
+		DC709C1E1E45842900169C05 /* PhotosTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosTableViewDataSource.swift; sourceTree = "<group>"; };
+		DC709C201E45853C00169C05 /* PhotosTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosTableViewDelegate.swift; sourceTree = "<group>"; };
 		DC7281611E0E178E00EEFC57 /* gitap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gitap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC7281641E0E178E00EEFC57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC7281661E0E178E00EEFC57 /* FeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewController.swift; sourceTree = "<group>"; };
@@ -339,6 +347,8 @@
 				DC867AFA1E3ABD1700DD0553 /* ReposSelectionViewController.swift */,
 				DC61BCBD1E3C43E300BDF1CD /* ReposSelectionViewController.xib */,
 				DC867AFC1E3AD36600DD0553 /* MasterViewController.swift */,
+				DC709C1A1E4583AE00169C05 /* PhotoSectionsViewController.swift */,
+				DC709C1B1E4583AE00169C05 /* PhotoSectionsViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -360,6 +370,7 @@
 				DCC817291E14012000E7056C /* EditIssuesTableViewDataSource.swift */,
 				DCC817381E15ED2700E7056C /* IssuesTableViewDataSource.swift */,
 				DC6C376B1E160894003D28C4 /* IssueDetailTableViewDataSource.swift */,
+				DC709C1E1E45842900169C05 /* PhotosTableViewDataSource.swift */,
 			);
 			name = DataSources;
 			sourceTree = "<group>";
@@ -374,6 +385,7 @@
 				DCC817271E14010700E7056C /* EditIssuesTableViewDelegate.swift */,
 				DCC817361E15ECF700E7056C /* IssuesTableViewDelegate.swift */,
 				DC6C37691E160854003D28C4 /* IssueDetailTableViewDelegate.swift */,
+				DC709C201E45853C00169C05 /* PhotosTableViewDelegate.swift */,
 			);
 			name = Delegates;
 			sourceTree = "<group>";
@@ -500,6 +512,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC72816F1E0E178E00EEFC57 /* LaunchScreen.storyboard in Resources */,
+				DC709C1D1E4583AE00169C05 /* PhotoSectionsViewController.xib in Resources */,
 				DCC8173D1E15EE5500E7056C /* IssueDetailViewController.xib in Resources */,
 				DC3D8FC51E35769300D349B6 /* SetupAccount.storyboard in Resources */,
 				DC7281AF1E0F6B4C00EEFC57 /* ReposTableViewCell.xib in Resources */,
@@ -585,6 +598,7 @@
 				DC2434441E2849F6002FBDE7 /* ActivityRouter.swift in Sources */,
 				DC7281AE1E0F6B4C00EEFC57 /* ReposTableViewCell.swift in Sources */,
 				DC61BCC81E40063C00BDF1CD /* PlaceHolderTextView.swift in Sources */,
+				DC709C1F1E45842900169C05 /* PhotosTableViewDataSource.swift in Sources */,
 				DCC8173C1E15EE5500E7056C /* IssueDetailViewController.swift in Sources */,
 				DC24340F1E232294002FBDE7 /* StateController+AlertHelper.swift in Sources */,
 				DCC817391E15ED2700E7056C /* IssuesTableViewDataSource.swift in Sources */,
@@ -594,9 +608,11 @@
 				DC7281A31E0E326500EEFC57 /* FeedsTableViewDataSource.swift in Sources */,
 				DC61BCC01E3C4C4600BDF1CD /* ReposSelectionTableViewDelegate.swift in Sources */,
 				DC5E81D11E115D02008B1971 /* CreateIssuesViewController.swift in Sources */,
+				DC709C211E45853C00169C05 /* PhotosTableViewDelegate.swift in Sources */,
 				DC6C377C1E1C9BFB003D28C4 /* Configs.swift in Sources */,
 				DC72819D1E0E312E00EEFC57 /* StateController.swift in Sources */,
 				DC7281A91E0F65A000EEFC57 /* ReposTableViewDelegate.swift in Sources */,
+				DC709C1C1E4583AE00169C05 /* PhotoSectionsViewController.swift in Sources */,
 				DC5D649A1E0F9F4B00E92DDD /* Utils.swift in Sources */,
 				DC24340B1E209AE7002FBDE7 /* Permission.swift in Sources */,
 				DC5D649C1E10005000E92DDD /* SettingsTableViewDelegate.swift in Sources */,
