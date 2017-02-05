@@ -23,11 +23,9 @@ class PhotoSectionsViewController: MasterViewController {
             photosTableViewDataSource = PhotosTableViewDataSource(tableView: tableView, stateController: stateController)
             photosTableViewDelegate = PhotosTableViewDelegate(tableView: tableView, stateController: stateController)
         }
-        
-        
-            
-
-        
     }
 
+    @IBAction func CancelButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
