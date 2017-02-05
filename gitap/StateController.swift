@@ -88,7 +88,6 @@ class StateController: NSObject {
                 return
             }
             
-            print("fetchedIsssues: \(fetchedEvents)")
             // fetchedEventsの中からさらにissueeventのものに絞る type: IssueCommentEvent, IssuesEvent
             var eventsArray = [Event]()
             fetchedEvents.forEach { event in

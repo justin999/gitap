@@ -7,13 +7,38 @@
 //
 
 import UIKit
+import Photos
+import PhotosUI
+
+private extension UICollectionView {
+    func indexPathsForElements(in rect: CGRect) -> [IndexPath] {
+        let allLayoutAttributes = collectionViewLayout.layoutAttributesForElements(in: rect)!
+        return allLayoutAttributes.map { $0.indexPath }
+    }
+}
 
 class PhotoGridViewController: MasterViewController {
+    
+    fileprivate var thumbnailSize: CGSize!
+    var collectionViewDelegate: PhotosCollectionViewDelegate?
+    var collectionViewDataSource: PhotosCollectionViewDataSource?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    deinit {
+//        PHPhotoLibrary.shared().unregisterChangeObserver(self)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // Determine the size of the thumbnails to request from the PHCachingImageManager
+        let scale = UIScreen.main.scale
+//        let cellSize = (collectionViewLayout as! UICollectionViewFlowLayout).itemSize
+//        thumbnailSize = CGSize(width: cellSize.width * scale, height: cellSize.height * scale)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +46,4 @@ class PhotoGridViewController: MasterViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

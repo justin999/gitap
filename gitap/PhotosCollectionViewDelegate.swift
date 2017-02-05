@@ -11,3 +11,7 @@ import UIKit
 class PhotosCollectionViewDelegate: NSObject {
 
 }
+
+extension PhotosCollectionViewDelegate: UICollectionViewDelegate {
+    
+}

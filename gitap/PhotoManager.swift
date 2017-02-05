@@ -19,7 +19,14 @@ struct PhotoManager {
     
     let sectionLocalizedTitles = ["", NSLocalizedString("Smart Albums", comment: ""), NSLocalizedString("Albums", comment: "")]
     
-    
-
-    
+    init() {
+        if allPhotos == nil {
+            // Create a PHFetchResult object for each section in the table view.
+            let allPhotosOptions = PHFetchOptions()
+            allPhotosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
+            allPhotos = PHAsset.fetchAssets(with: allPhotosOptions)
+            smartAlbums = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .albumRegular, options: nil)
+            userCollections = PHCollectionList.fetchTopLevelUserCollections(with: nil)
+        }
+    }
 }

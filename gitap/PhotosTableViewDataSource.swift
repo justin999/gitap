@@ -27,10 +27,7 @@ enum CellIdentifier: String {
 class PhotosTableViewDataSource: NSObject {
 
     var stateController: StateController
-
-    var allPhotos: PHFetchResult<PHAsset>!
-    var smartAlbums: PHFetchResult<PHAssetCollection>!
-    var userCollections: PHFetchResult<PHCollection>!
+    let photoManager = PhotoManager.shared
 
     let sectionLocalizedTitles = ["", NSLocalizedString("Smart Albums", comment: ""), NSLocalizedString("Albums", comment: "")]
 
@@ -40,20 +37,8 @@ class PhotosTableViewDataSource: NSObject {
         super.init()
         tableView.dataSource = self
 
-        
-        
-        // Create a PHFetchResult object for each section in the table view.
-        let allPhotosOptions = PHFetchOptions()
-        allPhotosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
-        allPhotos = PHAsset.fetchAssets(with: allPhotosOptions)
-        smartAlbums = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .albumRegular, options: nil)
-        userCollections = PHCollectionList.fetchTopLevelUserCollections(with: nil)
+    }
 
-    }
-    
-    private func loadPhotos() {
-        
-    }
 }
 
 extension PhotosTableViewDataSource: UITableViewDataSource {
@@ -70,8 +55,8 @@ extension PhotosTableViewDataSource: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch Section(rawValue: section)! {
         case .allPhotos: return 1
-        case .smartAlbums: return smartAlbums.count
-        case .userCollections: return userCollections.count
+        case .smartAlbums: return photoManager.smartAlbums.count
+        case .userCollections: return photoManager.userCollections.count
         }
     }
     
@@ -86,16 +71,17 @@ extension PhotosTableViewDataSource: UITableViewDataSource {
             
         case .smartAlbums:
 //            let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.collection.rawValue, for: indexPath)
-            let collection = smartAlbums.object(at: indexPath.row)
+            let collection = photoManager.smartAlbums.object(at: indexPath.row)
             cell.textLabel!.text = collection.localizedTitle
             return cell
             
         case .userCollections:
 //            let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.collection.rawValue, for: indexPath)
-            let collection = userCollections.object(at: indexPath.row)
+            let collection = photoManager.userCollections.object(at: indexPath.row)
             cell.textLabel!.text = collection.localizedTitle
             return cell
         }
     }
 
 }
+
