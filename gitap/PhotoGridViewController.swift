@@ -20,6 +20,7 @@ private extension UICollectionView {
 class PhotoGridViewController: MasterViewController {
     
     var assetCollection: PHAssetCollection!
+    var fetchResult: PHFetchResult<PHAsset>!
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -32,6 +33,7 @@ class PhotoGridViewController: MasterViewController {
 
         if let stateController = super.stateController {
             collectionViewDataSource = PhotosCollectionViewDataSource(collectionView: collectionView, stateController: stateController)
+            collectionViewDataSource?.fetchResult = fetchResult
             collectionViewDelegate = PhotosCollectionViewDelegate(collectionView: collectionView, stateController: stateController)
         }
         

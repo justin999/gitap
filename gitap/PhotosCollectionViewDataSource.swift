@@ -13,7 +13,7 @@ class PhotosCollectionViewDataSource: NSObject {
     
     var stateController: StateController
     
-    var fetchResult: PHFetchResult<PHAsset>!
+    var fetchResult: PHFetchResult<PHAsset>! 
     
     
     fileprivate var thumbnailSize: CGSize!
@@ -26,8 +26,6 @@ class PhotosCollectionViewDataSource: NSObject {
         
         
         thumbnailSize = CGSize(width: 50, height: 50)
-        
-        fetchResult = PhotoManager.shared.allPhotos
     }
     
 }

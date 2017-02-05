@@ -17,6 +17,8 @@ struct PhotoManager {
     var smartAlbums: PHFetchResult<PHAssetCollection>!
     var userCollections: PHFetchResult<PHCollection>!
     
+    var fetchResult: PHFetchResult<PHAsset>?
+    
     let sectionLocalizedTitles = ["", NSLocalizedString("Smart Albums", comment: ""), NSLocalizedString("Albums", comment: "")]
     
     init() {
