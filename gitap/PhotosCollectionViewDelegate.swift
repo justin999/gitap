@@ -9,6 +9,14 @@
 import UIKit
 
 class PhotosCollectionViewDelegate: NSObject {
+    
+    let stateController: StateController
+    
+    init(collectionView: UICollectionView, stateController: StateController) {
+        self.stateController = stateController
+        super.init()
+        collectionView.delegate = self
+    }
 
 }
 

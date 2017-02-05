@@ -22,8 +22,6 @@ enum CellIdentifier: String {
     case allPhotos, collection
 }
 
-
-
 class PhotosTableViewDataSource: NSObject {
 
     var stateController: StateController

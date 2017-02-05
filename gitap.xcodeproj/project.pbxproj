@@ -53,6 +53,8 @@
 		DC709C2C1E46C0B100169C05 /* PhotosCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC709C2B1E46C0B100169C05 /* PhotosCollectionViewDelegate.swift */; };
 		DC709C2E1E46C0E500169C05 /* PhotosCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC709C2D1E46C0E500169C05 /* PhotosCollectionViewDataSource.swift */; };
 		DC709C311E46C3AD00169C05 /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC709C301E46C3AD00169C05 /* PhotoManager.swift */; };
+		DC709C341E46CD5200169C05 /* PhotoGridViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC709C321E46CD5200169C05 /* PhotoGridViewCell.swift */; };
+		DC709C351E46CD5200169C05 /* PhotoGridViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC709C331E46CD5200169C05 /* PhotoGridViewCell.xib */; };
 		DC7281651E0E178E00EEFC57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281641E0E178E00EEFC57 /* AppDelegate.swift */; };
 		DC7281671E0E178E00EEFC57 /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281661E0E178E00EEFC57 /* FeedsViewController.swift */; };
 		DC72816A1E0E178E00EEFC57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC7281681E0E178E00EEFC57 /* Main.storyboard */; };
@@ -147,6 +149,8 @@
 		DC709C2B1E46C0B100169C05 /* PhotosCollectionViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		DC709C2D1E46C0E500169C05 /* PhotosCollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		DC709C301E46C3AD00169C05 /* PhotoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
+		DC709C321E46CD5200169C05 /* PhotoGridViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoGridViewCell.swift; sourceTree = "<group>"; };
+		DC709C331E46CD5200169C05 /* PhotoGridViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoGridViewCell.xib; sourceTree = "<group>"; };
 		DC7281611E0E178E00EEFC57 /* gitap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gitap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC7281641E0E178E00EEFC57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC7281661E0E178E00EEFC57 /* FeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewController.swift; sourceTree = "<group>"; };
@@ -345,6 +349,8 @@
 				DC7281AC1E0F6B4C00EEFC57 /* ReposTableViewCell.swift */,
 				DC7281AD1E0F6B4C00EEFC57 /* ReposTableViewCell.xib */,
 				DC61BCC71E40063C00BDF1CD /* PlaceHolderTextView.swift */,
+				DC709C321E46CD5200169C05 /* PhotoGridViewCell.swift */,
+				DC709C331E46CD5200169C05 /* PhotoGridViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -553,6 +559,7 @@
 				DC7281A71E0E338D00EEFC57 /* FeedsTableViewCell.xib in Resources */,
 				DC72816C1E0E178E00EEFC57 /* Assets.xcassets in Resources */,
 				DC72816A1E0E178E00EEFC57 /* Main.storyboard in Resources */,
+				DC709C351E46CD5200169C05 /* PhotoGridViewCell.xib in Resources */,
 				DC5D64A21E108E9100E92DDD /* ReposDetailViewController.xib in Resources */,
 				DC6C378B1E1CBA12003D28C4 /* LoginViewController.xib in Resources */,
 			);
@@ -604,6 +611,7 @@
 				DC6C378A1E1CBA11003D28C4 /* LoginViewController.swift in Sources */,
 				DC5D649E1E10006100E92DDD /* SettingsTableViewDataSource.swift in Sources */,
 				DC867AFD1E3AD36600DD0553 /* MasterViewController.swift in Sources */,
+				DC709C341E46CD5200169C05 /* PhotoGridViewCell.swift in Sources */,
 				DC7281AB1E0F665000EEFC57 /* ReposTableViewDataSource.swift in Sources */,
 				DC24340D1E20E748002FBDE7 /* UserRouter.swift in Sources */,
 				DC3D8FC31E34549000D349B6 /* Constants.swift in Sources */,

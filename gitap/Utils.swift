@@ -46,6 +46,12 @@ class Utils: NSObject {
         tableView.register(nib, forCellReuseIdentifier: cellId)
     }
     
+    class func registerCCell(_ collectionView: UICollectionView, nibName: String, cellId: String) {
+        let nib = UINib(nibName: nibName, bundle: nil)
+//        collectionView.register(nib, forCellReuseIdentifier: cellId)
+        collectionView.register(nib, forCellWithReuseIdentifier: cellId)
+    }
+    
     class func showOAuthLoginView(inViewcontroller: UIViewController, delegate: LoginViewDelegate) {
         GitHubAPIManager.sharedInstance.isLoadingOAuthToken = true
         let loginVC = LoginViewController(nibName: "LoginViewController", bundle: nil)

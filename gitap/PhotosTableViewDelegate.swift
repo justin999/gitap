@@ -22,7 +22,8 @@ extension PhotosTableViewDelegate: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let destination = PhotoGridViewController()
-        self.stateController.push(destination: destination, inViewController: stateController.viewController)
+//        self.stateController.push(destination: destination, inViewController: stateController.viewController)
+        self.stateController.present(destination: destination, inViewController: stateController.viewController)
     }
     
 }

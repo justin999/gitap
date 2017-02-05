@@ -19,6 +19,10 @@ private extension UICollectionView {
 
 class PhotoGridViewController: MasterViewController {
     
+    var assetCollection: PHAssetCollection!
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     fileprivate var thumbnailSize: CGSize!
     var collectionViewDelegate: PhotosCollectionViewDelegate?
     var collectionViewDataSource: PhotosCollectionViewDataSource?
@@ -26,7 +30,11 @@ class PhotoGridViewController: MasterViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if let stateController = super.stateController {
+            collectionViewDataSource = PhotosCollectionViewDataSource(collectionView: collectionView, stateController: stateController)
+            collectionViewDelegate = PhotosCollectionViewDelegate(collectionView: collectionView, stateController: stateController)
+        }
+        
     }
     
     deinit {
