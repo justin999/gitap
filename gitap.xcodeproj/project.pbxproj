@@ -48,6 +48,8 @@
 		DC709C1D1E4583AE00169C05 /* PhotoSectionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC709C1B1E4583AE00169C05 /* PhotoSectionsViewController.xib */; };
 		DC709C1F1E45842900169C05 /* PhotosTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC709C1E1E45842900169C05 /* PhotosTableViewDataSource.swift */; };
 		DC709C211E45853C00169C05 /* PhotosTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC709C201E45853C00169C05 /* PhotosTableViewDelegate.swift */; };
+		DC709C241E46B04100169C05 /* PhotoGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC709C221E46B04100169C05 /* PhotoGridViewController.swift */; };
+		DC709C251E46B04100169C05 /* PhotoGridViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC709C231E46B04100169C05 /* PhotoGridViewController.xib */; };
 		DC7281651E0E178E00EEFC57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281641E0E178E00EEFC57 /* AppDelegate.swift */; };
 		DC7281671E0E178E00EEFC57 /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281661E0E178E00EEFC57 /* FeedsViewController.swift */; };
 		DC72816A1E0E178E00EEFC57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC7281681E0E178E00EEFC57 /* Main.storyboard */; };
@@ -137,6 +139,8 @@
 		DC709C1B1E4583AE00169C05 /* PhotoSectionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoSectionsViewController.xib; sourceTree = "<group>"; };
 		DC709C1E1E45842900169C05 /* PhotosTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosTableViewDataSource.swift; sourceTree = "<group>"; };
 		DC709C201E45853C00169C05 /* PhotosTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosTableViewDelegate.swift; sourceTree = "<group>"; };
+		DC709C221E46B04100169C05 /* PhotoGridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoGridViewController.swift; sourceTree = "<group>"; };
+		DC709C231E46B04100169C05 /* PhotoGridViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoGridViewController.xib; sourceTree = "<group>"; };
 		DC7281611E0E178E00EEFC57 /* gitap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gitap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC7281641E0E178E00EEFC57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC7281661E0E178E00EEFC57 /* FeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewController.swift; sourceTree = "<group>"; };
@@ -349,6 +353,8 @@
 				DC867AFC1E3AD36600DD0553 /* MasterViewController.swift */,
 				DC709C1A1E4583AE00169C05 /* PhotoSectionsViewController.swift */,
 				DC709C1B1E4583AE00169C05 /* PhotoSectionsViewController.xib */,
+				DC709C221E46B04100169C05 /* PhotoGridViewController.swift */,
+				DC709C231E46B04100169C05 /* PhotoGridViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -513,6 +519,7 @@
 			files = (
 				DC72816F1E0E178E00EEFC57 /* LaunchScreen.storyboard in Resources */,
 				DC709C1D1E4583AE00169C05 /* PhotoSectionsViewController.xib in Resources */,
+				DC709C251E46B04100169C05 /* PhotoGridViewController.xib in Resources */,
 				DCC8173D1E15EE5500E7056C /* IssueDetailViewController.xib in Resources */,
 				DC3D8FC51E35769300D349B6 /* SetupAccount.storyboard in Resources */,
 				DC7281AF1E0F6B4C00EEFC57 /* ReposTableViewCell.xib in Resources */,
@@ -582,6 +589,7 @@
 				DCC817281E14010700E7056C /* EditIssuesTableViewDelegate.swift in Sources */,
 				DC6C378D1E1CD312003D28C4 /* RepoRouter.swift in Sources */,
 				DC6C37931E1DC049003D28C4 /* File.swift in Sources */,
+				DC709C241E46B04100169C05 /* PhotoGridViewController.swift in Sources */,
 				DC7281671E0E178E00EEFC57 /* FeedsViewController.swift in Sources */,
 				DC7281651E0E178E00EEFC57 /* AppDelegate.swift in Sources */,
 				DC7281951E0E1A8C00EEFC57 /* SettingsViewController.swift in Sources */,

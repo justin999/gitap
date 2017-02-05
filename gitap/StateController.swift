@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import Photos
 
 class StateController: NSObject {
     var viewController: UIViewController
@@ -15,6 +16,8 @@ class StateController: NSObject {
     var issueEvents: [Event]?
     var repos: [Repo]?
     var selectedRepo: Repo?
+    var photos: PHFetchResult<PHAsset>!
+    
 
     init(viewController: UIViewController) {
         self.viewController = viewController

@@ -70,12 +70,10 @@ class CreateIssuesViewController: MasterViewController {
         let lastPhotoAction = UIAlertAction(title: "Use Last Photo Taken", style: .default) { action in
             print("Use Last Photo Taken")
         }
-        let libraryAction = UIAlertAction(title: "Choose From Library", style: .default) { action in
+        let libraryAction = UIAlertAction(title: "Choose From Library", style: .default) { [unowned self] (action) in
             print("Choose From Library")
-            let allPhotosOptions = PHFetchOptions()
-            allPhotosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
-//            allPhotos = PHAsset.fetchAssets(with: allPhotosOptions)
-            
+            let destination = PhotoSectionsViewController()
+            self.stateController?.present(destination: destination, inViewController: self)
         }
         imageAlert.addAction(takePhotoAction)
         imageAlert.addAction(lastPhotoAction)
