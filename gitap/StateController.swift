@@ -36,13 +36,22 @@ class StateController: NSObject {
         inViewController.present(destination, animated: true, completion: nil)
     }
     
+    func present(destinationNav: UINavigationController, inViewController: UIViewController) {
+        guard let rootViewController = destinationNav.viewControllers.first as? MasterViewController else { fatalError("unexpected rootViewController") }
+        rootViewController.stateController = self
+        originalViewController = self.viewController
+        self.viewController = rootViewController
+        // This is the different part from present(destination:inViewController)
+        // it should present UINavigationController
+        inViewController.present(destinationNav, animated: true, completion: nil)
+    }
+    
     func present(storyBoardName: String, inViewController: UIViewController) {
         let storyBoard = UIStoryboard(name: storyBoardName, bundle: nil)
-        if let vc = storyBoard.instantiateInitialViewController() as? MasterViewController{
-            self.present(destination: vc, inViewController: inViewController)
-        } else {
-            print("something went wrong")
+        guard let vc = storyBoard.instantiateInitialViewController() as? MasterViewController else {
+            fatalError("unexpected rootViewController in \(String(describing: self))")
         }
+        self.present(destination: vc, inViewController: inViewController)
     }
     
     func dismiss(animated: Bool, completion: (() -> Void)?) {

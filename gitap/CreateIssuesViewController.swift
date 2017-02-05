@@ -73,7 +73,8 @@ class CreateIssuesViewController: MasterViewController {
         let libraryAction = UIAlertAction(title: "Choose From Library", style: .default) { [unowned self] (action) in
             print("Choose From Library")
             let destination = PhotoSectionsViewController()
-            self.stateController?.present(destination: destination, inViewController: self)
+            let navigationController = UINavigationController(rootViewController: destination)
+            self.stateController?.present(destinationNav: navigationController, inViewController: self)
         }
         imageAlert.addAction(takePhotoAction)
         imageAlert.addAction(lastPhotoAction)

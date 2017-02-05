@@ -41,17 +41,13 @@ class PhotoGridViewController: MasterViewController {
 //        PHPhotoLibrary.shared().unregisterChangeObserver(self)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        // Determine the size of the thumbnails to request from the PHCachingImageManager
-        let scale = UIScreen.main.scale
-//        let cellSize = (collectionViewLayout as! UICollectionViewFlowLayout).itemSize
-//        thumbnailSize = CGSize(width: cellSize.width * scale, height: cellSize.height * scale)
-
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
 }

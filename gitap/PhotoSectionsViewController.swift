@@ -18,14 +18,20 @@ class PhotoSectionsViewController: MasterViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         if let stateController = super.stateController {
             photosTableViewDataSource = PhotosTableViewDataSource(tableView: tableView, stateController: stateController)
             photosTableViewDelegate = PhotosTableViewDelegate(tableView: tableView, stateController: stateController)
         }
+        
+        if let navigationController = self.navigationController {
+            let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.done, target: self, action: nil)
+            navigationController.topViewController?.navigationItem.rightBarButtonItem = cancelButton
+            cancelButton.action = #selector(self.cancelButtonTapped(_:))
+        }
     }
 
-    @IBAction func CancelButtonTapped(_ sender: Any) {
+    func cancelButtonTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
 }
