@@ -236,6 +236,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DC709C2A1E46B93500169C05 /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+				DC709C1A1E4583AE00169C05 /* PhotoSectionsViewController.swift */,
+				DC709C1B1E4583AE00169C05 /* PhotoSectionsViewController.xib */,
+				DC709C221E46B04100169C05 /* PhotoGridViewController.swift */,
+				DC709C231E46B04100169C05 /* PhotoGridViewController.xib */,
+			);
+			name = Photos;
+			sourceTree = "<group>";
+		};
 		DC7281581E0E178E00EEFC57 = {
 			isa = PBXGroup;
 			children = (
@@ -335,6 +346,7 @@
 		DC72819A1E0E1AC000EEFC57 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				DC709C2A1E46B93500169C05 /* Photos */,
 				DC3D8FC61E3576D300D349B6 /* SetupAccountViewController.swift */,
 				DC3D8FC41E35769300D349B6 /* SetupAccount.storyboard */,
 				DC7281661E0E178E00EEFC57 /* FeedsViewController.swift */,
@@ -351,10 +363,6 @@
 				DC867AFA1E3ABD1700DD0553 /* ReposSelectionViewController.swift */,
 				DC61BCBD1E3C43E300BDF1CD /* ReposSelectionViewController.xib */,
 				DC867AFC1E3AD36600DD0553 /* MasterViewController.swift */,
-				DC709C1A1E4583AE00169C05 /* PhotoSectionsViewController.swift */,
-				DC709C1B1E4583AE00169C05 /* PhotoSectionsViewController.xib */,
-				DC709C221E46B04100169C05 /* PhotoGridViewController.swift */,
-				DC709C231E46B04100169C05 /* PhotoGridViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
