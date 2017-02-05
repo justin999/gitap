@@ -64,9 +64,9 @@ class CreateIssuesViewController: MasterViewController {
     
     func generateActionSheet() -> UIAlertController {
         let imageAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let takePhotoAction = UIAlertAction(title: "Take Photo", style: .default) { action in
-            print("Take Photo")
-        }
+//        let takePhotoAction = UIAlertAction(title: "Take Photo", style: .default) { action in
+//            print("Take Photo")
+//        }
         let lastPhotoAction = UIAlertAction(title: "Use Last Photo Taken", style: .default) { action in
             print("Use Last Photo Taken")
         }
@@ -76,7 +76,7 @@ class CreateIssuesViewController: MasterViewController {
             let navigationController = UINavigationController(rootViewController: destination)
             self.stateController?.present(destinationNav: navigationController, inViewController: self)
         }
-        imageAlert.addAction(takePhotoAction)
+//        imageAlert.addAction(takePhotoAction)
         imageAlert.addAction(lastPhotoAction)
         imageAlert.addAction(libraryAction)
         
