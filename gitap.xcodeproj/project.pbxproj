@@ -55,6 +55,8 @@
 		DC709C311E46C3AD00169C05 /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC709C301E46C3AD00169C05 /* PhotoManager.swift */; };
 		DC709C341E46CD5200169C05 /* PhotoGridViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC709C321E46CD5200169C05 /* PhotoGridViewCell.swift */; };
 		DC709C351E46CD5200169C05 /* PhotoGridViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC709C331E46CD5200169C05 /* PhotoGridViewCell.xib */; };
+		DC709C421E48C6BA00169C05 /* ImgurManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC709C411E48C6BA00169C05 /* ImgurManager.swift */; };
+		DC709C441E48C7F500169C05 /* ImgurRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC709C431E48C7F500169C05 /* ImgurRouter.swift */; };
 		DC7281651E0E178E00EEFC57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281641E0E178E00EEFC57 /* AppDelegate.swift */; };
 		DC7281671E0E178E00EEFC57 /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281661E0E178E00EEFC57 /* FeedsViewController.swift */; };
 		DC72816A1E0E178E00EEFC57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC7281681E0E178E00EEFC57 /* Main.storyboard */; };
@@ -151,6 +153,8 @@
 		DC709C301E46C3AD00169C05 /* PhotoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
 		DC709C321E46CD5200169C05 /* PhotoGridViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoGridViewCell.swift; sourceTree = "<group>"; };
 		DC709C331E46CD5200169C05 /* PhotoGridViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoGridViewCell.xib; sourceTree = "<group>"; };
+		DC709C411E48C6BA00169C05 /* ImgurManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImgurManager.swift; sourceTree = "<group>"; };
+		DC709C431E48C7F500169C05 /* ImgurRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImgurRouter.swift; sourceTree = "<group>"; };
 		DC7281611E0E178E00EEFC57 /* gitap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gitap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC7281641E0E178E00EEFC57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC7281661E0E178E00EEFC57 /* FeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewController.swift; sourceTree = "<group>"; };
@@ -226,11 +230,6 @@
 			isa = PBXGroup;
 			children = (
 				DC5D64991E0F9F4B00E92DDD /* Utils.swift */,
-				DC6C377E1E1C9EA4003D28C4 /* GitHubAPIManager.swift */,
-				DC2434431E2849F6002FBDE7 /* ActivityRouter.swift */,
-				DC6C378E1E1CD46C003D28C4 /* IssueRouter.swift */,
-				DC6C378C1E1CD312003D28C4 /* RepoRouter.swift */,
-				DC24340C1E20E748002FBDE7 /* UserRouter.swift */,
 				DC3D8FC21E34549000D349B6 /* Constants.swift */,
 			);
 			name = Helpers;
@@ -261,8 +260,23 @@
 			isa = PBXGroup;
 			children = (
 				DC709C301E46C3AD00169C05 /* PhotoManager.swift */,
+				DC6C377E1E1C9EA4003D28C4 /* GitHubAPIManager.swift */,
+				DC709C401E48C69300169C05 /* GithubRouters */,
+				DC709C411E48C6BA00169C05 /* ImgurManager.swift */,
+				DC709C431E48C7F500169C05 /* ImgurRouter.swift */,
 			);
 			name = Managers;
+			sourceTree = "<group>";
+		};
+		DC709C401E48C69300169C05 /* GithubRouters */ = {
+			isa = PBXGroup;
+			children = (
+				DC2434431E2849F6002FBDE7 /* ActivityRouter.swift */,
+				DC6C378E1E1CD46C003D28C4 /* IssueRouter.swift */,
+				DC6C378C1E1CD312003D28C4 /* RepoRouter.swift */,
+				DC24340C1E20E748002FBDE7 /* UserRouter.swift */,
+			);
+			name = GithubRouters;
 			sourceTree = "<group>";
 		};
 		DC7281581E0E178E00EEFC57 = {
@@ -636,6 +650,7 @@
 				DC6C376A1E160854003D28C4 /* IssueDetailTableViewDelegate.swift in Sources */,
 				DCC817371E15ECF700E7056C /* IssuesTableViewDelegate.swift in Sources */,
 				DC6C378F1E1CD46C003D28C4 /* IssueRouter.swift in Sources */,
+				DC709C421E48C6BA00169C05 /* ImgurManager.swift in Sources */,
 				DC3D8FBC1E33907500D349B6 /* Event.swift in Sources */,
 				DC2434441E2849F6002FBDE7 /* ActivityRouter.swift in Sources */,
 				DC7281AE1E0F6B4C00EEFC57 /* ReposTableViewCell.swift in Sources */,
@@ -645,6 +660,7 @@
 				DC24340F1E232294002FBDE7 /* StateController+AlertHelper.swift in Sources */,
 				DCC817391E15ED2700E7056C /* IssuesTableViewDataSource.swift in Sources */,
 				DC709C2C1E46C0B100169C05 /* PhotosCollectionViewDelegate.swift in Sources */,
+				DC709C441E48C7F500169C05 /* ImgurRouter.swift in Sources */,
 				DCC817311E14E9C600E7056C /* UIView-positioning.swift in Sources */,
 				DC61BCC41E3F77AE00BDF1CD /* UIColor-extension.swift in Sources */,
 				DC6C376C1E160894003D28C4 /* IssueDetailTableViewDataSource.swift in Sources */,

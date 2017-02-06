@@ -62,6 +62,20 @@ class CreateIssuesViewController: MasterViewController {
         bodyTextView.inputAccessoryView = accessoryView
     }
     
+    private func uploadImage() {
+        if let image = PhotoManager.shared.allPhotos.firstObject {
+            // how to convert phasset to nsdata?
+            // ref. https://github.com/steve228uk/ImgurKit
+            PHImageManager.default().requestImageData(for: image, options: nil) { (imageData, dataUTI, orientation, info) in
+                print("imageData: \(imageData)")
+                
+            }
+        }
+        
+        
+        
+    }
+    
     func generateActionSheet() -> UIAlertController {
         let imageAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 //        let takePhotoAction = UIAlertAction(title: "Take Photo", style: .default) { action in
@@ -69,6 +83,7 @@ class CreateIssuesViewController: MasterViewController {
 //        }
         let lastPhotoAction = UIAlertAction(title: "Use Last Photo Taken", style: .default) { action in
             print("Use Last Photo Taken")
+            self.uploadImage()
         }
         let libraryAction = UIAlertAction(title: "Choose From Library", style: .default) { [unowned self] (action) in
             print("Choose From Library")
