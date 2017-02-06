@@ -115,6 +115,10 @@ class CreateIssuesViewController: MasterViewController {
             let owner = repo.owner?.loginName ,
             let repoName = repo.name {
             let title = titleTextField.text
+            if title?.characters.count == 0 {
+                Utils.presentAlert(inViewController: self, title: "", message: "title can't be blank", style: .alert, actions: [UIAlertAction.okAlert()], completion: nil)
+                return
+            }
             // TODO: validate title
             let body = bodyTextView.text
             
