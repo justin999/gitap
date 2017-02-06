@@ -34,8 +34,8 @@ enum ImgurRouter: URLRequestConvertible {
         
         let params: ([String: Any]?) = {
             switch self {
-            case .upload(_):
-                return nil
+            case .upload(let data):
+                return ["image": data.base64EncodedString()]
             }
         }()
         
@@ -46,13 +46,6 @@ enum ImgurRouter: URLRequestConvertible {
         urlRequest.setValue("Client-ID \(token)", forHTTPHeaderField: "Authorization")
         
         let encoding = JSONEncoding.default
-        
-        switch self {
-        case .upload(let data):
-            return try encoding.encode(urlRequest, with: ["image": data.base64EncodedString()])
-        }
+        return try encoding.encode(urlRequest, with: params)
     }
-    
-    
-    
 }
