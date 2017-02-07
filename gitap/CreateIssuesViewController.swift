@@ -103,17 +103,22 @@ class CreateIssuesViewController: MasterViewController {
 
     }
     @objc private func linkButtonTapped() {
-        let linkText = "![]()"
-        if let range = bodyTextView.selectedTextRange {
-            // From your question I assume that you do not want to replace a selection, only insert some text where the cursor is.
-            if range.start == range.end {
-                bodyTextView.replace(range, withText: linkText)
-            }
-        }
+        let linkText = "[]()"
+        insert(linkText)
     }
     @objc private func taskButtonTapped() {
+        let taskText = "- [ ] "
+        insert(taskText)
     }
     @objc private func quoteButtonTapped() {
+    }
+    
+    func insert(_ text: String) {
+        if let range = bodyTextView.selectedTextRange {
+            if range.start == range.end {
+                bodyTextView.replace(range, withText: text)
+            }
+        }
     }
     
     
