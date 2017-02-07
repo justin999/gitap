@@ -55,9 +55,9 @@ class CreateIssuesViewController: MasterViewController {
         let imageButton = UIBarButtonItem(title: "image", style: .plain, target: self, action: #selector(imageButtonTapped))
         let linkButton = UIBarButtonItem(title: "link", style: .plain, target: self, action: #selector(linkButtonTapped))
         let taskButton = UIBarButtonItem(title: "task", style: .plain, target: self, action: #selector(taskButtonTapped))
-        let quoteButton = UIBarButtonItem(title: "quote", style: .plain, target: self, action: #selector(quoteButtonTapped))
+        let headerButton = UIBarButtonItem(title: "header", style: .plain, target: self, action: #selector(headerButtonTapped))
         let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        accessoryView?.setItems([imageButton, spacer, linkButton, spacer, taskButton, spacer, quoteButton], animated: true)
+        accessoryView?.setItems([imageButton, spacer, linkButton, spacer, taskButton, spacer, headerButton], animated: true)
         
         bodyTextView.inputAccessoryView = accessoryView
     }
@@ -110,7 +110,9 @@ class CreateIssuesViewController: MasterViewController {
         let taskText = "- [ ] "
         insert(taskText)
     }
-    @objc private func quoteButtonTapped() {
+    @objc private func headerButtonTapped() {
+        let headerText = "### "
+        insert(headerText)
     }
     
     func insert(_ text: String) {
