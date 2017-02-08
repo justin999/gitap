@@ -40,21 +40,22 @@ class SetupAccountViewController: MasterViewController, LoginViewDelegate, SFSaf
                 UserDefaults.standard.set(loginName, forKey: Constant.userDefaults.githubLoginName)
                 
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                if let tabBarController = storyboard.instantiateInitialViewController() as? UITabBarController,
-                    let navigationController = tabBarController.viewControllers?.first as? UINavigationController {
-                    if let feedsViewController = navigationController.viewControllers.first as? FeedsViewController {
-                        feedsViewController.stateController = self.stateController
-                        feedsViewController.stateController?.viewController = feedsViewController
-                        self.addRightBarButton(navigationController: navigationController)
-                        
-                    }
-                    if let navigationController = tabBarController.viewControllers?[1] as? UINavigationController,
+                if let tabBarController = storyboard.instantiateInitialViewController() as? UITabBarController {
+                    // MEMO: remove feeds from first release
+//                    let navigationController = tabBarController.viewControllers?.first as? UINavigationController {
+//                    if let feedsViewController = navigationController.viewControllers.first as? FeedsViewController {
+//                        feedsViewController.stateController = self.stateController
+//                        feedsViewController.stateController?.viewController = feedsViewController
+//                        self.addRightBarButton(navigationController: navigationController)
+//                        
+//                    }
+                    if let navigationController = tabBarController.viewControllers?[0] as? UINavigationController,
                         let reposViewController = navigationController.viewControllers.first as? ReposViewController {
                         reposViewController.stateController = self.stateController
                         self.addRightBarButton(navigationController: navigationController)
                     }
                     
-                    if let navigationController = tabBarController.viewControllers?[2] as? UINavigationController,
+                    if let navigationController = tabBarController.viewControllers?[1] as? UINavigationController,
                         let settingsViewController = navigationController.viewControllers.first as? SettingsViewController {
                         settingsViewController.stateController = self.stateController
                         self.addRightBarButton(navigationController: navigationController)
