@@ -58,6 +58,7 @@ class StateController: NSObject {
         if let originalViewController = originalViewController {
             self.viewController = originalViewController
         }
+        if let completion = completion { completion() }
         self.viewController.dismiss(animated: animated, completion: completion)
     }
     

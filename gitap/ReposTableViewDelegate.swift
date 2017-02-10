@@ -23,6 +23,9 @@ extension ReposTableViewDelegate: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: false)
         
         let vc = ReposDetailViewController()
+        if let repos = stateController.repos {
+            stateController.selectedRepo = repos[indexPath.row]
+        }
         stateController.push(destination: vc, inViewController: stateController.viewController)
     }
     
