@@ -27,45 +27,29 @@ class ImgurManager {
     
     // MARK: - API Calls
     
-    public func uploadImage(image: Data, callback: ((url: String, width: Int, height: Int, type: String)?, NSError?) -> Void) {
+    public func uploadImage(image: Data, callback: @escaping ((url: String, width: Int, height: Int, type: String)?, Error?) -> Void) {
         
         Alamofire.request(ImgurRouter.upload(image)).responseJSON { response in
-                if let urlresponse = response.response {
-                    
-                }
-                
-                
-//                if response.result.isSuccess {
-//                    if let value = response.result.value {
-//                        let json = JSON(value)
-//                        if let data = json["data"].dictionary {
-//                            
-//                            var result = (url: "", width: 0, height: 0, type: "")
-//                            
-//                            if let url = data["link"]?.string {
-//                                result.url = url
-//                            }
-//                            
-//                            if let width = data["width"]?.int {
-//                                result.width = width
-//                            }
-//                            
-//                            if let height = data["height"]?.int {
-//                                result.height = height
-//                            }
-//                            
-//                            if let type = data["type"]?.string {
-//                                result.type = type
-//                            }
-//                            
-//                            callback(result, response.result.error)
-//                        }
-//                    }
-//                } else {
-//                    callback(nil, response.result.error)
-//                }
+            guard response.result.error == nil else {
+                callback(nil, response.result.error)
+                return
+            }
+            
+            guard let json = response.result.value as? [String: Any?], let data = json["data"] as? [String: Any?] else {
+                callback(nil, ImgurManagerError.objectSerialization(reason: "no data fetched"))
+                return
+            }
+            
+            if let url     = data["link"] as? String,
+                let width  = data["width"] as? Int,
+                let height = data["height"] as? Int,
+                let type   = data["type"] as? String {
+                callback((url, width, height, type), nil)
+            } else {
+                callback(nil, ImgurManagerError.objectSerialization(reason: "some element was nil"))
+                return
+            }
         }
-        
     }
-    
+
 }

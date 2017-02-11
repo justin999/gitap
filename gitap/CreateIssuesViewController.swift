@@ -68,12 +68,23 @@ class CreateIssuesViewController: MasterViewController {
             // ref. https://github.com/steve228uk/ImgurKit
             PHImageManager.default().requestImageData(for: image, options: nil) { (imageData, dataUTI, orientation, info) in
                 print("imageData: \(imageData)")
-                
+                if let image = imageData {
+                    ImgurManager.shared.uploadImage(image: image) { [unowned self] (data, error) in
+                        if let error = error {
+                            Utils.presentAlert(inViewController: self, title: "Upload Failed", message: error.localizedDescription, style: .alert, actions: [UIAlertAction.okAlert()], completion: nil)
+                            return
+                        }
+                    
+                        if let data = data {
+                            let text = "\n<img src=\"\(data.url)\" width=300>\n"
+                            self.insert(text)
+                        }
+                    }
+                } else {
+                    print("no photos")
+                }
             }
         }
-        
-        
-        
     }
     
     func generateActionSheet() -> UIAlertController {
@@ -140,7 +151,12 @@ class CreateIssuesViewController: MasterViewController {
             return
         }
         
-        if let repo = stateController?.selectedRepo,
+        guard let stateController = stateController else {
+            Utils.presentAlert(inViewController: self, title: "", message: "Something went wrong. Please relaunch the app.", style: .alert, actions: [UIAlertAction.okAlert()], completion: nil)
+            return
+        }
+        
+        if let repo = stateController.selectedRepo,
             let owner = repo.owner?.loginName ,
             let repoName = repo.name {
             let title = titleTextField.text
@@ -157,9 +173,19 @@ class CreateIssuesViewController: MasterViewController {
                 "owner": owner,
                 "repo": repoName
             ]
-            stateController?.createIssue(params: params, completionHandler: nil)
+            
+            stateController.createIssue(params: params) { (result) in
+                guard let issue = result.value else {
+                    Utils.presentAlert(inViewController: self, title: "", message: "Something went wrong. The issue was not created.", style: .alert, actions: [UIAlertAction.okAlert()], completion: nil)
+                    return
+                }
+                
+                // TODO: Segue to issue detail page after the detail page is implemented. 
+                Utils.presentAlert(inViewController: self, title: "issue created", message: "title: \(issue.title)\nbody: \(issue.body)", style: .alert, actions: [UIAlertAction.okAlert()], completion: nil)
+            }
+            
         } else {
-            stateController?.presentAlert(title: "", message: "レポジトリが選択されていません。", style: .alert, actions: [UIAlertAction.okAlert()], completion: nil)
+            stateController.presentAlert(title: "", message: "レポジトリが選択されていません。", style: .alert, actions: [UIAlertAction.okAlert()], completion: nil)
         }
         
     }
