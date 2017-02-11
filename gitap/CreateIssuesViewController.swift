@@ -111,7 +111,6 @@ class CreateIssuesViewController: MasterViewController {
     
     @objc private func imageButtonTapped() {
         self.present(generateActionSheet(), animated: true, completion: nil)
-
     }
     @objc private func linkButtonTapped() {
         let linkText = "[]()"
