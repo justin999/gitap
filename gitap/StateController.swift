@@ -67,6 +67,18 @@ class StateController: NSObject {
         selectedRepo = repo
     }
     
+    func getUploadImageData(image: PHAsset, options: PHImageRequestOptions?, completionHandler: @escaping (Data?, Error?) -> Void) {
+        // ref. https://github.com/steve228uk/ImgurKit
+        PHImageManager.default().requestImageData(for: image, options: options) { (imageData, dataUTI, orientation, info) in
+            print("imageData: \(imageData)")
+            if let data = imageData {
+                completionHandler(data, nil)
+            } else {
+                completionHandler(nil, ImgurManagerError.objectSerialization(reason: "some thing went wrong while fetching the data"))
+            }
+        }
+    }
+    
     // MARK: - users
     func fetchAuthenticatedUser(completionHandler: @escaping ((Result<User>) -> Void)) {
         GitHubAPIManager.sharedInstance.fetch(userRouter.fetchAuthenticatedUser()) { (result: Result<[User]>, nextpage) in

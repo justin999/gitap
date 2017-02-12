@@ -62,26 +62,41 @@ class CreateIssuesViewController: MasterViewController {
         bodyTextView.inputAccessoryView = accessoryView
     }
     
-    private func uploadImage() {
-        if let image = PhotoManager.shared.allPhotos.firstObject {
-            // how to convert phasset to nsdata?
-            // ref. https://github.com/steve228uk/ImgurKit
-            PHImageManager.default().requestImageData(for: image, options: nil) { (imageData, dataUTI, orientation, info) in
-                print("imageData: \(imageData)")
-                if let image = imageData {
-                    ImgurManager.shared.uploadImage(image: image) { [unowned self] (data, error) in
-                        if let error = error {
-                            Utils.presentAlert(inViewController: self, title: "Upload Failed", message: error.localizedDescription, style: .alert, actions: [UIAlertAction.okAlert()], completion: nil)
-                            return
-                        }
-                    
-                        if let data = data {
-                            let text = "\n<img src=\"\(data.url)\" width=300>\n"
-                            self.insert(text)
-                        }
+    private func uploadLastImage() {
+        guard let lastImage = PhotoManager.shared.allPhotos.firstObject else {
+            stateController?.presentAlert(title: "no Photo", message: "No photo in your library.", style: .alert, actions: [UIAlertAction.okAlert()], completion: nil)
+            return
+        }
+        
+        stateController?.getUploadImageData(image: lastImage, options: nil) { [weak self] (data, error) in
+            if let error = error, let weakSelf = self {
+                Utils.showErrorAlert(error: error, in: weakSelf, message: error.localizedDescription) { () in
+                    return
+                }
+            }
+            
+            if let data = data , let weakSelf = self, let originalRange = weakSelf.bodyTextView.selectedTextRange {
+                let originalStart = originalRange.start
+                let uploadingText = "uploading image…"
+                weakSelf.insert("uploading image…")
+                guard let uploadingTextEnd = weakSelf.bodyTextView.position(from: originalStart, offset: uploadingText.characters.count), let uploadingRange = weakSelf.bodyTextView.textRange(from: originalStart, to: uploadingTextEnd) else {
+                    // NOTE: it shouldn't come here
+                    Utils.presentAlert(inViewController: weakSelf, title: "", message: "Please select where to upload image", style: .alert, actions: nil, completion: nil)
+                    return
+                }
+                
+                ImgurManager.shared.uploadImage(image: data) { (data, error) in
+                    if let error = error {
+                        Utils.showErrorAlert(error: error, in: weakSelf, message: error.localizedDescription, afterAction: { () -> Void in
+                            weakSelf.bodyTextView.replace(uploadingRange, withText: "")
+                            return } )
                     }
-                } else {
-                    print("no photos")
+                    
+                    if let data = data {
+                        weakSelf.bodyTextView.replace(uploadingRange, withText: "")
+                        let text = "\n<img src=\"\(data.url)\" width=300>\n"
+                        weakSelf.insert(text)
+                    }
                 }
             }
         }
@@ -94,7 +109,7 @@ class CreateIssuesViewController: MasterViewController {
 //        }
         let lastPhotoAction = UIAlertAction(title: "Use Last Photo Taken", style: .default) { action in
             print("Use Last Photo Taken")
-            self.uploadImage()
+            self.uploadLastImage()
         }
         let libraryAction = UIAlertAction(title: "Choose From Library", style: .default) { [unowned self] (action) in
             print("Choose From Library")

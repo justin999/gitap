@@ -58,5 +58,10 @@ class Utils: NSObject {
         loginVC.delegate = delegate
         inViewcontroller.present(loginVC, animated: true, completion: nil)
     }
+    
+    class func showErrorAlert(error: Error, in inViewController: UIViewController, title: String = "", message: String, afterAction: @escaping () -> Void) {
+        Utils.presentAlert(inViewController: inViewController, title: title, message: error.localizedDescription, style: .alert, actions: [UIAlertAction.okAlert()], completion: nil)
+        afterAction()
+    }
 
 }
