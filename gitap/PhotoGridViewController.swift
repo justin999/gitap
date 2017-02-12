@@ -44,7 +44,7 @@ class PhotoGridViewController: MasterViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         if let navigationController = self.navigationController {
-            uploadButton = UIBarButtonItem(title: "Upload", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.upload(images:)))
+            uploadButton = UIBarButtonItem(title: "Upload", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.upload))
             navigationController.topViewController?.navigationItem.rightBarButtonItem = uploadButton
         }
     }
