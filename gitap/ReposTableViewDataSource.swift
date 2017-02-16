@@ -10,8 +10,17 @@ import UIKit
 
 let reposCellId = "repoCell"
 
+enum reposSection: Int {
+    case publicSection
+    case privateSection
+    
+    static let count = 2
+}
+
 class ReposTableViewDataSource: NSObject {
     var stateController: StateController
+    
+    let reposSectionTitles = ["private", "public"]
     
     init(tableView: UITableView, stateController: StateController) {
         self.stateController = stateController
@@ -23,13 +32,16 @@ class ReposTableViewDataSource: NSObject {
 
 extension ReposTableViewDataSource: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return reposSectionTitles.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let repos = stateController.repos {
-            return repos.count
-        } else {
+        switch section {
+        case reposSection.privateSection.rawValue:
+            return stateController.privateRepos?.count ?? 0
+        case reposSection.publicSection.rawValue:
+            return stateController.publicRepos?.count ?? 0
+        default:
             return 0
         }
     }
@@ -41,7 +53,8 @@ extension ReposTableViewDataSource: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "public" //private, private members, public, public members, forked
+        return reposSectionTitles[section]
+//        return "public" //private, private members, public, public members, forked
     }
 }
 

@@ -15,6 +15,17 @@ class StateController: NSObject {
     var originalViewController: UIViewController?
     var issueEvents: [Event]?
     var repos: [Repo]?
+    var privateRepos: [Repo]? {
+        didSet {
+            if let pr = privateRepos { allRepos[0] = pr }
+        }
+    }
+    var publicRepos: [Repo]? {
+        didSet {
+            if let pr = publicRepos { allRepos[1] = pr }
+        }
+    }
+    
     var selectedRepo: Repo?
     var photos: PHFetchResult<PHAsset>!
     
@@ -162,7 +173,10 @@ class StateController: NSObject {
                 return
             }
             
-            self.repos = fetchedRepos
+            self.privateRepos = fetchedRepos.filter { $0.isPrivate == true }
+            self.publicRepos  = fetchedRepos.filter { $0.isPrivate == false }
+            
+            
             completionHandler(true)
         }
     }
