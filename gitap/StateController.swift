@@ -14,15 +14,15 @@ class StateController: NSObject {
     var viewController: UIViewController
     var originalViewController: UIViewController?
     var issueEvents: [Event]?
-    var repos: [Repo]?
+    var reposDictionary = [String: [Repo]]()
     var privateRepos: [Repo]? {
         didSet {
-            if let pr = privateRepos { allRepos[0] = pr }
+            if let pr = privateRepos { reposDictionary["private"] = pr }
         }
     }
     var publicRepos: [Repo]? {
         didSet {
-            if let pr = publicRepos { allRepos[1] = pr }
+            if let pr = publicRepos { reposDictionary["public"] = pr }
         }
     }
     

@@ -23,9 +23,17 @@ extension ReposTableViewDelegate: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: false)
         
         let vc = ReposDetailViewController()
-        if let repos = stateController.repos {
-            stateController.selectedRepo = repos[indexPath.row]
+        var repo: Repo?
+        switch indexPath.section {
+        case reposSection.privateSection.rawValue:
+            repo = stateController.reposDictionary["private"]?[indexPath.row]
+        case reposSection.publicSection.rawValue:
+            repo = stateController.reposDictionary["public"]?[indexPath.row]
+        default:
+            repo = nil
         }
+        stateController.selectedRepo = repo
+        
         stateController.push(destination: vc, inViewController: stateController.viewController)
     }
     

@@ -11,16 +11,21 @@ import UIKit
 let reposCellId = "repoCell"
 
 enum reposSection: Int {
-    case publicSection
     case privateSection
+    case publicSection
     
     static let count = 2
+    
+    var title: String {
+        switch self {
+        case .privateSection: return "private"
+        case .publicSection:  return "public"
+        }
+    }
 }
 
 class ReposTableViewDataSource: NSObject {
     var stateController: StateController
-    
-    let reposSectionTitles = ["private", "public"]
     
     init(tableView: UITableView, stateController: StateController) {
         self.stateController = stateController
@@ -32,7 +37,7 @@ class ReposTableViewDataSource: NSObject {
 
 extension ReposTableViewDataSource: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return reposSectionTitles.count
+        return reposSection.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,13 +53,22 @@ extension ReposTableViewDataSource: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reposCellId) as! ReposTableViewCell
-        cell.fullnameLabel.text = stateController.repos?[indexPath.row].full_name
+        var repo: Repo?
+        switch indexPath.section {
+        case reposSection.privateSection.rawValue:
+            repo = stateController.reposDictionary["private"]?[indexPath.row]
+        case reposSection.publicSection.rawValue:
+            repo = stateController.reposDictionary["public"]?[indexPath.row]
+        default:
+            break
+        }
+        
+        cell.fullnameLabel.text = repo?.full_name ?? "repo name"
         return cell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return reposSectionTitles[section]
-//        return "public" //private, private members, public, public members, forked
+        return reposSection(rawValue: section)?.title
     }
 }
 
