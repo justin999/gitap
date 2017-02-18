@@ -64,7 +64,7 @@ class CreateIssuesViewController: MasterViewController {
     
     private func uploadLastImage() {
         guard let lastImage = PhotoManager.shared.allPhotos.lastObject else {
-            stateController?.presentAlert(title: "no Photo", message: "No photo in your library.", style: .alert, actions: [UIAlertAction.okAlert()], completion: nil)
+            stateController?.presentAlert(title: "No Photo", message: "No photo in your library, or you need to re-allow using photo in privacy section of the Setting app.", style: .alert, actions: [UIAlertAction.okAlert()], completion: nil)
             return
         }
         
