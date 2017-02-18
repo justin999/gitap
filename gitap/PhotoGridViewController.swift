@@ -49,6 +49,16 @@ class PhotoGridViewController: MasterViewController {
         }
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        let sectionNum = self.collectionView.numberOfSections
+        let items = self.collectionView.numberOfItems(inSection: sectionNum - 1)
+        if items == 0 { return }
+        let indexPath: IndexPath = IndexPath(item: items - 1, section: sectionNum - 1)
+        
+        collectionView.scrollToItem(at: indexPath, at: .bottom, animated: false)
+    }
+    
     deinit {
 //        PHPhotoLibrary.shared().unregisterChangeObserver(self)
     }
