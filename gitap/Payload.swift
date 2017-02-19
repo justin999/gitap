@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class Payload: NSObject, ResultProtocol {
+struct Payload: ResultProtocol {
     var action: String?
     var issue: Issue?
     var changes: Dictionary<String, Any>?
@@ -16,7 +16,7 @@ class Payload: NSObject, ResultProtocol {
     var assignee: User?
     //    var label: Label?
     
-    required init?(json: [String: Any]) {
+    init?(json: [String: Any]) {
         self.action = json["action"] as? String
         if let dataDictionary = json["issue"] as? [String: Any] {
             self.issue = Issue(json: dataDictionary)

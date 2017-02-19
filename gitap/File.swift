@@ -6,8 +6,9 @@
 //  Copyright © 2017 Koichi Sato. All rights reserved.
 //
 
-import Foundation
 
+import Foundation
+// TODO: use struct instead of class
 class File: NSObject, NSCoding{
     var filename: String?
     var raw_url: String?

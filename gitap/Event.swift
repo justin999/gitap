@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Event: NSObject, ResultProtocol {
-    var id: String?
+struct Event: ResultProtocol {
+    var id: String
     var type: String?
     var isPublic: Bool?
     var payload: Payload?
@@ -18,9 +18,11 @@ class Event: NSObject, ResultProtocol {
 //    var org: Organization?
     var created_at: Date?
     
-    required init?(json: [String: Any]) {
-        super.init()
-        self.id = json["id"] as? String
+    init?(json: [String: Any]) {
+        guard let id = json["id"] as? String else {
+            return nil
+        }
+        self.id = id
         self.type = json["type"] as? String
         self.isPublic = json["public"] as? Bool
         if let json = json["payload"] as? [String: Any] {
@@ -39,6 +41,5 @@ class Event: NSObject, ResultProtocol {
         if let dateString = json["created_at"] as? String {
             self.created_at = dateFormatter.date(from: dateString)
         }
-    
     }
 }

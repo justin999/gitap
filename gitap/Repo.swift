@@ -87,11 +87,10 @@ import Foundation
  ]
 */
 
-class Repo: NSObject, ResultProtocol {
-    var name: String?
-    var owner: User?
-    var isMyRepo: Bool?
-    var full_name: String?
+struct Repo: ResultProtocol {
+    var name: String
+    var owner: User
+    var full_name: String
     var repoDescription: String?
     var isPrivate: Bool?
     var isFork: Bool?
@@ -111,9 +110,17 @@ class Repo: NSObject, ResultProtocol {
     var updated_at: Date?
     var permissions: [Permission]?
     
-    required init?(json: [String: Any]) {
-        self.name = json["name"] as? String
-        self.full_name = json["full_name"] as? String
+    init?(json: [String: Any]) {
+        guard let name = json["name"] as? String,
+            let full_name = json["full_name"] as? String,
+            let ownerDictionary = json["owner"] as? [String: Any],
+            let owner = User(json: ownerDictionary)
+        else {
+            return nil
+        }
+        self.name = name
+        self.full_name = full_name
+        self.owner = owner
         self.repoDescription = json["description"] as? String
         self.isPrivate = json["private"] as? Bool
         self.isFork = json["fork"] as? Bool
@@ -141,12 +148,6 @@ class Repo: NSObject, ResultProtocol {
         if let dateString = json["updated_at"] as? String {
             self.updated_at = dateFormatter.date(from: dateString)
         }
-        
-        if let dataDictionary = json["owner"] as? [String: Any] {
-            self.owner = User(json: dataDictionary)
-        }
-
-//        self.isMyRepo = self.owner?.login == Utils.getMyName ? true : false
     }
 }
 

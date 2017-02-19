@@ -29,22 +29,29 @@ import Foundation
 },
 */
 
-class User: NSObject, ResultProtocol {
-    var loginName: String?
-    var githubId: String?
-    var avatar_url: String?
+struct User: ResultProtocol {
+    var loginName: String
+    var githubId: String
+    var avatar_url: String
     var gravatar_id: String?
-    var url: String?
+    var url: String
     var html_url: String?
     var type: String?
     var site_admin: Bool?
     
-    required init?(json: [String: Any]) {
-        self.loginName = json["login"] as? String
-        self.githubId = json["id"] as? String
-        self.avatar_url = json["avatar_url"] as? String
+    init?(json: [String: Any]) {
+        guard let loginName = json["login"] as? String,
+            let githubId = json["id"] as? String,
+            let avatar_url = json["avatar_url"] as? String,
+            let url = json["url"] as? String
+        else {
+            return nil
+        }
+        self.loginName = loginName
+        self.githubId = githubId
+        self.avatar_url = avatar_url
         self.gravatar_id = json["gravatar_id"] as? String
-        self.url = json["url"] as? String
+        self.url = url
         self.html_url = json["html_url"] as? String
         self.type = json["type"] as? String
         self.site_admin = json["site_admin"] as? Bool

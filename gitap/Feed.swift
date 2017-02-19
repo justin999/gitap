@@ -8,9 +8,9 @@
 
 import Foundation
 
-class Feed: NSObject, ResultProtocol {
+struct Feed: ResultProtocol {
     
-    required init?(json: [String: Any]) {
+    init?(json: [String: Any]) {
     }
 }
 

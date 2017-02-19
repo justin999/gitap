@@ -170,10 +170,10 @@ class CreateIssuesViewController: MasterViewController {
             return
         }
         
-        if let repo = stateController.selectedRepo,
-            let owner = repo.owner?.loginName ,
-            let repoName = repo.name {
+        if let repo = stateController.selectedRepo {
             let title = titleTextField.text
+            let owner = repo.owner.loginName
+            let repoName = repo.name
             if title?.characters.count == 0 {
                 Utils.presentAlert(inViewController: self, title: "", message: "title can't be blank", style: .alert, actions: [UIAlertAction.okAlert()], completion: nil)
                 return
