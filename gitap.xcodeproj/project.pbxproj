@@ -40,6 +40,9 @@
 		DC6877F41EAC5C3F006BBABC /* GitHubAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6877F11EAC5C3F006BBABC /* GitHubAPIError.swift */; };
 		DC6877F51EAC5C3F006BBABC /* JSONDecodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6877F21EAC5C3F006BBABC /* JSONDecodeError.swift */; };
 		DC6877FB1EAC60D3006BBABC /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6877FA1EAC60D3006BBABC /* Results.swift */; };
+		DC6877FD1EAC678A006BBABC /* GitHubClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6877FC1EAC678A006BBABC /* GitHubClient.swift */; };
+		DC6877FF1EAC9F91006BBABC /* RootUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6877FE1EAC9F91006BBABC /* RootUserResponse.swift */; };
+		DC6878011EACA38A006BBABC /* AnyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6878001EACA38A006BBABC /* AnyError.swift */; };
 		DC6C376A1E160854003D28C4 /* IssueDetailTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C37691E160854003D28C4 /* IssueDetailTableViewDelegate.swift */; };
 		DC6C376C1E160894003D28C4 /* IssueDetailTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C376B1E160894003D28C4 /* IssueDetailTableViewDataSource.swift */; };
 		DC6C377C1E1C9BFB003D28C4 /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C377B1E1C9BFB003D28C4 /* Configs.swift */; };
@@ -146,6 +149,9 @@
 		DC6877F11EAC5C3F006BBABC /* GitHubAPIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubAPIError.swift; sourceTree = "<group>"; };
 		DC6877F21EAC5C3F006BBABC /* JSONDecodeError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDecodeError.swift; sourceTree = "<group>"; };
 		DC6877FA1EAC60D3006BBABC /* Results.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
+		DC6877FC1EAC678A006BBABC /* GitHubClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubClient.swift; sourceTree = "<group>"; };
+		DC6877FE1EAC9F91006BBABC /* RootUserResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootUserResponse.swift; sourceTree = "<group>"; };
+		DC6878001EACA38A006BBABC /* AnyError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyError.swift; sourceTree = "<group>"; };
 		DC6C37691E160854003D28C4 /* IssueDetailTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailTableViewDelegate.swift; sourceTree = "<group>"; };
 		DC6C376B1E160894003D28C4 /* IssueDetailTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailTableViewDataSource.swift; sourceTree = "<group>"; };
 		DC6C377B1E1C9BFB003D28C4 /* Configs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
@@ -259,6 +265,7 @@
 			children = (
 				DC6877EC1EAC5C2D006BBABC /* JSONDecodable.swift */,
 				DC6877ED1EAC5C2D006BBABC /* SearchResponse.swift */,
+				DC6877FE1EAC9F91006BBABC /* RootUserResponse.swift */,
 			);
 			name = Response;
 			sourceTree = "<group>";
@@ -269,6 +276,7 @@
 				DC6877F01EAC5C3F006BBABC /* GitHubClientError.swift */,
 				DC6877F11EAC5C3F006BBABC /* GitHubAPIError.swift */,
 				DC6877F21EAC5C3F006BBABC /* JSONDecodeError.swift */,
+				DC6878001EACA38A006BBABC /* AnyError.swift */,
 			);
 			name = Error;
 			sourceTree = "<group>";
@@ -306,6 +314,7 @@
 		DC709C2F1E46C36600169C05 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				DC6877FC1EAC678A006BBABC /* GitHubClient.swift */,
 				DC6877FA1EAC60D3006BBABC /* Results.swift */,
 				DC6877E31EAC5BC4006BBABC /* Request */,
 				DC6877E41EAC5BCE006BBABC /* Response */,
@@ -702,7 +711,9 @@
 				DC61BCC61E3F79E300BDF1CD /* UIAlertAction_extension.swift in Sources */,
 				DC3D8FC71E3576D300D349B6 /* SetupAccountViewController.swift in Sources */,
 				DC6877F31EAC5C3F006BBABC /* GitHubClientError.swift in Sources */,
+				DC6877FD1EAC678A006BBABC /* GitHubClient.swift in Sources */,
 				DC7281A11E0E325200EEFC57 /* FeedsTableViewDelegate.swift in Sources */,
+				DC6877FF1EAC9F91006BBABC /* RootUserResponse.swift in Sources */,
 				DCC8172A1E14012000E7056C /* EditIssuesTableViewDataSource.swift in Sources */,
 				DC7281A61E0E338D00EEFC57 /* FeedsTableViewCell.swift in Sources */,
 				DC5D64A11E108E9100E92DDD /* ReposDetailViewController.swift in Sources */,
@@ -714,6 +725,7 @@
 				DC2434441E2849F6002FBDE7 /* ActivityRouter.swift in Sources */,
 				DC7281AE1E0F6B4C00EEFC57 /* ReposTableViewCell.swift in Sources */,
 				DC61BCC81E40063C00BDF1CD /* PlaceHolderTextView.swift in Sources */,
+				DC6878011EACA38A006BBABC /* AnyError.swift in Sources */,
 				DC709C1F1E45842900169C05 /* PhotosTableViewDataSource.swift in Sources */,
 				DCC8173C1E15EE5500E7056C /* IssueDetailViewController.swift in Sources */,
 				DC24340F1E232294002FBDE7 /* StateController+AlertHelper.swift in Sources */,

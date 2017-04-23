@@ -17,6 +17,21 @@ final class GitHubAPI {
             return ["q": keyword]
         }
     }
+    
+    struct FetchAuthenticatedUser: GitHubRequest {
+//        typealias Response = SearchResponse<User>
+        typealias Response = User
+        var method: HTTPMethod {
+            return .get
+        }
+        var path: String {
+            return "/user"
+        }
+        var parameters: Any? {
+            return nil
+        }
+        
+    }
 //
 //    struct SearchUsers : GitHubRequest {
 //        let keyword: String

@@ -34,6 +34,10 @@ extension GitHubRequest {
         var urlRequest = URLRequest(url: url)
         urlRequest.url = components?.url
         urlRequest.httpMethod = method.rawValue
+        
+        if let token = GitHubAPIManager.sharedInstance.OAuthToken {
+            urlRequest.setValue("token \(token)", forHTTPHeaderField: "Authorization")
+        }
 
         return urlRequest
     }

@@ -91,7 +91,21 @@ class StateController: NSObject {
     }
     
     // MARK: - users
-    func fetchAuthenticatedUser(completionHandler: @escaping ((Result<User>) -> Void)) {
+    func fetchAuthenticatedUser(completionHandler: @escaping ((Results<User, GitHubClientError>) -> Void)) {
+        let client = GitHubClient()
+        let request = GitHubAPI.FetchAuthenticatedUser()
+        client.send(request: request) { result in
+            completionHandler(result)
+//            switch result {
+//            case let .success(user):
+//                print("response: \(user)")
+//                completionHandler(user)
+//            case let .failure(error):
+//                // エラー詳細を出力
+//                print("error: \(error)")
+//            }
+            
+        }
 //        GitHubAPIManager.sharedInstance.fetch(userRouter.fetchAuthenticatedUser()) { (result: Result<[User]>, nextpage) in
 //            guard result.error == nil else {
 //                self.handleLoadIssuesError(result.error!)

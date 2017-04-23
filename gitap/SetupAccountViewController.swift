@@ -26,6 +26,9 @@ class SetupAccountViewController: MasterViewController, LoginViewDelegate, SFSaf
     // MARK: private
     func configureViews() {
         stateController?.fetchAuthenticatedUser() { result in
+            print("result: hoge: \(result)")
+            // TODO: ここで成功不成功の処理をする
+            /*
             if result.isFailure {
                 // loginviewへ
                 let okAlert = UIAlertAction(title: "OK", style: .default) { okAlert in
@@ -65,7 +68,7 @@ class SetupAccountViewController: MasterViewController, LoginViewDelegate, SFSaf
                 }
                 
             }
-            
+            */
         }
     }
     
