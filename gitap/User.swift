@@ -31,7 +31,7 @@ import Foundation
 
 struct User: ResultProtocol {
     var loginName: String
-    var githubId: String
+    var githubId: Int
     var avatar_url: String
     var gravatar_id: String?
     var url: String
@@ -41,7 +41,7 @@ struct User: ResultProtocol {
     
     init?(json: [String: Any]) {
         guard let loginName = json["login"] as? String,
-            let githubId = json["id"] as? String,
+            let githubId = json["id"] as? Int,
             let avatar_url = json["avatar_url"] as? String,
             let url = json["url"] as? String
         else {
