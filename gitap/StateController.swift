@@ -92,18 +92,18 @@ class StateController: NSObject {
     
     // MARK: - users
     func fetchAuthenticatedUser(completionHandler: @escaping ((Result<User>) -> Void)) {
-        GitHubAPIManager.sharedInstance.fetch(userRouter.fetchAuthenticatedUser()) { (result: Result<[User]>, nextpage) in
-            guard result.error == nil else {
-                self.handleLoadIssuesError(result.error!)
-                completionHandler(.failure(result.error!))
-                return
-            }
-            
-            if let fetchedUsers = result.value, let user = fetchedUsers.first {
-                completionHandler(.success(user))
-            }
-            
-        }
+//        GitHubAPIManager.sharedInstance.fetch(userRouter.fetchAuthenticatedUser()) { (result: Result<[User]>, nextpage) in
+//            guard result.error == nil else {
+//                self.handleLoadIssuesError(result.error!)
+//                completionHandler(.failure(result.error!))
+//                return
+//            }
+//            
+//            if let fetchedUsers = result.value, let user = fetchedUsers.first {
+//                completionHandler(.success(user))
+//            }
+//            
+//        }
     }
     
     // MARK: - Events
@@ -162,23 +162,23 @@ class StateController: NSObject {
     
     // MARK: - repos
     func getRepos(completionHandler:@escaping ((Bool) -> Void)) {
-        GitHubAPIManager.sharedInstance.fetch(RepoRouter.listRepos()) { (result: Result<[Repo]>, nextPage) in
-            guard result.error == nil else {
-                self.handleLoadIssuesError(result.error!)
-                return
-            }
-            
-            guard let fetchedRepos = result.value else {
-                print("no repos fetched")
-                return
-            }
-            
-            self.privateRepos = fetchedRepos.filter { $0.isPrivate == true }
-            self.publicRepos  = fetchedRepos.filter { $0.isPrivate == false }
-            
-            
-            completionHandler(true)
-        }
+//        GitHubAPIManager.sharedInstance.fetch(RepoRouter.listRepos()) { (result: Result<[Repo]>, nextPage) in
+//            guard result.error == nil else {
+//                self.handleLoadIssuesError(result.error!)
+//                return
+//            }
+//            
+//            guard let fetchedRepos = result.value else {
+//                print("no repos fetched")
+//                return
+//            }
+//            
+//            self.privateRepos = fetchedRepos.filter { $0.isPrivate == true }
+//            self.publicRepos  = fetchedRepos.filter { $0.isPrivate == false }
+//            
+//            
+//            completionHandler(true)
+//        }
     }
     
     

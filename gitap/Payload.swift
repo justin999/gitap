@@ -24,9 +24,9 @@ struct Payload: ResultProtocol {
         self.changes = json["changes"] as? Dictionary
         self.changesTitleFrom = json["changes[title][from]"] as? String
         self.changesBodyFrom = json["changes[body][from]"] as? String
-        if let dataDictionary = json["assignee"] as? [String: Any] {
-            self.assignee = User(json: dataDictionary)
-        }
+//        if let dataDictionary = json["assignee"] as? [String: Any] {
+//            self.assignee = User(json: dataDictionary)
+//        }
 //        self.label = Label(json: dataDictionary)
     }
 }

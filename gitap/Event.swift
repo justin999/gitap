@@ -29,12 +29,12 @@ struct Event: ResultProtocol {
             self.payload = Payload(json: json)
         }
         
-        if let dataDictionary = json["repo"] as? [String: Any] {
-            self.repo = Repo(json: dataDictionary)
-        }
-        if let dataDictionary = json["actor"] as? [String: Any] {
-            self.actor = User(json: dataDictionary)
-        }
+//        if let dataDictionary = json["repo"] as? [String: Any] {
+//            self.repo = Repo(json: dataDictionary)
+//        }
+//        if let dataDictionary = json["actor"] as? [String: Any] {
+//            self.actor = User(json: dataDictionary)
+//        }
 //        self.org = json["org"] as? Organization
         
         let dateFormatter = Utils.dateFormatter()

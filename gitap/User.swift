@@ -29,31 +29,24 @@ import Foundation
 },
 */
 
-struct User: ResultProtocol {
-    var loginName: String
-    var githubId: Int
-    var avatar_url: String
-    var gravatar_id: String?
-    var url: String
-    var html_url: String?
-    var type: String?
-    var site_admin: Bool?
+struct User: JSONDecodable {
+    let id: Int
+    let loginName: String
     
-    init?(json: [String: Any]) {
-        guard let loginName = json["login"] as? String,
-            let githubId = json["id"] as? Int,
-            let avatar_url = json["avatar_url"] as? String,
-            let url = json["url"] as? String
-        else {
-            return nil
+    init(json: Any) throws {
+        guard let dictionary = json as? [String : Any] else {
+            throw JSONDecodeError.invalidFormat(json: json)
         }
-        self.loginName = loginName
-        self.githubId = githubId
-        self.avatar_url = avatar_url
-        self.gravatar_id = json["gravatar_id"] as? String
-        self.url = url
-        self.html_url = json["html_url"] as? String
-        self.type = json["type"] as? String
-        self.site_admin = json["site_admin"] as? Bool
+        
+        guard let id = dictionary["id"] as? Int else {
+            throw JSONDecodeError.missingValue(key: "id", actualValue: dictionary["id"])
+        }
+        
+        guard let login = dictionary["login"] as? String else {
+            throw JSONDecodeError.missingValue(key: "login", actualValue: dictionary["login"])
+        }
+        
+        self.id = id
+        self.loginName = login
     }
 }

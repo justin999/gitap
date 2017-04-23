@@ -87,67 +87,37 @@ import Foundation
  ]
 */
 
-struct Repo: ResultProtocol {
-    var name: String
-    var owner: User
-    var full_name: String
-    var repoDescription: String?
-    var isPrivate: Bool?
-    var isFork: Bool?
-    var language: String?
-    var forks_count: Int?
-    var stargazers_count: Int?
-    var watchers_count: Int?
-    var size: String?
-    var default_branch: String?
-    var open_issues_count: Int?
-    var has_issues: Bool?
-    var has_wiki: Bool?
-    var has_pages: Bool?
-    var has_downloads: Bool?
-    var pushed_at: Date?
-    var created_at: Date?
-    var updated_at: Date?
-    var permissions: [Permission]?
+struct Repo: JSONDecodable {
+    let id: Int
+    let name: String
+    let full_name: String
+    let owner: User
     
-    init?(json: [String: Any]) {
-        guard let name = json["name"] as? String,
-            let full_name = json["full_name"] as? String,
-            let ownerDictionary = json["owner"] as? [String: Any],
-            let owner = User(json: ownerDictionary)
-        else {
-            return nil
+    init(json: Any) throws {
+        guard let dictionary = json as? [String : Any] else {
+            throw JSONDecodeError.invalidFormat(json: json)
         }
-        self.name = name
-        self.full_name = full_name
-        self.owner = owner
-        self.repoDescription = json["description"] as? String
-        self.isPrivate = json["private"] as? Bool
-        self.isFork = json["fork"] as? Bool
-        self.language = json["language"] as? String
-        self.forks_count = json["forks_count"] as? Int
-        self.stargazers_count = json["stargazers_count"] as? Int
-        self.watchers_count = json["watchers_count"] as? Int
-        self.size = json["size"] as? String
-        self.default_branch = json["default_branch"] as? String
-        self.open_issues_count = json["open_issues_count"] as? Int
-        self.has_issues = json["has_issues"] as? Bool
-        self.has_wiki = json["has_wiki"] as? Bool
-        self.has_pages = json["has_pages"] as? Bool
-        self.has_downloads = json["has_downloads"] as? Bool
-        self.permissions = json["permissions"] as? [Permission]
         
-        // Dates
-        let dateFormatter = Utils.dateFormatter()
-        if let dateString = json["pushed_at"] as? String {
-            self.pushed_at = dateFormatter.date(from: dateString)
+        guard let id = dictionary["id"] as? Int else {
+            throw JSONDecodeError.missingValue(key: "id", actualValue: dictionary["id"])
         }
-        if let dateString = json["created_at"] as? String{
-            self.created_at = dateFormatter.date(from: dateString)
+        
+        guard let name = dictionary["name"] as? String else {
+            throw JSONDecodeError.missingValue(key: "name", actualValue: dictionary["name"])
         }
-        if let dateString = json["updated_at"] as? String {
-            self.updated_at = dateFormatter.date(from: dateString)
+        
+        guard let fullName = dictionary["full_name"] as? String else {
+            throw JSONDecodeError.missingValue(key: "full_name", actualValue: dictionary["full_name"])
         }
+        
+        guard let ownerObject = dictionary["owner"] else {
+            throw JSONDecodeError.missingValue(key: "owner", actualValue: dictionary["owner"])
+        }
+        
+        self.id = id
+        self.name = name
+        self.full_name = fullName
+        self.owner = try User(json: ownerObject)
     }
 }
 
