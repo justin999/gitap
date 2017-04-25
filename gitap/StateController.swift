@@ -29,6 +29,7 @@ class StateController: NSObject {
     var selectedRepo: Repo?
     var photos: PHFetchResult<PHAsset>!
     
+    var gitHubClient = GitHubClient()
 
     init(viewController: UIViewController) {
         self.viewController = viewController
@@ -90,34 +91,12 @@ class StateController: NSObject {
         }
     }
     
-    // MARK: - users
+    // MARK: - Users
     func fetchAuthenticatedUser(completionHandler: @escaping ((Results<User, GitHubClientError>) -> Void)) {
-        let client = GitHubClient()
         let request = GitHubAPI.FetchAuthenticatedUser()
-        client.send(request: request) { result in
+        gitHubClient.send(request: request) { result in
             completionHandler(result)
-//            switch result {
-//            case let .success(user):
-//                print("response: \(user)")
-//                completionHandler(user)
-//            case let .failure(error):
-//                // エラー詳細を出力
-//                print("error: \(error)")
-//            }
-            
         }
-//        GitHubAPIManager.sharedInstance.fetch(userRouter.fetchAuthenticatedUser()) { (result: Result<[User]>, nextpage) in
-//            guard result.error == nil else {
-//                self.handleLoadIssuesError(result.error!)
-//                completionHandler(.failure(result.error!))
-//                return
-//            }
-//            
-//            if let fetchedUsers = result.value, let user = fetchedUsers.first {
-//                completionHandler(.success(user))
-//            }
-//            
-//        }
     }
     
     // MARK: - Events
@@ -147,7 +126,7 @@ class StateController: NSObject {
         }
     }
     
-    // MARK: - repos
+    // MARK: - Issues
     func createIssue(params: [String: Any?], completionHandler: ((Result<Issue>) -> Void)?) {
         GitHubAPIManager.sharedInstance.fetch(IssueRouter.createIssue(params)) { (result: Result<[Issue]>, nextPage) in
             // TODO: いったん簡単なissueを作ってみる
@@ -174,8 +153,24 @@ class StateController: NSObject {
         }
     }
     
-    // MARK: - repos
+    // MARK: - Repos
     func getRepos(completionHandler:@escaping ((Bool) -> Void)) {
+        // TODO: ここを新しいAPI networkerで実装
+        let request = GitHubAPI.ListUserRepositories()
+        gitHubClient.send(request: request) { result in
+            switch result {
+            case let .success(response):
+                print(response)
+//                self.priNvateRepos = fetchedRepos.filter { $0.isPrivate == true }
+//                self.publicRepos  = fetchedRepos.filter { $0.isPrivate == false }
+//                completionHandler(true)
+            case let .failure(error):
+                self.handleLoadIssuesError(error)
+                completionHandler(false)
+                print(error)
+            }
+        }
+        
 //        GitHubAPIManager.sharedInstance.fetch(RepoRouter.listRepos()) { (result: Result<[Repo]>, nextPage) in
 //            guard result.error == nil else {
 //                self.handleLoadIssuesError(result.error!)

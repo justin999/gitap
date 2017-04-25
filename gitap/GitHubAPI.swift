@@ -1,4 +1,5 @@
 final class GitHubAPI {
+    // MARK: - Repos
     struct SearchRepositories : GitHubRequest {
         let keyword: String
         
@@ -18,6 +19,21 @@ final class GitHubAPI {
         }
     }
     
+    struct ListUserRepositories: GitHubRequest {
+        typealias Response = RootUserResponse<Repo>
+        var method: HTTPMethod {
+            return .get
+        }
+        var path: String {
+            return "/user/repos"
+        }
+        var parameters: Any? {
+            return nil
+        }
+        
+    }
+    
+    // MARK: - User
     struct FetchAuthenticatedUser: GitHubRequest {
 //        typealias Response = SearchResponse<User>
         typealias Response = User
