@@ -155,7 +155,6 @@ class StateController: NSObject {
     
     // MARK: - Repos
     func getRepos(completionHandler:@escaping ((Bool) -> Void)) {
-        // TODO: ここを新しいAPI networkerで実装
         let request = GitHubAPI.ListUserRepositories()
         gitHubClient.send(request: request) { result in
             switch result {
@@ -171,24 +170,6 @@ class StateController: NSObject {
                 print(error)
             }
         }
-        
-//        GitHubAPIManager.sharedInstance.fetch(RepoRouter.listRepos()) { (result: Result<[Repo]>, nextPage) in
-//            guard result.error == nil else {
-//                self.handleLoadIssuesError(result.error!)
-//                return
-//            }
-//            
-//            guard let fetchedRepos = result.value else {
-//                print("no repos fetched")
-//                return
-//            }
-//            
-//            self.privateRepos = fetchedRepos.filter { $0.isPrivate == true }
-//            self.publicRepos  = fetchedRepos.filter { $0.isPrivate == false }
-//            
-//            
-//            completionHandler(true)
-//        }
     }
     
     
