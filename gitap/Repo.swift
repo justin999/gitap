@@ -112,7 +112,6 @@ struct Repo: JSONDecodable {
             self.isPrivate = try Utils.getValue(from: dictionary, with: "private")
             self.description = dictionary["description"] as? String
         } catch {
-            print(error)
             throw error
         }
     }
