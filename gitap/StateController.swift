@@ -161,9 +161,10 @@ class StateController: NSObject {
             switch result {
             case let .success(response):
                 print(response)
-//                self.priNvateRepos = fetchedRepos.filter { $0.isPrivate == true }
-//                self.publicRepos  = fetchedRepos.filter { $0.isPrivate == false }
-//                completionHandler(true)
+                let fetchedRepos = response.items
+                self.privateRepos = fetchedRepos.filter { $0.isPrivate == true }
+                self.publicRepos  = fetchedRepos.filter { $0.isPrivate == false }
+                completionHandler(true)
             case let .failure(error):
                 self.handleLoadIssuesError(error)
                 completionHandler(false)
