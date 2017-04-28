@@ -38,15 +38,11 @@ struct User: JSONDecodable {
             throw JSONDecodeError.invalidFormat(json: json)
         }
         
-        guard let id = dictionary["id"] as? Int else {
-            throw JSONDecodeError.missingValue(key: "id", actualValue: dictionary["id"])
+        do {
+            self.id = try Utils.getValue(from: dictionary, with: "id")
+            self.loginName = try Utils.getValue(from: dictionary, with: "login")
+        } catch {
+            throw error
         }
-        
-        guard let login = dictionary["login"] as? String else {
-            throw JSONDecodeError.missingValue(key: "login", actualValue: dictionary["login"])
-        }
-        
-        self.id = id
-        self.loginName = login
     }
 }

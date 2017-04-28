@@ -92,32 +92,29 @@ struct Repo: JSONDecodable {
     let name: String
     let full_name: String
     let owner: User
+    let isPrivate: Bool
+    let description: String?
     
     init(json: Any) throws {
         guard let dictionary = json as? [String : Any] else {
             throw JSONDecodeError.invalidFormat(json: json)
         }
         
-        guard let id = dictionary["id"] as? Int else {
-            throw JSONDecodeError.missingValue(key: "id", actualValue: dictionary["id"])
-        }
-        
-        guard let name = dictionary["name"] as? String else {
-            throw JSONDecodeError.missingValue(key: "name", actualValue: dictionary["name"])
-        }
-        
-        guard let fullName = dictionary["full_name"] as? String else {
-            throw JSONDecodeError.missingValue(key: "full_name", actualValue: dictionary["full_name"])
-        }
-        
         guard let ownerObject = dictionary["owner"] else {
             throw JSONDecodeError.missingValue(key: "owner", actualValue: dictionary["owner"])
         }
         
-        self.id = id
-        self.name = name
-        self.full_name = fullName
-        self.owner = try User(json: ownerObject)
+        do {
+            self.id = try Utils.getValue(from: dictionary, with: "id")
+            self.name = try Utils.getValue(from: dictionary, with: "name")
+            self.full_name = try Utils.getValue(from: dictionary, with: "full_name")
+            self.owner = try User(json: ownerObject)
+            self.isPrivate = try Utils.getValue(from: dictionary, with: "private")
+            self.description = dictionary["description"] as? String
+        } catch {
+            print(error)
+            throw error
+        }
     }
 }
 

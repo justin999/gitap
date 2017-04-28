@@ -63,5 +63,12 @@ class Utils: NSObject {
         Utils.presentAlert(inViewController: inViewController, title: title, message: error.localizedDescription, style: .alert, actions: [UIAlertAction.okAlert()], completion: nil)
         afterAction()
     }
+    
+    class func getValue<T:Any>(from dictionary:[String: Any], with key: String) throws -> T {
+        guard let value = dictionary[key] as? T else {
+            throw JSONDecodeError.missingValue(key: key, actualValue: dictionary[key])
+        }
+        return value
+    }
 
 }
