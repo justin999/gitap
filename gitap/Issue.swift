@@ -50,67 +50,37 @@ import Foundation
 ]
 */
 
-struct Issue: ResultProtocol {
+struct Issue: JSONDecodable {
     var id: String
     var url: String
-    var repository_url: String
-    var labels_url: String?
-    var comments_url: String?
-    var events_url: String?
-    var html_url: String?
-    var number: String?
-    var state: String
     var title: String
     var body: String?
-    var user: User?
-//    var labels: [Label]?
-    var assignee: [User]?
-//    var milestone: Milestone?
-    var locked: Bool?
-    var comments: String?
-//    var pull_request: PullRequest?
-    var closed_at:  Date?
-    var created_at: Date
+    var user: User
+    var created_at: Date?
     var updated_at: Date?
     
-    init?(json: [String: Any]) {
+    init(json: Any) throws {
+        guard let dictionary = json as? [String: Any] else {
+            throw JSONDecodeError.invalidFormat(json: json)
+        }
+        
+        guard let userObject = dictionary["user"] else {
+            throw JSONDecodeError.missingValue(key: "user", actualValue: dictionary["user"])
+        }
+        
         let dateFormatter = Utils.dateFormatter()
         
-        guard let id = json["id"] as? String,
-            let url = json["url"] as? String,
-            let repository_url = json["repository_url"] as? String,
-            let state = json["state"] as? String,
-            let title = json["title"] as? String,
-            let created_at_string = json["created_at"] as? String,
-            let created_at = dateFormatter.date(from: created_at_string)
-//            let user = json[""] as? Dictionary<String, Any>
-        else {
-            return nil
-        }
-        self.id             = id
-        self.url            = url
-        self.body           = json["body"] as? String
-        self.repository_url = repository_url
-        self.state          = state
-        self.title          = title
-        
-        self.labels_url     = json["labels_url"] as? String
-        self.comments_url   = json["comments_url"] as? String
-        self.events_url     = json["events_url"] as? String
-        self.html_url       = json["html_url"] as? String
-        self.number         = json["number"] as? String
-        
-        self.body           = json["body"] as? String
-        self.locked         = json["locked"] as? Bool
-        self.comments       = json["comments"] as? String
-        
-        // Dates
-        self.created_at     = created_at
-        if let dateString = json["updated_at"] as? String {
-            self.updated_at = dateFormatter.date(from: dateString)
-        }
-        if let dateString = json["closed_at"] as? String{
-            self.closed_at = dateFormatter.date(from: dateString)
+        do {
+            self.id = try Utils.getValue(from: dictionary, with: "id")
+            self.url = try Utils.getValue(from: dictionary, with: "url")
+            self.title = try Utils.getValue(from: dictionary, with: "title")
+            self.body = dictionary["body"] as? String
+            self.user = try User(json: userObject)
+            // TODO:ここのcreated at とupdated_atをどうするかは要検討
+//            self.created_at = dateFormatter.date(from: dictionary["created_at"] as? String)
+            
+        } catch {
+            throw error
         }
     }
 }
