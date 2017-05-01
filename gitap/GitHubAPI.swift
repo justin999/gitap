@@ -67,22 +67,4 @@ final class GitHubAPI {
         }
         
     }
-//
-//    struct SearchUsers : GitHubRequest {
-//        let keyword: String
-//        
-//        typealias Response = SearchResponse<User>
-//        
-//        var method: HTTPMethod {
-//            return .get
-//        }
-//        
-//        var path: String {
-//            return "/search/users"
-//        }
-//        
-//        var parameters: Any? {
-//            return ["q": keyword]
-//        }
-//    }
 }
