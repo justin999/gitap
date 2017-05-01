@@ -33,6 +33,25 @@ final class GitHubAPI {
         
     }
     
+    // MARK: - Issues
+    struct CreateIssue: GitHubRequest {
+        let params: [String: Any]
+        typealias Response = Issue
+        var path: String {
+            if let owner = params["owner"] as? String, let repo = params["repo"] as? String {
+                return "/repos/\(owner)/\(repo)/issues"
+            } else {
+                return ""
+            }
+        }
+        var method: HTTPMethod {
+            return .post
+        }
+        var parameters: Any? {
+            return nil
+        }
+    }
+    
     // MARK: - User
     struct FetchAuthenticatedUser: GitHubRequest {
 //        typealias Response = SearchResponse<User>
