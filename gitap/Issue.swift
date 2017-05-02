@@ -51,7 +51,7 @@ import Foundation
 */
 
 struct Issue: JSONDecodable {
-    var id: String
+    var id: Int
     var url: String
     var title: String
     var body: String?
