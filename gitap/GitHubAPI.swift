@@ -48,7 +48,7 @@ final class GitHubAPI {
             return .post
         }
         var parameters: Any? {
-            return nil
+            return params
         }
     }
     

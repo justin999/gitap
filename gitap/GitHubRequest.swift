@@ -16,6 +16,7 @@ extension GitHubRequest {
 
     func buildURLRequest() -> URLRequest {
         let url = baseURL.appendingPathComponent(path)
+        var jsonData: Data? = nil
         var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
 
         switch method {
@@ -27,6 +28,10 @@ extension GitHubRequest {
                     value: String(describing: value))
             }
             components?.queryItems = queryItems
+        case .post:
+            if let dictionary = parameters as? [String: Any] {
+                jsonData = try? JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted)
+            }
         default:
             fatalError("Unsupported method \(method)")
         }
@@ -34,6 +39,7 @@ extension GitHubRequest {
         var urlRequest = URLRequest(url: url)
         urlRequest.url = components?.url
         urlRequest.httpMethod = method.rawValue
+        urlRequest.httpBody = jsonData
         
         if let token = GitHubAPIManager.sharedInstance.OAuthToken {
             urlRequest.setValue("token \(token)", forHTTPHeaderField: "Authorization")

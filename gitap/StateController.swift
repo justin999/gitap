@@ -128,29 +128,44 @@ class StateController: NSObject {
     
     // MARK: - Issues
     func createIssue(params: [String: Any?], completionHandler: ((Result<Issue>) -> Void)?) {
-        GitHubAPIManager.sharedInstance.fetch(IssueRouter.createIssue(params)) { (result: Result<[Issue]>, nextPage) in
-            // TODO: いったん簡単なissueを作ってみる
-            guard result.error == nil else {
-                self.handleLoadIssuesError(result.error!)
-                if let handler = completionHandler {
-                    handler(.failure(result.error!))
-                }
-                return
+        let params = [
+            "owner": "justin999",
+            "repo": "bonita",
+            "title": "test issue"]
+        let request = GitHubAPI.CreateIssue(params: params)
+        gitHubClient.send(request: request) { result in
+            switch result {
+            case let .success(response):
+                print(response)
+            case let .failure(error):
+                print(error)
             }
             
-            guard let createdIssue = result.value?.first else {
-                print("No Issue Created")
-                if let handler = completionHandler {
-                    handler(.failure(result.error!))
-                }
-                return
-            }
-            
-            print("Created Issue: \(createdIssue)")
-            if let handler = completionHandler {
-                handler(.success(createdIssue))
-            }
         }
+        
+//        GitHubAPIManager.sharedInstance.fetch(IssueRouter.createIssue(params)) { (result: Result<[Issue]>, nextPage) in
+//            // TODO: いったん簡単なissueを作ってみる
+//            guard result.error == nil else {
+//                self.handleLoadIssuesError(result.error!)
+//                if let handler = completionHandler {
+//                    handler(.failure(result.error!))
+//                }
+//                return
+//            }
+//            
+//            guard let createdIssue = result.value?.first else {
+//                print("No Issue Created")
+//                if let handler = completionHandler {
+//                    handler(.failure(result.error!))
+//                }
+//                return
+//            }
+//            
+//            print("Created Issue: \(createdIssue)")
+//            if let handler = completionHandler {
+//                handler(.success(createdIssue))
+//            }
+//        }
     }
     
     // MARK: - Repos
