@@ -30,7 +30,11 @@ class ReposViewController: UIViewController {
             stateController?.getRepos { success in
                 switch success {
                 case true:
-                    self.tableView.reloadData()
+                    // reloading data should be done in main thread, otherwise the autolayout waring will occur.
+                    // ref. http://stackoverflow.com/questions/38983363/this-application-is-modifying-the-autolayout-engine-error-swift-ios
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
                 case false:
                     print("fetching faield")
                 }
