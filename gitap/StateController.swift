@@ -127,20 +127,13 @@ class StateController: NSObject {
     }
     
     // MARK: - Issues
-    func createIssue(params: [String: Any?], completionHandler: ((Result<Issue>) -> Void)?) {
-        let params = [
-            "owner": "justin999",
-            "repo": "bonita",
-            "title": "test issue"]
+    func createIssue(params: [String: Any?], completionHandler: ((Results<Issue, GitHubClientError>) -> Void)?) {
         let request = GitHubAPI.CreateIssue(params: params)
         gitHubClient.send(request: request) { result in
-            switch result {
-            case let .success(response):
-                print(response)
-            case let .failure(error):
-                print(error)
+            guard let handler = completionHandler else {
+                return
             }
-            
+            handler(result)
         }
         
 //        GitHubAPIManager.sharedInstance.fetch(IssueRouter.createIssue(params)) { (result: Result<[Issue]>, nextPage) in

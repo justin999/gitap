@@ -159,7 +159,6 @@ class CreateIssuesViewController: MasterViewController {
     }
 
     @IBAction func createButtonTapped(_ sender: Any) {
-        print("done button tapped")
         if titleTextField.text?.characters.count == 0 {
             Utils.presentAlert(inViewController: self, title: "", message: "Set the issue title.", style: .alert, actions: [UIAlertAction.okAlert()], completion: nil)
             return
@@ -178,10 +177,10 @@ class CreateIssuesViewController: MasterViewController {
                 Utils.presentAlert(inViewController: self, title: "", message: "title can't be blank", style: .alert, actions: [UIAlertAction.okAlert()], completion: nil)
                 return
             }
-            // TODO: validate title
+            
             let body = bodyTextView.text
             
-            let params = [
+            let params: [String: Any?] = [
                 "title": title,
                 "body": body,
                 "owner": owner,
@@ -189,13 +188,16 @@ class CreateIssuesViewController: MasterViewController {
             ]
             
             stateController.createIssue(params: params) { (result) in
-                guard let issue = result.value else {
+                switch result {
+                case let .success(issue):
+                    let dismissAction = UIAlertAction(title: "OK", style: .default) { (alert) in
+                        self.dismiss(animated: true, completion: nil) }
+                    Utils.presentAlert(inViewController: self, title: "issue created", message: "title: \(issue.title)", style: .alert, actions: [dismissAction], completion: nil)
+                case let .failure(error):
+                    print("error: \(error)")
                     Utils.presentAlert(inViewController: self, title: "", message: "Something went wrong. The issue was not created.", style: .alert, actions: [UIAlertAction.okAlert()], completion: nil)
-                    return
                 }
                 
-                // TODO: Segue to issue detail page after the detail page is implemented. 
-                Utils.presentAlert(inViewController: self, title: "issue created", message: "title: \(issue.title)\nbody: \(issue.body)", style: .alert, actions: [UIAlertAction.okAlert()], completion: nil)
             }
             
         } else {

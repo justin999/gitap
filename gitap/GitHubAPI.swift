@@ -35,7 +35,7 @@ final class GitHubAPI {
     
     // MARK: - Issues
     struct CreateIssue: GitHubRequest {
-        let params: [String: Any]
+        let params: [String: Any?]
         typealias Response = Issue
         var path: String {
             if let owner = params["owner"] as? String, let repo = params["repo"] as? String {
