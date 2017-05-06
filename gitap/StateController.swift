@@ -174,7 +174,6 @@ class StateController: NSObject {
         gitHubClient.send(request: request) { result in
             switch result {
             case let .success(response):
-                print(response)
                 let fetchedRepos = response.items
                 self.privateRepos = fetchedRepos.filter { $0.isPrivate == true }
                 self.publicRepos  = fetchedRepos.filter { $0.isPrivate == false }

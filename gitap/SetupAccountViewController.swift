@@ -26,12 +26,8 @@ class SetupAccountViewController: MasterViewController, LoginViewDelegate, SFSaf
     // MARK: private
     func configureViews() {
         stateController?.fetchAuthenticatedUser() { result in
-            print("result: hoge: \(result)")
-            // TODO: ここで成功不成功の処理をする
             switch result {
             case let .success(user):
-                print("response: \(user)")
-//                completionHandler(user)
                 self.user = user
                 let loginName = self.user?.loginName
                 UserDefaults.standard.set(loginName, forKey: Constant.userDefaults.githubLoginName)
@@ -60,7 +56,6 @@ class SetupAccountViewController: MasterViewController, LoginViewDelegate, SFSaf
                     
                     self.present(tabBarController, animated: true, completion: nil)
                 }
-                
             case let .failure(error):
                 print("error: \(error)")
                 // loginviewへ
