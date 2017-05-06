@@ -22,28 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             stateController = StateController(viewController: setupAccountViewController)
             setupAccountViewController.stateController = stateController
         }
-        
-        // TODO: debugging、終わったら消す
-        // APIクライアントの生成
-//        let client = GitHubClient()
-//        // リクエストの発行
-//        let request = GitHubAPI.SearchRepositories(keyword: "swift")
-//        
-//        // リクエストの送信
-//        client.send(request: request) { result in
-//            switch result {
-//            case let .success(response):
-//                for item in response.items {
-//                    // リポジトリの所有者と名前を出力
-//                    print(item.owner.loginName + "/" + item.name)
-//                }
-//            case let .failure(error):
-//                // エラー詳細を出力
-//                print(error)
-//            }
-//        }
-        
-
 
         return true
     }
