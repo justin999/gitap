@@ -18,9 +18,9 @@ struct Payload: ResultProtocol {
     
     init?(json: [String: Any]) {
         self.action = json["action"] as? String
-        if let dataDictionary = json["issue"] as? [String: Any] {
-            self.issue = Issue(json: dataDictionary)
-        }
+//        if let dataDictionary = json["issue"] as? [String: Any] {
+//            self.issue = try Issue(json: dataDictionary)
+//        }
         self.changes = json["changes"] as? Dictionary
         self.changesTitleFrom = json["changes[title][from]"] as? String
         self.changesBodyFrom = json["changes[body][from]"] as? String
