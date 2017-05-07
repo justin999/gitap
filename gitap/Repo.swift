@@ -94,6 +94,7 @@ struct Repo: JSONDecodable {
     let owner: User
     let isPrivate: Bool
     let description: String?
+    let url: URL
     
     init(json: Any) throws {
         guard let dictionary = json as? [String : Any] else {
@@ -111,6 +112,11 @@ struct Repo: JSONDecodable {
             self.owner = try User(json: ownerObject)
             self.isPrivate = try Utils.getValue(from: dictionary, with: "private")
             self.description = dictionary["description"] as? String
+            let urlString: String = try Utils.getValue(from: dictionary, with: "html_url")
+            guard let url = URL(string: urlString) else {
+                throw ObjectError.initializationError(object: urlString)
+            }
+            self.url = url
         } catch {
             throw error
         }

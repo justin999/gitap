@@ -21,8 +21,22 @@ class ReposTableViewDelegate: NSObject {
 extension ReposTableViewDelegate: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
+        /*
+         let vc = ReposDetailViewController()
+         var repo: Repo?
+         switch indexPath.section {
+         case reposSection.privateSection.rawValue:
+         repo = stateController.reposDictionary["private"]?[indexPath.row]
+         case reposSection.publicSection.rawValue:
+         repo = stateController.reposDictionary["public"]?[indexPath.row]
+         default:
+         repo = nil
+         }
+         stateController.selectedRepo = repo
+         
+         stateController.push(destination: vc, inViewController: stateController.viewController)
+         */
         
-        let vc = ReposDetailViewController()
         var repo: Repo?
         switch indexPath.section {
         case reposSection.privateSection.rawValue:
@@ -32,9 +46,13 @@ extension ReposTableViewDelegate: UITableViewDelegate {
         default:
             repo = nil
         }
-        stateController.selectedRepo = repo
+        guard let selectedRepo = repo else {
+            return
+        }
+        stateController.selectedRepo = selectedRepo
+        let vc = RepoWebViewController(url: selectedRepo.url)
+        stateController.pushWebView(destination: vc, inViewController: stateController.viewController)
         
-        stateController.push(destination: vc, inViewController: stateController.viewController)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

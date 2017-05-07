@@ -41,6 +41,10 @@ class StateController: NSObject {
         inViewController.navigationController?.pushViewController(destination, animated: true)
     }
     
+    func pushWebView(destination: UIViewController, inViewController: UIViewController) {
+        inViewController.navigationController?.pushViewController(destination, animated: true)
+    }
+    
     func present(destination: MasterViewController, inViewController: UIViewController) {
         destination.stateController = self
         originalViewController = self.viewController
