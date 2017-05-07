@@ -152,7 +152,6 @@ class CreateIssuesViewController: MasterViewController {
     
     // MARK: - Actions
     @IBAction func dismissView(_ sender: Any) {
-        print("sender: \(sender)")
         self.dismiss(animated: true) {
             print("view is dismissed")
         }
