@@ -51,8 +51,12 @@ extension ReposTableViewDelegate: UITableViewDelegate {
         }
         stateController.selectedRepo = selectedRepo
         let vc = RepoWebViewController(url: selectedRepo.url)
+        vc.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "new issue", style: .plain, target: self, action: #selector(newIssueButtonTapped))
         stateController.pushWebView(destination: vc, inViewController: stateController.viewController)
-        
+    }
+    
+    @objc func newIssueButtonTapped() {
+        Utils.addButtonTapped(stateController: stateController)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
