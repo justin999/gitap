@@ -98,7 +98,6 @@ class GitHubAPIManager {
         let tokenParams = ["client_id": clientID, "client_secret": clientSecret, "code": code]
         let jsonHeader = ["Accept": "application/json"]
         
-//        Alamofire.request(getTokenPath, method: .post, parameters: tokenParams, encoding)
         Alamofire.request(getTokenPath, method: .post, parameters: tokenParams, encoding: URLEncoding.default, headers: jsonHeader)
             .responseJSON { response in
                 guard response.result.error == nil else {
