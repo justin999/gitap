@@ -13,12 +13,14 @@ class SettingsTableViewDataSource: NSObject {
     
     let cellInfo: [Dictionary<String, Array<String>>] =
         [
-    ["sectionName": ["account"],
-     "items": ["push notification","github auth", "logout"]
+    ["sectionName": ["Services"],
+     "items": ["Github","Imgur"]
             ],
-    ["sectionName": ["gitap"],
-     "items": ["feedback", "follow on twitter", "upgrades", "donate", "app version"]
-            ]
+    ["sectionName": ["Gitap"],
+     "items": ["feedback", "follow on twitter", "app version"]
+            ],
+    ["sectionName": ["Donation"],
+     "items": ["Paypal", "Bitcoin"]]
     ]
     
     init(tableView: UITableView, stateController: StateController) {

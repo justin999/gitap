@@ -34,24 +34,16 @@ class SetupAccountViewController: MasterViewController, LoginViewDelegate, SFSaf
                 
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 if let tabBarController = storyboard.instantiateInitialViewController() as? UITabBarController {
-                    // MEMO: remove feeds from first release
-                    //                    let navigationController = tabBarController.viewControllers?.first as? UINavigationController {
-                    //                    if let feedsViewController = navigationController.viewControllers.first as? FeedsViewController {
-                    //                        feedsViewController.stateController = self.stateController
-                    //                        feedsViewController.stateController?.viewController = feedsViewController
-                    //                        self.addRightBarButton(navigationController: navigationController)
-                    //
-                    //                    }
                     if let navigationController = tabBarController.viewControllers?[0] as? UINavigationController,
                         let reposViewController = navigationController.viewControllers.first as? ReposViewController {
                         reposViewController.stateController = self.stateController
-                        self.addRightBarButton(navigationController: navigationController)
+                        reposViewController.navigationItem.title = "Tap to Create an Issue"
                     }
                     
                     if let navigationController = tabBarController.viewControllers?[1] as? UINavigationController,
                         let settingsViewController = navigationController.viewControllers.first as? SettingsViewController {
                         settingsViewController.stateController = self.stateController
-                        self.addRightBarButton(navigationController: navigationController)
+                        settingsViewController.navigationItem.title = "Settings"
                     }
                     
                     self.present(tabBarController, animated: true, completion: nil)
@@ -65,63 +57,8 @@ class SetupAccountViewController: MasterViewController, LoginViewDelegate, SFSaf
                 Utils.presentAlert(inViewController: self, title: "Please Login to Github", message: "Please login to github account to use this application", style: .alert, actions: [okAlert], completion: nil)
 
             }
-            /*
-            if result.isFailure {
-                // loginviewへ
-                let okAlert = UIAlertAction(title: "OK", style: .default) { okAlert in
-                    Utils.showOAuthLoginView(inViewcontroller: self, delegate: self)
-                }
-                Utils.presentAlert(inViewController: self, title: "Please Login to Github", message: "Please login to github account to use this application", style: .alert, actions: [okAlert], completion: nil)
-                
-            } else if result.isSuccess {
-                
-                self.user = result.value
-                let loginName = self.user?.loginName
-                UserDefaults.standard.set(loginName, forKey: Constant.userDefaults.githubLoginName)
-                
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                if let tabBarController = storyboard.instantiateInitialViewController() as? UITabBarController {
-                    // MEMO: remove feeds from first release
-//                    let navigationController = tabBarController.viewControllers?.first as? UINavigationController {
-//                    if let feedsViewController = navigationController.viewControllers.first as? FeedsViewController {
-//                        feedsViewController.stateController = self.stateController
-//                        feedsViewController.stateController?.viewController = feedsViewController
-//                        self.addRightBarButton(navigationController: navigationController)
-//                        
-//                    }
-                    if let navigationController = tabBarController.viewControllers?[0] as? UINavigationController,
-                        let reposViewController = navigationController.viewControllers.first as? ReposViewController {
-                        reposViewController.stateController = self.stateController
-                        self.addRightBarButton(navigationController: navigationController)
-                    }
-                    
-                    if let navigationController = tabBarController.viewControllers?[1] as? UINavigationController,
-                        let settingsViewController = navigationController.viewControllers.first as? SettingsViewController {
-                        settingsViewController.stateController = self.stateController
-                        self.addRightBarButton(navigationController: navigationController)
-                    }
-                    
-                    self.present(tabBarController, animated: true, completion: nil)
-                }
-                
-            }
-            */
         }
     }
-    
-    func addRightBarButton(navigationController: UINavigationController) {
-        let item = UINavigationItem()
-        let plusButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
-        item.rightBarButtonItem = plusButton
-        navigationController.navigationBar.items = [item]
-    }
-    
-    func addButtonTapped() {
-        if let stateController = stateController {
-            Utils.addButtonTapped(stateController: stateController)
-        }
-    }
-    
     
     // MARK: - Delegate
     func didTapLoginButton() {

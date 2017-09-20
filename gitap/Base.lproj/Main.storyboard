@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kJG-Y2-fNV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kJG-Y2-fNV">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -38,7 +38,7 @@
             </objects>
             <point key="canvasLocation" x="2954.4000000000001" y="137.18140929535232"/>
         </scene>
-        <!--Repos View Controller-->
+        <!--Tap to Create an Issue-->
         <scene sceneID="jpB-oy-la5">
             <objects>
                 <viewController id="Rdh-x9-Xda" customClass="ReposViewController" customModule="gitap" customModuleProvider="target" sceneMemberID="viewController">
@@ -58,7 +58,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Onh-oV-KMa"/>
+                    <navigationItem key="navigationItem" title="Tap to Create an Issue" id="Onh-oV-KMa"/>
                     <connections>
                         <outlet property="tableView" destination="Jge-xR-sxi" id="A8R-el-VPs"/>
                     </connections>
@@ -67,7 +67,7 @@
             </objects>
             <point key="canvasLocation" x="2954" y="894"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--Settings-->
         <scene sceneID="VRQ-zk-5Mh">
             <objects>
                 <viewController id="lOw-SX-wMv" customClass="SettingsViewController" customModule="gitap" customModuleProvider="target" sceneMemberID="viewController">
@@ -87,7 +87,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="lnY-fV-MUQ"/>
+                    <navigationItem key="navigationItem" title="Settings" id="lnY-fV-MUQ"/>
                     <connections>
                         <outlet property="tableView" destination="xjD-e4-tJF" id="V9m-xO-RmU"/>
                     </connections>
@@ -122,7 +122,7 @@
                     <tabBarItem key="tabBarItem" title="Feeds" id="Xlr-2a-X5w"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8rG-xH-9Mc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -141,7 +141,7 @@
                     <tabBarItem key="tabBarItem" title="Repos" id="2ct-iB-Vja"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="S8b-qS-XEd">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -160,7 +160,7 @@
                     <tabBarItem key="tabBarItem" title="Settings" id="N3P-OU-7js"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rtf-Jr-qGm">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
