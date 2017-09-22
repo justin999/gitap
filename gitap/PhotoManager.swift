@@ -31,4 +31,6 @@ struct PhotoManager {
             userCollections = PHCollectionList.fetchTopLevelUserCollections(with: nil)
         }
     }
+    
+    
 }

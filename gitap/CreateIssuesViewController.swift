@@ -104,9 +104,6 @@ class CreateIssuesViewController: MasterViewController {
     
     func generateActionSheet() -> UIAlertController {
         let imageAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-//        let takePhotoAction = UIAlertAction(title: "Take Photo", style: .default) { action in
-//            print("Take Photo")
-//        }
         let lastPhotoAction = UIAlertAction(title: "Use Last Photo Taken", style: .default) { action in
             print("Use Last Photo Taken")
             self.uploadLastImage()

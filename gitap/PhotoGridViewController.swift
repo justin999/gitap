@@ -44,7 +44,8 @@ class PhotoGridViewController: MasterViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         if let navigationController = self.navigationController {
-            uploadButton = UIBarButtonItem(title: "Upload", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.upload))
+//            uploadButton = UIBarButtonItem(title: "Upload", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.upload(images:)))
+            uploadButton = UIBarButtonItem(title: "Upload", style: .plain, target: self, action: #selector(self.upload))
             navigationController.topViewController?.navigationItem.rightBarButtonItem = uploadButton
         }
     }
@@ -68,7 +69,7 @@ class PhotoGridViewController: MasterViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @objc private func upload(images: [Data]) {
+    @objc private func upload() {
         print("upload button tapped")
     }
 
