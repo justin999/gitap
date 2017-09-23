@@ -9,23 +9,22 @@
 import UIKit
 import Photos
 
+let photoThumbnailCountInRow:CGFloat = 3
+let photoThumbnailLength = UIScreen.main.bounds.width / photoThumbnailCountInRow - (photoThumbnailCountInRow - 1)
+let photoThumbnailSize = CGSize(width: photoThumbnailLength, height: photoThumbnailLength)
+
 class PhotosCollectionViewDataSource: NSObject {
     
     var stateController: StateController
     
     var fetchResult: PHFetchResult<PHAsset>! 
     
-    
-    fileprivate var thumbnailSize: CGSize!
     fileprivate let imageManager = PHCachingImageManager()
     
     init(collectionView: UICollectionView, stateController: StateController) {
         self.stateController = stateController
         super.init()
         collectionView.dataSource = self
-        
-        
-        thumbnailSize = CGSize(width: 50, height: 50)
     }
     
 }
@@ -49,15 +48,16 @@ extension PhotosCollectionViewDataSource: UICollectionViewDataSource {
         // Request an image for the asset from the PHCachingImageManager.
         cell.representedAssetIdentifier = asset.localIdentifier
         
-        
-        imageManager.requestImage(for: asset, targetSize: thumbnailSize, contentMode: .aspectFill, options: nil, resultHandler: { image, _ in
+        print("photo thumb length \(photoThumbnailLength)")
+        print("screen width = \(UIScreen.main.bounds.width)")
+        imageManager.requestImage(for: asset, targetSize: photoThumbnailSize, contentMode: .aspectFill, options: nil, resultHandler: { image, _ in
             // The cell may have been recycled by the time this handler gets called;
             // set the cell's thumbnail image only if it's still showing the same asset.
             if cell.representedAssetIdentifier == asset.localIdentifier {
                 cell.thumbnailImage = image
             }
         })
-        
+        print("cell size: \(cell.size)")
         return cell
     }
 

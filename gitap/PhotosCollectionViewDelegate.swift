@@ -20,7 +20,7 @@ class PhotosCollectionViewDelegate: NSObject {
 
 }
 
-extension PhotosCollectionViewDelegate: UICollectionViewDelegate {
+extension PhotosCollectionViewDelegate: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // ここでPhotoGridViewCellにしておかないと複数選択に対応できない
@@ -31,4 +31,9 @@ extension PhotosCollectionViewDelegate: UICollectionViewDelegate {
         okView.backgroundColor = UIColor.orange
         cell?.addSubview(okView)
     }
+    
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return photoThumbnailSize
+    }
+    
 }

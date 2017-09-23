@@ -110,7 +110,8 @@ class CreateIssuesViewController: MasterViewController {
         }
         let libraryAction = UIAlertAction(title: "Choose From Library", style: .default) { [unowned self] (action) in
             print("Choose From Library")
-            let destination = PhotoSectionsViewController()
+            let destination = PhotoGridViewController()
+            destination.fetchResult = PhotoManager.shared.allPhotos
             let navigationController = UINavigationController(rootViewController: destination)
             self.stateController?.present(destinationNav: navigationController, inViewController: self)
         }
