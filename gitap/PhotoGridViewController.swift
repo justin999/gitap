@@ -27,8 +27,6 @@ class PhotoGridViewController: MasterViewController {
     fileprivate var thumbnailSize: CGSize!
     var collectionViewDelegate: PhotosCollectionViewDelegate?
     var collectionViewDataSource: PhotosCollectionViewDataSource?
-    
-    var uploadButton: UIBarButtonItem?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,9 +42,6 @@ class PhotoGridViewController: MasterViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         if let navigationController = self.navigationController {
-
-            uploadButton = UIBarButtonItem(title: "Upload", style: .done, target: self, action: #selector(self.upload))
-            navigationController.topViewController?.navigationItem.rightBarButtonItem = uploadButton
             let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: nil)
             navigationController.topViewController?.navigationItem.leftBarButtonItem = cancelButton
             cancelButton.action = #selector(self.cancelButtonTapped(_:))
