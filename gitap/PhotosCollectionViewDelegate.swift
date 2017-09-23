@@ -26,10 +26,16 @@ extension PhotosCollectionViewDelegate: UICollectionViewDelegate, UICollectionVi
         // ここでPhotoGridViewCellにしておかないと複数選択に対応できない
         // もしくは一枚だけしかアップロード対応しないようにする？ -> 確かに複数枚アップできたほうがいいが、今はAPIの制限があるから一枚ずつアップに限定しよう
         // するとgridviewcellをタップ -> 大きく表示 -> アップロードするか聞く -> アップロード押したらアップロード
-        let cell = collectionView.cellForItem(at: indexPath)
-        let okView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
-        okView.backgroundColor = UIColor.orange
-        cell?.addSubview(okView)
+
+        // まあこれでimage出せるけどなんか微妙
+        // https://stackoverflow.com/a/45983215/5341236
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+            print("canceled")
+        }
+        let uploadAction = UIAlertAction(title: "Upload", style: .default) { (action) in
+            print("upload action")
+        }
+        stateController.presentAlert(title: "Upload this Image?", message: "", style: UIAlertControllerStyle.alert, actions: [cancelAction, uploadAction], completion: nil)
     }
     
     // minimum margin to left or right cells

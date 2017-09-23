@@ -31,7 +31,7 @@ class Utils: NSObject {
         return aDateFormatter
     }
     
-    class func presentAlert(inViewController: UIViewController,title: String, message: String, style: UIAlertControllerStyle, actions: [UIAlertAction]?, completion: (() -> Void)?) {
+    class func presentAlert(inViewController: UIViewController,title: String, message: String?, style: UIAlertControllerStyle, actions: [UIAlertAction]?, completion: (() -> Void)?) {
         // You should call your UIAlertController on the main thread because you're dealing with the ui.
         // ref. http://stackoverflow.com/questions/39559751/uikeyboardtaskqueue-may-only-be-called-from-the-main-thread
         DispatchQueue.main.async {
