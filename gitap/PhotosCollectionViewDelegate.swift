@@ -32,8 +32,17 @@ extension PhotosCollectionViewDelegate: UICollectionViewDelegate, UICollectionVi
         cell?.addSubview(okView)
     }
     
+    // minimum margin to left or right cells
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return photoThumbnailSize
     }
     
+    // minimu margin to above or below cells
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return minimumSpacingBetweenCells
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return minimumSpacingBetweenCells
+    }
 }
