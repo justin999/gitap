@@ -222,5 +222,7 @@ class CreateIssuesViewController: MasterViewController, PhotoGridViewControllerD
     // MARK: - PhotoGridViewControllerDelegate
     func photoGridViewControllerDismissed(_ gridViewController: PhotoGridViewController, didDismissed imageIndexPath: IndexPath) {
         print("\(#file): \(#function): delegate method called")
+        let image = PhotoManager.shared.allPhotos[imageIndexPath.row]
+        self.uploadImage(image: image)
     }
 }
