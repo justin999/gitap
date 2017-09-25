@@ -17,7 +17,11 @@ private extension UICollectionView {
     }
 }
 
-class PhotoGridViewController: MasterViewController {
+protocol PhotoGridViewControllerDelegate {
+    func photoGridViewControllerDismissed(_ gridViewController: PhotoGridViewController, didDismissed imageIndexPath: IndexPath)
+}
+
+class PhotoGridViewController: MasterViewController, PhotosCollectionViewUploadDelegate {
     
     var assetCollection: PHAssetCollection!
     var fetchResult: PHFetchResult<PHAsset>!
@@ -27,6 +31,7 @@ class PhotoGridViewController: MasterViewController {
     fileprivate var thumbnailSize: CGSize!
     var collectionViewDelegate: PhotosCollectionViewDelegate?
     var collectionViewDataSource: PhotosCollectionViewDataSource?
+    var photoGridViewControllerDelegate: PhotoGridViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +40,7 @@ class PhotoGridViewController: MasterViewController {
             collectionViewDataSource = PhotosCollectionViewDataSource(collectionView: collectionView, stateController: stateController)
             collectionViewDataSource?.fetchResult = fetchResult
             collectionViewDelegate = PhotosCollectionViewDelegate(collectionView: collectionView, stateController: stateController)
+            collectionViewDelegate?.photosCollectionViewUploadDelegate = self
         }
         
         
@@ -67,12 +73,16 @@ class PhotoGridViewController: MasterViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @objc private func upload() {
-        print("upload button tapped")
-    }
-    
     func cancelButtonTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    // MARK: - PhotosCollectionViewUploadDelegate
+    func uploadActionSelected(_ collectionView: UICollectionView, didSelected indexPath: IndexPath) {
+        print("\(#file): \(#function): delegate method called")
+        self.dismiss(animated: true) {
+            self.photoGridViewControllerDelegate?.photoGridViewControllerDismissed(self, didDismissed: indexPath)
+        }
     }
     
 }

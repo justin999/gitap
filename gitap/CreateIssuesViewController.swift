@@ -13,7 +13,7 @@ import UIKit
 import AVFoundation
 import Photos
 
-class CreateIssuesViewController: MasterViewController {
+class CreateIssuesViewController: MasterViewController, PhotoGridViewControllerDelegate {
     
     // 参考: http://dev.classmethod.jp/smartphone/ios-10-avfoundation-takephoto/
     @IBOutlet weak var doneButton: UIBarButtonItem!
@@ -116,6 +116,7 @@ class CreateIssuesViewController: MasterViewController {
             print("Choose From Library")
             let destination = PhotoGridViewController()
             destination.fetchResult = PhotoManager.shared.allPhotos
+            destination.photoGridViewControllerDelegate = self
             let navigationController = UINavigationController(rootViewController: destination)
             self.stateController?.present(destinationNav: navigationController, inViewController: self)
         }
@@ -216,5 +217,10 @@ class CreateIssuesViewController: MasterViewController {
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             Utils.presentAlert(inViewController: self, title: "エラー", message: "レポジトリがありません", style: UIAlertControllerStyle.alert, actions: [okAction], completion: nil)
         }
+    }
+    
+    // MARK: - PhotoGridViewControllerDelegate
+    func photoGridViewControllerDismissed(_ gridViewController: PhotoGridViewController, didDismissed imageIndexPath: IndexPath) {
+        print("\(#file): \(#function): delegate method called")
     }
 }

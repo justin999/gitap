@@ -8,9 +8,15 @@
 
 import UIKit
 
+protocol PhotosCollectionViewUploadDelegate {
+    func uploadActionSelected(_ collectionView: UICollectionView, didSelected indexPath: IndexPath)
+}
+
 class PhotosCollectionViewDelegate: NSObject {
     
     let stateController: StateController
+    
+    var photosCollectionViewUploadDelegate: PhotosCollectionViewUploadDelegate?
     
     init(collectionView: UICollectionView, stateController: StateController) {
         self.stateController = stateController
@@ -32,12 +38,9 @@ extension PhotosCollectionViewDelegate: UICollectionViewDelegate, UICollectionVi
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
             print("canceled")
         }
-        let uploadAction = UIAlertAction(title: "Upload", style: .default) { (action) in
-//            CreateIssuesVCのuploadLastImageを参考に
+        let uploadAction = UIAlertAction(title: "Upload", style: .default) { [weak self] (action) in
             print("upload action")
-            let phAsset = PhotoManager.shared.allPhotos[indexPath.row]
-            
-            
+            self?.photosCollectionViewUploadDelegate?.uploadActionSelected(collectionView, didSelected: indexPath)
         }
         stateController.presentAlert(title: "Upload this Image?", message: "", style: UIAlertControllerStyle.alert, actions: [cancelAction, uploadAction], completion: nil)
     }
