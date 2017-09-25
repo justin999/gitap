@@ -86,7 +86,6 @@ class StateController: NSObject {
     func getUploadImageData(image: PHAsset, options: PHImageRequestOptions?, completionHandler: @escaping (Data?, Error?) -> Void) {
         // ref. https://github.com/steve228uk/ImgurKit
         PHImageManager.default().requestImageData(for: image, options: options) { (imageData, dataUTI, orientation, info) in
-            print("imageData: \(imageData)")
             if let data = imageData {
                 completionHandler(data, nil)
             } else {
