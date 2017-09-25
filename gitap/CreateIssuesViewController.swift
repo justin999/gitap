@@ -68,7 +68,11 @@ class CreateIssuesViewController: MasterViewController {
             return
         }
         
-        stateController?.getUploadImageData(image: lastImage, options: nil) { [weak self] (data, error) in
+        self .uploadImage(image: lastImage)
+    }
+    
+    private func uploadImage(image: PHAsset) {
+        stateController?.getUploadImageData(image: image, options: nil) { [weak self] (data, error) in
             if let error = error, let weakSelf = self {
                 Utils.showErrorAlert(error: error, in: weakSelf, message: error.localizedDescription) { () in
                     return
@@ -115,7 +119,6 @@ class CreateIssuesViewController: MasterViewController {
             let navigationController = UINavigationController(rootViewController: destination)
             self.stateController?.present(destinationNav: navigationController, inViewController: self)
         }
-//        imageAlert.addAction(takePhotoAction)
         imageAlert.addAction(lastPhotoAction)
         imageAlert.addAction(libraryAction)
         

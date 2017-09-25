@@ -33,7 +33,11 @@ extension PhotosCollectionViewDelegate: UICollectionViewDelegate, UICollectionVi
             print("canceled")
         }
         let uploadAction = UIAlertAction(title: "Upload", style: .default) { (action) in
+//            CreateIssuesVCのuploadLastImageを参考に
             print("upload action")
+            let phAsset = PhotoManager.shared.allPhotos[indexPath.row]
+            
+            
         }
         stateController.presentAlert(title: "Upload this Image?", message: "", style: UIAlertControllerStyle.alert, actions: [cancelAction, uploadAction], completion: nil)
     }
