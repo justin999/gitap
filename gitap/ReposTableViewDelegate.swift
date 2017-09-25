@@ -37,7 +37,7 @@ extension ReposTableViewDelegate: UITableViewDelegate {
         stateController.selectedRepo = selectedRepo
         let vc = CreateIssuesViewController()
         vc.stateController = stateController
-        stateController.pushWebView(destination: vc, inViewController: stateController.viewController)
+        stateController.present(destination: vc, inViewController: stateController.viewController)
     }
     
     @objc func newIssueButtonTapped() {
