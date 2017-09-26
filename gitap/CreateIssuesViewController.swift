@@ -98,7 +98,7 @@ class CreateIssuesViewController: MasterViewController, PhotoGridViewControllerD
                     
                     if let data = data {
                         weakSelf.bodyTextView.replace(uploadingRange, withText: "")
-                        let text = "\n<img src=\"\(data.url)\" width=300>\n"
+                        let text = "\n![imgur image upload at \(data.datetime)](\(data.url))\n"
                         weakSelf.insert(text)
                     }
                 }

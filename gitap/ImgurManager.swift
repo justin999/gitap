@@ -27,7 +27,7 @@ class ImgurManager {
     
     // MARK: - API Calls
     
-    public func uploadImage(image: Data, callback: @escaping ((url: String, width: Int, height: Int, type: String)?, Error?) -> Void) {
+    public func uploadImage(image: Data, callback: @escaping ((url: String, width: Int, height: Int, type: String, datetime: Int)?, Error?) -> Void) {
         
         Alamofire.request(ImgurRouter.upload(image)).responseJSON { response in
             guard response.result.error == nil else {
@@ -43,8 +43,9 @@ class ImgurManager {
             if let url     = data["link"] as? String,
                 let width  = data["width"] as? Int,
                 let height = data["height"] as? Int,
-                let type   = data["type"] as? String {
-                callback((url, width, height, type), nil)
+                let type   = data["type"] as? String,
+                let datetime = data["datetime"] as? Int {
+                callback((url, width, height, type, datetime), nil)
             } else {
                 callback(nil, ImgurManagerError.objectSerialization(reason: "some element was nil"))
                 return
