@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC225A531F7D0E4C0002135C /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC225A521F7D0E4C0002135C /* ShareViewController.swift */; };
+		DC225A561F7D0E4C0002135C /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC225A541F7D0E4C0002135C /* MainInterface.storyboard */; };
+		DC225A5A1F7D0E4C0002135C /* GitapShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DC225A501F7D0E4C0002135C /* GitapShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DC2434091E1FBC52002FBDE7 /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2434081E1FBC52002FBDE7 /* Repo.swift */; };
 		DC24340B1E209AE7002FBDE7 /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC24340A1E209AE7002FBDE7 /* Permission.swift */; };
 		DC24340D1E20E748002FBDE7 /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC24340C1E20E748002FBDE7 /* UserRouter.swift */; };
@@ -100,6 +103,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		DC225A581F7D0E4C0002135C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC7281591E0E178E00EEFC57 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC225A4F1F7D0E4C0002135C;
+			remoteInfo = GitapShareExtension;
+		};
 		DC7281761E0E178E00EEFC57 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DC7281591E0E178E00EEFC57 /* Project object */;
@@ -116,7 +126,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		DC225A5E1F7D0E4C0002135C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				DC225A5A1F7D0E4C0002135C /* GitapShareExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		DC225A501F7D0E4C0002135C /* GitapShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GitapShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC225A521F7D0E4C0002135C /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		DC225A551F7D0E4C0002135C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		DC225A571F7D0E4C0002135C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC2434081E1FBC52002FBDE7 /* Repo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
 		DC24340A1E209AE7002FBDE7 /* Permission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Permission.swift; sourceTree = "<group>"; };
 		DC24340C1E20E748002FBDE7 /* UserRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
@@ -217,6 +245,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		DC225A4D1F7D0E4C0002135C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DC72815E1E0E178E00EEFC57 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -243,6 +278,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DC225A511F7D0E4C0002135C /* GitapShareExtension */ = {
+			isa = PBXGroup;
+			children = (
+				DC225A521F7D0E4C0002135C /* ShareViewController.swift */,
+				DC225A541F7D0E4C0002135C /* MainInterface.storyboard */,
+				DC225A571F7D0E4C0002135C /* Info.plist */,
+			);
+			path = GitapShareExtension;
+			sourceTree = "<group>";
+		};
 		DC3D8FBF1E33B93400D349B6 /* Payloads */ = {
 			isa = PBXGroup;
 			children = (
@@ -347,6 +392,7 @@
 				DC7281631E0E178E00EEFC57 /* gitap */,
 				DC7281781E0E178E00EEFC57 /* gitapTests */,
 				DC7281831E0E178E00EEFC57 /* gitapUITests */,
+				DC225A511F7D0E4C0002135C /* GitapShareExtension */,
 				DC7281621E0E178E00EEFC57 /* Products */,
 				DC6C37801E1C9EC2003D28C4 /* Frameworks */,
 			);
@@ -358,6 +404,7 @@
 				DC7281611E0E178E00EEFC57 /* gitap.app */,
 				DC7281751E0E178E00EEFC57 /* gitapTests.xctest */,
 				DC7281801E0E178E00EEFC57 /* gitapUITests.xctest */,
+				DC225A501F7D0E4C0002135C /* GitapShareExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -517,6 +564,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		DC225A4F1F7D0E4C0002135C /* GitapShareExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC225A5D1F7D0E4C0002135C /* Build configuration list for PBXNativeTarget "GitapShareExtension" */;
+			buildPhases = (
+				DC225A4C1F7D0E4C0002135C /* Sources */,
+				DC225A4D1F7D0E4C0002135C /* Frameworks */,
+				DC225A4E1F7D0E4C0002135C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GitapShareExtension;
+			productName = GitapShareExtension;
+			productReference = DC225A501F7D0E4C0002135C /* GitapShareExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		DC7281601E0E178E00EEFC57 /* gitap */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DC7281891E0E178E00EEFC57 /* Build configuration list for PBXNativeTarget "gitap" */;
@@ -525,10 +589,12 @@
 				DC72815E1E0E178E00EEFC57 /* Frameworks */,
 				DC72815F1E0E178E00EEFC57 /* Resources */,
 				DC6C37871E1C9ED7003D28C4 /* ShellScript */,
+				DC225A5E1F7D0E4C0002135C /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				DC225A591F7D0E4C0002135C /* PBXTargetDependency */,
 			);
 			name = gitap;
 			productName = gitap;
@@ -577,10 +643,15 @@
 		DC7281591E0E178E00EEFC57 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0820;
+				LastSwiftUpdateCheck = 0900;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Koichi Sato";
 				TargetAttributes = {
+					DC225A4F1F7D0E4C0002135C = {
+						CreatedOnToolsVersion = 9.0;
+						DevelopmentTeam = B863JFBR8K;
+						ProvisioningStyle = Automatic;
+					};
 					DC7281601E0E178E00EEFC57 = {
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = B863JFBR8K;
@@ -616,11 +687,20 @@
 				DC7281601E0E178E00EEFC57 /* gitap */,
 				DC7281741E0E178E00EEFC57 /* gitapTests */,
 				DC72817F1E0E178E00EEFC57 /* gitapUITests */,
+				DC225A4F1F7D0E4C0002135C /* GitapShareExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		DC225A4E1F7D0E4C0002135C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC225A561F7D0E4C0002135C /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DC72815F1E0E178E00EEFC57 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -677,6 +757,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		DC225A4C1F7D0E4C0002135C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC225A531F7D0E4C0002135C /* ShareViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DC72815D1E0E178E00EEFC57 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -775,6 +863,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		DC225A591F7D0E4C0002135C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC225A4F1F7D0E4C0002135C /* GitapShareExtension */;
+			targetProxy = DC225A581F7D0E4C0002135C /* PBXContainerItemProxy */;
+		};
 		DC7281771E0E178E00EEFC57 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DC7281601E0E178E00EEFC57 /* gitap */;
@@ -788,6 +881,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		DC225A541F7D0E4C0002135C /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC225A551F7D0E4C0002135C /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		DC7281681E0E178E00EEFC57 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -807,6 +908,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		DC225A5B1F7D0E4C0002135C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B863JFBR8K;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = GitapShareExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.justin999.gitap.GitapShareExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DC225A5C1F7D0E4C0002135C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B863JFBR8K;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = GitapShareExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.justin999.gitap.GitapShareExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		DC7281871E0E178E00EEFC57 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -913,7 +1056,9 @@
 		DC72818A1E0E178E00EEFC57 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = B863JFBR8K;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -930,7 +1075,9 @@
 		DC72818B1E0E178E00EEFC57 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = B863JFBR8K;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1005,6 +1152,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		DC225A5D1F7D0E4C0002135C /* Build configuration list for PBXNativeTarget "GitapShareExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC225A5B1F7D0E4C0002135C /* Debug */,
+				DC225A5C1F7D0E4C0002135C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DC72815C1E0E178E00EEFC57 /* Build configuration list for PBXProject "gitap" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
