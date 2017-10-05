@@ -231,6 +231,8 @@
 		DC7281AA1E0F665000EEFC57 /* ReposTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReposTableViewDataSource.swift; sourceTree = "<group>"; };
 		DC7281AC1E0F6B4C00EEFC57 /* ReposTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReposTableViewCell.swift; sourceTree = "<group>"; };
 		DC7281AD1E0F6B4C00EEFC57 /* ReposTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReposTableViewCell.xib; sourceTree = "<group>"; };
+		DC7FD9E11F7E7B09007C3404 /* gitap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = gitap.entitlements; sourceTree = "<group>"; };
+		DC7FD9E21F7E7B74007C3404 /* GitapShareExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GitapShareExtension.entitlements; sourceTree = "<group>"; };
 		DC867AFA1E3ABD1700DD0553 /* ReposSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReposSelectionViewController.swift; sourceTree = "<group>"; };
 		DC867AFC1E3AD36600DD0553 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		DC8C74BC1EBDBBC300DAC015 /* RepoWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoWebViewController.swift; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 		DC225A511F7D0E4C0002135C /* GitapShareExtension */ = {
 			isa = PBXGroup;
 			children = (
+				DC7FD9E21F7E7B74007C3404 /* GitapShareExtension.entitlements */,
 				DC225A521F7D0E4C0002135C /* ShareViewController.swift */,
 				DC225A541F7D0E4C0002135C /* MainInterface.storyboard */,
 				DC225A571F7D0E4C0002135C /* Info.plist */,
@@ -412,6 +415,7 @@
 		DC7281631E0E178E00EEFC57 /* gitap */ = {
 			isa = PBXGroup;
 			children = (
+				DC7FD9E11F7E7B09007C3404 /* gitap.entitlements */,
 				DC7281641E0E178E00EEFC57 /* AppDelegate.swift */,
 				DC72819B1E0E1C4600EEFC57 /* Configs */,
 				DC7281961E0E1A9500EEFC57 /* Models */,
@@ -651,11 +655,21 @@
 						CreatedOnToolsVersion = 9.0;
 						DevelopmentTeam = B863JFBR8K;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					DC7281601E0E178E00EEFC57 = {
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = B863JFBR8K;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					DC7281741E0E178E00EEFC57 = {
 						CreatedOnToolsVersion = 8.2;
@@ -914,6 +928,7 @@
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = GitapShareExtension/GitapShareExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B863JFBR8K;
@@ -935,6 +950,7 @@
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = GitapShareExtension/GitapShareExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B863JFBR8K;
@@ -1057,13 +1073,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = gitap/gitap.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = B863JFBR8K;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
+				GCC_OPTIMIZATION_LEVEL = fast;
 				INFOPLIST_FILE = gitap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.justin999.gitap;
@@ -1076,7 +1095,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = gitap/gitap.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = B863JFBR8K;
 				FRAMEWORK_SEARCH_PATHS = (

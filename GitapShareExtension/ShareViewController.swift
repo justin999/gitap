@@ -11,6 +11,10 @@ import Social
 import Photos
 
 class ShareViewController: SLComposeServiceViewController {
+    
+//    override func beginRequest(with context: NSExtensionContext) {
+//        print(context)
+//    }
 
     override func isContentValid() -> Bool {
         // Do validation of contentText and/or NSExtensionContext attachments here
@@ -26,7 +30,7 @@ class ShareViewController: SLComposeServiceViewController {
             let item = extensionContext.inputItems.first as? NSExtensionItem,
             let attachment = item.attachments?.first as? NSItemProvider {
             print("sharing image: \(item)")
-//            attachment.loadDataRepresentation(forTypeIdentifier: "public.jpeg", completionHandler: { (data, error) in
+            
             attachment.loadDataRepresentation(forTypeIdentifier: "public.image", completionHandler: { (data, error) in
                 if error != nil {
                     print("do somthing to inform error")
@@ -45,8 +49,17 @@ class ShareViewController: SLComposeServiceViewController {
     }
 
     override func configurationItems() -> [Any]! {
-        // To add configuration options via table cells at the bottom of the sheet, return an array of SLComposeSheetConfigurationItem here.
-        return []
+        let item:SLComposeSheetConfigurationItem = SLComposeSheetConfigurationItem()
+        item.title = "repos"
+        item.value = "not set"
+        item.tapHandler = { () in
+            print("tapped handler")
+            let reposViewController = UIViewController()
+            self.pushConfigurationViewController(reposViewController)
+        }
+        return [item]
     }
+    
+    
 
 }

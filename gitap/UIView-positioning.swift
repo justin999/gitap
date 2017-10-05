@@ -141,24 +141,24 @@ extension UIView {
     // MARK: - Useful Methods
     
     /// Center view to it's parent view.
-    func centerToParent(){
-        if(self.superview != nil){
-            switch(UIApplication.shared.statusBarOrientation){
-            case .landscapeLeft:
-                fallthrough
-            case .landscapeRight:
-                self.origin = CGPoint(x: (self.superview!.height / 2) - (self.width / 2),
-                                      y: (self.superview!.width / 2) - (self.height / 2))
-            case .portrait:
-                fallthrough
-            case .portraitUpsideDown:
-                self.origin = CGPoint(x: (self.superview!.width / 2) - (self.width / 2),
-                                      y: (self.superview!.height / 2) - (self.height / 2))
-            case .unknown:
-                return
-            }
-        }
-    }
+//    func centerToParent(){
+//        if(self.superview != nil){
+//            switch(UIApplication.shared.statusBarOrientation){
+//            case .landscapeLeft:
+//                fallthrough
+//            case .landscapeRight:
+//                self.origin = CGPoint(x: (self.superview!.height / 2) - (self.width / 2),
+//                                      y: (self.superview!.width / 2) - (self.height / 2))
+//            case .portrait:
+//                fallthrough
+//            case .portraitUpsideDown:
+//                self.origin = CGPoint(x: (self.superview!.width / 2) - (self.width / 2),
+//                                      y: (self.superview!.height / 2) - (self.height / 2))
+//            case .unknown:
+//                return
+//            }
+//        }
+//    }
     
     // MARK: - Private Methods
     private func _pixelIntegral(_ pointValue:CGFloat) -> CGFloat{

@@ -155,7 +155,7 @@ class GitHubAPIManager {
             switch key {
             case "access_token":
                 token = value
-                print("Got Token: \(token)")
+                print("Got Token: \(token ?? "no token")")
             case "scope":
                 // TODO: verify scope
                 print("SET SCOPE")
