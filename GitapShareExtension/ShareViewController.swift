@@ -15,6 +15,14 @@ class ShareViewController: SLComposeServiceViewController {
 //    override func beginRequest(with context: NSExtensionContext) {
 //        print(context)
 //    }
+    
+    override func presentationAnimationDidFinish() {
+        let userDefaults = UserDefaults(suiteName: "group.justin999.gitap")
+        let privateRepoNames = userDefaults?.value(forKey: "privateRepoNames")
+        let publicRepoNames = userDefaults?.value(forKey: "publicRepoNames")
+        print("privateRepos: \(privateRepoNames)")
+        print("publicRepos: \(publicRepoNames)")
+    }
 
     override func isContentValid() -> Bool {
         // Do validation of contentText and/or NSExtensionContext attachments here
@@ -50,7 +58,7 @@ class ShareViewController: SLComposeServiceViewController {
 
     override func configurationItems() -> [Any]! {
         let item:SLComposeSheetConfigurationItem = SLComposeSheetConfigurationItem()
-        item.title = "repos"
+        item.title = "Repository"
         item.value = "not set"
         item.tapHandler = { () in
             print("tapped handler")

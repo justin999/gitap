@@ -149,6 +149,7 @@ class StateController: NSObject {
                 let fetchedRepos = response.items
                 self.privateRepos = fetchedRepos.filter { $0.isPrivate == true }
                 self.publicRepos  = fetchedRepos.filter { $0.isPrivate == false }
+                self.setRepoInfoIntoUserDefaults()
                 completionHandler(true)
             case let .failure(error):
                 self.handleLoadIssuesError(error)
@@ -158,6 +159,17 @@ class StateController: NSObject {
         }
     }
     
+    func setRepoInfoIntoUserDefaults() {
+        let privateRepoNames = self.privateRepos?.map({ (repo) -> String in
+            repo.full_name
+        })
+        print("private repo names: \(String(describing:privateRepoNames))")
+        let publicRepoNames = self.publicRepos?.map({ (repo) -> String in
+            repo.full_name
+        })
+        Utils.setDefaultsValue(value: privateRepoNames, key: "privateRepoNames")
+        Utils.setDefaultsValue(value: publicRepoNames, key: "publicRepoNames")
+    }
     
     // MARK: - feeds
     func listFeeds(completionHandler: ((Bool) -> Void)?) {

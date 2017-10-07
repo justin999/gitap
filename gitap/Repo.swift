@@ -87,7 +87,11 @@ import Foundation
  ]
 */
 
+let keyRepoId = "keyRepoId"
+
+
 struct Repo: JSONDecodable {
+    
     let id: Int
     let name: String
     let full_name: String
@@ -100,11 +104,11 @@ struct Repo: JSONDecodable {
         guard let dictionary = json as? [String : Any] else {
             throw JSONDecodeError.invalidFormat(json: json)
         }
-        
+
         guard let ownerObject = dictionary["owner"] else {
             throw JSONDecodeError.missingValue(key: "owner", actualValue: dictionary["owner"])
         }
-        
+
         do {
             self.id = try Utils.getValue(from: dictionary, with: "id")
             self.name = try Utils.getValue(from: dictionary, with: "name")
