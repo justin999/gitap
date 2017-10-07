@@ -62,7 +62,7 @@ class ShareViewController: SLComposeServiceViewController {
         item.value = "not set"
         item.tapHandler = { () in
             print("tapped handler")
-            let reposViewController = UIViewController()
+            let reposViewController = ReposSelectionTableViewController()
             self.pushConfigurationViewController(reposViewController)
         }
         return [item]

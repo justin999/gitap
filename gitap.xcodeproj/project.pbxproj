@@ -16,6 +16,7 @@
 		DC24340F1E232294002FBDE7 /* StateController+AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC24340E1E232294002FBDE7 /* StateController+AlertHelper.swift */; };
 		DC2434441E2849F6002FBDE7 /* ActivityRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2434431E2849F6002FBDE7 /* ActivityRouter.swift */; };
 		DC2434461E284A4A002FBDE7 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2434451E284A4A002FBDE7 /* Feed.swift */; };
+		DC392ED51F89938400DB68DD /* ReposSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC392ED41F89938400DB68DD /* ReposSelectionTableViewController.swift */; };
 		DC3D8FBC1E33907500D349B6 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D8FBB1E33907500D349B6 /* Event.swift */; };
 		DC3D8FBE1E33B71700D349B6 /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D8FBD1E33B71700D349B6 /* Payload.swift */; };
 		DC3D8FC11E33B97400D349B6 /* PayloadIssuesEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D8FC01E33B97400D349B6 /* PayloadIssuesEvent.swift */; };
@@ -151,6 +152,7 @@
 		DC24340E1E232294002FBDE7 /* StateController+AlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StateController+AlertHelper.swift"; sourceTree = "<group>"; };
 		DC2434431E2849F6002FBDE7 /* ActivityRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityRouter.swift; sourceTree = "<group>"; };
 		DC2434451E284A4A002FBDE7 /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		DC392ED41F89938400DB68DD /* ReposSelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposSelectionTableViewController.swift; sourceTree = "<group>"; };
 		DC3D8FBB1E33907500D349B6 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		DC3D8FBD1E33B71700D349B6 /* Payload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Payload.swift; sourceTree = "<group>"; };
 		DC3D8FC01E33B97400D349B6 /* PayloadIssuesEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayloadIssuesEvent.swift; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 				DC225A521F7D0E4C0002135C /* ShareViewController.swift */,
 				DC225A541F7D0E4C0002135C /* MainInterface.storyboard */,
 				DC225A571F7D0E4C0002135C /* Info.plist */,
+				DC392ED41F89938400DB68DD /* ReposSelectionTableViewController.swift */,
 			);
 			path = GitapShareExtension;
 			sourceTree = "<group>";
@@ -775,6 +778,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC392ED51F89938400DB68DD /* ReposSelectionTableViewController.swift in Sources */,
 				DC225A531F7D0E4C0002135C /* ShareViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
