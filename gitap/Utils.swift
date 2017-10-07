@@ -74,5 +74,15 @@ class Utils: NSObject {
         }
         return value
     }
-
+    
+    // MARK: - UserDefaults
+    class func setDefaultsValue(value: Any?, key: String) {
+        let userDefault = UserDefaults(suiteName: "group.justin999.gitap")
+        userDefault?.set(value, forKey: key)
+    }
+    
+    class func getDefaultsValue(forKey: String) -> Any? {
+        let userDefault = UserDefaults(suiteName: "group.justin999.gitap")
+        return userDefault?.value(forKey: forKey)
+    }
 }
