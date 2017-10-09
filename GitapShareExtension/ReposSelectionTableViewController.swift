@@ -9,43 +9,62 @@
 import UIKit
 
 class ReposSelectionTableViewController: UITableViewController {
+    
+    var privateReposNames = [String]()
+    var publicRepoNames = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "repoNameCell")
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 3
+        switch section {
+        case 0:
+            return self.privateReposNames.count
+        case 1:
+            return self.publicRepoNames.count
+        default:
+            return 0
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = "repo name here"
-
+        var text: String
+        switch indexPath.section {
+        case 0:
+            text = self.privateReposNames[indexPath.row]
+        case 1:
+            text = self.publicRepoNames[indexPath.row]
+        default:
+            text = ""
+        }
+        cell.textLabel?.text = text
         return cell
     }
 
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return "Private"
+        case 1:
+            return "Public"
+        default:
+            return ""
+        }
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

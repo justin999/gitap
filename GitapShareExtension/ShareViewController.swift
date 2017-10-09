@@ -12,16 +12,22 @@ import Photos
 
 class ShareViewController: SLComposeServiceViewController {
     
-//    override func beginRequest(with context: NSExtensionContext) {
-//        print(context)
-//    }
+    var privateRepoNames = [String]()
+    var publicRepoNames  = [String]()
     
     override func presentationAnimationDidFinish() {
         let userDefaults = UserDefaults(suiteName: "group.justin999.gitap")
-        let privateRepoNames = userDefaults?.value(forKey: "privateRepoNames")
-        let publicRepoNames = userDefaults?.value(forKey: "publicRepoNames")
-        print("privateRepos: \(privateRepoNames)")
-        print("publicRepos: \(publicRepoNames)")
+        guard let privateRepos = userDefaults?.value(forKey: "privateRepoNames") as? [String],
+            let publicRepos = userDefaults?.value(forKey: "publicRepoNames") as? [String] else {
+                let alert = UIAlertController(title: "No Repos found", message: "open Gitap app and authorize your GitHub Account.", preferredStyle: .alert)
+                alert.present(self, animated: true, completion: {
+                    self.dismiss(animated: true, completion: nil)
+                })
+                return
+        }
+        self.privateRepoNames = privateRepos
+        self.publicRepoNames  = publicRepos
+        
     }
 
     override func isContentValid() -> Bool {
@@ -62,10 +68,16 @@ class ShareViewController: SLComposeServiceViewController {
         item.value = "not set"
         item.tapHandler = { () in
             print("tapped handler")
-            let reposViewController = ReposSelectionTableViewController()
-            self.pushConfigurationViewController(reposViewController)
+            self.segueToRepos()
         }
         return [item]
+    }
+    
+    private func segueToRepos() {
+        let reposViewController = ReposSelectionTableViewController()
+        reposViewController.privateReposNames = self.privateRepoNames
+        reposViewController.publicRepoNames   = self.publicRepoNames
+        self.pushConfigurationViewController(reposViewController)
     }
     
     
