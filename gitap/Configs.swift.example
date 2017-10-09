@@ -1,0 +1,11 @@
+struct Configs {
+    struct github {
+        static let clientId     = ""
+        static let clientSecret = ""
+    }
+    
+    struct imgur {
+        static let clientId     = ""
+    }
+}
+
