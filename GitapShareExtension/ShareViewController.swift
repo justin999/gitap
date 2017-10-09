@@ -10,7 +10,7 @@ import UIKit
 import Social
 import Photos
 
-class ShareViewController: SLComposeServiceViewController {
+class ShareViewController: SLComposeServiceViewController, ReposSelectionTableViewControllerDelegate {
     
     var privateRepoNames = [String]()
     var publicRepoNames  = [String]()
@@ -75,11 +75,15 @@ class ShareViewController: SLComposeServiceViewController {
     
     private func segueToRepos() {
         let reposViewController = ReposSelectionTableViewController()
+        reposViewController.delegate = self
         reposViewController.privateReposNames = self.privateRepoNames
         reposViewController.publicRepoNames   = self.publicRepoNames
         self.pushConfigurationViewController(reposViewController)
     }
     
-    
+    // MARK: - ReposSelectionTableViewControllerDelegate
+    func repoSelection(_ tableView: UITableView, didTapped indexPath: IndexPath, repoName: String) {
+        
+    }
 
 }

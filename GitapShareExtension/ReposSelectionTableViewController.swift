@@ -8,10 +8,15 @@
 
 import UIKit
 
+protocol ReposSelectionTableViewControllerDelegate {
+    func repoSelection(_ tableView: UITableView, didTapped indexPath: IndexPath, repoName: String)
+}
+
 class ReposSelectionTableViewController: UITableViewController {
     
     var privateReposNames = [String]()
     var publicRepoNames = [String]()
+    var delegate: ReposSelectionTableViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +69,12 @@ class ReposSelectionTableViewController: UITableViewController {
         default:
             return ""
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let repoName: String = tableView.cellForRow(at: indexPath)?.textLabel?.text ?? ""
+        delegate?.repoSelection(tableView, didTapped: indexPath, repoName: repoName)
+        self.navigationController?.popViewController(animated: true)
     }
     /*
     // Override to support conditional editing of the table view.
