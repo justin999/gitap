@@ -14,6 +14,7 @@ class ShareViewController: SLComposeServiceViewController, ReposSelectionTableVi
     
     var privateRepoNames = [String]()
     var publicRepoNames  = [String]()
+    var fullRepoName = String()
     
     override func presentationAnimationDidFinish() {
         let userDefaults = UserDefaults(suiteName: "group.justin999.gitap")
@@ -73,6 +74,8 @@ class ShareViewController: SLComposeServiceViewController, ReposSelectionTableVi
         return [item]
     }
     
+    // MARK: - Private
+    
     private func segueToRepos() {
         let reposViewController = ReposSelectionTableViewController()
         reposViewController.delegate = self
@@ -81,9 +84,14 @@ class ShareViewController: SLComposeServiceViewController, ReposSelectionTableVi
         self.pushConfigurationViewController(reposViewController)
     }
     
+    private func createIssue(repoFullName: String) {
+        let path = "/repos/\(repoFullName)/issues"
+        self.contentText
+    }
+    
     // MARK: - ReposSelectionTableViewControllerDelegate
     func repoSelection(_ tableView: UITableView, didTapped indexPath: IndexPath, repoName: String) {
-        
+        self.fullRepoName = repoName
     }
 
 }
