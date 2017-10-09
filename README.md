@@ -16,12 +16,12 @@ Mobile environmet has had huge impact on web since iPhone has released in 2007. 
 
 ## Limitation
 
-- Using Imgur API, the api has limit to number of images to upload daily. The app can't be work after the api limitation. 
-    **Other sevices for uploading images**
-      - Dropbox: It has an api to produce an url to share images, however, the url expires in 4 hours after it produced. Therefore, it can't be met the requirement. 
-      - GitHub: On the web browser, images can't be uploaded in issue editor page. However, no API is opened for this task. 
-      - Google Drive, Google Photo, iCloud: No API is available for the requirement. 
-      - AWS S3: It can be most flexible and meet the requirement. However, it cost too much if many users use Gitap. This choice would be the best if this app can sustainably raise money. 
+- Using Imgur API, the api has limit to number of images to upload daily. The app can't be work after the api limitation.   
+    **Other sevices for uploading images**  
+      - Dropbox: It has an api to produce an url to share images, however, the url expires in 4 hours after it produced. Therefore, it can't be met the requirement.   
+      - GitHub: On the web browser, images can't be uploaded in issue editor page. However, no API is opened for this task.   
+      - Google Drive, Google Photo, iCloud: No API is available for the requirement.   
+      - AWS S3: It can be most flexible and meet the requirement. However, it cost too much if many users use Gitap. This choice would be the best if this app can sustainably raise money.   
 
 ## Requirements
 
