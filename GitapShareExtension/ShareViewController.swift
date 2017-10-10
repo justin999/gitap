@@ -48,22 +48,21 @@ class ShareViewController: SLComposeServiceViewController, ReposSelectionTableVi
             let attachment = item.attachments?.first as? NSItemProvider {
             print("sharing image: \(item)")
             
-            attachment.loadDataRepresentation(forTypeIdentifier: "public.image", completionHandler: { (data, error) in
-                if error != nil {
-                    self.showAlert(message: self.makeErrorMessage(message: "Failed to fetch an image", error: error!), completionHandler: nil)
+            attachment.loadDataRepresentation(forTypeIdentifier: "public.image", completionHandler: { (imageData, error) in
+                if let error = error {
+                    self.showAlert(message: self.makeErrorMessage(message: "Failed to fetch an image. Retry later.", error: error), completionHandler: nil)
                     return
                 }
 
-                if data != nil {
-                    ImgurManager.shared.uploadImage(image: data!) { (data, error) in
+                if let data = imageData {
+                    ImgurManager.shared.uploadImage(image: data) { (uploadedData, error) in
                         if let error = error {
-                            self.showAlert(message: ("Failed to upload an image. Retry later." + " :\(error.localizedDescription)"), completionHandler: {
-                                return
-                            })
+                            self.showAlert(message: makeErrorMessage(message: "Failed to upload an image. Retry later.", error: error!) , completionHandler: nil)
+                            return
                         }
                         
-                        if let data = data {
-                            let text = "![imgur image upload at \(data.datetime)](\(data.url))\n"
+                        if let uploadedData = uploadedData {
+                            let text = "![imgur image upload at \(uploadedData.datetime)](\(uploadedData.url))\n"
                             // making issue
                         }
                     }
@@ -109,16 +108,16 @@ class ShareViewController: SLComposeServiceViewController, ReposSelectionTableVi
         self.contentText
     }
     
-    private func showAlert(message: String, completionHandler: @escaping (() -> Void)?) {
+    private func showAlert(message: String, completionHandler: (() -> Void)?) {
         let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
         alert.present(self, animated: true) {
-            completionHandler()
+            if let handler = completionHandler { handler() }
         }
     }
     
     private func makeErrorMessage(message: String, error: Error?) -> String {
-        if error != nil {
-            return "\(message): \(error?.localizedDescription)"
+        if let error = error {
+            return "\(message): \(error.localizedDescription)"
         } else {
             return message
         }
