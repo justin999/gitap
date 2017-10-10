@@ -49,6 +49,16 @@
                ReferencedContainer = "container:gitap.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "DC392EE21F8CDF2900DB68DD"
+               BuildableName = "NetworkFrameworkTests.xctest"
+               BlueprintName = "NetworkFrameworkTests"
+               ReferencedContainer = "container:gitap.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

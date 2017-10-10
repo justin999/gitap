@@ -82,5 +82,4 @@ Carthage/Build/
 
 # End of https://www.gitignore.io/api/xcode,swift,carthage
 
-gitap/Configs.swift
-
+*Configs.swift
