@@ -9,6 +9,7 @@
 import UIKit
 import Social
 import Photos
+import NetworkFramework
 
 class ShareViewController: SLComposeServiceViewController, ReposSelectionTableViewControllerDelegate {
     
@@ -49,11 +50,23 @@ class ShareViewController: SLComposeServiceViewController, ReposSelectionTableVi
             
             attachment.loadDataRepresentation(forTypeIdentifier: "public.image", completionHandler: { (data, error) in
                 if error != nil {
-                    print("do somthing to inform error")
+                    self.showAlert(message: self.makeErrorMessage(message: "Failed to fetch an image", error: error!), completionHandler: nil)
                     return
                 }
 
                 if data != nil {
+                    ImgurManager.shared.uploadImage(image: data!) { (data, error) in
+                        if let error = error {
+                            self.showAlert(message: ("Failed to upload an image. Retry later." + " :\(error.localizedDescription)"), completionHandler: {
+                                return
+                            })
+                        }
+                        
+                        if let data = data {
+                            let text = "![imgur image upload at \(data.datetime)](\(data.url))\n"
+                            // making issue
+                        }
+                    }
                     print("data fetched: \(data)")
                 }
             })
@@ -94,6 +107,21 @@ class ShareViewController: SLComposeServiceViewController, ReposSelectionTableVi
     private func createIssue(repoFullName: String) {
         let path = "/repos/\(repoFullName)/issues"
         self.contentText
+    }
+    
+    private func showAlert(message: String, completionHandler: @escaping (() -> Void)?) {
+        let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
+        alert.present(self, animated: true) {
+            completionHandler()
+        }
+    }
+    
+    private func makeErrorMessage(message: String, error: Error?) -> String {
+        if error != nil {
+            return "\(message): \(error?.localizedDescription)"
+        } else {
+            return message
+        }
     }
     
     // MARK: - ReposSelectionTableViewControllerDelegate
