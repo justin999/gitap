@@ -14,7 +14,8 @@ class ShareViewController: SLComposeServiceViewController, ReposSelectionTableVi
     
     var privateRepoNames = [String]()
     var publicRepoNames  = [String]()
-    var fullRepoName = String()
+    var fullRepoName: String?
+    let repoItem:SLComposeSheetConfigurationItem = SLComposeSheetConfigurationItem()
     
     override func presentationAnimationDidFinish() {
         let userDefaults = UserDefaults(suiteName: "group.justin999.gitap")
@@ -64,17 +65,23 @@ class ShareViewController: SLComposeServiceViewController, ReposSelectionTableVi
     }
 
     override func configurationItems() -> [Any]! {
-        let item:SLComposeSheetConfigurationItem = SLComposeSheetConfigurationItem()
-        item.title = "Repository"
-        item.value = "not set"
-        item.tapHandler = { () in
-            print("tapped handler")
-            self.segueToRepos()
-        }
-        return [item]
+        return [getRepoItem()]
     }
     
     // MARK: - Private
+    
+    private func getRepoItem() -> SLComposeSheetConfigurationItem {
+        self.repoItem.title = "Repository"
+        self.repoItem.value = self.fullRepoName ?? "not set"
+        self.repoItem.tapHandler = { () in
+            self.segueToRepos()
+        }
+        return self.repoItem
+    }
+    
+    private func updateRepoItem() {
+        
+    }
     
     private func segueToRepos() {
         let reposViewController = ReposSelectionTableViewController()
@@ -92,6 +99,7 @@ class ShareViewController: SLComposeServiceViewController, ReposSelectionTableVi
     // MARK: - ReposSelectionTableViewControllerDelegate
     func repoSelection(_ tableView: UITableView, didTapped indexPath: IndexPath, repoName: String) {
         self.fullRepoName = repoName
+        self.repoItem.value = repoName
     }
 
 }
