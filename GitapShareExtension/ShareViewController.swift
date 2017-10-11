@@ -10,6 +10,7 @@ import UIKit
 import Social
 import Photos
 import NetworkFramework
+import Locksmith
 
 class ShareViewController: SLComposeServiceViewController, ReposSelectionTableViewControllerDelegate {
     
@@ -17,9 +18,9 @@ class ShareViewController: SLComposeServiceViewController, ReposSelectionTableVi
     var publicRepoNames  = [String]()
     var fullRepoName: String?
     let repoItem:SLComposeSheetConfigurationItem = SLComposeSheetConfigurationItem()
+    let userDefaults = UserDefaults(suiteName: "group.justin999.gitap")
     
     override func presentationAnimationDidFinish() {
-        let userDefaults = UserDefaults(suiteName: "group.justin999.gitap")
         guard let privateRepos = userDefaults?.value(forKey: "privateRepoNames") as? [String],
             let publicRepos = userDefaults?.value(forKey: "publicRepoNames") as? [String] else {
                 let alert = UIAlertController(title: "No Repos found", message: "open Gitap app and authorize your GitHub Account.", preferredStyle: .alert)
@@ -55,9 +56,10 @@ class ShareViewController: SLComposeServiceViewController, ReposSelectionTableVi
                 }
 
                 if let data = imageData {
-                    ImgurManager.shared.uploadImage(image: data) { (uploadedData, error) in
+                    ImgurManager.shared.uploadImage(image: data) { [weak self] (uploadedData, error) in
+                        guard let weakSelf = self else { return }
                         if let error = error {
-                            self.showAlert(message: makeErrorMessage(message: "Failed to upload an image. Retry later.", error: error!) , completionHandler: nil)
+                            weakSelf.showAlert(message: weakSelf.makeErrorMessage(message: "Failed to upload an image. Retry later.", error: error) , completionHandler: nil)
                             return
                         }
                         
@@ -105,7 +107,47 @@ class ShareViewController: SLComposeServiceViewController, ReposSelectionTableVi
     
     private func createIssue(repoFullName: String) {
         let path = "/repos/\(repoFullName)/issues"
-        self.contentText
+        let session: URLSession = {
+            let configuration = URLSessionConfiguration.default
+            let session = URLSession(configuration: configuration)
+            return session
+        }()
+        
+        let baseURL: URL = URL(string: "https://api.github.com")!
+        
+        let url = baseURL.appendingPathComponent(path)
+        let params = [String: String]() // implement later
+        let jsonData: Data? = try? JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody   = jsonData
+        
+        // get api token
+        if let token = userDefaults?.value(forKey: "githubAuthToken") as? String {
+            request.setValue("token \(token)", forHTTPHeaderField: "Authorization")
+        } else {
+            self.showAlert(message: "Failed to find you GitHub account. Go back to Gitap App and authenticate your GitHub account.", completionHandler: nil)
+            return
+        }
+        
+        let task = session.dataTask(with: request) { (data, response, error) in
+            switch (data, response, error) {
+            case (_, _, let error?):
+                self.showAlert(message: "Failed to Connect to Internet.", completionHandler: nil)
+                return
+            case (let data?, let response?, _):
+                let json = try JSONSerialization.jsonObject(with: data, options: [])
+                if case (200..<300)? = (response as? HTTPURLResponse)?.statusCode {
+                    print(json)
+                } else {
+                    // TODO: show error
+                }
+            default:
+                break
+            }
+        }
+        
+        
     }
     
     private func showAlert(message: String, completionHandler: (() -> Void)?) {
