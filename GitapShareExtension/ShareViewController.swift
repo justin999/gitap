@@ -43,10 +43,13 @@ class ShareViewController: SLComposeServiceViewController, ReposSelectionTableVi
         // This is called after the user selects Post. Do the upload of contentText and/or NSExtensionContext attachments.
 
         // Inform the host that we're done, so it un-blocks its UI. Note: Alternatively you could call super's -didSelectPost, which will similarly complete the extension context.
+        
+        guard let title = self.textView.text else { return }
 
         if let extensionContext = self.extensionContext,
             let item = extensionContext.inputItems.first as? NSExtensionItem,
-            let attachment = item.attachments?.first as? NSItemProvider {
+            let attachment = item.attachments?.first as? NSItemProvider,
+            let repoName = self.fullRepoName {
             print("sharing image: \(item)")
             
             attachment.loadDataRepresentation(forTypeIdentifier: "public.image", completionHandler: { (imageData, error) in
@@ -64,8 +67,10 @@ class ShareViewController: SLComposeServiceViewController, ReposSelectionTableVi
                         }
                         
                         if let uploadedData = uploadedData {
-                            let text = "![imgur image upload at \(uploadedData.datetime)](\(uploadedData.url))\n"
-                            // making issue
+                            let bodyText = "![imgur image upload at \(uploadedData.datetime)](\(uploadedData.url))\n"
+                            if let params = self?.getParams(title: title, body: bodyText) {
+                                self?.createIssue(repoFullName: repoName, params:params)
+                            }
                         }
                     }
                     print("data fetched: \(data)")
@@ -105,7 +110,7 @@ class ShareViewController: SLComposeServiceViewController, ReposSelectionTableVi
         self.pushConfigurationViewController(reposViewController)
     }
     
-    private func createIssue(repoFullName: String) {
+    private func createIssue(repoFullName: String, params: [String: Any?]) {
         let path = "/repos/\(repoFullName)/issues"
         let session: URLSession = {
             let configuration = URLSessionConfiguration.default
@@ -116,7 +121,6 @@ class ShareViewController: SLComposeServiceViewController, ReposSelectionTableVi
         let baseURL: URL = URL(string: "https://api.github.com")!
         
         let url = baseURL.appendingPathComponent(path)
-        let params = [String: String]() // implement later
         let jsonData: Data? = try? JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -130,24 +134,39 @@ class ShareViewController: SLComposeServiceViewController, ReposSelectionTableVi
             return
         }
         
-        let task = session.dataTask(with: request) { (data, response, error) in
+        let task = session.dataTask(with: request) { data, response, error in
             switch (data, response, error) {
             case (_, _, let error?):
                 self.showAlert(message: "Failed to Connect to Internet.", completionHandler: nil)
                 return
             case (let data?, let response?, _):
-                let json = try JSONSerialization.jsonObject(with: data, options: [])
-                if case (200..<300)? = (response as? HTTPURLResponse)?.statusCode {
-                    print(json)
-                } else {
-                    // TODO: show error
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    if case (200..<300)? = (response as? HTTPURLResponse)?.statusCode {
+                        print(json)
+                    } else {
+                        self.showAlert(message: "Failed to Creat an Issue.", completionHandler: nil)
+                        return
+                    }
+                } catch {
+                    self.showAlert(message: self.makeErrorMessage(message: "Failed to Create an issue.", error: error), completionHandler: nil)
+                    return
                 }
             default:
                 break
             }
         }
+        task.resume()
+    }
+    
+    private func getParams(title: String, body: String) -> [String: Any?] {
         
+        let params: [String: Any?] = [
+            "title": title,
+            "body": body,
+        ]
         
+        return params
     }
     
     private func showAlert(message: String, completionHandler: (() -> Void)?) {
