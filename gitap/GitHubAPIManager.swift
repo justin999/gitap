@@ -38,12 +38,14 @@ class GitHubAPIManager {
         set {
             guard let newValue = newValue else {
                 let _ = try? Locksmith.deleteDataForUserAccount(userAccount: kKeyChainGitHub)
+                Utils.setDefaultsValue(value: nil, key: "githubAuthToken")
                 return
             }
             guard let _ = try? Locksmith.updateData(data: ["token": newValue], forUserAccount: kKeyChainGitHub) else {
                 let _ = try? Locksmith.deleteDataForUserAccount(userAccount: kKeyChainGitHub)
                 return
             }
+            Utils.setDefaultsValue(value: newValue, key: "githubAuthToken")
         }
         get {
             // try to load from keychain

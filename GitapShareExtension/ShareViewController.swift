@@ -23,10 +23,7 @@ class ShareViewController: SLComposeServiceViewController, ReposSelectionTableVi
     override func presentationAnimationDidFinish() {
         guard let privateRepos = userDefaults?.value(forKey: "privateRepoNames") as? [String],
             let publicRepos = userDefaults?.value(forKey: "publicRepoNames") as? [String] else {
-                let alert = UIAlertController(title: "No Repos found", message: "open Gitap app and authorize your GitHub Account.", preferredStyle: .alert)
-                alert.present(self, animated: true, completion: {
-                    self.dismiss(animated: true, completion: nil)
-                })
+                self.showAlert(message: "open Gitap app and authorize your GitHub Account first.", completionHandler: nil)
                 return
         }
         self.privateRepoNames = privateRepos
@@ -36,22 +33,30 @@ class ShareViewController: SLComposeServiceViewController, ReposSelectionTableVi
 
     override func isContentValid() -> Bool {
         // Do validation of contentText and/or NSExtensionContext attachments here
+        if let _ = title {} else {
+            return false
+        }
         return true
     }
 
     override func didSelectPost() {
-        // This is called after the user selects Post. Do the upload of contentText and/or NSExtensionContext attachments.
-
-        // Inform the host that we're done, so it un-blocks its UI. Note: Alternatively you could call super's -didSelectPost, which will similarly complete the extension context.
+        guard let repoName = self.fullRepoName else {
+            showAlert(message: "Select the repoName", completionHandler: (nil))
+            return
+        }
+    
+        guard let title = self.textView.text else {
+            showAlert(message: "Input Issue Title", completionHandler: (nil))
+            return
+        }
+        if !(title.characters.count > 0) {
+            showAlert(message: "input issue Title", completionHandler: nil)
+        }
         
-        guard let title = self.textView.text else { return }
-
         if let extensionContext = self.extensionContext,
             let item = extensionContext.inputItems.first as? NSExtensionItem,
-            let attachment = item.attachments?.first as? NSItemProvider,
-            let repoName = self.fullRepoName {
-            print("sharing image: \(item)")
-            
+            let attachment = item.attachments?.first as? NSItemProvider {
+
             attachment.loadDataRepresentation(forTypeIdentifier: "public.image", completionHandler: { (imageData, error) in
                 if let error = error {
                     self.showAlert(message: self.makeErrorMessage(message: "Failed to fetch an image. Retry later.", error: error), completionHandler: nil)
@@ -65,7 +70,7 @@ class ShareViewController: SLComposeServiceViewController, ReposSelectionTableVi
                             weakSelf.showAlert(message: weakSelf.makeErrorMessage(message: "Failed to upload an image. Retry later.", error: error) , completionHandler: nil)
                             return
                         }
-                        
+
                         if let uploadedData = uploadedData {
                             let bodyText = "![imgur image upload at \(uploadedData.datetime)](\(uploadedData.url))\n"
                             if let params = self?.getParams(title: title, body: bodyText) {
@@ -74,13 +79,15 @@ class ShareViewController: SLComposeServiceViewController, ReposSelectionTableVi
                         }
                     }
                     print("data fetched: \(data)")
+                } else {
+                    self.showAlert(message: "some thing went wrong1", completionHandler: nil)
                 }
             })
+        } else {
+            self.showAlert(message: "some thing went wrong2", completionHandler: nil)
         }
 
 
-
-        self.extensionContext!.completeRequest(returningItems: [], completionHandler: nil)
     }
 
     override func configurationItems() -> [Any]! {
@@ -113,7 +120,9 @@ class ShareViewController: SLComposeServiceViewController, ReposSelectionTableVi
     private func createIssue(repoFullName: String, params: [String: Any?]) {
         let path = "/repos/\(repoFullName)/issues"
         let session: URLSession = {
-            let configuration = URLSessionConfiguration.default
+            // ref. # Performing Uploads and Downloads
+            // https://developer.apple.com/library/content/documentation/General/Conceptual/ExtensibilityPG/ExtensionScenarios.html#//apple_ref/doc/uid/TP40014214-CH21-SW1
+            let configuration = URLSessionConfiguration.background(withIdentifier: "com.justin999.gitap.shareExtension.background")
             let session = URLSession(configuration: configuration)
             return session
         }()
@@ -137,7 +146,7 @@ class ShareViewController: SLComposeServiceViewController, ReposSelectionTableVi
         let task = session.dataTask(with: request) { data, response, error in
             switch (data, response, error) {
             case (_, _, let error?):
-                self.showAlert(message: "Failed to Connect to Internet.", completionHandler: nil)
+                self.showAlert(message: self.makeErrorMessage(message: "Failed to Connect to Internet.", error: error), completionHandler: nil)
                 return
             case (let data?, let response?, _):
                 do {
@@ -171,9 +180,14 @@ class ShareViewController: SLComposeServiceViewController, ReposSelectionTableVi
     
     private func showAlert(message: String, completionHandler: (() -> Void)?) {
         let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
-        alert.present(self, animated: true) {
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction!) -> () in
             if let handler = completionHandler { handler() }
-        }
+            self.extensionContext!.completeRequest(returningItems: [], completionHandler: nil)
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+        
     }
     
     private func makeErrorMessage(message: String, error: Error?) -> String {
