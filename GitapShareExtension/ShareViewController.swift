@@ -12,7 +12,12 @@ import Photos
 import NetworkFramework
 import Locksmith
 
-class ShareViewController: SLComposeServiceViewController, ReposSelectionTableViewControllerDelegate, ImgurManagerDelegate {
+class ShareViewController: SLComposeServiceViewController,
+                            ReposSelectionTableViewControllerDelegate,
+                            ImgurManagerDelegate,
+                            URLSessionDelegate,
+                            URLSessionTaskDelegate,
+                            URLSessionDataDelegate {
     
     var issueTitle: String?
     var privateRepoNames = [String]()
@@ -118,8 +123,11 @@ class ShareViewController: SLComposeServiceViewController, ReposSelectionTableVi
         let session: URLSession = {
             // ref. # Performing Uploads and Downloads
             // https://developer.apple.com/library/content/documentation/General/Conceptual/ExtensibilityPG/ExtensionScenarios.html#//apple_ref/doc/uid/TP40014214-CH21-SW1
-            let configuration = URLSessionConfiguration.background(withIdentifier: "com.justin999.gitap.shareExtension.background")
-            let session = URLSession(configuration: configuration)
+            // NOTE: Should use background?
+            // let configuration = URLSessionConfiguration.background(withIdentifier: "com.justin999.gitap.shareExtension.background")
+            // configuration.sharedContainerIdentifier = "com.justin999.gitap.shareExtension.container"
+            let configuration = URLSessionConfiguration.default
+            let session = URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
             return session
         }()
         
@@ -139,29 +147,7 @@ class ShareViewController: SLComposeServiceViewController, ReposSelectionTableVi
             return
         }
         
-        let task = session.dataTask(with: request) { data, response, error in
-            switch (data, response, error) {
-            case (_, _, let error?):
-                self.showAlert(message: self.makeErrorMessage(message: "Failed to Connect to Internet.", error: error), completionHandler: nil)
-                return
-            case (let data?, let response?, _):
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    if case (200..<300)? = (response as? HTTPURLResponse)?.statusCode {
-                        print("status code good: \(json)")
-                        print("Succeed to make issue")
-                    } else {
-                        self.showAlert(message: "Failed to Creat an Issue.", completionHandler: nil)
-                        return
-                    }
-                } catch {
-                    self.showAlert(message: self.makeErrorMessage(message: "Failed to Create an issue.", error: error), completionHandler: nil)
-                    return
-                }
-            default:
-                break
-            }
-        }
+        let task = session.dataTask(with: request)
         task.resume()
     }
     
@@ -224,4 +210,20 @@ class ShareViewController: SLComposeServiceViewController, ReposSelectionTableVi
             self.showAlert(message: self.makeErrorMessage(message: "Failed to upload an image. Retry later.", error: error) , completionHandler: nil)
         }
     }
+    
+    // MARK: - URLSessionDelegate
+    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+        self.showAlert(message: self.makeErrorMessage(message: "Failed to Connect to Internet.", error: error), completionHandler: nil)
+    }
+    
+    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Swift.Void) {
+        print("data received : \(response)")
+        if case (200..<300)? = (response as? HTTPURLResponse)?.statusCode {
+            self.showAlert(message: "Succeed to make issue.", completionHandler: nil)
+        } else {
+            self.showAlert(message: "Failed to Creat an Issue.", completionHandler: nil)
+            return
+        }
+    }
+    
 }
