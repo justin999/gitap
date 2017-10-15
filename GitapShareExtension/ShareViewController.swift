@@ -17,11 +17,16 @@ class ShareViewController: SLComposeServiceViewController, ReposSelectionTableVi
     var privateRepoNames = [String]()
     var publicRepoNames  = [String]()
     var fullRepoName: String?
+    var githubAPIToken: String?
     let repoItem:SLComposeSheetConfigurationItem = SLComposeSheetConfigurationItem()
     let userDefaults = UserDefaults(suiteName: "group.justin999.gitap")
     
     override func presentationAnimationDidFinish() {
-        print("api token: \(userDefaults?.value(forKey: "githubAuthToken") ?? "no token")")
+        guard let authToken = userDefaults?.value(forKey: "githubAuthToken") as? String else {
+            self.showAlert(message: "open Gitap app and authorize your GitHub Account first.", completionHandler: nil)
+            return
+        }
+        self.githubAPIToken = authToken
         
         guard let privateRepos = userDefaults?.value(forKey: "privateRepoNames") as? [String],
             let publicRepos = userDefaults?.value(forKey: "publicRepoNames") as? [String] else {
@@ -34,10 +39,14 @@ class ShareViewController: SLComposeServiceViewController, ReposSelectionTableVi
     }
 
     override func isContentValid() -> Bool {
-        // Do validation of contentText and/or NSExtensionContext attachments here
-        if let _ = title {} else {
+        guard let title = self.textView.text else {
             return false
         }
+        
+        if !(title.characters.count > 0) {
+            return false
+        }
+        
         return true
     }
 
@@ -46,14 +55,9 @@ class ShareViewController: SLComposeServiceViewController, ReposSelectionTableVi
             showAlert(message: "Select the repoName", completionHandler: (nil))
             return
         }
-    
-        guard let title = self.textView.text else {
-            showAlert(message: "Input Issue Title", completionHandler: (nil))
-            return
-        }
-        if !(title.characters.count > 0) {
-            showAlert(message: "input issue Title", completionHandler: nil)
-        }
+        
+        // NOTE: title is validated in isContentValid()
+        guard let title = self.textView.text else { return }
         
         if let extensionContext = self.extensionContext,
             let item = extensionContext.inputItems.first as? NSExtensionItem,
@@ -138,7 +142,7 @@ class ShareViewController: SLComposeServiceViewController, ReposSelectionTableVi
         request.httpBody   = jsonData
         
         // get api token
-        if let token = userDefaults?.value(forKey: "githubAuthToken") as? String {
+        if let token = self.githubAPIToken {
             request.setValue("token \(token)", forHTTPHeaderField: "Authorization")
         } else {
             self.showAlert(message: "Failed to find you GitHub account. Go back to Gitap App and authenticate your GitHub account.", completionHandler: nil)
