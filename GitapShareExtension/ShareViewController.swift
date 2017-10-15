@@ -12,8 +12,9 @@ import Photos
 import NetworkFramework
 import Locksmith
 
-class ShareViewController: SLComposeServiceViewController, ReposSelectionTableViewControllerDelegate {
+class ShareViewController: SLComposeServiceViewController, ReposSelectionTableViewControllerDelegate, ImgurManagerDelegate {
     
+    var issueTitle: String?
     var privateRepoNames = [String]()
     var publicRepoNames  = [String]()
     var fullRepoName: String?
@@ -58,6 +59,7 @@ class ShareViewController: SLComposeServiceViewController, ReposSelectionTableVi
         
         // NOTE: title is validated in isContentValid()
         guard let title = self.textView.text else { return }
+        self.issueTitle = title
         
         if let extensionContext = self.extensionContext,
             let item = extensionContext.inputItems.first as? NSExtensionItem,
@@ -70,21 +72,9 @@ class ShareViewController: SLComposeServiceViewController, ReposSelectionTableVi
                 }
 
                 if let data = imageData {
-                    ImgurManager.shared.uploadImage(image: data) { [weak self] (uploadedData, error) in
-                        guard let weakSelf = self else { return }
-                        if let error = error {
-                            weakSelf.showAlert(message: weakSelf.makeErrorMessage(message: "Failed to upload an image. Retry later.", error: error) , completionHandler: nil)
-                            return
-                        }
+                    ImgurManager.shared.delegate = self
+                    ImgurManager.shared.uploadImage(image: data)
 
-                        if let uploadedData = uploadedData {
-                            let bodyText = "![imgur image upload at \(uploadedData.datetime)](\(uploadedData.url))\n"
-                            if let params = self?.getParams(title: title, body: bodyText) {
-                                self?.createIssue(repoFullName: repoName, params:params)
-                            }
-                        }
-                    }
-                    print("data fetched: \(data)")
                 } else {
                     self.showAlert(message: "some thing went wrong1", completionHandler: nil)
                 }
@@ -158,7 +148,8 @@ class ShareViewController: SLComposeServiceViewController, ReposSelectionTableVi
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: [])
                     if case (200..<300)? = (response as? HTTPURLResponse)?.statusCode {
-                        print(json)
+                        print("status code good: \(json)")
+                        print("Succeed to make issue")
                     } else {
                         self.showAlert(message: "Failed to Creat an Issue.", completionHandler: nil)
                         return
@@ -209,5 +200,28 @@ class ShareViewController: SLComposeServiceViewController, ReposSelectionTableVi
         self.fullRepoName = repoName
         self.repoItem.value = repoName
     }
-
+    
+    // MARK: - ImgurManagerDelegate
+    func imgur(imgur: ImgurManager, didSuceededToUploadWith data: [String : Any?]) {
+        print("imgur succeeded")
+        print("data: \(data)")
+        if let datetime = data["datetime"] as? Int,
+            let url = data["url"] as? String,
+            let title = self.issueTitle {
+            let bodyText = "![imgur image upload at \(datetime)](\(url))\n"
+            let params = self.getParams(title: title, body: bodyText)
+            if let repoName = self.fullRepoName {
+                self.createIssue(repoFullName: repoName, params:params)
+            }
+        } else {
+            self.showAlert(message: "data format is illegal", completionHandler: nil)
+        }
+    }
+    
+    func imgur(imgur: ImgurManager, didFailedToUploadWith error: Error?) {
+        print("imgur failed")
+        if let error = error {
+            self.showAlert(message: self.makeErrorMessage(message: "Failed to upload an image. Retry later.", error: error) , completionHandler: nil)
+        }
+    }
 }
