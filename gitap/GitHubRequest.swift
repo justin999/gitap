@@ -41,7 +41,7 @@ extension GitHubRequest {
         urlRequest.httpMethod = method.rawValue
         urlRequest.httpBody = jsonData
         
-        if let token = GitHubAPIManager.sharedInstance.OAuthToken {
+        if let token = GitHubAPIManager.shared.OAuthToken {
             urlRequest.setValue("token \(token)", forHTTPHeaderField: "Authorization")
         }
 

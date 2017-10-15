@@ -21,6 +21,8 @@ class ShareViewController: SLComposeServiceViewController, ReposSelectionTableVi
     let userDefaults = UserDefaults(suiteName: "group.justin999.gitap")
     
     override func presentationAnimationDidFinish() {
+        print("api token: \(userDefaults?.value(forKey: "githubAuthToken") ?? "no token")")
+        
         guard let privateRepos = userDefaults?.value(forKey: "privateRepoNames") as? [String],
             let publicRepos = userDefaults?.value(forKey: "publicRepoNames") as? [String] else {
                 self.showAlert(message: "open Gitap app and authorize your GitHub Account first.", completionHandler: nil)

@@ -51,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        GitHubAPIManager.sharedInstance.processOAuthStep1Response(url)
+        GitHubAPIManager.shared.processOAuthStep1Response(url)
         return true
     }
     

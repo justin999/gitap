@@ -26,7 +26,7 @@ class ReposViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         stateController?.viewController = self
         
-        if GitHubAPIManager.sharedInstance.hasOAuthToken() {
+        if GitHubAPIManager.shared.hasOAuthToken() {
             stateController?.getRepos { success in
                 switch success {
                 case true:
@@ -39,7 +39,7 @@ class ReposViewController: UIViewController {
                     print("fetching faield")
                 }
             }
-            //            GitHubAPIManager.sharedInstance.printIssues()
+            //            GitHubAPIManager.shared.printIssues()
         } else {
 //            self.showOAuthLoginView()
         }

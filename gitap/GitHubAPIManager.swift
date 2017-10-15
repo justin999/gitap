@@ -28,7 +28,7 @@ let kKeyChainGitHub = "github"
 let kMessageFailToObtainToken: String = "Could not obtain an OAuth token"
 
 class GitHubAPIManager {
-    static let sharedInstance = GitHubAPIManager()
+    static let shared = GitHubAPIManager()
     
 //    var initialization = (([String: Any]) -> T?)
     
@@ -41,11 +41,12 @@ class GitHubAPIManager {
                 Utils.setDefaultsValue(value: nil, key: "githubAuthToken")
                 return
             }
+            Utils.setDefaultsValue(value: newValue, key: "githubAuthToken")
             guard let _ = try? Locksmith.updateData(data: ["token": newValue], forUserAccount: kKeyChainGitHub) else {
                 let _ = try? Locksmith.deleteDataForUserAccount(userAccount: kKeyChainGitHub)
                 return
             }
-            Utils.setDefaultsValue(value: newValue, key: "githubAuthToken")
+            
         }
         get {
             // try to load from keychain

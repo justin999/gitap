@@ -57,7 +57,7 @@ class Utils: NSObject {
     }
     
     class func showOAuthLoginView(inViewcontroller: UIViewController, delegate: LoginViewDelegate) {
-        GitHubAPIManager.sharedInstance.isLoadingOAuthToken = true
+        GitHubAPIManager.shared.isLoadingOAuthToken = true
         let loginVC = LoginViewController(nibName: "LoginViewController", bundle: nil)
         loginVC.delegate = delegate
         inViewcontroller.present(loginVC, animated: true, completion: nil)

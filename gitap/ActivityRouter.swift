@@ -49,7 +49,7 @@ enum ActivityRouter: URLRequestConvertible {
         urlRequest.httpMethod = method.rawValue
         
         // Set Oauth token if we have one
-        if let token = GitHubAPIManager.sharedInstance.OAuthToken {
+        if let token = GitHubAPIManager.shared.OAuthToken {
             urlRequest.setValue("token \(token)", forHTTPHeaderField: "Authorization")
         }
         

@@ -63,15 +63,15 @@ class SetupAccountViewController: MasterViewController, LoginViewDelegate, SFSaf
     // MARK: - Delegate
     func didTapLoginButton() {
         self.dismiss(animated: false) {
-            guard let authURL = GitHubAPIManager.sharedInstance.URLToStartOAuth2Login() else {
+            guard let authURL = GitHubAPIManager.shared.URLToStartOAuth2Login() else {
                 let error = GitHubAPIManagerError.authCouldNot(reason: kMessageFailToObtainToken)
-                GitHubAPIManager.sharedInstance.OAuthTokenCompletionHandler?(error)
+                GitHubAPIManager.shared.OAuthTokenCompletionHandler?(error)
                 return
             }
             self.safariViewController = SFSafariViewController(url: authURL)
             self.safariViewController?.delegate = self
             if let sfViewController = self.safariViewController {
-                GitHubAPIManager.sharedInstance.OAuthTokenCompletionHandler = { error in
+                GitHubAPIManager.shared.OAuthTokenCompletionHandler = { error in
                     // ログイン成功したら自動的にfeedviewcontrollerへ
                     // 失敗したらもう一度oauth出す
                     guard error == nil else {
@@ -99,7 +99,7 @@ class SetupAccountViewController: MasterViewController, LoginViewDelegate, SFSaf
     //        // Detect not being able to load the OAuth URL
     //        if (!didLoadSuccessfully) {
     //            controller.dismiss(animated: true, completion: nil)
-    //            GitHubAPIManager.sharedInstance.isAPIOnline { isOnline in
+    //            GitHubAPIManager.shared.isAPIOnline { isOnline in
     //                if !isOnline {
     //                    print("error: api offline")
     //                    let innerError = NSError(domain: NSURLErrorDomain,
@@ -108,7 +108,7 @@ class SetupAccountViewController: MasterViewController, LoginViewDelegate, SFSaf
     //                                                "No Internet Connection or GitHub is Offline",
     //                                                        NSLocalizedRecoverySuggestionErrorKey: "Please retry your request"])
     //                    let error = GitHubAPIManagerError.network(error: innerError)
-    //                    GitHubAPIManager.sharedInstance.OAuthTokenCompletionHandler?(error)
+    //                    GitHubAPIManager.shared.OAuthTokenCompletionHandler?(error)
     //                }
     //            }
     //        }

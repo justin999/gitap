@@ -24,7 +24,7 @@ extension SettingsTableViewDelegate: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: false)
         if indexPath.section == 0 && indexPath.row == 2 {
             print("clearing oauth token")
-            GitHubAPIManager.sharedInstance.clearOAuthToken()
+            GitHubAPIManager.shared.clearOAuthToken()
             let okAlert = UIAlertAction(title: "OK", style: .cancel) { okAlert in
                 self.stateController.present(storyBoardName: "SetupAccount", inViewController: self.stateController.viewController)
             }

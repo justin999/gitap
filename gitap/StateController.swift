@@ -104,7 +104,7 @@ class StateController: NSObject {
     
     // MARK: - Events
     func getIssueEvents(userName: String, completionHandler: @escaping ((Bool) -> Void)) {
-        GitHubAPIManager.sharedInstance.fetch(ActivityRouter.listEventsUserReceived(userName)) { (result: Result<[Event]>, nextPage) in
+        GitHubAPIManager.shared.fetch(ActivityRouter.listEventsUserReceived(userName)) { (result: Result<[Event]>, nextPage) in
             print("events: \(result)")
             
             guard result.error == nil else {
@@ -173,7 +173,7 @@ class StateController: NSObject {
     
     // MARK: - feeds
     func listFeeds(completionHandler: ((Bool) -> Void)?) {
-        GitHubAPIManager.sharedInstance.fetch(ActivityRouter.listFeeds()) { (result: Result<[Feed]>, nextPage) in
+        GitHubAPIManager.shared.fetch(ActivityRouter.listFeeds()) { (result: Result<[Feed]>, nextPage) in
             
             completionHandler!(true)
         }
