@@ -145,7 +145,7 @@ class ShareViewController: SLComposeServiceViewController, ReposSelectionTableVi
         if let token = self.githubAPIToken {
             request.setValue("token \(token)", forHTTPHeaderField: "Authorization")
         } else {
-            self.showAlert(message: "Failed to find you GitHub account. Go back to Gitap App and authenticate your GitHub account.", completionHandler: nil)
+            self.showAlert(message: "Failed to find your GitHub account. Go back to Gitap App and authenticate your GitHub account.", completionHandler: nil)
             return
         }
         
