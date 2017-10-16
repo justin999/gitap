@@ -65,7 +65,7 @@ class ShareViewController: SLComposeServiceViewController,
     }
 
     override func didSelectPost() {
-        guard let repoName = self.fullRepoName else {
+        guard let _ = self.fullRepoName else {
             showAlert(message: "Select the repoName", completionHandler: (nil))
             return
         }
@@ -88,6 +88,7 @@ class ShareViewController: SLComposeServiceViewController,
                     ImgurManager.shared.delegate = self
                     ImgurManager.shared.clientID = self.imgurAPIClientID! // shouldn't be nil as it validated in presentationAnimationDidFinish.
                     ImgurManager.shared.uploadImage(image: data)
+                    // NOTE: lator task is processed in ImgurManagerDelegate methods
                 } else {
                     self.showAlert(message: "some thing went wrong1", completionHandler: nil)
                 }
@@ -95,8 +96,6 @@ class ShareViewController: SLComposeServiceViewController,
         } else {
             self.showAlert(message: "some thing went wrong2", completionHandler: nil)
         }
-
-
     }
 
     override func configurationItems() -> [Any]! {

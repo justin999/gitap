@@ -30,8 +30,6 @@ let kMessageFailToObtainToken: String = "Could not obtain an OAuth token"
 class GitHubAPIManager {
     static let shared = GitHubAPIManager()
     
-//    var initialization = (([String: Any]) -> T?)
-    
     var isLoadingOAuthToken: Bool = false
     var OAuthTokenCompletionHandler:((Error?) -> Void)?
     var OAuthToken: String? {
@@ -194,7 +192,6 @@ class GitHubAPIManager {
     
     private func arrayFromResponse<T: ResultProtocol>(response: DataResponse<Any>) -> Result<[T]> {
         guard response.result.error == nil else {
-            print("error: \(response.result.error)")
             return .failure(GitHubAPIManagerError.network(error: response.result.error!))
         }
         

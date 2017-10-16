@@ -42,8 +42,9 @@ enum ImgurRouter: URLRequestConvertible {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = method.rawValue
         
-        let token = ImgurManager.shared.clientID
-        urlRequest.setValue("Client-ID \(token)", forHTTPHeaderField: "Authorization")
+        if let token = ImgurManager.shared.clientID {
+            urlRequest.setValue("Client-ID \(token)", forHTTPHeaderField: "Authorization")
+        }
         
         let encoding = JSONEncoding.default
         return try encoding.encode(urlRequest, with: params)
