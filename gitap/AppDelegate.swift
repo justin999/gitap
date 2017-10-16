@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        Utils.setDefaultsValue(value: Configs.imgur.clientId, key: "imgurAPIClientId")
 
         if let setupAccountViewController = window?.rootViewController as? SetupAccountViewController {
             stateController = StateController(viewController: setupAccountViewController)

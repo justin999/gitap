@@ -29,7 +29,6 @@
 		DC392EFF1F8CE1CB00DB68DD /* Locksmith.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6C37831E1C9EC2003D28C4 /* Locksmith.framework */; };
 		DC392F011F8CE3A500DB68DD /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6C37811E1C9EC2003D28C4 /* Alamofire.framework */; };
 		DC392F021F8CE3A500DB68DD /* Locksmith.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6C37831E1C9EC2003D28C4 /* Locksmith.framework */; };
-		DC392F041F8CE3C900DB68DD /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC392F031F8CE3C900DB68DD /* Configs.swift */; };
 		DC3D8FBC1E33907500D349B6 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D8FBB1E33907500D349B6 /* Event.swift */; };
 		DC3D8FBE1E33B71700D349B6 /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D8FBD1E33B71700D349B6 /* Payload.swift */; };
 		DC3D8FC11E33B97400D349B6 /* PayloadIssuesEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D8FC01E33B97400D349B6 /* PayloadIssuesEvent.swift */; };
@@ -206,7 +205,6 @@
 		DC392EEC1F8CDF2A00DB68DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC392EF91F8CE12700DB68DD /* ImgurManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImgurManager.swift; sourceTree = "<group>"; };
 		DC392EFA1F8CE12800DB68DD /* ImgurRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImgurRouter.swift; sourceTree = "<group>"; };
-		DC392F031F8CE3C900DB68DD /* Configs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
 		DC3D8FBB1E33907500D349B6 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		DC3D8FBD1E33B71700D349B6 /* Payload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Payload.swift; sourceTree = "<group>"; };
 		DC3D8FC01E33B97400D349B6 /* PayloadIssuesEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayloadIssuesEvent.swift; sourceTree = "<group>"; };
@@ -376,7 +374,6 @@
 				DC392EFA1F8CE12800DB68DD /* ImgurRouter.swift */,
 				DC392EDD1F8CDF2900DB68DD /* NetworkFramework.h */,
 				DC392EDE1F8CDF2900DB68DD /* Info.plist */,
-				DC392F031F8CE3C900DB68DD /* Configs.swift */,
 			);
 			path = NetworkFramework;
 			sourceTree = "<group>";
@@ -982,7 +979,6 @@
 			files = (
 				DC392EFB1F8CE12800DB68DD /* ImgurManager.swift in Sources */,
 				DC392EFC1F8CE12800DB68DD /* ImgurRouter.swift in Sources */,
-				DC392F041F8CE3C900DB68DD /* Configs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

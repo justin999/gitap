@@ -29,11 +29,16 @@ open class ImgurManager {
     open static let shared = ImgurManager()
     open var delegate: ImgurManagerDelegate?
     
-    let clientID: String = Configs.imgur.clientId
+    open var clientID: String?
     
     // MARK: - API Calls
     
     open func uploadImage(image: Data) {
+        
+        guard let _ = self.clientID else {
+            self.delegate?.imgur(imgur: self, didFailedToUploadWith: ImgurManagerError.authCouldNot(reason: "No Imgur Client ID found"))
+            return
+        }
         
         Alamofire.request(ImgurRouter.upload(image)).responseJSON { response in
             guard response.result.error == nil else {

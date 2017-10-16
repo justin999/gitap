@@ -24,6 +24,7 @@ class ShareViewController: SLComposeServiceViewController,
     var publicRepoNames  = [String]()
     var fullRepoName: String?
     var githubAPIToken: String?
+    var imgurAPIClientID: String?
     let repoItem:SLComposeSheetConfigurationItem = SLComposeSheetConfigurationItem()
     let userDefaults = UserDefaults(suiteName: "group.justin999.gitap")
     
@@ -34,11 +35,18 @@ class ShareViewController: SLComposeServiceViewController,
         }
         self.githubAPIToken = authToken
         
+        guard let imgurClientId = userDefaults?.value(forKey: "imgurAPIClientId") as? String else {
+            self.showAlert(message: "Failed to Connect to Imgur. Open Gitap app first.", completionHandler: nil)
+            return
+        }
+        self.imgurAPIClientID = imgurClientId
+        
         guard let privateRepos = userDefaults?.value(forKey: "privateRepoNames") as? [String],
             let publicRepos = userDefaults?.value(forKey: "publicRepoNames") as? [String] else {
                 self.showAlert(message: "open Gitap app and authorize your GitHub Account first.", completionHandler: nil)
                 return
         }
+        
         self.privateRepoNames = privateRepos
         self.publicRepoNames  = publicRepos
         
@@ -78,8 +86,8 @@ class ShareViewController: SLComposeServiceViewController,
 
                 if let data = imageData {
                     ImgurManager.shared.delegate = self
+                    ImgurManager.shared.clientID = self.imgurAPIClientID! // shouldn't be nil as it validated in presentationAnimationDidFinish.
                     ImgurManager.shared.uploadImage(image: data)
-
                 } else {
                     self.showAlert(message: "some thing went wrong1", completionHandler: nil)
                 }
