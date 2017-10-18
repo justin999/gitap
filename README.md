@@ -1,5 +1,5 @@
 # Gitap
-> Create an GitHub issue with your screenshots without stress. 
+> Create an GitHub issue with your screenshots without stress.
 
 [![Swift Version][swift-image]][swift-url]
 [![License][license-image]][license-url]
@@ -12,11 +12,11 @@ Gitap offers a share extension that enable you to create an GitHub issue with yo
 
 ## Why I made this app
 
-Mobile environmet has had huge impact on web since iPhone has released in 2007. Most web trafic recently comes from mobile rather than desktop. However, no app can't be found to create an issue with mobile screenshots easily. People need to upload to some storage, such as dropbox or google drive and copy the link of images and paste it into issue descriptions. Those copy and paste task is what I'd love to eliminate. 
+Mobile environmet has had huge impact on web since iPhone has released in 2007. Most web trafic recently comes from mobile rather than desktop. However, no app can't be found to create an issue with mobile screenshots easily. People need to upload to some storage, such as dropbox or google drive and copy the link of images and paste it into issue descriptions. Those copy and paste task is what I'd love to eliminate.
 
 ## Limitation
 
-- Using Imgur API, the api has limit to number of images to upload daily. The app can't be work after the api limitation.   
+- Using Imgur API, the api has limit to number of images to upload daily. The app can't be work after the api limitation. I accept all the suggestion of using other image uploader services. Tell me by issue.
     **Other sevices for uploading images**  
       - Dropbox: It has an api to produce an url to share images, however, the url expires in 4 hours after it produced. Therefore, it can't be met the requirement.   
       - GitHub: On the web browser, images can't be uploaded in issue editor page. However, no API is opened for this task.   
@@ -31,15 +31,17 @@ Mobile environmet has had huge impact on web since iPhone has released in 2007. 
 
 ## Installation
 
-As of Octorber 9th, Gitap is beeing prepared to release in App Store, which means you need to set up an environment to run Gitap. Here's how.
+As of Octorber 2017, Gitap is beeing prepared to release in App Store, which means you need to set up an environment to run Gitap. Here's how.
 
-1. Clone the repository into your local environemnt. 
+1. Clone the repository into your local environemnt.
     `$git clone https://github.com/justin999/gitap.git`
-2. Rename `Configs.swift.example` into `Configs.swift`
-3. Get GitHub app client id and client secret. See detail in [GitHub documentation](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/)
-4. Get Imgur app client id. See detail in [Imgur Documentation](https://apidocs.imgur.com/#authorization-and-oauth)
-5. Type client id and secrets in `Configs.swift`
-6. Build and Run. You should see run the application!
+2. run in terminal
+    `$ carthage update --platform iOS`
+3. find the file named `gitap/Configs.swift.example`. Rename it from `Configs.swift.example` into `Configs.swift`
+4. Get GitHub app client id and client secret. See detail in [GitHub documentation](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/)
+5. Get Imgur app client id. See detail in [Imgur Documentation](https://apidocs.imgur.com/#authorization-and-oauth)
+6. Type client id and secrets in `Configs.swift`
+7. Build and Run. You should see run the application!
 
 ## Contribute
 
