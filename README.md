@@ -1,5 +1,5 @@
 # Gitap
-> Create an GitHub issue with your screenshots without stress.
+> Create an GitHub issue with your screenshots without any stress.
 
 [![Swift Version][swift-image]][swift-url]
 [![License][license-image]][license-url]
@@ -18,10 +18,10 @@ Mobile environmet has had huge impact on web since iPhone has released in 2007. 
 
 - Using Imgur API, the api has limit to number of images to upload daily. The app can't be work after the api limitation. I accept all the suggestion of using other image uploader services. Tell me by issue.
     **Other sevices for uploading images**  
-      - Dropbox: It has an api to produce an url to share images, however, the url expires in 4 hours after it produced. Therefore, it can't be met the requirement.   
+      - Dropbox: It has an api to produce an url to share images, however, the url expires in 4 hours after it produced. Therefore, it can't meet the requirement.   
       - GitHub: On the web browser, images can't be uploaded in issue editor page. However, no API is opened for this task.   
       - Google Drive, Google Photo, iCloud: No API is available for the requirement.   
-      - AWS S3: It can be most flexible and meet the requirement. However, it cost too much if many users use Gitap. This choice would be the best if this app can sustainably raise money.   
+      - AWS S3: It could be the most flexible and meet the requirement. However, it costs too much if many users use Gitap. This choice would be the best if this app can sustainably raise money.   
 
 ## Requirements
 
@@ -33,9 +33,9 @@ Mobile environmet has had huge impact on web since iPhone has released in 2007. 
 
 As of Octorber 2017, Gitap is beeing prepared to release in App Store, which means you need to set up an environment to run Gitap. Here's how.
 
-1. Clone the repository into your local environemnt.
+1. Clone the repository into your local environemnt.  
     `$git clone https://github.com/justin999/gitap.git`
-2. run in terminal
+2. run in terminal  
     `$ carthage update --platform iOS`
 3. find the file named `gitap/Configs.swift.example`. Rename it from `Configs.swift.example` into `Configs.swift`
 4. Get GitHub app client id and client secret. See detail in [GitHub documentation](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/)
