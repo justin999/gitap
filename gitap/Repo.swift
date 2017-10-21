@@ -99,6 +99,7 @@ struct Repo: JSONDecodable {
     let isPrivate: Bool
     let description: String?
     let url: URL
+    let language: String?
     
     init(json: Any) throws {
         guard let dictionary = json as? [String : Any] else {
@@ -120,6 +121,7 @@ struct Repo: JSONDecodable {
             guard let url = URL(string: urlString) else {
                 throw ObjectError.initializationError(object: urlString)
             }
+            self.language = dictionary["language"] as? String
             self.url = url
         } catch {
             throw error

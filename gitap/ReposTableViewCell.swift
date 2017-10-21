@@ -10,6 +10,8 @@ import UIKit
 
 class ReposTableViewCell: UITableViewCell {
     @IBOutlet weak var fullnameLabel: UILabel!
+    @IBOutlet weak var languageLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

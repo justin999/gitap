@@ -64,6 +64,7 @@ extension ReposTableViewDataSource: UITableViewDataSource {
         }
         
         cell.fullnameLabel.text = repo?.full_name ?? "repo name"
+        cell.languageLabel.text = repo?.language ?? ""
         return cell
     }
     
