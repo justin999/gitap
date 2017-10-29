@@ -8,7 +8,7 @@
 
 Gitap offers a share extension that enable you to create an GitHub issue with your screenshots without any stress.
 
-![gitap-demo](https://user-images.githubusercontent.com/3691498/32142225-d7f4506c-bcd5-11e7-808a-9bbaf85a8d1f.gif)
+![gitap-demo](https://user-images.githubusercontent.com/3691498/32142379-c421f220-bcd9-11e7-9244-3d4aeb5023a0.gif)
 
 
 ## Why I made this app
