@@ -6,9 +6,10 @@
 [![Platform](https://img.shields.io/cocoapods/p/LFAlertController.svg?style=flat)](http://cocoapods.org/pods/LFAlertController)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-Gitap offers a share extension that enable you to create an GitHub issue with your screenshots without stress.
+Gitap offers a share extension that enable you to create an GitHub issue with your screenshots without any stress.
 
-![](header.png)
+![gitap-demo](https://user-images.githubusercontent.com/3691498/32142225-d7f4506c-bcd5-11e7-808a-9bbaf85a8d1f.gif)
+
 
 ## Why I made this app
 
