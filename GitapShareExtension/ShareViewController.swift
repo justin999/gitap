@@ -77,87 +77,39 @@ class ShareViewController: SLComposeServiceViewController,
         
         if let extensionContext = self.extensionContext,
             let item = extensionContext.inputItems.first as? NSExtensionItem,
-            let attachment = item.attachments?.first as? NSItemProvider {
+            let attachments = item.attachments as? [NSItemProvider] {
+            let contentType = kUTTypeImage as String
             
-//            attachment.loadite
-            guard let ktype: String = attachment.registeredTypeIdentifiers.first else {
-                self.showAlert(message: "no ktype", completionHandler: nil)
-                return
-            }
-            
-            // ex1
-            attachment.loadFileRepresentation(forTypeIdentifier: ktype, completionHandler: { (url, error) in
-                print("loadFile: \(String(describing: url))")
-                guard let url = url else {
-                    self.showAlert(message: "Fetching URL Error", completionHandler: nil)
-                    return
-                }
-                do {
-                    let imageData = try Data(contentsOf: url)
-                    if let image = UIImage(data: imageData), let resizedImageData = UIImageJPEGRepresentation(image, 0.3) {
-                        ImgurManager.shared.delegate = self
-                        ImgurManager.shared.clientID = self.imgurAPIClientID! // shouldn't be nil as it validated in presentationAnimationDidFinish.
-                        ImgurManager.shared.uploadImage(image: resizedImageData)
-                        // NOTE: lator task is processed in ImgurManagerDelegate methods
-                    } else {
-                        print("Error loading Image of")
+            for attachment in attachments {
+                if attachment.hasItemConformingToTypeIdentifier(contentType) {
+                    attachment.loadItem(forTypeIdentifier: contentType, options: nil) { data, error in
+                        guard let data = data else { return }
+                        if type(of: data) == UIImage.self {
+                            if let image = data as? UIImage, let imageData = UIImageJPEGRepresentation(image, 0.8) {
+                                self.uploadToImgur(imageData: imageData)
+                            } else {
+                                self.showAlert(message: "Failed to fetch Image. Try Later.", completionHandler: nil)
+                            }
+                        } else if type(of: data) == URL.self {
+                            guard let url = data as? URL else { return }
+                            do {
+                                let imageData = try Data(contentsOf: url)
+                                self.uploadToImgur(imageData: imageData)
+                            } catch {
+                                self.showAlert(message: "Error occured loading image: \(error.localizedDescription)", completionHandler: nil)
+                            }
+                        } else {
+                            self.showAlert(message:"Image not found.", completionHandler: nil)
+                        }
                     }
-                } catch {
-                    print("Error loading image : \(error)")
+                } else {
+                    self.showAlert(message:"Image item not found.", completionHandler: nil)
                 }
-                
-            })
-            //ex2
-//            attachment.loadObject(ofClass: UIImage.self, completionHandler: { (object, error) in
-//                print("loadObject: \(String(describing: object))")
-//                if let error = error {
-//                    self.showAlert(message: self.makeErrorMessage(message: "Failed to fetch an image. Retry later.", error: error), completionHandler: nil)
-//                    return
-//                }
-//
-//
-//                if let image = object as? UIImage {
-//                    if let data = UIImageJPEGRepresentation(image, 0.5) {
-//                        ImgurManager.shared.delegate = self
-//                        ImgurManager.shared.clientID = self.imgurAPIClientID! // shouldn't be nil as it validated in presentationAnimationDidFinish.
-//                        ImgurManager.shared.uploadImage(image: data)
-//                        // NOTE: lator task is processed in ImgurManagerDelegate methods
-//                    } else {
-//                        self.showAlert(message: "something went wrong for data", completionHandler: nil)
-//                    }
-//                } else {
-//                    self.showAlert(message: "filed to fetch image", completionHandler: nil)
-//                }
-//            })
-            //ex3
-            print("identifiers: \(attachment.registeredTypeIdentifiers)")
-            
-            
-//            attachment.loadItem(forTypeIdentifier: kUTTypeImage as String, options: nil, completionHandler: { (imageURL, error) in
-//
-//            })
-            
-            
-            
-
-//            attachment.loadDataRepresentation(forTypeIdentifier: "public.image", completionHandler: { (imageData, error) in
-//                if let error = error {
-//                    self.showAlert(message: self.makeErrorMessage(message: "Failed to fetch an image. Retry later.", error: error), completionHandler: nil)
-//                    return
-//                }
-//
-//                if let data = imageData {
-//                    ImgurManager.shared.delegate = self
-//                    ImgurManager.shared.clientID = self.imgurAPIClientID! // shouldn't be nil as it validated in presentationAnimationDidFinish.
-//                    ImgurManager.shared.uploadImage(image: data)
-//                    // NOTE: lator task is processed in ImgurManagerDelegate methods
-//                } else {
-//                    self.showAlert(message: "some thing went wrong1", completionHandler: nil)
-//                }
-//            })
+            }
         } else {
-            self.showAlert(message: "some thing went wrong2", completionHandler: nil)
+            self.showAlert(message:"Image item extension not found.", completionHandler: nil)
         }
+        
     }
 
     override func configurationItems() -> [Any]! {
@@ -218,6 +170,7 @@ class ShareViewController: SLComposeServiceViewController,
         
         let task = session.dataTask(with: request)
         task.resume()
+        // MEMO: later task will be executed in URLSessionDelegate
     }
     
     private func getParams(title: String, body: String) -> [String: Any?] {
@@ -248,6 +201,13 @@ class ShareViewController: SLComposeServiceViewController,
         } else {
             return message
         }
+    }
+    
+    private func uploadToImgur(imageData: Data) {
+        ImgurManager.shared.delegate = self
+        ImgurManager.shared.clientID = self.imgurAPIClientID! // shouldn't be nil as it validated in presentationAnimationDidFinish.
+        ImgurManager.shared.uploadImage(image: imageData)
+        // NOTE: lator task is processed in ImgurManagerDelegate methods
     }
     
     // MARK: - ReposSelectionTableViewControllerDelegate
