@@ -36,9 +36,9 @@ class ReposSelectionTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return self.privateReposNames.count
-        case 1:
             return self.publicRepoNames.count
+        case 1:
+            return self.privateReposNames.count
         default:
             return 0
         }
@@ -49,9 +49,9 @@ class ReposSelectionTableViewController: UITableViewController {
         var text: String
         switch indexPath.section {
         case 0:
-            text = self.privateReposNames[indexPath.row]
-        case 1:
             text = self.publicRepoNames[indexPath.row]
+        case 1:
+            text = self.privateReposNames[indexPath.row]
         default:
             text = ""
         }
@@ -63,9 +63,9 @@ class ReposSelectionTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
-            return "Private"
-        case 1:
             return "Public"
+        case 1:
+            return "Private"
         default:
             return ""
         }
