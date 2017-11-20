@@ -37,7 +37,7 @@ extension ReposTableViewDelegate: UITableViewDelegate {
         stateController.selectedRepo = selectedRepo
         let vc = CreateIssuesViewController()
         vc.stateController = stateController
-        stateController.present(destination: vc, inViewController: stateController.viewController)
+        stateController.viewController.performSegue(withIdentifier: "presentEditIssue", sender: nil)
     }
     
     @objc func newIssueButtonTapped() {

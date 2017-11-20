@@ -31,7 +31,6 @@ class ReposTableViewDataSource: NSObject {
         self.stateController = stateController
         super.init()
         tableView.dataSource = self
-        Utils.registerCell(tableView, nibName: String(describing: ReposTableViewCell.self), cellId: reposCellId)
     }
 }
 
@@ -52,7 +51,10 @@ extension ReposTableViewDataSource: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reposCellId) as! ReposTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: reposCellId) as? ReposTableViewCell else {
+            fatalError()
+        }
+        
         var repo: Repo?
         switch indexPath.section {
         case reposSection.privateSection.rawValue:
