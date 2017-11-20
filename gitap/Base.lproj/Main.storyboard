@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -117,10 +118,10 @@
             </objects>
             <point key="canvasLocation" x="2952.8000000000002" y="893.70314842578716"/>
         </scene>
-        <!--View Controller-->
+        <!--New Issue-->
         <scene sceneID="bx2-XE-1JN">
             <objects>
-                <viewController id="vqi-7I-47e" sceneMemberID="viewController">
+                <viewController id="vqi-7I-47e" customClass="CreateIssuesViewController" customModule="gitap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="S2n-pZ-cVi"/>
                         <viewControllerLayoutGuide type="bottom" id="23k-Xu-puK"/>
@@ -128,13 +129,73 @@
                     <view key="view" contentMode="scaleToFill" id="Ti5-Rs-eW5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U0R-EB-ghU">
+                                <rect key="frame" x="16" y="80" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="n0L-TM-0CY"/>
+                                </constraints>
+                                <state key="normal" title="owner/repo"/>
+                                <connections>
+                                    <action selector="repoButtonTapped:" destination="vqi-7I-47e" eventType="touchUpInside" id="XZh-1g-ZHc"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6JI-uE-QNW" customClass="PlaceHolderTextView" customModule="gitap" customModuleProvider="target">
+                                <rect key="frame" x="16" y="172" width="343" height="451"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GnK-VK-Xf5">
+                                <rect key="frame" x="16" y="126" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="8Cv-W0-7lx"/>
+                                    <constraint firstAttribute="height" constant="30" id="q6f-rL-jZC"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="U0R-EB-ghU" firstAttribute="leading" secondItem="Ti5-Rs-eW5" secondAttribute="leadingMargin" id="94Z-EN-heE"/>
+                            <constraint firstItem="6JI-uE-QNW" firstAttribute="trailing" secondItem="Ti5-Rs-eW5" secondAttribute="trailingMargin" id="BlZ-ne-5OG"/>
+                            <constraint firstItem="GnK-VK-Xf5" firstAttribute="trailing" secondItem="Ti5-Rs-eW5" secondAttribute="trailingMargin" id="GZP-6D-Hc6"/>
+                            <constraint firstItem="GnK-VK-Xf5" firstAttribute="leading" secondItem="Ti5-Rs-eW5" secondAttribute="leadingMargin" id="OsO-IT-F1V"/>
+                            <constraint firstItem="U0R-EB-ghU" firstAttribute="top" secondItem="S2n-pZ-cVi" secondAttribute="bottom" constant="16" id="Q1m-Ny-h2R"/>
+                            <constraint firstItem="U0R-EB-ghU" firstAttribute="trailing" secondItem="Ti5-Rs-eW5" secondAttribute="trailingMargin" id="TFV-Jj-zYQ"/>
+                            <constraint firstItem="6JI-uE-QNW" firstAttribute="top" secondItem="GnK-VK-Xf5" secondAttribute="bottom" constant="16" id="Yir-oo-nts"/>
+                            <constraint firstItem="GnK-VK-Xf5" firstAttribute="top" secondItem="U0R-EB-ghU" secondAttribute="bottom" constant="16" id="iZ2-sp-fVM"/>
+                            <constraint firstItem="23k-Xu-puK" firstAttribute="top" secondItem="6JI-uE-QNW" secondAttribute="bottom" id="ooy-LG-Gxf"/>
+                            <constraint firstItem="6JI-uE-QNW" firstAttribute="leading" secondItem="Ti5-Rs-eW5" secondAttribute="leadingMargin" id="osA-3e-Gdf"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="UbS-LN-I0e"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="New Issue" id="UbS-LN-I0e">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="jDL-dc-i5b">
+                            <connections>
+                                <action selector="dismissView:" destination="vqi-7I-47e" id="WeD-vy-n7S"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Publish" style="done" id="ch9-eR-K5h">
+                            <connections>
+                                <action selector="createButtonTapped:" destination="vqi-7I-47e" id="O5L-OD-uLo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="bodyTextView" destination="6JI-uE-QNW" id="TW6-Wu-amX"/>
+                        <outlet property="cancelButton" destination="jDL-dc-i5b" id="rUp-GF-Bnf"/>
+                        <outlet property="doneButton" destination="ch9-eR-K5h" id="9Dh-Tj-x5o"/>
+                        <outlet property="repoButton" destination="U0R-EB-ghU" id="s5q-Pi-94z"/>
+                        <outlet property="titleTextField" destination="GnK-VK-Xf5" id="Hll-Uk-jsh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="479-fe-Mmc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4612" y="894"/>
+            <point key="canvasLocation" x="4612" y="893.70314842578716"/>
         </scene>
         <!--Settings-->
         <scene sceneID="VRQ-zk-5Mh">
