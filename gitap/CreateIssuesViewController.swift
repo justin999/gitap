@@ -18,7 +18,7 @@ class CreateIssuesViewController: MasterViewController, PhotoGridViewControllerD
     // 参考: http://dev.classmethod.jp/smartphone/ios-10-avfoundation-takephoto/
     @IBOutlet weak var doneButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
-    @IBOutlet weak var repoButton: UIButton!
+    @IBOutlet weak var repoLabel: UILabel!
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var bodyTextView: PlaceHolderTextView!
@@ -45,7 +45,7 @@ class CreateIssuesViewController: MasterViewController, PhotoGridViewControllerD
         configureAccessoryView()
         
         if let repo = stateController?.selectedRepo {
-            repoButton.setTitle(repo.full_name, for: .normal)
+            repoLabel.text = repo.full_name
         }
     }
     
@@ -208,6 +208,8 @@ class CreateIssuesViewController: MasterViewController, PhotoGridViewControllerD
     }
     
     // MARK: - IBActions
+    // Maybe used in the future
+    // like creating button that is not related to repository
     @IBAction func repoButtonTapped(_ sender: Any) {
         print("repoButtonTapped")
         if let stateController = stateController {

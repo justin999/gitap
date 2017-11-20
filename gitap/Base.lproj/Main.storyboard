@@ -130,20 +130,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U0R-EB-ghU">
-                                <rect key="frame" x="16" y="80" width="343" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="n0L-TM-0CY"/>
-                                </constraints>
-                                <state key="normal" title="owner/repo"/>
-                                <connections>
-                                    <action selector="repoButtonTapped:" destination="vqi-7I-47e" eventType="touchUpInside" id="XZh-1g-ZHc"/>
-                                </connections>
-                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6JI-uE-QNW" customClass="PlaceHolderTextView" customModule="gitap" customModuleProvider="target">
                                 <rect key="frame" x="16" y="172" width="343" height="451"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GnK-VK-Xf5">
@@ -153,20 +143,30 @@
                                     <constraint firstAttribute="height" constant="30" id="q6f-rL-jZC"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="repo name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMP-Od-SNp">
+                                <rect key="frame" x="16" y="80" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="EzB-cC-cc6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="U0R-EB-ghU" firstAttribute="leading" secondItem="Ti5-Rs-eW5" secondAttribute="leadingMargin" id="94Z-EN-heE"/>
+                            <constraint firstItem="PMP-Od-SNp" firstAttribute="trailing" secondItem="Ti5-Rs-eW5" secondAttribute="trailingMargin" id="AG2-My-uns"/>
+                            <constraint firstItem="PMP-Od-SNp" firstAttribute="leading" secondItem="Ti5-Rs-eW5" secondAttribute="leadingMargin" id="AyC-LT-Icf"/>
                             <constraint firstItem="6JI-uE-QNW" firstAttribute="trailing" secondItem="Ti5-Rs-eW5" secondAttribute="trailingMargin" id="BlZ-ne-5OG"/>
+                            <constraint firstItem="PMP-Od-SNp" firstAttribute="top" secondItem="S2n-pZ-cVi" secondAttribute="bottom" constant="16" id="DRn-Fi-gYU"/>
                             <constraint firstItem="GnK-VK-Xf5" firstAttribute="trailing" secondItem="Ti5-Rs-eW5" secondAttribute="trailingMargin" id="GZP-6D-Hc6"/>
                             <constraint firstItem="GnK-VK-Xf5" firstAttribute="leading" secondItem="Ti5-Rs-eW5" secondAttribute="leadingMargin" id="OsO-IT-F1V"/>
-                            <constraint firstItem="U0R-EB-ghU" firstAttribute="top" secondItem="S2n-pZ-cVi" secondAttribute="bottom" constant="16" id="Q1m-Ny-h2R"/>
-                            <constraint firstItem="U0R-EB-ghU" firstAttribute="trailing" secondItem="Ti5-Rs-eW5" secondAttribute="trailingMargin" id="TFV-Jj-zYQ"/>
+                            <constraint firstItem="PMP-Od-SNp" firstAttribute="top" secondItem="S2n-pZ-cVi" secondAttribute="bottom" constant="16" id="PYU-9T-6uX"/>
                             <constraint firstItem="6JI-uE-QNW" firstAttribute="top" secondItem="GnK-VK-Xf5" secondAttribute="bottom" constant="16" id="Yir-oo-nts"/>
-                            <constraint firstItem="GnK-VK-Xf5" firstAttribute="top" secondItem="U0R-EB-ghU" secondAttribute="bottom" constant="16" id="iZ2-sp-fVM"/>
+                            <constraint firstItem="GnK-VK-Xf5" firstAttribute="top" secondItem="PMP-Od-SNp" secondAttribute="bottom" constant="16" id="hWh-b0-vFC"/>
                             <constraint firstItem="23k-Xu-puK" firstAttribute="top" secondItem="6JI-uE-QNW" secondAttribute="bottom" id="ooy-LG-Gxf"/>
                             <constraint firstItem="6JI-uE-QNW" firstAttribute="leading" secondItem="Ti5-Rs-eW5" secondAttribute="leadingMargin" id="osA-3e-Gdf"/>
                         </constraints>
@@ -189,7 +189,7 @@
                         <outlet property="bodyTextView" destination="6JI-uE-QNW" id="TW6-Wu-amX"/>
                         <outlet property="cancelButton" destination="jDL-dc-i5b" id="rUp-GF-Bnf"/>
                         <outlet property="doneButton" destination="ch9-eR-K5h" id="9Dh-Tj-x5o"/>
-                        <outlet property="repoButton" destination="U0R-EB-ghU" id="s5q-Pi-94z"/>
+                        <outlet property="repoLabel" destination="PMP-Od-SNp" id="x4L-Cl-atX"/>
                         <outlet property="titleTextField" destination="GnK-VK-Xf5" id="Hll-Uk-jsh"/>
                     </connections>
                 </viewController>
