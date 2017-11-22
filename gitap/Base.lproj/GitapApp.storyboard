@@ -225,7 +225,7 @@
                     <navigationItem key="navigationItem" title="Settings" id="lnY-fV-MUQ"/>
                     <connections>
                         <outlet property="tableView" destination="xjD-e4-tJF" id="V9m-xO-RmU"/>
-                        <segue destination="f3N-0G-ndD" kind="presentation" identifier="backToLoginSegue" id="7nj-k1-Bht"/>
+                        <segue destination="Ubm-Ye-aeW" kind="presentation" identifier="backToSetupSegue" id="f31-7D-1nZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1De-HZ-txb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -417,7 +417,4 @@ TWFrZSBJc3N1ZSAREQ13aXRoIFNjcmVlbnNob3QgERER4oCodmlhIHNoYXJlIGJ1dHRvbiE
         <image name="repos" width="25" height="25"/>
         <image name="screen_shot" width="366" height="647"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="7nj-k1-Bht"/>
-    </inferredMetricsTieBreakers>
 </document>

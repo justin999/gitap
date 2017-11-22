@@ -109,6 +109,7 @@
 		DCC817391E15ED2700E7056C /* IssuesTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC817381E15ED2700E7056C /* IssuesTableViewDataSource.swift */; };
 		DCC8173C1E15EE5500E7056C /* IssueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC8173A1E15EE5500E7056C /* IssueDetailViewController.swift */; };
 		DCC8173D1E15EE5500E7056C /* IssueDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCC8173B1E15EE5500E7056C /* IssueDetailViewController.xib */; };
+		DCE315F21FC58C7E00F421A1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE315F11FC58C7E00F421A1 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -290,6 +291,7 @@
 		DCC817381E15ED2700E7056C /* IssuesTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssuesTableViewDataSource.swift; sourceTree = "<group>"; };
 		DCC8173A1E15EE5500E7056C /* IssueDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailViewController.swift; sourceTree = "<group>"; };
 		DCC8173B1E15EE5500E7056C /* IssueDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IssueDetailViewController.xib; sourceTree = "<group>"; };
+		DCE315F11FC58C7E00F421A1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -649,6 +651,7 @@
 				DCC817301E14E9C600E7056C /* UIView-positioning.swift */,
 				DC61BCC51E3F79E300BDF1CD /* UIAlertAction_extension.swift */,
 				DC61BCC31E3F77AE00BDF1CD /* UIColor-extension.swift */,
+				DCE315F11FC58C7E00F421A1 /* Extensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -989,6 +992,7 @@
 				DC709C341E46CD5200169C05 /* PhotoGridViewCell.swift in Sources */,
 				DC6877EE1EAC5C2D006BBABC /* JSONDecodable.swift in Sources */,
 				DC6877E91EAC5C15006BBABC /* HTTPMethod.swift in Sources */,
+				DCE315F21FC58C7E00F421A1 /* Extensions.swift in Sources */,
 				DC7281AB1E0F665000EEFC57 /* ReposTableViewDataSource.swift in Sources */,
 				DC24340D1E20E748002FBDE7 /* UserRouter.swift in Sources */,
 				DC3D8FC31E34549000D349B6 /* Constants.swift in Sources */,

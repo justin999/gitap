@@ -39,8 +39,13 @@ class SettingsViewController: UIViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "backToLoginSegue", let loginVC = segue.destination as? LoginViewController {
+        if segue.identifier == String.segue.backToSetupSegue, let setupVC = segue.destination as? SetupAccountViewController {
             // TODO: LoginViewControllerのボタンの処理がSetupAccountVCで実装されているのが厄介。
+            DispatchQueue.main.async {
+                setupVC.performSegue(withIdentifier: String.segue.presentLoginSegue, sender: nil)
+                setupVC.stateController = self.stateController
+            }
+            
         }
     }
 

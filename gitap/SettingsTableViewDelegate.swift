@@ -27,7 +27,7 @@ extension SettingsTableViewDelegate: UITableViewDelegate {
             GitHubAPIManager.shared.clearOAuthToken()
             let okAlert = UIAlertAction(title: "OK", style: .cancel) { okAlert in
                 DispatchQueue.main.async {
-                    self.stateController.viewController.performSegue(withIdentifier: "backToLoginSegue", sender: nil)
+                    self.stateController.viewController.performSegue(withIdentifier: String.segue.backToSetupSegue, sender: nil)
                 }
             }
             DispatchQueue.main.async {
