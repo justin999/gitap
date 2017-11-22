@@ -32,29 +32,19 @@ class SetupAccountViewController: MasterViewController, LoginViewDelegate, SFSaf
                 let loginName = self.user?.loginName
                 UserDefaults.standard.set(loginName, forKey: Constant.userDefaults.githubLoginName)
                 
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                if let tabBarController = storyboard.instantiateInitialViewController() as? UITabBarController {
-                    if let navigationController = tabBarController.viewControllers?[0] as? UINavigationController,
-                        let reposViewController = navigationController.viewControllers.first as? ReposViewController {
-                        reposViewController.stateController = self.stateController
-                        reposViewController.navigationItem.title = "Tap to Create an Issue"
-                    }
-                    
-                    if let navigationController = tabBarController.viewControllers?[1] as? UINavigationController,
-                        let settingsViewController = navigationController.viewControllers.first as? SettingsViewController {
-                        settingsViewController.stateController = self.stateController
-                        settingsViewController.navigationItem.title = "Settings"
-                    }
-                    
-                    self.present(tabBarController, animated: true, completion: nil)
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "showMainTabBarConrollerSegue", sender: nil)
                 }
             case let .failure(error):
                 print("error: \(error)")
-                // loginviewへ
-                let okAlert = UIAlertAction(title: "OK", style: .default) { okAlert in
-                    Utils.showOAuthLoginView(inViewcontroller: self, delegate: self)
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "presentLoginViewSegue", sender: nil)
                 }
-                Utils.presentAlert(inViewController: self, title: "Please Login to Github", message: "Please login to github account to use this application", style: .alert, actions: [okAlert], completion: nil)
+//                // loginviewへ
+//                let okAlert = UIAlertAction(title: "OK", style: .default) { okAlert in
+//                    Utils.showOAuthLoginView(inViewcontroller: self, delegate: self)
+//                }
+//                Utils.presentAlert(inViewController: self, title: "Please Login to Github", message: "Please login to github account to use this application", style: .alert, actions: [okAlert], completion: nil)
 
             }
         }
@@ -90,6 +80,25 @@ class SetupAccountViewController: MasterViewController, LoginViewDelegate, SFSaf
             }
         }
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "presentLoginViewSegue", let destination = segue.destination as? LoginViewController {
+            destination.delegate = self
+        }
+        
+        if segue.identifier == "showMainTabBarConrollerSegue", let tabBarController = segue.destination as? UITabBarController {
+            
+            if let navigationController = tabBarController.viewControllers?[0] as? UINavigationController,
+                let reposViewController = navigationController.viewControllers.first as? ReposViewController {
+                reposViewController.stateController = self.stateController
+            }
+            
+            if let navigationController = tabBarController.viewControllers?[1] as? UINavigationController,
+                let settingsViewController = navigationController.viewControllers.first as? SettingsViewController {
+                settingsViewController.stateController = self.stateController
+            }
+        }
     }
     
     // MARK: - SFSafariViewControllerDelegate

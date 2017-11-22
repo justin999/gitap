@@ -33,7 +33,6 @@
 		DC3D8FBE1E33B71700D349B6 /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D8FBD1E33B71700D349B6 /* Payload.swift */; };
 		DC3D8FC11E33B97400D349B6 /* PayloadIssuesEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D8FC01E33B97400D349B6 /* PayloadIssuesEvent.swift */; };
 		DC3D8FC31E34549000D349B6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D8FC21E34549000D349B6 /* Constants.swift */; };
-		DC3D8FC51E35769300D349B6 /* SetupAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC3D8FC41E35769300D349B6 /* SetupAccount.storyboard */; };
 		DC3D8FC71E3576D300D349B6 /* SetupAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D8FC61E3576D300D349B6 /* SetupAccountViewController.swift */; };
 		DC5D649A1E0F9F4B00E92DDD /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5D64991E0F9F4B00E92DDD /* Utils.swift */; };
 		DC5D649C1E10005000E92DDD /* SettingsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5D649B1E10005000E92DDD /* SettingsTableViewDelegate.swift */; };
@@ -64,7 +63,6 @@
 		DC6C37841E1C9EC2003D28C4 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6C37811E1C9EC2003D28C4 /* Alamofire.framework */; };
 		DC6C37861E1C9EC2003D28C4 /* Locksmith.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6C37831E1C9EC2003D28C4 /* Locksmith.framework */; };
 		DC6C378A1E1CBA11003D28C4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C37881E1CBA11003D28C4 /* LoginViewController.swift */; };
-		DC6C378B1E1CBA12003D28C4 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC6C37891E1CBA11003D28C4 /* LoginViewController.xib */; };
 		DC6C378D1E1CD312003D28C4 /* RepoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C378C1E1CD312003D28C4 /* RepoRouter.swift */; };
 		DC6C378F1E1CD46C003D28C4 /* IssueRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C378E1E1CD46C003D28C4 /* IssueRouter.swift */; };
 		DC6C37911E1D081C003D28C4 /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C37901E1D081C003D28C4 /* Issue.swift */; };
@@ -85,7 +83,7 @@
 		DC709C441E48C7F500169C05 /* ImgurRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC709C431E48C7F500169C05 /* ImgurRouter.swift */; };
 		DC7281651E0E178E00EEFC57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281641E0E178E00EEFC57 /* AppDelegate.swift */; };
 		DC7281671E0E178E00EEFC57 /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281661E0E178E00EEFC57 /* FeedsViewController.swift */; };
-		DC72816A1E0E178E00EEFC57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC7281681E0E178E00EEFC57 /* Main.storyboard */; };
+		DC72816A1E0E178E00EEFC57 /* GitapApp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC7281681E0E178E00EEFC57 /* GitapApp.storyboard */; };
 		DC72816C1E0E178E00EEFC57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC72816B1E0E178E00EEFC57 /* Assets.xcassets */; };
 		DC72816F1E0E178E00EEFC57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC72816D1E0E178E00EEFC57 /* LaunchScreen.storyboard */; };
 		DC72817A1E0E178E00EEFC57 /* gitapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7281791E0E178E00EEFC57 /* gitapTests.swift */; };
@@ -207,7 +205,6 @@
 		DC3D8FBD1E33B71700D349B6 /* Payload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Payload.swift; sourceTree = "<group>"; };
 		DC3D8FC01E33B97400D349B6 /* PayloadIssuesEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayloadIssuesEvent.swift; sourceTree = "<group>"; };
 		DC3D8FC21E34549000D349B6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		DC3D8FC41E35769300D349B6 /* SetupAccount.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SetupAccount.storyboard; sourceTree = "<group>"; };
 		DC3D8FC61E3576D300D349B6 /* SetupAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupAccountViewController.swift; sourceTree = "<group>"; };
 		DC5D64991E0F9F4B00E92DDD /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		DC5D649B1E10005000E92DDD /* SettingsTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDelegate.swift; sourceTree = "<group>"; };
@@ -239,7 +236,6 @@
 		DC6C37821E1C9EC2003D28C4 /* F3D10C2C-3852-303A-9EB0-FCBBD84C17CF.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; name = "F3D10C2C-3852-303A-9EB0-FCBBD84C17CF.bcsymbolmap"; path = "Carthage/Build/iOS/F3D10C2C-3852-303A-9EB0-FCBBD84C17CF.bcsymbolmap"; sourceTree = "<group>"; };
 		DC6C37831E1C9EC2003D28C4 /* Locksmith.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Locksmith.framework; path = Carthage/Build/iOS/Locksmith.framework; sourceTree = "<group>"; };
 		DC6C37881E1CBA11003D28C4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		DC6C37891E1CBA11003D28C4 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		DC6C378C1E1CD312003D28C4 /* RepoRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoRouter.swift; sourceTree = "<group>"; };
 		DC6C378E1E1CD46C003D28C4 /* IssueRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueRouter.swift; sourceTree = "<group>"; };
 		DC6C37901E1D081C003D28C4 /* Issue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
@@ -261,7 +257,7 @@
 		DC7281611E0E178E00EEFC57 /* gitap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gitap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC7281641E0E178E00EEFC57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC7281661E0E178E00EEFC57 /* FeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewController.swift; sourceTree = "<group>"; };
-		DC7281691E0E178E00EEFC57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DC7281691E0E178E00EEFC57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/GitapApp.storyboard; sourceTree = "<group>"; };
 		DC72816B1E0E178E00EEFC57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC72816E1E0E178E00EEFC57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC7281701E0E178E00EEFC57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -565,7 +561,7 @@
 		DC7281971E0E1AA200EEFC57 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DC7281681E0E178E00EEFC57 /* Main.storyboard */,
+				DC7281681E0E178E00EEFC57 /* GitapApp.storyboard */,
 				DC72816D1E0E178E00EEFC57 /* LaunchScreen.storyboard */,
 				DC7281A41E0E338D00EEFC57 /* FeedsTableViewCell.swift */,
 				DC7281A51E0E338D00EEFC57 /* FeedsTableViewCell.xib */,
@@ -591,7 +587,6 @@
 			children = (
 				DC709C2A1E46B93500169C05 /* Photos */,
 				DC3D8FC61E3576D300D349B6 /* SetupAccountViewController.swift */,
-				DC3D8FC41E35769300D349B6 /* SetupAccount.storyboard */,
 				DC7281661E0E178E00EEFC57 /* FeedsViewController.swift */,
 				DC7281941E0E1A8C00EEFC57 /* SettingsViewController.swift */,
 				DC7281921E0E1A7500EEFC57 /* ReposViewController.swift */,
@@ -601,7 +596,6 @@
 				DCC8173A1E15EE5500E7056C /* IssueDetailViewController.swift */,
 				DCC8173B1E15EE5500E7056C /* IssueDetailViewController.xib */,
 				DC6C37881E1CBA11003D28C4 /* LoginViewController.swift */,
-				DC6C37891E1CBA11003D28C4 /* LoginViewController.xib */,
 				DC867AFA1E3ABD1700DD0553 /* ReposSelectionViewController.swift */,
 				DC61BCBD1E3C43E300BDF1CD /* ReposSelectionViewController.xib */,
 				DC867AFC1E3AD36600DD0553 /* MasterViewController.swift */,
@@ -895,14 +889,12 @@
 				DC709C1D1E4583AE00169C05 /* PhotoSectionsViewController.xib in Resources */,
 				DC709C251E46B04100169C05 /* PhotoGridViewController.xib in Resources */,
 				DCC8173D1E15EE5500E7056C /* IssueDetailViewController.xib in Resources */,
-				DC3D8FC51E35769300D349B6 /* SetupAccount.storyboard in Resources */,
 				DC61BCBE1E3C43E300BDF1CD /* ReposSelectionViewController.xib in Resources */,
 				DC7281A71E0E338D00EEFC57 /* FeedsTableViewCell.xib in Resources */,
 				DC72816C1E0E178E00EEFC57 /* Assets.xcassets in Resources */,
-				DC72816A1E0E178E00EEFC57 /* Main.storyboard in Resources */,
+				DC72816A1E0E178E00EEFC57 /* GitapApp.storyboard in Resources */,
 				DC709C351E46CD5200169C05 /* PhotoGridViewCell.xib in Resources */,
 				DC5D64A21E108E9100E92DDD /* ReposDetailViewController.xib in Resources */,
-				DC6C378B1E1CBA12003D28C4 /* LoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1121,12 +1113,12 @@
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
-		DC7281681E0E178E00EEFC57 /* Main.storyboard */ = {
+		DC7281681E0E178E00EEFC57 /* GitapApp.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				DC7281691E0E178E00EEFC57 /* Base */,
 			);
-			name = Main.storyboard;
+			name = GitapApp.storyboard;
 			sourceTree = "<group>";
 		};
 		DC72816D1E0E178E00EEFC57 /* LaunchScreen.storyboard */ = {
@@ -1414,6 +1406,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = gitap/gitap.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B863JFBR8K;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1424,6 +1418,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.justin999.gitap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -1436,6 +1431,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = gitap/gitap.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B863JFBR8K;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1445,6 +1442,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.justin999.gitap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
