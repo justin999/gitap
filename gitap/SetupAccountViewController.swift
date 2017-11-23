@@ -40,12 +40,6 @@ class SetupAccountViewController: MasterViewController, LoginViewDelegate, SFSaf
                 DispatchQueue.main.async {
                     self.performSegue(withIdentifier: "presentLoginViewSegue", sender: nil)
                 }
-//                // loginviewへ
-//                let okAlert = UIAlertAction(title: "OK", style: .default) { okAlert in
-//                    Utils.showOAuthLoginView(inViewcontroller: self, delegate: self)
-//                }
-//                Utils.presentAlert(inViewController: self, title: "Please Login to Github", message: "Please login to github account to use this application", style: .alert, actions: [okAlert], completion: nil)
-
             }
         }
     }
@@ -60,24 +54,22 @@ class SetupAccountViewController: MasterViewController, LoginViewDelegate, SFSaf
             }
             self.safariViewController = SFSafariViewController(url: authURL)
             self.safariViewController?.delegate = self
-            if let sfViewController = self.safariViewController {
-                GitHubAPIManager.shared.OAuthTokenCompletionHandler = { error in
-                    // ログイン成功したら自動的にfeedviewcontrollerへ
-                    // 失敗したらもう一度oauth出す
-                    guard error == nil else {
-                        print(error!)
-                        return
-                    }
-                    
-                    if let _ = self.safariViewController {
+            
+            guard let sfViewController = self.safariViewController else { return }
+            GitHubAPIManager.shared.OAuthTokenCompletionHandler = { error in
+                guard error == nil else {
+                    print(error!)
+                    return
+                }
+                
+                if let _ = self.safariViewController {
+                    DispatchQueue.main.async {
                         self.dismiss(animated: false, completion: nil)
                         self.configureViews()
                     }
                 }
-                self.present(sfViewController, animated: true, completion: nil)
-            } else {
-                print("there's no safariViewController: this shouldn't be done")
             }
+            self.present(sfViewController, animated: true, completion: nil)
         }
         
     }
