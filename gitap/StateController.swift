@@ -102,7 +102,7 @@ class StateController: NSObject {
         }
     }
     
-    func deleteGitHubAuthorization(completionHandler: @escaping ((Results<User, GitHubClientError>) -> Void)) {
+    func deleteGitHubAuthorization(completionHandler: @escaping ((Results<ApiResponseData, GitHubClientError>) -> Void)) {
         let request = GitHubAPI.DeleteAuthorization()
         gitHubClient.send(request: request) { (result) in
             completionHandler(result)

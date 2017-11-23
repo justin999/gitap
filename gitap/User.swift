@@ -46,3 +46,14 @@ struct User: JSONDecodable {
         }
     }
 }
+
+struct ApiResponseData: JSONDecodable {
+    let responseString: String
+    init(json: Any) throws {
+        guard let dataString = json as? String else {
+            throw JSONDecodeError.invalidFormat(json: json)
+        }
+        
+        self.responseString = dataString
+    }
+}

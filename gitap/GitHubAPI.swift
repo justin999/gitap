@@ -68,7 +68,7 @@ final class GitHubAPI {
     
     // https://developer.github.com/v3/oauth_authorizations/#revoke-a-grant-for-an-application
     struct DeleteAuthorization: GitHubRequest {
-        typealias Response = User
+        typealias Response = ApiResponseData
         var method: HTTPMethod {
             return .delete
         }

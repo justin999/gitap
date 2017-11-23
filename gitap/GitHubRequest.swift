@@ -64,6 +64,11 @@ extension GitHubRequest {
     }
 
     func response(from data: Data, urlResponse: URLResponse) throws -> Response {
+        
+        if method == .delete {
+            let dataString = String(data: data, encoding: .utf8)
+            return try Response(json: dataString)
+        }
         // 取得したデータをJSONに変換
         let json = try JSONSerialization.jsonObject(with: data, options: [])
         

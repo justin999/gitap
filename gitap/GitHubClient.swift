@@ -12,8 +12,10 @@ class GitHubClient {
         completion: @escaping (Results<Request.Response, GitHubClientError>) -> Void)
     {
         let urlRequest = request.buildURLRequest()
+        
         let task = session.dataTask(with: urlRequest) {
             data, response, error in
+            
             switch (data, response, error) {
             case (_, _, let error?):
                 completion(Results(error: .connectionError(error)))
@@ -26,7 +28,6 @@ class GitHubClient {
                 } catch {
                     completion(Results(error: .responseParseError(error)))
                 }
-
             default:
                 fatalError("invalid response combination \(data), \(response), \(error).")
             }

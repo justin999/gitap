@@ -25,35 +25,22 @@ extension SettingsTableViewDelegate: UITableViewDelegate {
         if indexPath.section == 0 && indexPath.row == 2 {
             print("clearing oauth token")
             self.stateController.deleteGitHubAuthorization(completionHandler: { (result) in
-                
-                GitHubAPIManager.shared.clearOAuthToken()
-                let okAlert = UIAlertAction(title: "OK", style: .cancel) { okAlert in
+                switch result {
+                case .failure(_):
                     DispatchQueue.main.async {
-                        self.stateController.viewController.performSegue(withIdentifier: String.segue.backToSetupSegue, sender: nil)
+                        self.stateController.presentAlert(title: "", message: "Failed to Logout from Gitap", style: .alert, actions: [UIAlertAction.okAlert()], completion: nil)
+                    }
+                case .success(_):
+                    GitHubAPIManager.shared.clearOAuthToken()
+                    let okAlert = UIAlertAction(title: "OK", style: .cancel) { okAlert in
+                        DispatchQueue.main.async {
+                            self.stateController.viewController.performSegue(withIdentifier: String.segue.backToSetupSegue, sender: nil)
+                        }
+                    }
+                    DispatchQueue.main.async {
+                        self.stateController.presentAlert(title: "", message: "Successfully Logout from Gitap", style: .alert, actions: [okAlert], completion: nil)
                     }
                 }
-                DispatchQueue.main.async {
-                    self.stateController.presentAlert(title: "user info", message: "oauth token deleted", style: .alert, actions: [okAlert], completion: nil)
-                }
-                
-                
-                
-//                print("result: ", result)
-//                switch result {
-//                case let .failure(error):
-//                    print("error: ", error)
-//                case let .success(user):
-//                    print("success: ", user)
-//                    GitHubAPIManager.shared.clearOAuthToken()
-//                    let okAlert = UIAlertAction(title: "OK", style: .cancel) { okAlert in
-//                        DispatchQueue.main.async {
-//                            self.stateController.viewController.performSegue(withIdentifier: String.segue.backToSetupSegue, sender: nil)
-//                        }
-//                    }
-//                    DispatchQueue.main.async {
-//                        self.stateController.presentAlert(title: "user info", message: "oauth token deleted", style: .alert, actions: [okAlert], completion: nil)
-//                    }
-//                }
             })
             
         }
