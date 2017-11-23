@@ -71,6 +71,7 @@ class GitHubAPIManager {
     func clearOAuthToken() {
         if let _ = self.OAuthToken {
             self.OAuthToken = nil
+            self.clearCache()
         }
     }
     

@@ -32,6 +32,9 @@ extension GitHubRequest {
             if let dictionary = parameters as? [String: Any] {
                 jsonData = try? JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted)
             }
+        case .delete:
+            print("url: \(url)")
+            print("do nothing")
         default:
             fatalError("Unsupported method \(method)")
         }
@@ -41,9 +44,21 @@ extension GitHubRequest {
         urlRequest.httpMethod = method.rawValue
         urlRequest.httpBody = jsonData
         
-        if let token = GitHubAPIManager.shared.OAuthToken {
-            urlRequest.setValue("token \(token)", forHTTPHeaderField: "Authorization")
+        if method == .delete {
+            let username = Configs.github.clientId
+            let password = Configs.github.clientSecret
+            let loginString = String(format: "%@:%@", username, password)
+            print("loginString: ", loginString)
+            let loginData = loginString.data(using: String.Encoding.utf8)!
+            let base64LoginString = loginData.base64EncodedString()
+            print("base64: ", base64LoginString)
+            urlRequest.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
+        } else {
+            if let token = GitHubAPIManager.shared.OAuthToken {
+                urlRequest.setValue("token \(token)", forHTTPHeaderField: "Authorization")
+            }
         }
+        urlRequest.setValue("Gitap", forHTTPHeaderField: "User-Agent")
 
         return urlRequest
     }

@@ -102,6 +102,13 @@ class StateController: NSObject {
         }
     }
     
+    func deleteGitHubAuthorization(userId: Int, completionHandler: @escaping ((Results<User, GitHubClientError>) -> Void)) {
+        let request = GitHubAPI.DeleteAuthorization()
+        gitHubClient.send(request: request) { (result) in
+            completionHandler(result)
+        }
+    }
+    
     // MARK: - Events
     func getIssueEvents(userName: String, completionHandler: @escaping ((Bool) -> Void)) {
         GitHubAPIManager.shared.fetch(ActivityRouter.listEventsUserReceived(userName)) { (result: Result<[Event]>, nextPage) in

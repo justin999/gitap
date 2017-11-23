@@ -64,6 +64,21 @@ final class GitHubAPI {
         var parameters: Any? {
             return nil
         }
-        
+    }
+    
+    // https://developer.github.com/v3/oauth_authorizations/#revoke-a-grant-for-an-application
+    struct DeleteAuthorization: GitHubRequest {
+        typealias Response = User
+        var method: HTTPMethod {
+            return .delete
+        }
+        var path: String {
+            let clientId    = Configs.github.clientId
+            let accessToken = GitHubAPIManager.shared.OAuthToken!
+            return "/applications/\(clientId)/grants/\(accessToken)"
+        }
+        var parameters: Any? {
+            return nil
+        }
     }
 }
