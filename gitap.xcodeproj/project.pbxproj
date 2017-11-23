@@ -110,6 +110,7 @@
 		DCC8173C1E15EE5500E7056C /* IssueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC8173A1E15EE5500E7056C /* IssueDetailViewController.swift */; };
 		DCC8173D1E15EE5500E7056C /* IssueDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCC8173B1E15EE5500E7056C /* IssueDetailViewController.xib */; };
 		DCE315F21FC58C7E00F421A1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE315F11FC58C7E00F421A1 /* Extensions.swift */; };
+		DCE315F51FC6B40E00F421A1 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE315F41FC6B40E00F421A1 /* LoginButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -292,6 +293,7 @@
 		DCC8173A1E15EE5500E7056C /* IssueDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailViewController.swift; sourceTree = "<group>"; };
 		DCC8173B1E15EE5500E7056C /* IssueDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IssueDetailViewController.xib; sourceTree = "<group>"; };
 		DCE315F11FC58C7E00F421A1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		DCE315F41FC6B40E00F421A1 /* LoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -571,6 +573,7 @@
 				DC61BCC71E40063C00BDF1CD /* PlaceHolderTextView.swift */,
 				DC709C321E46CD5200169C05 /* PhotoGridViewCell.swift */,
 				DC709C331E46CD5200169C05 /* PhotoGridViewCell.xib */,
+				DCE315F41FC6B40E00F421A1 /* LoginButton.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1054,6 +1057,7 @@
 				DC5D649C1E10005000E92DDD /* SettingsTableViewDelegate.swift in Sources */,
 				DC709C2E1E46C0E500169C05 /* PhotosCollectionViewDataSource.swift in Sources */,
 				DC867AFB1E3ABD1700DD0553 /* ReposSelectionViewController.swift in Sources */,
+				DCE315F51FC6B40E00F421A1 /* LoginButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

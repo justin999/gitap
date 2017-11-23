@@ -275,7 +275,7 @@ TWFrZSBJc3N1ZSAREQ13aXRoIFNjcmVlbnNob3QgERER4oCodmlhIHNoYXJlIGJ1dHRvbiE
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHN-Zl-lci">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHN-Zl-lci" customClass="LoginButton" customModule="gitap" customModuleProvider="target">
                                 <rect key="frame" x="85.5" y="587" width="204" height="70"/>
                                 <color key="backgroundColor" red="0.070310980080000002" green="0.016634436320000001" blue="0.1136001348" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
